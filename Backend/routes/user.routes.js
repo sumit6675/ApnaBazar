@@ -8,12 +8,12 @@ const bcrypt = require("bcrypt");
 
 //registered data using signup page
 //if email already registered then redirected to login page
-const isValidPassword=(password)=> {
+const isValidPassword = (password) => {
   var lowerCaseRegex = /[a-z]/;
   var specialCharRegex = /[!@#$%^&*(),.?":{}|<>]/;
 
   return lowerCaseRegex.test(password) && specialCharRegex.test(password);
-}
+};
 usersRoute.post("/register", async (req, res) => {
   const { name, email, password, phone } = req.body;
   try {
@@ -23,7 +23,7 @@ usersRoute.post("/register", async (req, res) => {
       password &&
       phone &&
       email.includes("@") &&
-      email.includes(".com")&&
+      email.includes(".com") &&
       isValidPassword(password)
     ) {
       const cheak = await RegisterModule.find({ email: email });
@@ -42,13 +42,14 @@ usersRoute.post("/register", async (req, res) => {
           res.status(201).json({ message: "Registered", user });
         });
       }
-    }else{
+    } else {
       res.status(401).json({
-        message: "Please chacke the email and password. password should be at least 8 characters and having small character and special character",
+        message:
+          "Please chacke the email and password. password should be at least 8 characters and having small character and special character",
       });
     }
   } catch (err) {
-    console.log(err)
+    console.log(err);
     res.status(401).json({
       message: "Something went wrong",
     });
@@ -104,7 +105,9 @@ usersRoute.post("/login", async (req, res) => {
     if (user.length > 0) {
       bcrypt.compare(password, user[0].password, function (err, result) {
         if (result) {
-          const token = jwt.sign({ userID: user[0]._id }, `process.env.key`);
+          const token = jwt.sign({ userID: user[0]._id }, "masai", {
+            expiresIn: "10h",
+          });
 
           res.status(201).json({
             msg: "Login Successfull",

@@ -5,17 +5,18 @@ const app = express();
 const cors = require("cors");
 const { connection } = require("./config/db");
 const { usersRoute } = require("./routes/user.routes");
+const { authenticate } = require("./middlewere/Authentication.middlewere");
 
 app.use(
   cors({
     origin: "*",
   })
 );
-
 app.use(express.json());
 
-app.use("/users",usersRoute)
+app.use("/users", usersRoute);
 
+app.use(authenticate);
 
 app.get("/", (req, res) => {
   res.send("Welcome to the Apna Bazar");
