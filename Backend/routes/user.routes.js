@@ -106,18 +106,22 @@ usersRoute.post("/login", async (req, res) => {
         if (result) {
           const token = jwt.sign({ userID: user[0]._id }, `process.env.key`);
 
-          res.send({
+          res.status(201).json({
             msg: "Login Successfull",
             token: token,
             name: user[0].name,
             email: user[0].email,
           });
         } else {
-          res.send("Wrong Credntials");
+          res.status(401).json({
+            message: "Wrong password",
+          });
         }
       });
     } else {
-      res.send("Wrong Credntials");
+      res.status(401).json({
+        message: "Wrong email",
+      });
     }
   } catch (err) {
     res.status(401).json({
