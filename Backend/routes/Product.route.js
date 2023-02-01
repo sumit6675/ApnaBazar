@@ -3,2570 +3,1425 @@ const ProductRoute=express.Router()
 const {ProductModule}=require("../models/Product.model")
 
 ProductRoute.get("/",async(req,res)=>{
-    let data=await ProductModule.find()
+    const {q}=req.query
+    let data=await ProductModule.find({category:q})
     res.send(data)
 })
 
 ProductRoute.post("/add",async(req,res)=>{
     let selection1= [
         {
-          image: "https://m.media-amazon.com/images/I/71AvQd3VzqL._AC_UL320_.jpg",
-          Name: "OnePlus Nord CE 2 Lite 5G (Blue Tide, 6GB RAM, 128GB Storage)",
-          reviewNumber: "109,042",
-          mrp: "₹19,999",
-          price: "18,999",
-          discount: "(5% off)",
+          image: "https://m.media-amazon.com/images/I/91YBoLo16ZL._AC_UL320_.jpg",
+          Name: "Women's Crepe A-Line Maxi Dress (Smocked}",
+          reviewNumber: "391",
+          mrp: "₹2,330",
+          price: "388",
+          discount: "(83% off)",
           selection6: [
             {
-              name: "Camera: 64MP Main Camera with EIS; 2MP Depth Lens and 2MP Macro Lens; Front (Selfie) Camera: 16MP Sony IMX471"
+              name: "Care Instructions: Hand Wash Only"
             },
             {
-              name: "Camera Features: AI scene enhancement, Dual-View Video, HDR, Night Portrait, Panorama Mode, Retouch Filters, 1080p video at 30 fps, SLO-MO: 720p video at 120 fps, TIME-LAPSE: 1080p video at 30 fps, Video editor, Face unlock, Screen flash, HDR, NIGHT, PORTRAIT, TIME-LAPSE, Retouch, Filters"
+              name: "Fit Type: Relaxed"
             },
             {
-              name: "Display: 6.59 Inches; 120 Hz Refresh Rate; Support sRGB, Display P3; Resolution: 2412 x 1080 pixels 402ppi; Aspect Ratio: 20:9"
+              name: "Offshoulder dress with puffed sleeves, smocked bodice and ruffles wrap skirt"
             },
             {
-              name: "Display Features: Dark mode"
+              name: "Floral printed fabric"
             },
             {
-              name: "Operating System: Oxygen OS based on Android 12"
+              name: "Can be be styled both as a breezy casual outfit and a playful party outfit."
             },
             {
-              name: "Processor: Qualcomm Snapdragon 695 5G"
+              name: "Garment is made with relaxed fit. Model Model is height 5'9 with bust 34 and is wearing size S."
             },
             {
-              name: "Battery & Charging: 5000 mAh with 33W SuperVOOC"
+              name: "Garment is made of crepe, which drapes well on all body types"
             }
           ]
         },
         {
-          image: "https://m.media-amazon.com/images/I/61ahn9N38zL._AC_UL320_.jpg",
-          Name: "OnePlus Nord 2T 5G (Jade Fog, 8GB RAM, 128GB Storage)",
-          reviewNumber: "18,792",
-          price: "28,999",
+          image: "https://m.media-amazon.com/images/I/61IId18ZazL._AC_UL320_.jpg",
+          Name: "Women's Pure Georgette sequence saree with unstiched blouse piece(Free size)",
+          reviewNumber: "1,155",
+          mrp: "₹3,999",
+          price: "899",
+          discount: "(78% off)",
           selection6: [
             {
-              name: "Camera: 50MP Main Camera with Sony IMX766 and OIS, 8MP Ultrawide Camera with 120 degree FOV and 2MP mono lens with Dual LED Flash; 32MP Front (Selfie) Camera with Sony IMX615"
+              name: "Care Instructions: Dry Clean Only"
             },
             {
-              name: "Camera Features: AI Scene Enhancement, AI Highlight Video, Slow-motion captures, Dual-view Video, HDR, Nightscape, Portrait mode, Pano, Retouching and exciting filters"
+              name: "Saree Material: Georgette | Blouse Material: Banglory Silk"
             },
             {
-              name: "Display: 6.43 Inches; 90 Hz AMOLED Display with Corning Gorilla Glass 5; Resolution: 2400 X 1080 pixels; HDR 10+ Certified"
+              name: "Saree Length:-5.5 ,Blouse Length:-0.80. Blouse is attached with saree. No Seprate Blouse. Blouse to be cut from saree. Blouse is unstitched Fabric."
             },
             {
-              name: "Display Features: Ambient Display, AI colour enhancement and Dark mode"
+              name: "Saree Work : Full Sequence , Blouse Work : Plain"
             },
             {
-              name: "Operating System: OxygenOS based on Android 12. Processor: Mediatek Dimensity 1300"
+              name: "Occasion : Party Wear , Wedding Wear , Use For All Festival Saree"
             },
             {
-              name: "Battery & Charging: 4500 mAh with 80W SuperVOOC. In-Display Fingerprint Sensor"
-            },
-            {
-              name: "Alexa Hands-Free capable: Download the Alexa app to use Alexa hands-free. Play music, make calls, hear news, open apps, navigate, and more, all using just your voice, while on-the-go"
-            },
-            {
-              name: "Form Factor: Smartphone; Cellular Technology: 5g, 4g Lte"
+              name: "Work: Sequins work with border to border double run thread with stylish look."
             }
           ]
         },
         {
-          image: "https://m.media-amazon.com/images/I/81t6Av5DvXL._AC_UL320_.jpg",
-          Name: "Samsung Galaxy M04 Dark Blue, 4GB RAM, 64GB Storage | Upto 8GB RAM with RAM Plus | MediaTek Helio P35 | 5000 mAh Battery",
-          reviewNumber: "649",
-          mrp: "₹11,999",
-          price: "8,499",
-          discount: "(29% off)",
+          image: "https://m.media-amazon.com/images/I/61ARin+9vLL._AC_UL320_.jpg",
+          Name: "Women's Sequence Work Georgette Saree With Blouse Piece (Kriti Sanon Sequence)",
+          reviewNumber: "37",
+          mrp: "₹2,999",
+          price: "999",
+          discount: "(67% off)",
           selection6: [
             {
-              name: "Powerful MediaTek Helio P35 Octa Core 2.3GHz with Android 12,One UI Core 4.1"
+              name: "Care Instructions: Machine Wash"
             },
             {
-              name: "13MP+2MP Dual camera setup- True 13MP (F2.2) main camera + 2MP (F2.4) | 5MP (F2.2) front came"
+              name: "Fit Type: Regular"
             },
             {
-              name: "16.55 centimeters (6.5-inch) LCD, HD+ resolution with 720 x 1600 pixels resolution, 269 PPI with 16M color"
+              name: "Fabric : Georgette || Type : Sequenced Work With Lace Border"
             },
             {
-              name: "5000mAH lithium-ion battery, 1 year manufacturer warranty for device and 6 months manufacturer warranty for in-box accessories including batteries from the date of purchase"
+              name: "Colour : : Black || Design : Sequence Work"
+            },
+            {
+              name: "Saree Length : 5.5 Mtr + Blouse Length : 0.80 Mtr Rasal Net + 0.80 Mtr Raw Silk Black (Unstitched)"
+            },
+            {
+              name: "Whole Saree is Sequence Worked and Exact As Shown In Image & This is Very Soft Fabric So Comfertable to wear"
+            },
+            {
+              name: "This Saree is Suitable For Get Just Stylish Casual look in office or work, normal occasions, family get together, regular or daily Use or gifting to loved one"
             }
           ]
         },
         {
-          image: "https://m.media-amazon.com/images/I/81UT07JsBqL._AC_UL320_.jpg",
-          Name: "Redmi A1 (Light Blue, 2GB RAM, 32GB Storage) | Segment Best AI Dual Cam | 5000mAh Battery | Leather Texture Design | Android 12",
-          reviewNumber: "8,975",
-          mrp: "₹8,999",
-          price: "6,499",
-          discount: "(28% off)",
+          image: "https://m.media-amazon.com/images/I/410Kw-Y21XL._AC_UL320_.jpg",
+          Name: "Ready To Wear Sarees For Women With Unstitched Blouse.",
+          reviewNumber: "18",
+          mrp: "₹2,399",
+          price: "899",
+          discount: "(63% off)",
           selection6: [
             {
-              name: "Display: 16.56cm HD+ Scratch resistant display"
+              name: "Care Instructions: Hand Wash Only"
             },
             {
-              name: "Processor: MediaTek Helio A22 processor; up to 2.0GHz"
+              name: "Belt Is Not Included With Sari || This Is Pre Stitched Saree Ready To Wear || You Will Get Ready For Party In One Minute Saree For Women ||"
             },
             {
-              name: "Camera: 8MP Dual camera | 5MP Front camera"
+              name: "Saree Fabric -Chinon Polyester || Type- 1 Minute Saree Ready To Wear || Blouse -polyester"
             },
             {
-              name: "Memory, Storage & SIM: 2GB LPDDR4x RAM | 32GB storage expandable up to 512GB with dedicated SD card slot | Dual SIM (nano+nano) dual standby (4G+4G)"
+              name: "Saari Length -5.5m Free Size || Blouse-0.80 Unhitch || Colour -pink Sarees For Women Latest Design"
             },
             {
-              name: "Battery: 5000 mAh large battery with 10W in-box charger"
+              name: "This Pre Draped Saree Is Very Useful As Party Wear Saree . This Pink Saree Is Suitable For Girls"
+            },
+            {
+              name: "Other Details : Soft Finished Comfortable To Wear And Easy To Take Fleets } {size-free Size} { Saree Is Not Transparent } Package Included: 1 Saree With 1 Blouse Piece"
             }
           ]
         },
         {
-          image: "https://m.media-amazon.com/images/I/71V--WZVUIL._AC_UL320_.jpg",
-          Name: "OnePlus Nord CE 2 Lite 5G (Black Dusk, 6GB RAM, 128GB Storage)",
-          reviewNumber: "109,042",
-          mrp: "₹19,999",
-          price: "18,999",
-          discount: "(5% off)",
+          image: "https://m.media-amazon.com/images/I/910G6lheEMS._AC_UL320_.jpg",
+          Name: "Women's Kanchipuram Silk Woven Half and Half Sare With Blouse Piece",
+          reviewNumber: "3,869",
+          mrp: "₹2,159",
+          price: "489",
+          discount: "(77% off)",
           selection6: [
             {
-              name: "Camera: 64MP Main Camera with EIS; 2MP Depth Lens and 2MP Macro Lens; Front (Selfie) Camera: 16MP Sony IMX471"
+              name: "Care Instructions: Dry Clean Only"
             },
             {
-              name: "Camera Features: AI scene enhancement, Dual-View Video, HDR, Night Portrait, Panorama Mode, Retouch Filters, 1080p video at 30 fps, SLO-MO: 720p video at 120 fps, TIME-LAPSE: 1080p video at 30 fps, Video editor, Face unlock, Screen flash, HDR, NIGHT, PORTRAIT, TIME-LAPSE, Retouch, Filters"
+              name: "Saree details- Saree Color: Multicolor (Rama & Pink)| Material: Kanchipuram Silk | Length: 6 yards | Work Type: Zari Woven Work"
             },
             {
-              name: "Display: 6.59 Inches; 120 Hz Refresh Rate; Support sRGB, Display P3; Resolution: 2412 x 1080 pixels 402ppi; Aspect Ratio: 20:9"
+              name: "Blouse details- Color: Rama | Material: Silk Blend| Length- 0.8m | Work Type: Zari Woven"
             },
             {
-              name: "Display Features: Dark mode"
+              name: "Border & Pallu details- Border Color: Golden | Border Work Type: Woven design | Pallu Color: Pink & Golden| Pallu Work Type: Zari Woven"
             },
             {
-              name: "Operating System: Oxygen OS based on Android 12"
+              name: "Wash Care: Dry Clean Only"
             },
             {
-              name: "Processor: Qualcomm Snapdragon 695 5G"
-            },
-            {
-              name: "Battery & Charging: 5000 mAh with 33W SuperVOOC"
+              name: "Weave Type: Kanchipuram | Included components: Saree with Blouse Piece | Type : Half and Half Saree"
             }
           ]
         },
         {
-          image: "https://m.media-amazon.com/images/I/814ePfNubRL._AC_UL320_.jpg",
-          Name: "Samsung Galaxy M04 Light Green, 4GB RAM, 64GB Storage | Upto 8GB RAM with RAM Plus | MediaTek Helio P35 | 5000 mAh Battery",
-          reviewNumber: "649",
-          mrp: "₹11,999",
-          price: "8,499",
-          discount: "(29% off)",
+          image: "https://m.media-amazon.com/images/I/61O07oBRsJL._AC_UL320_.jpg",
+          Name: "Women's Anarkali Maxi Gown",
+          reviewNumber: "341",
+          mrp: "₹2,999",
+          price: "999",
+          discount: "(67% off)",
           selection6: [
             {
-              name: "Powerful MediaTek Helio P35 Octa Core 2.3GHz with Android 12,One UI Core 4.1"
+              name: "Care Instructions: Hand Wash Only"
             },
             {
-              name: "13MP+2MP Dual camera setup- True 13MP (F2.2) main camera + 2MP (F2.4) | 5MP (F2.2) front came"
+              name: "Fit Type: Regular"
             },
             {
-              name: "16.55 centimeters (6.5-inch) LCD, HD+ resolution with 720 x 1600 pixels resolution, 269 PPI with 16M color"
+              name: "Style ; Anarkali Dress ; Long Gown"
             },
             {
-              name: "5000mAH lithium-ion battery, 1 year manufacturer warranty for device and 6 months manufacturer warranty for in-box accessories including batteries from the date of purchase"
+              name: "Fabric :- Velvet , Work :- Embroidered, Dupatta :- Yes"
+            },
+            {
+              name: "Gown :- Free Size"
+            },
+            {
+              name: "Wash Care :- Dry Clean Or Normal Hand wash"
+            },
+            {
+              name: "Disclaimer :- Product Color May Slightly Vary Due To Photographic Lighting Sources Or Your Monitor Settings"
             }
           ]
         },
         {
-          image: "https://m.media-amazon.com/images/I/81BxHYjeA2L._AC_UL320_.jpg",
-          Name: "Redmi A1 (Black, 2GB RAM, 32GB Storage) | Segment Best AI Dual Cam | 5000mAh Battery | Leather Texture Design | Android 12",
-          reviewNumber: "8,975",
-          mrp: "₹8,999",
-          price: "6,499",
-          discount: "(28% off)",
+          image: "https://m.media-amazon.com/images/I/61Bn8P11wwL._AC_UL320_.jpg",
+          Name: "Women Kurta with Pant & Dupatta",
+          reviewNumber: "682",
+          mrp: "₹2,599",
+          price: "759",
+          discount: "(71% off)",
           selection6: [
             {
-              name: "Display: 16.56cm HD+ Scratch resistant display"
+              name: "Care Instructions: Dry Clean Only"
             },
             {
-              name: "Processor: MediaTek Helio A22 processor; up to 2.0GHz"
+              name: "Fit Type: Straight"
             },
             {
-              name: "Camera: 8MP Dual camera | 5MP Front camera"
+              name: "Kurta Set Fabric: Banarasi Silk"
             },
             {
-              name: "Memory, Storage & SIM: 2GB LPDDR4x RAM | 32GB storage expandable up to 512GB with dedicated SD card slot | Dual SIM (nano+nano) dual standby (4G+4G)"
+              name: "Style: Straight || Length: Calf Length || Sleeves: 3/4"
             },
             {
-              name: "Battery: 5000 mAh large battery with 10W in-box charger"
+              name: "This set includes: Kurta with Bottomwear & Dupatta"
+            },
+            {
+              name: "Ocassion: Traditional wear, Casual Wear, party wear, evening wear"
+            },
+            {
+              name: "Product Color May Slightly Vary Due To Photographic Lighting Sources Or Your Monitor Settings"
             }
           ]
         },
         {
-          image: "https://m.media-amazon.com/images/I/81UmTnrBDSL._AC_UL320_.jpg",
-          Name: "Redmi A1 (Light Green, 2GB RAM 32GB ROM) | Segment Best AI Dual Cam | 5000mAh Battery | Leather Texture Design | Android 12",
-          reviewNumber: "8,975",
-          mrp: "₹8,999",
-          price: "6,499",
-          discount: "(28% off)",
+          image: "https://m.media-amazon.com/images/I/61wlFY2BdJL._AC_UL320_.jpg",
+          Name: "Women's Anarkali Long Gown With Dupatta",
+          reviewNumber: "Another way to buy",
+          mrp: "₹4,999",
+          price: "1,235",
+          discount: "(75% off)",
           selection6: [
             {
-              name: "Display: 16.56cm HD+ Scratch resistant display"
+              name: "Care Instructions: Regular Hand And Machine Wash"
             },
             {
-              name: "Processor: MediaTek Helio A22 processor; up to 2.0GHz"
+              name: "Fit Type: Regular"
             },
             {
-              name: "Camera: 8MP Dual camera | 5MP Front camera"
+              name: "Gown Fabric :Pure Georgette ; Bottom : Santoon ; Inner : Santoon ; Duppta : Nazmeen"
             },
             {
-              name: "Memory, Storage & SIM: 2GB LPDDR4x RAM | 32GB storage expandable up to 512GB with dedicated SD card slot | Dual SIM (nano+nano) dual standby (4G+4G)"
+              name: "Free Size (Length : 52 | Waist : 38 | Chest/Bust : 42) | Semi-stitched freesize | Flare : 2.5 Meters, Maximum Size Up To Xxl."
             },
             {
-              name: "Battery: 5000 mAh large battery with 10W in-box charger"
+              name: "Gown Type : Anarkali gown , Ball Gown , Long Anarkali gown."
+            },
+            {
+              name: "Care Instructions: Regular Hand & Mechine Wash is Recommended."
+            },
+            {
+              name: "Gown Work: Embroidery With Coding Work,"
             }
           ]
         },
         {
-          image: "https://m.media-amazon.com/images/I/71293gyogZL._AC_UL320_.jpg",
-          Name: "Redmi 10A (Charcoal Black, 4GB RAM, 64GB Storage) | 2 Ghz Octa Core Helio G25 | 5000 mAh Battery | Finger Print Sensor | Upto 5GB RAM with RAM Booster",
-          reviewNumber: "13,808",
-          mrp: "₹11,999",
-          price: "8,999",
-          discount: "(25% off)",
+          image: "https://m.media-amazon.com/images/I/81fvcBZh6NL._AC_UL320_.jpg",
+          Name: "Party Dresses for Women Choker Multicolor Bodycon Mini Wrap Dress",
+          reviewNumber: "42",
+          mrp: "₹1,999",
+          price: "279",
+          discount: "(86% off)",
           selection6: [
             {
-              name: "Camera: 13MP Rear Camera | 5MP Front Camera"
+              name: "Care Instructions: Dry Clean Only"
             },
             {
-              name: "Display: HD+(1600x700) IPS LCD display; 15.58 centimeters (6.53 inch); 20:9 aspect ratio"
+              name: "Fit Type: Regular"
             },
             {
-              name: "Processor: MediaTek Helio G25 Octa-core processor; Up to 2.0 GHz clock speed"
+              name: "Wash Care : first wash is dry clean after that use machine wash or hand wash"
             },
             {
-              name: "Battery: 5000 mAh large battery with 10W fast charger in-box and Micro USB connectivity"
+              name: "Fabric: Lycre || Pattern: Tie-Dye Printed || Style: A-Line"
             },
             {
-              name: "Memory, Storage & SIM:4GB RAM | 64GB storage expandable upto 512GB with dedicated SD card slot | Dual SIM (nano+nano) dual standby(4G+4G)"
+              name: "Ocassion: Traditional wear,Casual Wear, Office Wear, Formal wear, Evening wear, Work Wear, Party Wear"
+            },
+            {
+              name: "SATISFACTION GUARANTEED- Customer service is our number one priority. If you’re not satisfied with your purchase, we will be happy to process a 100% exchange or refund for you."
+            },
+            {
+              name: "High Definition Print - Using the highest quality solvents and colors combines with fully automated machines, we ensure our t-shirt dresses have razor-sharp prints that highlight every single detail.; Closure Type: Elastic; Occasion Type: Casual; Sleeve Type: Half Sleeve"
             }
           ]
         },
         {
-          image: "https://m.media-amazon.com/images/I/81eM15lVcJL._AC_UL320_.jpg",
-          Name: "Redmi 10 Power (Power Black, 8GB RAM, 128GB Storage)",
-          reviewNumber: "763",
-          mrp: "₹18,999",
-          price: "11,999",
-          discount: "(37% off)",
+          image: "https://m.media-amazon.com/images/I/6142tbfHTDL._AC_UL320_.jpg",
+          Name: "Women's Latest Black Sequence Embroidery Maxi Georgette Long Dress Gown for Women",
+          reviewNumber: "49",
+          mrp: "₹6,999",
+          price: "935",
+          discount: "(87% off)",
           selection6: [
             {
-              name: "Processor: Snapdragon 680 6nm Octa-core processor; Up to 2.4GHz clock speed"
+              name: "Care Instructions: Dry Clean Only"
             },
             {
-              name: "Camera: 50 MP Primary Rear Camera with 2MP Portrait Lens| 5 MP Front camera"
+              name: "Style : This Dress Is A Maxi Dress.; Pattern : the dress has sequence embroidery work and have length of around 54 To 55 Inch"
             },
             {
-              name: "Display: HD+ (720x1650) IPS LCD Display; 17.01 centimeters(6.7 inch); 20.6:9 aspect ratio"
+              name: "Occation : This Dress Is Suitable For Festive, Party, Wedding Etc."
             },
             {
-              name: "Battery: 6000 mAh large battery with 18W fast charging support(10W in-box) and Type-C connectivity"
+              name: "S-36 , M-38, L-40 , Xl-42 ,Xxl-44 ,3Xl-46; Care Instructions: Dry Clean Only; Closure Type: Zipper; Care Instructions: Dry Clean Only"
             },
             {
-              name: "Memory, Storage & SIM: 8GB RAM | 128GB UFS 2.2 storage expandable up to 512GB with dedicated SD card slot | Dual SIM (nano+nano) dual standby (4G+4G)"
+              name: "Material Composition: Polyster Silk"
+            },
+            {
+              name: "Sleeve Type: Cap Sleeve"
             }
           ]
         },
         {
-          image: "https://m.media-amazon.com/images/I/71kVEmAMyEL._AC_UL320_.jpg",
-          Name: "Redmi 10A (Slate Grey, 4GB RAM, 64GB Storage) | 2 Ghz Octa Core Helio G25 | 5000 mAh Battery | Finger Print Sensor | Upto 5GB RAM with RAM Booster",
-          reviewNumber: "13,808",
-          mrp: "₹11,999",
-          price: "8,999",
-          discount: "(25% off)",
+          image: "https://m.media-amazon.com/images/I/51llet9Ww4L._AC_UL320_.jpg",
+          Name: "Women Casual Dress",
+          reviewNumber: "2,131",
+          mrp: "₹1,799",
+          price: "542",
+          discount: "(70% off)",
           selection6: [
             {
-              name: "Camera: 13MP Rear Camera | 5MP Front Camera"
+              name: "Care Instructions: Hand Wash Only"
             },
             {
-              name: "Display: HD+(1600x700) IPS LCD display; 15.58 centimeters (6.53 inch); 20:9 aspect ratio"
+              name: "Fit Type: Regular"
             },
             {
-              name: "Processor: MediaTek Helio G25 Octa-core processor; Up to 2.0 GHz clock speed"
-            },
-            {
-              name: "Battery: 5000 mAh large battery with 10W fast charger in-box and Micro USB connectivity"
-            },
-            {
-              name: "Memory, Storage & SIM:4GB RAM | 64GB storage expandable upto 512GB with dedicated SD card slot | Dual SIM (nano+nano) dual standby(4G+4G)"
+              name: "A-Line, Inseam length - 22 inch"
             }
           ]
         },
         {
-          image: "https://m.media-amazon.com/images/I/61VuVU94RnL._AC_UL320_.jpg",
-          Name: "Apple iPhone 13 (128GB) - Midnight",
-          reviewNumber: "13,013",
-          mrp: "₹69,900",
-          price: "61,999",
+          image: "https://m.media-amazon.com/images/I/41zEt6W-LLL._AC_UL320_.jpg",
+          Name: "Women's Knitted Stretchable Bodycon Lycra Dress",
+          reviewNumber: "319",
+          mrp: "₹1,805",
+          price: "349",
+          discount: "(81% off)",
+          selection6: [
+            {
+              name: "Care Instructions: Dry Clean Only"
+            },
+            {
+              name: "Fit Type: Regular"
+            },
+            {
+              name: "Fabric : Lycra || Color: Wine"
+            },
+            {
+              name: "Dress Length :38Inch|| Bust Size :34Inch||Sleeve Length :15Inch || Dress Inner: N/A"
+            },
+            {
+              name: "Pattern: Knitted"
+            },
+            {
+              name: "Sleeve Type: Half Sleeve; Closure Type: Popper"
+            }
+          ]
+        },
+        {
+          image: "https://m.media-amazon.com/images/I/71m-a5IoDbL._AC_UL320_.jpg",
+          Name: "Women's Lycra Saree With Blouse Piece",
+          reviewNumber: "3,747",
+          mrp: "₹2,399",
+          price: "301",
+          discount: "(87% off)",
+          selection6: [
+            {
+              name: "Care Instructions: hand wash"
+            },
+            {
+              name: "Occasions: this ruffle sarees for women is specially design for festive season of Indian women's wear"
+            },
+            {
+              name: "Color: this teal green ruffle saree for women make you look awesome"
+            },
+            {
+              name: "Fabric: this ruffle saree have soft finished lycra fabric easy and comfortable to wear"
+            },
+            {
+              name: "Work type: this frill saree have plastic mirror work on shoulder lace"
+            },
+            {
+              name: "Blouse: this saree have beautiful blouse piece. Includes: 1 saree and unstitched blouse. Saree length- 5.5 metre, blouse length- 0.8 metre"
+            }
+          ]
+        },
+        {
+          image: "https://m.media-amazon.com/images/I/61RADkpTHPL._AC_UL320_.jpg",
+          Name: "Women's Cotton Blend Printed Anarkali Kurta (Votiki)",
+          reviewNumber: "204",
+          mrp: "₹2,599",
+          price: "699",
+          discount: "(73% off)",
+          selection6: [
+            {
+              name: "Care Instructions: Dry Clean Only"
+            },
+            {
+              name: "Fit Type: Regular"
+            },
+            {
+              name: "Kurta Fabric: Cotton Blend"
+            },
+            {
+              name: "Style: Anarkali || Length: Calf Length || Sleeves: 3/4"
+            },
+            {
+              name: "This set includes: Kurta || Pattern :- Printed."
+            },
+            {
+              name: "Ocassion: Traditional wear, Casual Wear, party wear, evening wear,Please Click On Brand Name ANNI DESIGNER For More Products."
+            },
+            {
+              name: "Product Color May Slightly Vary Due To Photographic Lighting Sources Or Your Monitor Settings"
+            }
+          ]
+        },
+        {
+          image: "https://m.media-amazon.com/images/I/710YR58lquS._AC_UL320_.jpg",
+          Name: "Women's Silk Saree With Blouse Piece",
+          reviewNumber: "240",
+          mrp: "₹3,999",
+          price: "809",
+          discount: "(80% off)",
+          selection6: [
+            {
+              name: "Care Instructions: hand wash"
+            },
+            {
+              name: "Saree Details : Saree Color- Grey, Saree Material- Silk, Saree Length- 6.3 m, Saree Work Type- Sequins Embroidery Work"
+            },
+            {
+              name: "Blouse Details: Blouse Color-Black, Blouse Material- Velvet, Blouse Length- 0.8 m, Blouse Work Type- Sequins Embroidered Work"
+            },
+            {
+              name: "Border & Pallu Details: Border Color- Grey, Border Work Type- Sequins Embroidered Lace Work, Pallu Color- Purple, Pallu Work Type- Sequins Embroidery Work"
+            },
+            {
+              name: "Occasions: Party, festive, wedding wear, traditional wear. Best gift for your loved ones."
+            },
+            {
+              name: "Included Contents: Saree with Blouse Piece"
+            }
+          ]
+        },
+        {
+          image: "https://m.media-amazon.com/images/I/71WT18Au5ZL._AC_UL320_.jpg",
+          Name: "Women's Faux Georgette Semi Stitched Top With Faux Georgette Jacket Solid Flared Top Dress Material (Gown)",
+          reviewNumber: "108",
+          mrp: "₹5,999",
+          price: "1,650",
+          discount: "(72% off)",
+          selection6: [
+            {
+              name: "Top Fabric : Faux Georgette With Santoon Inner; Top : Semi Stitched"
+            },
+            {
+              name: "Work : Solid , Type : Party Wear Gown; Color : Green"
+            },
+            {
+              name: "Please Read The Products Description Below For Full Details Of The Product."
+            },
+            {
+              name: "Item Length Description: Maxi; Sleeve Type: 3/4 Sleeve; Closure Type: Drawstring"
+            },
+            {
+              name: "Age Range Description: Adult"
+            }
+          ]
+        },
+        {
+          image: "https://m.media-amazon.com/images/I/71Lqt9hrR-L._AC_UL320_.jpg",
+          Name: "Women Georgette A-Line Dress(MCAW19D08-57-102_Blue & Black_S)",
+          reviewNumber: "Another way to buy",
+          mrp: "₹2,899",
+          price: "1,217",
+          discount: "(58% off)",
+          selection6: [
+            {
+              name: "Care Instructions: Hand Wash Only"
+            },
+            {
+              name: "Fit Type: Relaxed"
+            },
+            {
+              name: "Fabric: Georgette; Sleeveless, Round Neck, Lace detail,Side zip and Back button closure, Woven"
+            },
+            {
+              name: "The model is wearing size Small and her height is 5 ft 9 inches(175 cm)"
+            },
+            {
+              name: "Length(inches): XS-55.25, S-56.25, M-57.25, L-58.25, XL-59.25"
+            },
+            {
+              name: "Closure Type: Zipper"
+            }
+          ]
+        },
+        {
+          image: "https://m.media-amazon.com/images/I/61xrTERNdCL._AC_UL320_.jpg",
+          Name: "Women's Synthetic Ready to Wear Saree With Blouse Piece",
+          reviewNumber: "538",
+          mrp: "₹2,999",
+          price: "949",
+          discount: "(68% off)",
+          selection6: [
+            {
+              name: "Care Instructions: Hand Wash Only"
+            },
+            {
+              name: "Fit Type: Regular"
+            },
+            {
+              name: "This is Ready To Wear Stitched Draped 1 Minute Saree (Please Swipe images and check Product Video Before Buying)"
+            },
+            {
+              name: "Fabric : Chinon || Type : Plain Padding"
+            },
+            {
+              name: "Colour : Rani || Size : Free Size Adjustable"
+            },
+            {
+              name: "Saree Length : 5.5 Mtr + Blouse Length : 0.80 Mtr (Unstitched)"
+            },
+            {
+              name: "This Saree is Suitable For Get Just Stylish Casual look in office or work, normal occasions, family get together, regular or daily Use or gifting to loved one"
+            }
+          ]
+        },
+        {
+          image: "https://m.media-amazon.com/images/I/51yz-CmbcML._AC_UL320_.jpg",
+          Name: "Women's Cotton Blend Straight Solid Kurta with Pant & Dupatta (Resoti)",
+          reviewNumber: "658",
+          mrp: "₹2,599",
+          price: "659",
+          discount: "(75% off)",
+          selection6: [
+            {
+              name: "Care Instructions: Dry Clean Only"
+            },
+            {
+              name: "Kurta Set Fabric: Cotton Blend"
+            },
+            {
+              name: "Style: Straight || Length: Calf Length || Sleeves: 3/4"
+            },
+            {
+              name: "This set includes:: Kurta, Pant & Dupatta"
+            },
+            {
+              name: "Ocassion: Traditional wear, Casual Wear, party wear, evening wear"
+            },
+            {
+              name: "Product Color May Slightly Vary Due To Photographic Lighting Sources Or Your Monitor Settings"
+            }
+          ]
+        },
+        {
+          image: "https://m.media-amazon.com/images/I/51Mf7N9KjHL._AC_UL320_.jpg",
+          Name: "Women Dress",
+          reviewNumber: "318",
+          mrp: "₹1,497",
+          price: "359",
+          discount: "(76% off)",
+          selection6: [
+            {
+              name: "Care Instructions: Machine Wash"
+            },
+            {
+              name: "Fit Type: Regular"
+            },
+            {
+              name: "Fabric : Lycra || Color : Black"
+            },
+            {
+              name: "Bodykon Length : 49 Inch|| Bust Size : 34 Inch|| Sleeve Length : 12 Inch || Select required Bust Size from Filter Box S (34 Inch),M (36 Inch),L (38 Inch),XL (40 Inch)"
+            },
+            {
+              name: "Work : Solid; Sleeve Type : Half Sleeve || Neck Style : Square Neck || Wash Care : Machine Wash"
+            },
+            {
+              name: "Occasion: Evening,Party or Casual Wear"
+            },
+            {
+              name: "Closure Type: Pull On"
+            }
+          ]
+        },
+        {
+          image: "https://m.media-amazon.com/images/I/81Iqp0TAC+L._AC_UL320_.jpg",
+          Name: "Party Dresses for Women Choker Multicolor Bodycon Mini Wrap Dress",
+          reviewNumber: "44",
+          mrp: "₹1,999",
+          price: "389",
+          discount: "(81% off)",
+          selection6: [
+            {
+              name: "Care Instructions: Dry Clean Only"
+            },
+            {
+              name: "Fit Type: Regular"
+            },
+            {
+              name: "Wash Care : first wash is dry clean after that use machine wash or hand wash"
+            },
+            {
+              name: "Fabric: Lycre || Pattern: Tie-Dye Printed || Style: A-Line"
+            },
+            {
+              name: "Ocassion: Traditional wear,Casual Wear, Office Wear, Formal wear, Evening wear, Work Wear, Party Wear."
+            },
+            {
+              name: "SATISFACTION GUARANTEED- Customer service is our number one priority. If you’re not satisfied with your purchase, we will be happy to process a 100% exchange or refund for you."
+            },
+            {
+              name: "High Definition Print - Using the highest quality solvents and colors combines with fully automated machines, we ensure our t-shirt dresses have razor-sharp prints that highlight every single detail.; Closure Type: Elastic; Occasion Type: Casual; Sleeve Type: Half Sleeve."
+            }
+          ]
+        },
+        {
+          image: "https://m.media-amazon.com/images/I/51G9HRFhtrL._AC_UL320_.jpg",
+          Name: "Women’s High-Low Knee Length Dress(Ruby-062-to-069)",
+          reviewNumber: "309",
+          mrp: "₹1,999",
+          price: "444",
+          discount: "(78% off)",
+          selection6: [
+            {
+              name: "Care Instructions: Hand Wash Only"
+            },
+            {
+              name: "Fit Type: Regular"
+            },
+            {
+              name: "Material:-100% Heavy Imported With fully Stretchable"
+            },
+            {
+              name: "Stitch Type:- Stitched (No stitching required)"
+            },
+            {
+              name: "Item Length: Knee-Long, Style Name: High-Low; Package Content: 1 Dress"
+            },
+            {
+              name: "Wash Care : Machine wash warm wash with like colours only non-chlorine bleach when needed tumble dry low warm iron if needed."
+            },
+            {
+              name: "Age Range Description: Adult; Occasion Type: Work; Sleeve Type: Short Sleeve"
+            }
+          ]
+        },
+        {
+          image: "https://m.media-amazon.com/images/I/71oBJuyL1tL._AC_UL320_.jpg",
+          Name: "Women's Wine Halter Neck Sleeveless Solid Embellished Midi Dress",
+          reviewNumber: "129",
+          mrp: "₹3,495",
+          price: "1,188",
+          discount: "(66% off)",
+          selection6: [
+            {
+              name: "Care Instructions: Hand Wash Only"
+            },
+            {
+              name: "Fit Type: Regular"
+            },
+            {
+              name: "Fabric: 100% Polyester | Wash Care: Hand Wash with Warm Water, wash dark colors separately, Do not Bleach, Dip Dry away from direct heat, Warm Iron Only"
+            },
+            {
+              name: "Style: Embellished | Pattern: Solid | Fit: Slim Fit | Length: Midi | Neck: Halter Neck | Sleeves: Sleeveless"
+            },
+            {
+              name: "Occasion: Casual wear, Daily wear, Party wear, Evening wear"
+            },
+            {
+              name: "The model is 5'9 and she is wearing size S"
+            },
+            {
+              name: "There might be slight color variation between the actual product and image shown on the screen due to photoshoot lighting."
+            }
+          ]
+        },
+        {
+          image: "https://m.media-amazon.com/images/I/91ZfXXT0PqL._AC_UL320_.jpg",
+          Name: "Women's Pure Georgette Saree with Unstitched Blouse Piece",
+          reviewNumber: "243",
+          mrp: "₹3,999",
+          price: "999",
+          discount: "(75% off)",
+          selection6: [
+            {
+              name: "Care Instructions: hand wash"
+            },
+            {
+              name: "★ Fabric :- This Saree have soft finished Pure Georgette Fabric easy and Comfortable to wear."
+            },
+            {
+              name: "★ Color :- This Amazing Saree have Soft Finished Purple colour which make you look awsome and star of Party."
+            },
+            {
+              name: "★ Occasions :- This Saree is Specially design for wedding, Party and Festive Season of indian women's wear."
+            },
+            {
+              name: "★ Length :- Saree Length is 5.5 Meter and Blouse Length is is 0.80 Meter."
+            },
+            {
+              name: "★ Package Included :- 1 Unstitched Saree with Blouse Piece"
+            }
+          ]
+        },
+        {
+          image: "https://m.media-amazon.com/images/I/71XAzGJXvkL._AC_UL320_.jpg",
+          Name: "Women's Bandhani Printed & Embroidery Work In Lace Georgette Saree with Unstitched Blouse Piece",
+          reviewNumber: "1,145",
+          mrp: "₹4,900",
+          price: "949",
+          discount: "(81% off)",
+          selection6: [
+            {
+              name: "Care Instructions: Hand Wash Only"
+            },
+            {
+              name: "Saree Fabric : Georgette | Blouse Fabric : Bhagalpuri Silk"
+            },
+            {
+              name: "Length :: Saree : 5.50Mtr | Blouse(Unstitch Fabric) : 0.80Mtr, Which Need To Be Stitched As Per Size And Fit"
+            },
+            {
+              name: "Colour :: Saree : Mint Green | Blouse : Mint Green"
+            },
+            {
+              name: "Work Type :: Saree : Bandhani Printed & Embroidery Work In Lace | Blouse : Dyed, Embroidery Work | Wash Care: dry & clean is Recommernded."
+            },
+            {
+              name: "Package Content : 1 Saree With 1 Blouses Pice Included"
+            }
+          ]
+        },
+        {
+          image: "https://m.media-amazon.com/images/I/616OC0ZWOhL._AC_UL320_.jpg",
+          Name: "Women's Georgette Semi Stitched Anarkali Gown(SSEY-F1349_Red_Free Size)",
+          reviewNumber: "199",
+          mrp: "₹5,299",
+          price: "1,690",
+          discount: "(68% off)",
+          selection6: [
+            {
+              name: "Care Instructions: Dry Clean Only"
+            },
+            {
+              name: "Top Fabric : Georgette || Bottom Fabric : Silk || Duptta Fabric : Net|| Inner Fabric : Santoon"
+            },
+            {
+              name: "Top Length : 56 ( Inch ) ||Top Width Size : 44 ( Inch ) || Bottom Length : 2.2 (MTR) || Duptta Length : 2.2 (MTR) || Inner Length : 2 (MTR)"
+            },
+            {
+              name: "Top Work : Embroidered ||Bottom Work : Solid ( Plain ) || Duptta Work : Lace || Sleeve Style : Full Sleeve|| Neck Style : Round Neck"
+            },
+            {
+              name: "Sleeve Type: Long Sleeve; Item Length Description: Ankle Length; Occasion Type: Ceremony"
+            }
+          ]
+        },
+        {
+          image: "https://m.media-amazon.com/images/I/71U0Wo-rizL._AC_UL320_.jpg",
+          Name: "Dresses for Women (491-524)",
+          reviewNumber: "3,490",
+          mrp: "₹1,499",
+          price: "449",
+          discount: "(70% off)",
+          selection6: [
+            {
+              name: "Care Instructions: Dry Clean Only"
+            },
+            {
+              name: "Fit Type: Regular"
+            },
+            {
+              name: "To choose the right size- please refer Slim Fit Dress size chart and how to measure image''"
+            },
+            {
+              name: "Occasion: Casual || Party || Beach || Formal || Meeting || Office wear"
+            },
+            {
+              name: "Sleeve Type : Half Sleeve"
+            },
+            {
+              name: "95% Polyester 5% spendex"
+            },
+            {
+              name: "Fabric : Polyester"
+            }
+          ]
+        },
+        {
+          image: "https://m.media-amazon.com/images/I/61Z9og5gnkL._AC_UL320_.jpg",
+          Name: "Women's Woven Georgette Saree With Blouse Piece (SSFB-SARI2845)",
+          reviewNumber: "259",
+          mrp: "₹3,999",
+          price: "999",
+          discount: "(75% off)",
+          selection6: [
+            {
+              name: "Care Instructions: Dry Clean Only"
+            },
+            {
+              name: "Fit Type: Regular"
+            },
+            {
+              name: "Sari Fabric : Georgette || Blouse Fabric : Banglory Silk"
+            },
+            {
+              name: "Sari Color : Light green || Blouse Color : Dark green"
+            },
+            {
+              name: "Work :- Embroidery Sequence Work"
+            },
+            {
+              name: "Wash Care: Dry clean for the first wash, there after hand wash"
+            },
+            {
+              name: "We are providing a piece of 80 centimeter unstitched blouse at the end of the saree, You have to cut it from there and stitch it as per your fit and style."
+            }
+          ]
+        },
+        {
+          image: "https://m.media-amazon.com/images/I/71qut3JXCoL._AC_UL320_.jpg",
+          Name: "Women's Rayon Full Sleeve A-Line Knee-Length Western Dresses for Women or Girls Western Dress",
+          reviewNumber: "1,941",
+          mrp: "₹2,299",
+          price: "389",
+          discount: "(83% off)",
+          selection6: [
+            {
+              name: "Care Instructions: Machine Wash"
+            },
+            {
+              name: "Fit Type: Loose"
+            },
+            {
+              name: "Fabric : Rayon Dress For Women"
+            },
+            {
+              name: "Color : Multi Dress For Women"
+            },
+            {
+              name: "Sleeve Type : Fullsleeve Dress For Women"
+            },
+            {
+              name: "Can be be styled both as a breezy casual outfit and a playful party outfit."
+            },
+            {
+              name: "Wash Care : first wash is dry clean after that use machine wash or hand wash"
+            }
+          ]
+        },
+        {
+          image: "https://m.media-amazon.com/images/I/41i20s8WZCL._AC_UL320_.jpg",
+          Name: "Jai Style Kutis Women Solid Cotton Rayon Blend Straight Anarkali Dress with Dupatta for Party and Office Wear",
+          reviewNumber: "5",
+          mrp: "₹1,499",
+          price: "699",
+          discount: "(53% off)",
+          selection6: [
+            {
+              name: "Care Instructions: Hand Wash Only"
+            },
+            {
+              name: "Care Instructions: Machine Wash"
+            },
+            {
+              name: "Fabric Type: rayon & cotton mix"
+            },
+            {
+              name: "Length & Style: Calf Length; Straight Kurta, Neck Line: Keyhole Neck"
+            },
+            {
+              name: "Size Chart: - M-40 | L-42 | XL-44 | XXL-46"
+            },
+            {
+              name: "Style: Anarkali"
+            },
+            {
+              name: "Sleeve type: Full Sleeve"
+            }
+          ]
+        },
+        {
+          image: "https://m.media-amazon.com/images/I/712R-zZ9D3L._AC_UL320_.jpg",
+          Name: "Batwing Gold Foil Party Top for Women's",
+          reviewNumber: "61",
+          mrp: "₹1,599",
+          price: "421.",
+          discount: "(74% off)",
+          selection6: [
+            {
+              name: "Care Instructions: Machine Wash"
+            },
+            {
+              name: "Fit Type: Regular Fit"
+            },
+            {
+              name: "Premium Polyester Material with Golden Checks Foil Print."
+            },
+            {
+              name: "Batwing Cap Sleeves with Notch V-Neck."
+            },
+            {
+              name: "Gold Foil for Party wear Looks."
+            },
+            {
+              name: "Front Yoke Line Pattern with Regular Length 24 inches longer."
+            },
+            {
+              name: "Women's & Girl's Can Pair with Shorty, Capri, Jeans, Skirts."
+            }
+          ]
+        },
+        {
+          image: "https://m.media-amazon.com/images/I/41fbLyS-h8L._AC_UL320_.jpg",
+          Name: "Zoya Creation Hoop Skirt Slips Crinoline Petticoat Long Underskirt for Wedding Bridal Dress Ball Gown for Party and Ethnic Wear White for Women & Girls",
+          reviewNumber: "18",
+          mrp: "₹1,599",
+          price: "950",
+          discount: "(41% off)",
+          selection6: [
+            {
+              name: "Care Instructions: Dry Clean Only"
+            },
+            {
+              name: "4 ring to 6 ring hoops Crinoline Petticoat has Single Layer,with 6 Strong Hoops,Which make your Ball Gown Wedding Dress more Fluffy and in Good Full Shape.You will be the most Dazzling person in the crowd, get the more Praise."
+            },
+            {
+              name: "This Plus Size Hoop skirt Elastic Waist is Adjustable, its Stretch range is 29-39.4 inches(66-100cm),suitable for Any Size.The bottom of Hoop Skirt maximum circle diameter is approx 43.3 inches(110cm),hoop skirt floor length is approx 39 inches (100 ± 5cm),The Petticoat Hoop Skirt is Fluffy,and 6 Hoops can be adjustable about the length,easily walk and turn."
+            },
+            {
+              name: "ADJUSTABLE PETTICOAT--The Petticoats Skirt has High Elastic Waist,with Drawstring.The Drawstring can be adjusted,suitable for any size.You can adjust the waistline according to your waist size.Perfect for Wedding Dress Ball Gown."
+            },
+            {
+              name: "The Crinoline Hoop Petticoats Skirt are perfect for wedding/evening/Quinceanera/Princess dresses/Ball Gown Slips. It will make your wedding dress more puffy and charming. Most dresses need a petticoat underneath to keep its shape."
+            },
+            {
+              name: "Please Hand Wash or Dry Clean your Hoop Petticoat,No Bleaching,No Wringing,because it may destroy the original shape of the Petticoat Skirt."
+            }
+          ]
+        },
+        {
+          image: "https://m.media-amazon.com/images/I/61DJyRZ2byL._AC_UL320_.jpg",
+          Name: "Women's Rayon Flared Kurta And Palazzo With Dupatta Set",
+          reviewNumber: "748",
+          mrp: "₹5,099",
+          price: "1,427",
+          discount: "(72% off)",
+          selection6: [
+            {
+              name: "Care Instructions: Machine Wash"
+            },
+            {
+              name: "Fit Type: Regular"
+            },
+            {
+              name: "Kurta Fabric:- Rayon || Bottom Fabric:- Rayon || Dupatta Fabric : Rayon"
+            },
+            {
+              name: "Kurta Sleeve & Neckline : 3/4 Sleeve & Mandarin Collar"
+            },
+            {
+              name: "Kurta Pattern - Flared"
+            },
+            {
+              name: "Contents = One Kurta, One Palazzo, One Dupatta *"
+            },
+            {
+              name: "Please click on Brand Name KHUSHAL K For More Stylish and Unic Colours Products"
+            }
+          ]
+        },
+        {
+          image: "https://m.media-amazon.com/images/I/51F8qaDJTbL._AC_UL320_.jpg",
+          Name: "Women's & Girls' Solid Fit and Flare Tank Dress",
+          reviewNumber: "785",
+          mrp: "₹1,999",
+          price: "474",
+          discount: "(76% off)",
+          selection6: [
+            {
+              name: "Care Instructions: Machine Wash"
+            },
+            {
+              name: "Fit Type: Slim"
+            },
+            {
+              name: "Material: 95% Polyester 5% Polyester, Pattern: Solid"
+            },
+            {
+              name: "Closure Type: Elastic; Sleeve Type: Sleeveless; Material Composition: 95% Polyester, 5% Spandex"
+            }
+          ]
+        },
+        {
+          image: "https://m.media-amazon.com/images/I/71H5s+Nn1KL._AC_UL320_.jpg",
+          Name: "Women's Net Embroidered Semi-Stitched Lehenga Choli(Green-Rani_Green_Free Size)",
+          reviewNumber: "761",
+          mrp: "₹4,999",
+          price: "919",
+          discount: "(82% off)",
+          selection6: [
+            {
+              name: "Care Instructions: Dry Clean Only"
+            },
+            {
+              name: "Fit Type: Regular"
+            },
+            {
+              name: "Fit Type: Regular"
+            },
+            {
+              name: "Fabric: Net"
+            },
+            {
+              name: "Closure Type: Drawstring"
+            },
+            {
+              name: "Sleeve Type: Full Sleeve"
+            },
+            {
+              name: "Choli Fabric : Net Embroidery Chain Work With Diamond Work Choli Color : Sky Choli Work :Embroidery Zari Work Duptta : Net With Four Side Embroidery Chain Lace Border Work : Embroidery"
+            },
+            {
+              name: "Lahenga Fabric : Net With Heavy Embroidery Chain Work With Diamond Work Lahenga Color : Green Lahenga Inner : SIlk, Lahenga Length :44 Lahenga Size :Up To 42"
+            },
+            {
+              name: "Disclaimer :-Product color may slightly vary due to photographic lighting sources or your monitor settings"
+            }
+          ]
+        },
+        {
+          image: "https://m.media-amazon.com/images/I/41JQsjyf8uL._AC_UL320_.jpg",
+          Name: "Western Dresses for Women|Stylish Latest Dresses|Skirts|Kurti with Palazzo Set|Long Kurtis|Stylish Tops|Western Tops for Girls| Gown |Maxi Dress Crop top | Party Dress Red Dress",
+          reviewNumber: "44",
+          mrp: "₹1,899",
+          price: "590",
+          discount: "(69% off)",
+          selection6: [
+            {
+              name: "Care Instructions: Dry Clean Only"
+            },
+            {
+              name: "Fit Type: Regular"
+            },
+            {
+              name: "Fit Type: Regular"
+            },
+            {
+              name: "A-line; full sleeve"
+            },
+            {
+              name: "Dresses For Women One Piece for Women"
+            },
+            {
+              name: "GG Fashion Girl's and womens Full Length Party Dress"
+            },
+            {
+              name: "Actual colour of the product may marginally vary due to photographic lighting sources or your device settings"
+            }
+          ]
+        },
+        {
+          image: "https://m.media-amazon.com/images/I/711iAeJg0AL._AC_UL320_.jpg",
+          Name: "Women's Net Embroidered Semi Stitch Gown(SARA02_Sami Stitched) Peach",
+          reviewNumber: "51",
+          mrp: "₹1,999",
+          price: "999",
+          discount: "(50% off)",
+          selection6: [
+            {
+              name: "Care Instructions: Dry Clean Only"
+            },
+            {
+              name: "Fit Type: Regular"
+            },
+            {
+              name: "Maxi, Net, Embroidered, Party, Anarkali Gown; Length: Up To 56 , Size: Max Up To 44 (Up To Xl ); Type: Semi Stitched"
+            },
+            {
+              name: "Fabric:- Butterfly Net; Inner: Silk; Dupatta: Net; Flare:- 3 Mtr; Care Instructions: Only Dry Clean, Do Not Bleach"
+            },
+            {
+              name: "Top: Heavy Net Embroidery Work With Stone Work & Cording Work; Bottom:- Silk & Dupatta: Net With Embroidery Work"
+            },
+            {
+              name: "Disclaimer: Product Color May Slightly Vary Due To Photographic Lighting Sources On Your Monitor/ Device Setting"
+            },
+            {
+              name: "Age Range Description: Adult"
+            }
+          ]
+        },
+        {
+          image: "https://m.media-amazon.com/images/I/51AlaS-fz3L._AC_UL320_.jpg",
+          Name: "PU Bow Applique Sandals in Purple Color (1158574)",
+          mrp: "₹1,129",
+          price: "1,010",
           discount: "(11% off)",
           selection6: [
             {
-              name: "15 cm (6.1-inch) Super Retina XDR display"
+              name: "Sole: Rubber"
             },
             {
-              name: "Cinematic mode adds shallow depth of field and shifts focus automatically in your videos"
+              name: "Closure: Buckle"
             },
             {
-              name: "Advanced dual-camera system with 12MP Wide and Ultra Wide cameras; Photographic Styles, Smart HDR 4, Night mode, 4K Dolby Vision HDR recording"
+              name: "Shoe Width: Medium"
             },
             {
-              name: "12MP TrueDepth front camera with Night mode, 4K Dolby Vision HDR recording"
+              name: "Material: 100% PU"
             },
             {
-              name: "A15 Bionic chip for lightning-fast performance"
-            }
-          ]
-        },
-        {
-          image: "https://m.media-amazon.com/images/I/812YsUxpyfL._AC_UL320_.jpg",
-          Name: "Samsung Galaxy M13 (Midnight Blue, 4GB, 64GB Storage) | 6000mAh Battery | Upto 8GB RAM with RAM Plus",
-          reviewNumber: "20,577",
-          mrp: "₹14,999",
-          price: "10,999",
-          discount: "(27% off)",
-          selection6: [
-            {
-              name: "6000mAh lithium-ion battery, 1 year manufacturer warranty for device and 6 months manufacturer warranty for in-box accessories including batteries from the date of purchase"
-            },
-            {
-              name: "Upto 12GB RAM with RAM Plus | 64GB internal memory expandable up to 1TB| Dual Sim (Nano)"
-            },
-            {
-              name: "50MP+5MP+2MP Triple camera setup- True 50MP (F1.8) main camera +5MP(F2.2)+ 2MP (F2.4) | 8MP (F2.2) front cam"
-            },
-            {
-              name: "Android 12,One UI Core 4 with a powerful Octa Core Processor"
-            },
-            {
-              name: "16.72 centimeters (6.6-inch) FHD+ LCD - infinity O Display, FHD+ resolution with 1080 x 2408 pixels resolution, 401 PPI with 16M color"
-            }
-          ]
-        },
-        {
-          image: "https://m.media-amazon.com/images/I/81I3w4J6yjL._AC_UL320_.jpg",
-          Name: "Samsung Galaxy M33 5G (Mystique Green, 6GB, 128GB Storage) | 6000mAh Battery | Upto 12GB RAM with RAM Plus | Travel Adapter to be Purchased Separately",
-          reviewNumber: "23,280",
-          mrp: "₹24,999",
-          price: "18,999",
-          discount: "(24% off)",
-          selection6: [
-            {
-              name: "Exynos 1280 Octa Core 2.4GHz 5nm Processor with the 12 band support for a True 5G experience"
-            },
-            {
-              name: "16.72 centimeters (6.6-inch) LCD Display, FHD+ resolution, 1080x2400 pixels protected by Gorilla Glass 5"
-            },
-            {
-              name: "Versatile Quad camera setup-50MP (F1.8)+ 5MP (F2.2/UW- 123 FOV) + 2MP (F2.4/Depth) + 2MP (F2.4/Macro) QuadCamera| 8MP (F1.8) Front Camera"
-            },
-            {
-              name: "Massive 6000 mAh Battery | Memory, Storage & SIM: 6GB RAM | 128GB internal memory expandable up to 1TB| SIM 1 + SIM 2+ Micro SD"
-            },
-            {
-              name: "Latest Android v12.0, One UI 4 operating system."
-            },
-            {
-              name: "Intelligent Voice Focus | Power Cool Technology | Auto Data Switching"
-            },
-            {
-              name: "Connector type: 3.5mm jack"
-            }
-          ]
-        },
-        {
-          image: "https://m.media-amazon.com/images/I/81-fFXQdPTL._AC_UL320_.jpg",
-          Name: "Samsung Galaxy M13 (Aqua Green, 4GB, 64GB Storage) | 6000mAh Battery | Upto 8GB RAM with RAM Plus",
-          reviewNumber: "20,577",
-          mrp: "₹14,999",
-          price: "10,999",
-          discount: "(27% off)",
-          selection6: [
-            {
-              name: "6000mAh lithium-ion battery, 1 year manufacturer warranty for device and 6 months manufacturer warranty for in-box accessories including batteries from the date of purchase"
-            },
-            {
-              name: "Upto 12GB RAM with RAM Plus | 64GB internal memory expandable up to 1TB| Dual Sim (Nano)"
-            },
-            {
-              name: "50MP+5MP+2MP Triple camera setup- True 50MP (F1.8) main camera +5MP(F2.2)+ 2MP (F2.4) | 8MP (F2.2) front cam"
-            },
-            {
-              name: "Android 12,One UI Core 4 with a powerful Octa Core Processor"
-            },
-            {
-              name: "16.72 centimeters (6.6-inch) FHD+ LCD - infinity O Display, FHD+ resolution with 1080 x 2408 pixels resolution, 401 PPI with 16M color"
-            }
-          ]
-        },
-        {
-          image: "https://m.media-amazon.com/images/I/81OZGH4fZiL._AC_UL320_.jpg",
-          Name: "Xiaomi Redmi 10 Power (Sporty Orange, 8GB RAM, 128GB Storage)",
-          reviewNumber: "763",
-          mrp: "₹18,999",
-          price: "11,999",
-          discount: "(37% off)",
-          selection6: [
-            {
-              name: "Processor: Snapdragon 680 6nm Octa-core processor; Up to 2.4GHz clock speed"
-            },
-            {
-              name: "Camera: 50 MP Primary Rear Camera with 2MP Portrait Lens| 5 MP Front camera"
-            },
-            {
-              name: "Display: HD+ (720x1650) IPS LCD Display; 17.01 centimeters(6.7 inch); 20.6:9 aspect ratio"
-            },
-            {
-              name: "Battery: 6000 mAh large battery with 18W fast charging support(10W in-box) and Type-C connectivity"
-            },
-            {
-              name: "Memory, Storage & SIM: 8GB RAM | 128GB UFS 2.2 storage expandable up to 512GB with dedicated SD card slot | Dual SIM (nano+nano) dual standby (4G+4G)"
-            }
-          ]
-        },
-        {
-          image: "https://m.media-amazon.com/images/I/71geVdy6-OS._AC_UL320_.jpg",
-          Name: "OPPO A74 5G (Fantastic Purple,6GB RAM,128GB Storage) with No Cost EMI/Additional Exchange Offers",
-          reviewNumber: "33,437",
-          mrp: "₹20,990",
-          price: "15,490",
-          discount: "(26% off)",
-          selection6: [
-            {
-              name: "6.49 Inch 16.5cm FHD+ Punch-hole Display with 2400x1080 pixels. Larger screen to body ratio of 90.5%.Side Fingerprint Sensor"
-            },
-            {
-              name: "Qualcomm Snapdragon 480 5G GPU 619 at 650 MHz Support 5G sim Powerful 2 GHz Octa-core processor, support LPDDR4X memory and latest UFS 2.1 gear 3 storage"
-            },
-            {
-              name: "5000 mAh lithium polymer battery"
-            },
-            {
-              name: "48MP Quad Camera 48MP Main + 2MP Macro + 2MP Depth Lens 8MP Front Camera"
-            },
-            {
-              name: "Memory, Storage & SIM: 6GB RAM 128GB internal memory expandable up to 256GB Dual SIM nano+nano dual-standby 5G+5G. Color OS 11.1 based on Android v11.0 operating system"
-            },
-            {
-              name: "Connector type: USB Type C"
-            },
-            {
-              name: "Display type: LCD"
-            }
-          ]
-        },
-        {
-          image: "https://m.media-amazon.com/images/I/716uVx3Wr5L._AC_UL320_.jpg",
-          Name: "OnePlus 10R 5G (Forest Green, 8GB RAM, 128GB Storage, 80W SuperVOOC)",
-          reviewNumber: "11,521",
-          mrp: "₹38,999",
-          price: "32,999",
-          discount: "(15% off)",
-          selection6: [
-            {
-              name: "Camera: 50MP Main Camera with Sony IMX766 and 2MP Macro Camera with Dual LED Flash; 16MP Front (Selfie) Camera with Sony IMX471"
-            },
-            {
-              name: "Camera Features: Nightscape2.0, Super Macro, UltraShot HDR, Smart Scene Recognition, Portrait mode, Pro mode, Panorama, Tilt-shift mode, Focus Peaking, Filters, Video Nightscape, Video HDR, Video Portrait Timelapse, Hyperlapse Mode"
-            },
-            {
-              name: "Display: 6.7 Inches; 120 Hz IRIS Display; Resolution: 2400 X 1080 pixels 394 ppi; Aspect Ratio: 20:9"
-            },
-            {
-              name: "Display Features: Hyper Touch Mode, Reading Mode, Night Mode, Eye Comfort Mode, Auto brightness"
-            },
-            {
-              name: "Operating System: OxygenOS based on Android 12, Processor: MTK D8100 Max"
-            },
-            {
-              name: "Battery & Charging: 5000 mAh with 80W SuperVOOC. In-Display Fingerprint Sensor"
-            },
-            {
-              name: "Special Features: Hyperboost gaming engine"
-            }
-          ]
-        },
-        {
-          image: "https://m.media-amazon.com/images/I/81xvGbBFNhL._AC_UL320_.jpg",
-          Name: "Samsung Galaxy M33 5G (Deep Ocean Blue, 8GB, 128GB Storage) | 6000mAh Battery | Upto 16GB RAM with RAM Plus | Travel Adapter to be Purchased Separately",
-          reviewNumber: "23,280",
-          mrp: "₹25,999",
-          price: "20,499",
-          discount: "(21% off)",
-          selection6: [
-            {
-              name: "Exynos 1280 Octa Core 2.4GHz 5nm Processor with the 12 band support for a True 5G experience"
-            },
-            {
-              name: "16.72 centimeters (6.6-inch) LCD Display, FHD+ resolution, 1080x2400 pixels protected by Gorilla Glass 5"
-            },
-            {
-              name: "Versatile Quad camera setup-50MP (F1.8)+ 5MP (F2.2/UW- 123 FOV) + 2MP (F2.4/Depth) + 2MP (F2.4/Macro) QuadCamera| 8MP (F1.8) Front Camera"
-            },
-            {
-              name: "Massive 6000 mAh Battery | Memory, Storage & SIM: 8GB RAM | 128GB internal memory expandable up to 1TB| SIM 1 + SIM 2+ Micro SD"
-            },
-            {
-              name: "Latest Android v12.0, One UI 4 operating system."
-            },
-            {
-              name: "Intelligent Voice Focus | Power Cool Technology | Auto Data Switching"
-            },
-            {
-              name: "Connector type: 3.5mm jack"
-            }
-          ]
-        },
-        {
-          image: "https://m.media-amazon.com/images/I/81t6Av5DvXL._AC_UL320_.jpg",
-          Name: "Samsung Galaxy M04 Dark Blue, 4GB RAM, 128GB Storage | Upto 8GB RAM with RAM Plus | MediaTek Helio P35 | 5000 mAh Battery",
-          reviewNumber: "649",
-          mrp: "₹13,499",
-          price: "9,499",
-          discount: "(30% off)",
-          selection6: [
-            {
-              name: "Powerful MediaTek Helio P35 Octa Core 2.3GHz with Android 12,One UI Core 4.1"
-            },
-            {
-              name: "13MP+2MP Dual camera setup- True 13MP (F2.2) main camera + 2MP (F2.4) | 5MP (F2.2) front came"
-            },
-            {
-              name: "16.55 centimeters (6.5-inch) LCD, HD+ resolution with 720 x 1600 pixels resolution, 269 PPI with 16M color"
-            },
-            {
-              name: "5000mAH lithium-ion battery, 1 year manufacturer warranty for device and 6 months manufacturer warranty for in-box accessories including batteries from the date of purchase"
-            }
-          ]
-        },
-        {
-          image: "https://m.media-amazon.com/images/I/617MPEZB5mL._AC_UL320_.jpg",
-          Name: "OnePlus Nord 2T 5G (Gray Shadow, 8GB RAM, 128GB Storage)",
-          reviewNumber: "18,792",
-          price: "28,999",
-          selection6: [
-            {
-              name: "Camera: 50MP Main Camera with Sony IMX766 and OIS, 8MP Ultrawide Camera with 120 degree FOV and 2MP mono lens with Dual LED Flash; 32MP Front (Selfie) Camera with Sony IMX615"
-            },
-            {
-              name: "Camera Features: AI Scene Enhancement, AI Highlight Video, Slow-motion captures, Dual-view Video, HDR, Nightscape, Portrait mode, Pano, Retouching and exciting filters."
-            },
-            {
-              name: "Display: 6.43 Inches; 90 Hz AMOLED Display with Corning Gorilla Glass 5; Resolution: 2400 X 1080 pixels; HDR 10+ Certified"
-            },
-            {
-              name: "Display Features: Ambient Display, AI colour enhancement and Dark mode"
-            },
-            {
-              name: "Operating System: OxygenOS based on Android 12"
-            },
-            {
-              name: "Processor: Mediatek Dimensity 1300"
-            },
-            {
-              name: "Battery & Charging: 4500 mAh with 80W SuperVOOC"
-            }
-          ]
-        },
-        {
-          image: "https://m.media-amazon.com/images/I/71BoiXkrEmL._AC_UL320_.jpg",
-          Name: "OnePlus 10R 5G (Sierra Black, 8GB RAM, 128GB Storage, 80W SuperVOOC)",
-          reviewNumber: "11,521",
-          mrp: "₹38,999",
-          price: "32,999",
-          discount: "(15% off)",
-          selection6: [
-            {
-              name: "Camera: 50MP Main Camera with Sony IMX766 and 2MP Macro Camera with Dual LED Flash; 16MP Front (Selfie) Camera with Sony IMX471"
-            },
-            {
-              name: "Camera Features: Nightscape2.0, Super Macro, UltraShot HDR, Smart Scene Recognition, Portrait mode, Pro mode, Panorama, Tilt-shift mode, Focus Peaking, Filters, Video Nightscape, Video HDR, Video Portrait Timelapse, Hyperlapse Mode"
-            },
-            {
-              name: "Display: 6.7 Inches; 120 Hz IRIS Display; Resolution: 2400 X 1080 pixels 394 ppi; Aspect Ratio: 20:9"
-            },
-            {
-              name: "Display Features: Hyper Touch Mode, Reading Mode, Night Mode, Eye Comfort Mode, Auto brightness"
-            },
-            {
-              name: "Operating System: OxygenOS based on Android 12, Processor: MTK D8100 Max"
-            },
-            {
-              name: "Battery & Charging: 5000 mAh with 80W SuperVOOC"
-            },
-            {
-              name: "In-Display Fingerprint Sensor"
-            }
-          ]
-        },
-        {
-          image: "https://m.media-amazon.com/images/I/8104evx11QL._AC_UL320_.jpg",
-          Name: "Oppo A78 5G (Glowing Blue, 8GB RAM, 128 Storage) | 5000 mAh Battery with 33W SUPERVOOC Charger| 50MP AI Camera | 90Hz Refresh Rate | with No Cost EMI/Additional Exchange Offers",
-          reviewNumber: "20",
-          mrp: "₹21,999",
-          price: "18,999",
-          discount: "(14% off)",
-          selection6: [
-            {
-              name: "Big 5000 mAh Battery with 33W SUPERVOOC Charging"
-            },
-            {
-              name: "Super smooth experience with ColorOS 13 and 8GB RAM (+ RAM expansion up to 8GB) | 128GB ROM | Expandable Upto 1TB"
-            },
-            {
-              name: "Crystal clear details with AI Camera setup 50MP + 2MP Rear Camera | 8MP Front Camera"
-            },
-            {
-              name: "OPPO Glow Design with 6.56 inch (16.66cm) 90Hz Color-Rich Display and Large Screen to Body ratio of 89.8%"
-            },
-            {
-              name: "Dual Ultra Linear Stereo Speakers with ROST and flagship hardware which produce an immersive sound effect"
-            }
-          ]
-        },
-        {
-          image: "https://m.media-amazon.com/images/I/71Ta0Hcl+PL._AC_UL320_.jpg",
-          Name: "Redmi 10A Sport (Sea Blue, 6GB RAM, 128GB Storage) | 2 Ghz Octa Cor Helio G25 | 5000 mAh Battery | Finger Print Sensor | Upto 8GB RAM with RAM Booster",
-          reviewNumber: "1,108",
-          mrp: "₹13,999",
-          price: "9,999",
-          discount: "(29% off)",
-          selection6: [
-            {
-              name: "Camera: 13MP Rear Camera | 5MP Front Camera"
-            },
-            {
-              name: "Display: HD+(1600x700) IPS LCD display; 15.58 centimeters (6.53 inch); 20:9 aspect ratio"
-            },
-            {
-              name: "Processor: MediaTek Helio G25 Octa-core processor; Up to 2.0 GHz clock speed"
-            },
-            {
-              name: "Battery: 5000 mAh large battery with 10W fast charger in-box and Micro USB connectivity"
-            },
-            {
-              name: "Memory, Storage & SIM:6GB RAM (expandable to 8GB with RAM Booster) | 128GB storage expandable upto 512GB with dedicated SD card slot | Dual SIM (nano+nano) dual standby(4G+4G)"
-            }
-          ]
-        },
-        {
-          image: "https://m.media-amazon.com/images/I/71WC+Qz1KgL._AC_UL320_.jpg",
-          Name: "Redmi 10A (Sea Blue, 4GB RAM, 64GB Storage) | 2 Ghz Octa Core Helio G25 | 5000 mAh Battery | Finger Print Sensor | Upto 5GB RAM with RAM Booster",
-          reviewNumber: "13,808",
-          mrp: "₹11,999",
-          price: "8,999",
-          discount: "(25% off)",
-          selection6: [
-            {
-              name: "Camera: 13MP Rear Camera | 5MP Front Camera"
-            },
-            {
-              name: "Display: HD+(1600x700) IPS LCD display; 15.58 centimeters (6.53 inch); 20:9 aspect ratio"
-            },
-            {
-              name: "Processor: MediaTek Helio G25 Octa-core processor; Up to 2.0 GHz clock speed"
-            },
-            {
-              name: "Battery: 5000 mAh large battery with 10W fast charger in-box and Micro USB connectivity"
-            },
-            {
-              name: "Memory, Storage & SIM:4GB RAM | 64GB storage expandable upto 512GB with dedicated SD card slot | Dual SIM (nano+nano) dual standby(4G+4G)"
-            }
-          ]
-        },
-        {
-          image: "https://m.media-amazon.com/images/I/71yTvU9VgdL._AC_UL320_.jpg",
-          Name: "Redmi Note 11 (Space Black, 4GB RAM, 64GB Storage)|90Hz FHD+ AMOLED Display | Qualcomm® Snapdragon™ 680-6nm | 33W Charger Included",
-          reviewNumber: "52,064",
-          mrp: "₹17,999",
-          price: "12,999",
-          discount: "(28% off)",
-          selection6: [
-            {
-              name: "Display: 90Hz FHD+ (1080x2400) AMOLED display; 16.33 centimeters (6.43 inch); 20:9 aspect ratio"
-            },
-            {
-              name: "Camera: 50 MP Quad Rear camera with 8MP Ultra-wide, 2MP Macro and Portrait lens| 13 MP Front camera"
-            },
-            {
-              name: "Battery: 5000 mAh large battery with 33W Pro fast charger in-box and Type-C connectivity"
-            },
-            {
-              name: "Processor: Qualcomm Snapdragon 680 Octa-core; 6nm processor; Up to 2.4GHz clock speed"
-            },
-            {
-              name: "Memory, Storage & SIM: 4GB RAM | 64GB UFS 2.2 storage expandable up to 512GB with dedicated SD card slot | Dual SIM (nano+nano) dual standby (4G+4G)"
-            }
-          ]
-        },
-        {
-          image: "https://m.media-amazon.com/images/I/81xvGbBFNhL._AC_UL320_.jpg",
-          Name: "Samsung Galaxy M33 5G (Deep Ocean Blue, 6GB, 128GB Storage) | 6000mAh Battery | Upto 12GB RAM with RAM Plus | Travel Adapter to be Purchased Separately",
-          reviewNumber: "23,280",
-          mrp: "₹24,999",
-          price: "18,999",
-          discount: "(24% off)",
-          selection6: [
-            {
-              name: "Exynos 1280 Octa Core 2.4GHz 5nm Processor with 12 band support for a True 5G experience"
-            },
-            {
-              name: "16.72 centimeters (6.6-inch) LCD Display, FHD+ resolution, 1080x2400 pixels protected by Gorilla Glass 5"
-            },
-            {
-              name: "Versatile Quad camera setup-50MP (F1.8)+ 5MP (F2.2/UW- 123 FOV) + 2MP (F2.4/Depth) + 2MP (F2.4/Macro) QuadCamera| 8MP (F1.8) Front Camera"
-            },
-            {
-              name: "Massive 6000 mAh Battery | Memory, Storage & SIM: 6GB RAM | 128GB internal memory expandable up to 1TB| SIM 1 + SIM 2+ Micro SD"
-            },
-            {
-              name: "Latest Android v12.0, One UI 4 operating system."
-            },
-            {
-              name: "Intelligent Voice Focus | Power Cool Technology | Auto Data Switching"
-            }
-          ]
-        },
-        {
-          image: "https://m.media-amazon.com/images/I/81-fFXQdPTL._AC_UL320_.jpg",
-          Name: "Samsung Galaxy M13 (Aqua Green, 6GB, 128GB Storage) | 6000mAh Battery | Upto 12GB RAM with RAM Plus",
-          reviewNumber: "20,577",
-          mrp: "₹17,999",
-          price: "12,999",
-          discount: "(28% off)",
-          selection6: [
-            {
-              name: "6000mAh lithium-ion battery, 1 year manufacturer warranty for device and 6 months manufacturer warranty for in-box accessories including batteries from the date of purchase"
-            },
-            {
-              name: "Upto 12GB RAM with RAM Plus | 128GB internal memory expandable up to 1TB| Dual Sim (Nano)"
-            },
-            {
-              name: "50MP+5MP+2MP Triple camera setup- True 50MP (F1.8) main camera +5MP(F2.2)+ 2MP (F2.4) | 8MP (F2.2) front cam"
-            },
-            {
-              name: "Android 12,One UI Core 4 with a powerful Octa Core Processor"
-            },
-            {
-              name: "16.72 centimeters (6.6-inch) FHD+ LCD - infinity O Display, FHD+ resolution with 1080 x 2408 pixels resolution, 401 PPI with 16M color"
-            }
-          ]
-        },
-        {
-          image: "https://m.media-amazon.com/images/I/810KHyQ4WcL._AC_UL320_.jpg",
-          Name: "Redmi 9A Sport (Coral Green, 2GB RAM, 32GB Storage) | 2GHz Octa-core Helio G25 Processor | 5000 mAh Battery",
-          reviewNumber: "316,285",
-          mrp: "₹7,999",
-          price: "6,499",
-          discount: "(19% off)",
-          selection6: [
-            {
-              name: "Processor: MediaTek Helio G25 Octa-core; Up to 2.0GHz clock speed"
-            },
-            {
-              name: "Camera: 13 MP Rear camera with AI portrait| 5 MP front camera"
-            },
-            {
-              name: "Display: 16.58 centimeters (6.53-inch) HD+ display with 720x1600 pixels and 20:9 aspect ratio"
-            },
-            {
-              name: "Battery: 5000 mAH large battery with 10W wired charger in-box"
-            },
-            {
-              name: "Memory, Storage & SIM: 2GB RAM | 32GB storage | Dual SIM (nano+nano) + Dedicated SD card slot"
-            },
-            {
-              name: "The Selfie camera allows easy and convenient access to your phone with AI face unlock"
-            },
-            {
-              name: "Form factor:Bar,Operating system:MIUI 12"
-            }
-          ]
-        },
-        {
-          image: "https://m.media-amazon.com/images/I/814ePfNubRL._AC_UL320_.jpg",
-          Name: "Samsung Galaxy M04 Light Green, 4GB RAM, 128GB Storage | Upto 8GB RAM with RAM Plus | MediaTek Helio P35 | 5000 mAh Battery",
-          reviewNumber: "649",
-          mrp: "₹13,499",
-          price: "9,499",
-          discount: "(30% off)",
-          selection6: [
-            {
-              name: "Powerful MediaTek Helio P35 Octa Core 2.3GHz with Android 12,One UI Core 4.1"
-            },
-            {
-              name: "13MP+2MP Dual camera setup- True 13MP (F2.2) main camera + 2MP (F2.4) | 5MP (F2.2) front came"
-            },
-            {
-              name: "16.55 centimeters (6.5-inch) LCD, HD+ resolution with 720 x 1600 pixels resolution, 269 PPI with 16M color"
-            },
-            {
-              name: "5000mAH lithium-ion battery, 1 year manufacturer warranty for device and 6 months manufacturer warranty for in-box accessories including batteries from the date of purchase"
-            }
-          ]
-        },
-        {
-          image: "https://m.media-amazon.com/images/I/81I3w4J6yjL._AC_UL320_.jpg",
-          Name: "Samsung Galaxy M33 5G (Mystique Green, 8GB, 128GB Storage) | 6000mAh Battery | Upto 16GB RAM with RAM Plus | Travel Adapter to be Purchased Separately",
-          reviewNumber: "23,280",
-          mrp: "₹25,999",
-          price: "20,499",
-          discount: "(21% off)",
-          selection6: [
-            {
-              name: "Exynos 1280 Octa Core 2.4GHz 5nm Processor with the 12 band support for a True 5G experience"
-            },
-            {
-              name: "16.72 centimeters (6.6-inch) LCD Display, FHD+ resolution, 1080x2400 pixels protected by Gorilla Glass 5"
-            },
-            {
-              name: "Versatile Quad camera setup-50MP (F1.8)+ 5MP (F2.2/UW- 123 FOV) + 2MP (F2.4/Depth) + 2MP (F2.4/Macro) QuadCamera| 8MP (F1.8) Front Camera"
-            },
-            {
-              name: "Massive 6000 mAh Battery | Memory, Storage & SIM: 8GB RAM | 128GB internal memory expandable up to 1TB| SIM 1 + SIM 2+ Micro SD"
-            },
-            {
-              name: "Latest Android v12.0, One UI 4 operating system."
-            },
-            {
-              name: "Intelligent Voice Focus | Power Cool Technology | Auto Data Switching"
-            },
-            {
-              name: "Connector type: 3.5mm jack"
-            }
-          ]
-        },
-        {
-          image: "https://m.media-amazon.com/images/I/81lnKynSaqL._AC_UL320_.jpg",
-          Name: "Samsung Galaxy M33 5G (Emerald Brown, 6GB, 128GB Storage) | 6000mAh Battery | Upto 12GB RAM with RAM Plus | Travel Adapter to be Purchased Separately",
-          reviewNumber: "23,280",
-          mrp: "₹24,999",
-          price: "18,999",
-          discount: "(24% off)",
-          selection6: [
-            {
-              name: "Exynos 1280 Octa Core 2.4GHz 5nm Processor with the 12 band support for a True 5G experience"
-            },
-            {
-              name: "16.72 centimeters (6.6-inch) LCD Display, FHD+ resolution, 1080x2400 pixels protected by Gorilla Glass 5"
-            },
-            {
-              name: "Versatile Quad camera setup-50MP (F1.8)+ 5MP (F2.2/UW- 123 FOV) + 2MP (F2.4/Depth) + 2MP (F2.4/Macro) QuadCamera| 8MP (F1.8) Front Camera"
-            },
-            {
-              name: "Massive 6000 mAh Battery | Memory, Storage & SIM: 6GB RAM | 128GB internal memory expandable up to 1TB| SIM 1 + SIM 2+ Micro SD"
-            },
-            {
-              name: "Latest Android v12.0, One UI 4 operating system."
-            }
-          ]
-        },
-        {
-          image: "https://m.media-amazon.com/images/I/71t7mcs1VoL._AC_UL320_.jpg",
-          Name: "Redmi 10A Sport (Slate Grey, 6GB RAM, 128GB Storage) | 2 Ghz Octa Cor Helio G25 | 5000 mAh Battery | Finger Print Sensor | Upto 8GB RAM with RAM Booster",
-          reviewNumber: "1,108",
-          mrp: "₹13,999",
-          price: "9,999",
-          discount: "(29% off)",
-          selection6: [
-            {
-              name: "Camera: 13MP Rear Camera | 5MP Front Camera"
-            },
-            {
-              name: "Display: HD+(1600x700) IPS LCD display; 15.58 centimeters (6.53 inch); 20:9 aspect ratio"
-            },
-            {
-              name: "Processor: MediaTek Helio G25 Octa-core processor; Up to 2.0 GHz clock speed"
-            },
-            {
-              name: "Battery: 5000 mAh large battery with 10W fast charger in-box and Micro USB connectivity"
-            },
-            {
-              name: "Memory, Storage & SIM:6GB RAM (expandable to 8GB with RAM Booster) | 128GB storage expandable upto 512GB with dedicated SD card slot | Dual SIM (nano+nano) dual standby(4G+4G)"
-            }
-          ]
-        },
-        {
-          image: "https://m.media-amazon.com/images/I/71poFSdDs5S._AC_UL320_.jpg",
-          Name: "OPPO A74 5G (Fluid Black, 6GB RAM, 128GB Storage) with No Cost EMI/Additional Exchange Offers",
-          reviewNumber: "33,437",
-          mrp: "₹20,990",
-          price: "15,490",
-          discount: "(26% off)",
-          selection6: [
-            {
-              name: "6.49 Inch (16.5cm) FHD+ Punch-hole Display with 2400x1080 pixels. Larger screen to body ratio of 90.5%.|Side Fingerprint Sensor. Bluetooth Audio Codec: SBC, AAC, APTX HD, LDAC"
-            },
-            {
-              name: "Qualcomm Snapdragon 480 5G GPU 619 at 650 MHz Support 5G sim| Powerful 2 GHz Octa-core processor, support LPDDR4X memory and latest UFS 2.1 gear 3 storage"
-            },
-            {
-              name: "5000 mAh lithium polymer battery"
-            },
-            {
-              name: "48MP Quad Camera ( 48MP Main + 2MP Macro + 2MP Depth Lens) | 8MP Front Camera."
-            },
-            {
-              name: "Memory, Storage & SIM: 6GB RAM | 128GB internal memory expandable up to 256GB | Dual SIM (nano+nano) dual-standby (5G+5G).| Color OS 11.1 based on Android v11.0 operating system."
-            },
-            {
-              name: "Connector type: USB Type C"
-            }
-          ]
-        },
-        {
-          image: "https://m.media-amazon.com/images/I/81zLNgcvlaL._AC_UL320_.jpg",
-          Name: "Redmi Note 11 (Horizon Blue, 6GB RAM, 64GB Storage)|90Hz FHD+ AMOLED Display | Qualcomm® Snapdragon™ 680-6nm | 33W Charger Included",
-          reviewNumber: "52,064",
-          mrp: "₹18,999",
-          price: "12,499",
-          discount: "(34% off)",
-          selection6: [
-            {
-              name: "Display: 90Hz FHD+ (1080x2400) AMOLED display; 16.33 centimeters (6.43 inch); 20:9 aspect ratio"
-            },
-            {
-              name: "Camera: 50 MP Quad Rear camera with 8MP Ultra-wide, 2MP Macro and Portrait lens| 13 MP Front camera"
-            },
-            {
-              name: "Battery: 5000 mAh large battery with 33W Pro fast charger in-box and Type-C connectivity"
-            },
-            {
-              name: "Processor: Qualcomm Snapdragon 680 Octa-core; 6nm processor; Up to 2.4GHz clock speed"
-            },
-            {
-              name: "Memory, Storage & SIM: 6GB RAM | 64GB UFS 2.2 storage expandable up to 512GB with dedicated SD card slot | Dual SIM (nano+nano) dual standby (4G+4G)"
-            }
-          ]
-        },
-        {
-          image: "https://m.media-amazon.com/images/I/81LrmorQeQL._AC_UL320_.jpg",
-          Name: "Oppo A78 5G (Glowing Black, 8GB RAM, 128 Storage) | 5000 mAh Battery with 33W SUPERVOOC Charger| 50MP AI Camera | 90Hz Refresh Rate | with No Cost EMI/Additional Exchange Offers",
-          reviewNumber: "20",
-          mrp: "₹21,999",
-          price: "18,999",
-          discount: "(14% off)",
-          selection6: [
-            {
-              name: "Big 5000 mAh Battery with 33W SUPERVOOC Charging"
-            },
-            {
-              name: "Super smooth experience with ColorOS 13 and 8GB RAM (+ RAM expansion up to 8GB) | 128GB ROM | Expandable Upto 1TB"
-            },
-            {
-              name: "Crystal clear details with AI Camera setup 50MP + 2MP Rear Camera | 8MP Front Camera"
-            },
-            {
-              name: "OPPO Glow Design with 6.56 inch (16.66cm) 90Hz Color-Rich Display and Large Screen to Body ratio of 89.8%"
-            },
-            {
-              name: "Dual Ultra Linear Stereo Speakers with ROST and flagship hardware which produce an immersive sound effect"
-            }
-          ]
-        },
-        {
-          image: "https://m.media-amazon.com/images/I/71kVEmAMyEL._AC_UL320_.jpg",
-          Name: "Redmi 10A (Slate Grey, 3GB RAM, 32GB Storage) | 2 Ghz Octa Core Helio G25 | 5000 mAh Battery | Finger Print Sensor | Upto 5GB RAM with RAM Booster",
-          reviewNumber: "13,808",
-          mrp: "₹10,999",
-          price: "7,499",
-          discount: "(32% off)",
-          selection6: [
-            {
-              name: "Camera: 13MP Rear Camera | 5MP Front Camera"
-            },
-            {
-              name: "Display: HD+(1600x700) IPS LCD display; 15.58 centimeters (6.53 inch); 20:9 aspect ratio"
-            },
-            {
-              name: "Processor: MediaTek Helio G25 Octa-core processor; Up to 2.0 GHz clock speed"
-            },
-            {
-              name: "Battery: 5000 mAh large battery with 10W fast charger in-box and Micro USB connectivity"
-            },
-            {
-              name: "Memory, Storage & SIM:3GB RAM | 32GB storage expandable upto 512GB with dedicated SD card slot | Dual SIM (nano+nano) dual standby(4G+4G)"
-            }
-          ]
-        },
-        {
-          image: "https://m.media-amazon.com/images/I/81zLNgcvlaL._AC_UL320_.jpg",
-          Name: "Redmi Note 11 (Horizon Blue, 6GB RAM, 128GB Storage)|90Hz FHD+ AMOLED Display | Qualcomm® Snapdragon™ 680-6nm | 33W Charger Included",
-          reviewNumber: "52,064",
-          mrp: "₹19,999",
-          price: "14,499",
-          discount: "(28% off)",
-          selection6: [
-            {
-              name: "Display: 90Hz FHD+ (1080x2400) AMOLED display; 16.33 centimeters (6.43 inch); 20:9 aspect ratio"
-            },
-            {
-              name: "Camera: 50 MP Quad Rear camera with 8MP Ultra-wide, 2MP Macro and Portrait lens| 13 MP Front camera"
-            },
-            {
-              name: "Battery: 5000 mAh large battery with 33W Pro fast charger in-box and Type-C connectivity"
-            },
-            {
-              name: "Processor: Qualcomm Snapdragon 680 Octa-core; 6nm processor; Up to 2.4GHz clock speed"
-            },
-            {
-              name: "Memory, Storage & SIM: 6GB RAM | 128GB UFS 2.2 storage expandable up to 512GB with dedicated SD card slot | Dual SIM (nano+nano) dual standby (4G+4G)"
-            }
-          ]
-        },
-        {
-          image: "https://m.media-amazon.com/images/I/81Bc+XzxecL._AC_UL320_.jpg",
-          Name: "Redmi 11 Prime 5G (Meadow Green, 4GB RAM 64GB ROM) | Prime Design | MTK Dimensity 700 | 50 MP Dual Cam | 5000mAh | 7 Band 5G",
-          reviewNumber: "2,651",
-          mrp: "₹15,999",
-          price: "13,999",
-          discount: "(13% off)",
-          selection6: [
-            {
-              name: "Processor: MediaTek Dimensity 700 with 5G, 7nm Octa-core processor; Up to 2.2GHz"
-            },
-            {
-              name: "Display: 90Hz FHD+(1080x2400) AdaptiveSync Display; 16.71centimeters; 20:9 aspect ratio"
-            },
-            {
-              name: "Camera: 50MP AI Dual camera | 8MP Front camera"
-            },
-            {
-              name: "Memory, Storage & SIM: 4GB RAM | 64GB UFS 2.2 storage expandable up to 512GB with dedicated SD card slot | Dual SIM (nano+nano) dual standby (5G+5G)"
-            },
-            {
-              name: "Battery: 5000 mAh large battery with 18W fast charging support and 22.5W fast charger in-box with Type-C connectivity"
-            }
-          ]
-        },
-        {
-          image: "https://m.media-amazon.com/images/I/71xb2xkN5qL._AC_UL320_.jpg",
-          Name: "Apple iPhone 13 (128GB) - Blue",
-          reviewNumber: "13,013",
-          mrp: "₹69,900",
-          price: "61,999",
-          discount: "(11% off)",
-          selection6: [
-            {
-              name: "15 cm (6.1-inch) Super Retina XDR display"
-            },
-            {
-              name: "Cinematic mode adds shallow depth of field and shifts focus automatically in your videos"
-            },
-            {
-              name: "Advanced dual-camera system with 12MP Wide and Ultra Wide cameras; Photographic Styles, Smart HDR 4, Night mode, 4K Dolby Vision HDR recording"
-            },
-            {
-              name: "12MP TrueDepth front camera with Night mode, 4K Dolby Vision HDR recording"
-            },
-            {
-              name: "A15 Bionic chip for lightning-fast performance"
-            }
-          ]
-        },
-        {
-          image: "https://m.media-amazon.com/images/I/7155Pasn1aL._AC_UL320_.jpg",
-          Name: "Redmi Note 11T 5G (Matte Black, 6GB RAM, 128GB ROM)| Dimensity 810 5G | 33W Pro Fast Charging | Charger Included | Additional Exchange Offers|Get 2 Months of YouTube Premium Free!",
-          reviewNumber: "32,684",
-          mrp: "₹20,999",
-          price: "16,999",
-          discount: "(19% off)",
-          selection6: [
-            {
-              name: "Processor: MediaTek Dimensity 810 Octa-core 5G processor based on 6nm process with HyperEngine 2.0 and clock speed up to 2.4GHz;"
-            },
-            {
-              name: "Display: 6.6 inch FHD+ (2400x1080) Dot display with 90Hz high refresh rate and adaptive refresh rate technology; 240Hz touch sampling rate;"
-            },
-            {
-              name: "Camera: 50MP High resolution primary camera f/1.8 with 8MP Ultra-wide sensor| 16 MP Front camera"
-            },
-            {
-              name: "Battery: 5000mAh battery with 33W Pro fast charging support"
-            },
-            {
-              name: "Memory, Storage : 6GB LPDDR4X RAM | 128GB UFS2.2 Internal storage"
-            },
-            {
-              name: "Headphones jack:3.5mm,Display type:LCD,Operating system:MIUI 12.5 based on Android 11"
-            },
-            {
-              name: "Get 2 months of YouTube Premium free!"
-            }
-          ]
-        },
-        {
-          image: "https://m.media-amazon.com/images/I/81OC0ojxH6L._AC_UL320_.jpg",
-          Name: "Samsung Galaxy M32 Prime Edition (Light Blue, 6GB RAM, 128GB)",
-          reviewNumber: "56,762",
-          mrp: "₹18,999",
-          price: "15,499",
-          discount: "(18% off)",
-          selection6: [
-            {
-              name: "Segment Best 16.21 centimeters (6.4-inch) Super AMOLED - Infinity U-cut display, FHD+ resolution with 90Hz Refresh rate, 800 Nits High Brightness Mode, protected by Gorilla Glass 5"
-            },
-            {
-              name: "Versatile 64MP+8MP+2MP+2MP Quad camera setup-64MP (F 1.8) main camera + 8MP (F2.2) Ultra wide camera+ 2MP (F2.4) depth camera + 2MP (2.4) Macro Camera| 20MP (F2.2) front camera"
-            },
-            {
-              name: "Monster 6000 mAh Battery| Memory, Storage & SIM: 6GB RAM | 128GB internal memory expandable up to 1TB| SIM 1 + SIM 2 + MicroSD"
-            },
-            {
-              name: "Android v12.0, One UI 4.1 operating system with MediaTek | Helio G80 Octa Core Processor 2GHz,1.8GHz"
-            },
-            {
-              name: "6000mAH lithium-ion battery, 1 year manufacturer warranty for device and 6 months manufacturer warranty for in-box accessories including batteries from the date of purchase"
-            }
-          ]
-        },
-        {
-          image: "https://m.media-amazon.com/images/I/81E8fhm0dcL._AC_UL320_.jpg",
-          Name: "Redmi Note 12 5G Mystique Blue 4GB RAM 128GB ROM | 1st Phone with 120Hz Super AMOLED and Snapdragon® 4 Gen 1 | 48MP AI Triple Camera",
-          reviewNumber: "431",
-          mrp: "₹19,999",
-          price: "17,999",
-          discount: "(10% off)",
-          selection6: [
-            {
-              name: "Display: Super AMOLED (1080x2400) Display with 120Hz Refresh rate; 1200nits peak brightness; 240Hz Touch sampling rate"
-            },
-            {
-              name: "Processor: Snapdragon 4 Gen1 6nm Octa-core 5G processor for high performance and efficiency with Adreno 619 GPU; Up to 2.0GHz"
-            },
-            {
-              name: "Camera: 48MP AI Triple camera setup with 8MP Ultra Wide sensor and 2MP Macro camera| 13MP Front camera"
-            },
-            {
-              name: "Battery: 5000mAh large battery with 33W fast charger in-box and Type-C connectivity"
-            },
-            {
-              name: "Memory, Storage & SIM: 4GB RAM | 128GB UFS 2.2 storage expandable up to 1TB | Dual SIM (nano+nano) Dual 5G (5G+5G)"
-            }
-          ]
-        },
-        {
-          image: "https://m.media-amazon.com/images/I/71KCwNV6MuL._AC_UL320_.jpg",
-          Name: "OPPO A31 (Mystery Black, 6GB RAM, 128GB Storage) with No Cost EMI/Additional Exchange Offers",
-          reviewNumber: "58,810",
-          mrp: "₹15,990",
-          price: "12,490",
-          discount: "(22% off)",
-          selection6: [
-            {
-              name: "12+2+2MP triple rear camera (12MP main camera+2MP macro lens+2MP depth camera) with Portrait bokeh, macro lens, dazzle color mode, AI beautification | 8MP front camera. OTG : Supported NFC : No"
-            },
-            {
-              name: "16.5 centimeters (6.5-inch) waterdrop multi touch screen with an 89% screen to body ratio | 1600 x 720 pixels resolution, 269 ppi pixel density"
-            },
-            {
-              name: "Memory, Storage & SIM: 6GB RAM | 128GB internal memory expandable up to 256GB | Dual SIM (nano+nano) dual-standby (4G+4G)"
-            },
-            {
-              name: "Android Pie v9.0 based on ColorOS 6.1 operating system with 2.3GHz Mediatek 6765 octa core processor, IMG GE8320"
-            },
-            {
-              name: "4230mAH lithium-polymer battery providing talk-time of 45 hours and standby time of 450 hours"
-            },
-            {
-              name: "1 year manufacturer warranty for device and 6 months manufacturer warranty for in-box accessories including batteries from the date of purchase"
-            },
-            {
-              name: "Box also includes: USB cable, Sim tray ejecter, pre-applied screen protector and protective case, booklet with warranty card and quick guide. The box does not include earphones"
-            }
-          ]
-        },
-        {
-          image: "https://m.media-amazon.com/images/I/81Jov18YvpL._AC_UL320_.jpg",
-          Name: "Samsung Galaxy M32 Prime Edition (Black, 6GB RAM, 128GB)",
-          reviewNumber: "56,762",
-          price: "15,499",
-          selection6: [
-            {
-              name: "Segment Best 16.21 centimeters (6.4-inch) Super AMOLED - Infinity U-cut display, FHD+ resolution with 90Hz Refresh rate, 800 Nits High Brightness Mode, protected by Gorilla Glass 5"
-            },
-            {
-              name: "Versatile 64MP+8MP+2MP+2MP Quad camera setup-64MP (F 1.8) main camera + 8MP (F2.2) Ultra wide camera+ 2MP (F2.4) depth camera + 2MP (2.4) Macro Camera| 20MP (F2.2) front camera"
-            },
-            {
-              name: "Monster 6000 mAh Battery| Memory, Storage & SIM: 6GB RAM | 128GB internal memory expandable up to 1TB| SIM 1 + SIM 2 + MicroSD"
-            },
-            {
-              name: "Android v12.0, One UI 4.1 operating system with MediaTek | Helio G80 Octa Core Processor 2GHz,1.8GHz"
-            },
-            {
-              name: "6000mAH lithium-ion battery, 1 year manufacturer warranty for device and 6 months manufacturer warranty for in-box accessories including batteries from the date of purchase"
-            }
-          ]
-        },
-        {
-          image: "https://m.media-amazon.com/images/I/81E8fhm0dcL._AC_UL320_.jpg",
-          Name: "Redmi Note 12 5G Mystique Blue 6GB RAM 128GB ROM | 1st Phone with 120Hz Super AMOLED and Snapdragon® 4 Gen 1 | 48MP AI Triple Camera",
-          reviewNumber: "431",
-          mrp: "₹21,999",
-          price: "19,999",
-          discount: "(9% off)",
-          selection6: [
-            {
-              name: "Display: Super AMOLED (1080x2400) Display with 120Hz Refresh rate; 1200nits peak brightness; 240Hz Touch sampling rate"
-            },
-            {
-              name: "Processor: Snapdragon 4 Gen1 6nm Octa-core 5G processor for high performance and efficiency with Adreno 619 GPU; Up to 2.0GHz"
-            },
-            {
-              name: "Camera: 48MP AI Triple camera setup with 8MP Ultra Wide sensor and 2MP Macro camera| 13MP Front camera"
-            },
-            {
-              name: "Battery: 5000mAh large battery with 33W fast charger in-box and Type-C connectivity"
-            },
-            {
-              name: "Memory, Storage & SIM: 6GB RAM | 128GB UFS 2.2 storage expandable up to 1TB | Dual SIM (nano+nano) Dual 5G (5G+5G)"
-            }
-          ]
-        },
-        {
-          image: "https://m.media-amazon.com/images/I/51RqXqfn1iL._AC_UL320_.jpg",
-          Name: "Redmi Note 12 5G Matte Black 6GB RAM 128GB ROM | 1st Phone with 120Hz Super AMOLED and Snapdragon® 4 Gen 1 | 48MP AI Triple Camera",
-          reviewNumber: "431",
-          mrp: "₹21,999",
-          price: "19,999",
-          discount: "(9% off)",
-          selection6: [
-            {
-              name: "Display: Super AMOLED (1080x2400) Display with 120Hz Refresh rate; 1200nits peak brightness; 240Hz Touch sampling rate"
-            },
-            {
-              name: "Processor: Snapdragon 4 Gen1 6nm Octa-core 5G processor for high performance and efficiency with Adreno 619 GPU; Up to 2.0GHz"
-            },
-            {
-              name: "Camera: 48MP AI Triple camera setup with 8MP Ultra Wide sensor and 2MP Macro camera| 13MP Front camera"
-            },
-            {
-              name: "Battery: 5000mAh large battery with 33W fast charger in-box and Type-C connectivity"
-            },
-            {
-              name: "Memory, Storage & SIM: 6GB RAM | 128GB UFS 2.2 storage expandable up to 1TB | Dual SIM (nano+nano) Dual 5G (5G+5G)"
-            }
-          ]
-        },
-        {
-          image: "https://m.media-amazon.com/images/I/71EjohFmm6L._AC_UL320_.jpg",
-          Name: "Samsung Galaxy M13 5G (Midnight Blue, 4GB, 64GB Storage) | 5000mAh Battery | Upto 8GB RAM with RAM Plus",
-          reviewNumber: "20,577",
-          mrp: "₹16,999",
-          price: "13,999",
-          discount: "(18% off)",
-          selection6: [
-            {
-              name: "Upto 12GB RAM with RAM Plus | 64GB internal memory expandable up to 1TB|"
-            },
-            {
-              name: "Superfast 5G with 11 5G Bands, Powerful MTK D700 Octa Core 2.2GH with Android 12,One UI Core 4"
-            },
-            {
-              name: "50MP+2MP Dual camera setup- True 50MP (F1.8) main camera + 2MP (F2.4) | 5MP (F2.0) front came"
-            },
-            {
-              name: "16.55 centimeters (6.5-inch) LCD, HD+ resolution with 720 x 1600 pixels resolution, 269 PPI with 16M color"
-            },
-            {
-              name: "5000mAH lithium-ion battery, 1 year manufacturer warranty for device and 6 months manufacturer warranty for in-box accessories including batteries from the date of purchase"
-            }
-          ]
-        },
-        {
-          image: "https://m.media-amazon.com/images/I/71AvQd3VzqL._AC_UL320_.jpg",
-          Name: "OnePlus Nord CE 2 Lite 5G (Blue Tide, 6GB RAM, 128GB Storage)",
-          reviewNumber: "109,042",
-          mrp: "₹19,999",
-          price: "18,999",
-          discount: "(5% off)",
-          selection6: [
-            {
-              name: "Camera: 64MP Main Camera with EIS; 2MP Depth Lens and 2MP Macro Lens; Front (Selfie) Camera: 16MP Sony IMX471"
-            },
-            {
-              name: "Camera Features: AI scene enhancement, Dual-View Video, HDR, Night Portrait, Panorama Mode, Retouch Filters, 1080p video at 30 fps, SLO-MO: 720p video at 120 fps, TIME-LAPSE: 1080p video at 30 fps, Video editor, Face unlock, Screen flash, HDR, NIGHT, PORTRAIT, TIME-LAPSE, Retouch, Filters"
-            },
-            {
-              name: "Display: 6.59 Inches; 120 Hz Refresh Rate; Support sRGB, Display P3; Resolution: 2412 x 1080 pixels 402ppi; Aspect Ratio: 20:9"
-            },
-            {
-              name: "Display Features: Dark mode"
-            },
-            {
-              name: "Operating System: Oxygen OS based on Android 12"
-            },
-            {
-              name: "Processor: Qualcomm Snapdragon 695 5G"
-            },
-            {
-              name: "Battery & Charging: 5000 mAh with 33W SuperVOOC"
-            }
-          ]
-        },
-        {
-          image: "https://m.media-amazon.com/images/I/61ahn9N38zL._AC_UL320_.jpg",
-          Name: "OnePlus Nord 2T 5G (Jade Fog, 8GB RAM, 128GB Storage)",
-          reviewNumber: "18,792",
-          price: "28,999",
-          selection6: [
-            {
-              name: "Camera: 50MP Main Camera with Sony IMX766 and OIS, 8MP Ultrawide Camera with 120 degree FOV and 2MP mono lens with Dual LED Flash; 32MP Front (Selfie) Camera with Sony IMX615"
-            },
-            {
-              name: "Camera Features: AI Scene Enhancement, AI Highlight Video, Slow-motion captures, Dual-view Video, HDR, Nightscape, Portrait mode, Pano, Retouching and exciting filters"
-            },
-            {
-              name: "Display: 6.43 Inches; 90 Hz AMOLED Display with Corning Gorilla Glass 5; Resolution: 2400 X 1080 pixels; HDR 10+ Certified"
-            },
-            {
-              name: "Display Features: Ambient Display, AI colour enhancement and Dark mode"
-            },
-            {
-              name: "Operating System: OxygenOS based on Android 12. Processor: Mediatek Dimensity 1300"
-            },
-            {
-              name: "Battery & Charging: 4500 mAh with 80W SuperVOOC. In-Display Fingerprint Sensor"
-            },
-            {
-              name: "Alexa Hands-Free capable: Download the Alexa app to use Alexa hands-free. Play music, make calls, hear news, open apps, navigate, and more, all using just your voice, while on-the-go"
-            },
-            {
-              name: "Form Factor: Smartphone; Cellular Technology: 5g, 4g Lte"
-            }
-          ]
-        },
-        {
-          image: "https://m.media-amazon.com/images/I/81t6Av5DvXL._AC_UL320_.jpg",
-          Name: "Samsung Galaxy M04 Dark Blue, 4GB RAM, 64GB Storage | Upto 8GB RAM with RAM Plus | MediaTek Helio P35 | 5000 mAh Battery",
-          reviewNumber: "649",
-          mrp: "₹11,999",
-          price: "8,499",
-          discount: "(29% off)",
-          selection6: [
-            {
-              name: "Powerful MediaTek Helio P35 Octa Core 2.3GHz with Android 12,One UI Core 4.1"
-            },
-            {
-              name: "13MP+2MP Dual camera setup- True 13MP (F2.2) main camera + 2MP (F2.4) | 5MP (F2.2) front came"
-            },
-            {
-              name: "16.55 centimeters (6.5-inch) LCD, HD+ resolution with 720 x 1600 pixels resolution, 269 PPI with 16M color"
-            },
-            {
-              name: "5000mAH lithium-ion battery, 1 year manufacturer warranty for device and 6 months manufacturer warranty for in-box accessories including batteries from the date of purchase"
-            }
-          ]
-        },
-        {
-          image: "https://m.media-amazon.com/images/I/81UT07JsBqL._AC_UL320_.jpg",
-          Name: "Redmi A1 (Light Blue, 2GB RAM, 32GB Storage) | Segment Best AI Dual Cam | 5000mAh Battery | Leather Texture Design | Android 12",
-          reviewNumber: "8,975",
-          mrp: "₹8,999",
-          price: "6,499",
-          discount: "(28% off)",
-          selection6: [
-            {
-              name: "Display: 16.56cm HD+ Scratch resistant display"
-            },
-            {
-              name: "Processor: MediaTek Helio A22 processor; up to 2.0GHz"
-            },
-            {
-              name: "Camera: 8MP Dual camera | 5MP Front camera"
-            },
-            {
-              name: "Memory, Storage & SIM: 2GB LPDDR4x RAM | 32GB storage expandable up to 512GB with dedicated SD card slot | Dual SIM (nano+nano) dual standby (4G+4G)"
-            },
-            {
-              name: "Battery: 5000 mAh large battery with 10W in-box charger"
-            }
-          ]
-        },
-        {
-          image: "https://m.media-amazon.com/images/I/71V--WZVUIL._AC_UL320_.jpg",
-          Name: "OnePlus Nord CE 2 Lite 5G (Black Dusk, 6GB RAM, 128GB Storage)",
-          reviewNumber: "109,042",
-          mrp: "₹19,999",
-          price: "18,999",
-          discount: "(5% off)",
-          selection6: [
-            {
-              name: "Camera: 64MP Main Camera with EIS; 2MP Depth Lens and 2MP Macro Lens; Front (Selfie) Camera: 16MP Sony IMX471"
-            },
-            {
-              name: "Camera Features: AI scene enhancement, Dual-View Video, HDR, Night Portrait, Panorama Mode, Retouch Filters, 1080p video at 30 fps, SLO-MO: 720p video at 120 fps, TIME-LAPSE: 1080p video at 30 fps, Video editor, Face unlock, Screen flash, HDR, NIGHT, PORTRAIT, TIME-LAPSE, Retouch, Filters"
-            },
-            {
-              name: "Display: 6.59 Inches; 120 Hz Refresh Rate; Support sRGB, Display P3; Resolution: 2412 x 1080 pixels 402ppi; Aspect Ratio: 20:9"
-            },
-            {
-              name: "Display Features: Dark mode"
-            },
-            {
-              name: "Operating System: Oxygen OS based on Android 12"
-            },
-            {
-              name: "Processor: Qualcomm Snapdragon 695 5G"
-            },
-            {
-              name: "Battery & Charging: 5000 mAh with 33W SuperVOOC"
-            }
-          ]
-        },
-        {
-          image: "https://m.media-amazon.com/images/I/814ePfNubRL._AC_UL320_.jpg",
-          Name: "Samsung Galaxy M04 Light Green, 4GB RAM, 64GB Storage | Upto 8GB RAM with RAM Plus | MediaTek Helio P35 | 5000 mAh Battery",
-          reviewNumber: "649",
-          mrp: "₹11,999",
-          price: "8,499",
-          discount: "(29% off)",
-          selection6: [
-            {
-              name: "Powerful MediaTek Helio P35 Octa Core 2.3GHz with Android 12,One UI Core 4.1"
-            },
-            {
-              name: "13MP+2MP Dual camera setup- True 13MP (F2.2) main camera + 2MP (F2.4) | 5MP (F2.2) front came"
-            },
-            {
-              name: "16.55 centimeters (6.5-inch) LCD, HD+ resolution with 720 x 1600 pixels resolution, 269 PPI with 16M color"
-            },
-            {
-              name: "5000mAH lithium-ion battery, 1 year manufacturer warranty for device and 6 months manufacturer warranty for in-box accessories including batteries from the date of purchase"
-            }
-          ]
-        },
-        {
-          image: "https://m.media-amazon.com/images/I/81BxHYjeA2L._AC_UL320_.jpg",
-          Name: "Redmi A1 (Black, 2GB RAM, 32GB Storage) | Segment Best AI Dual Cam | 5000mAh Battery | Leather Texture Design | Android 12",
-          reviewNumber: "8,975",
-          mrp: "₹8,999",
-          price: "6,499",
-          discount: "(28% off)",
-          selection6: [
-            {
-              name: "Display: 16.56cm HD+ Scratch resistant display"
-            },
-            {
-              name: "Processor: MediaTek Helio A22 processor; up to 2.0GHz"
-            },
-            {
-              name: "Camera: 8MP Dual camera | 5MP Front camera"
-            },
-            {
-              name: "Memory, Storage & SIM: 2GB LPDDR4x RAM | 32GB storage expandable up to 512GB with dedicated SD card slot | Dual SIM (nano+nano) dual standby (4G+4G)"
-            },
-            {
-              name: "Battery: 5000 mAh large battery with 10W in-box charger"
-            }
-          ]
-        },
-        {
-          image: "https://m.media-amazon.com/images/I/81UmTnrBDSL._AC_UL320_.jpg",
-          Name: "Redmi A1 (Light Green, 2GB RAM 32GB ROM) | Segment Best AI Dual Cam | 5000mAh Battery | Leather Texture Design | Android 12",
-          reviewNumber: "8,975",
-          mrp: "₹8,999",
-          price: "6,499",
-          discount: "(28% off)",
-          selection6: [
-            {
-              name: "Display: 16.56cm HD+ Scratch resistant display"
-            },
-            {
-              name: "Processor: MediaTek Helio A22 processor; up to 2.0GHz"
-            },
-            {
-              name: "Camera: 8MP Dual camera | 5MP Front camera"
-            },
-            {
-              name: "Memory, Storage & SIM: 2GB LPDDR4x RAM | 32GB storage expandable up to 512GB with dedicated SD card slot | Dual SIM (nano+nano) dual standby (4G+4G)"
-            },
-            {
-              name: "Battery: 5000 mAh large battery with 10W in-box charger"
-            }
-          ]
-        },
-        {
-          image: "https://m.media-amazon.com/images/I/71293gyogZL._AC_UL320_.jpg",
-          Name: "Redmi 10A (Charcoal Black, 4GB RAM, 64GB Storage) | 2 Ghz Octa Core Helio G25 | 5000 mAh Battery | Finger Print Sensor | Upto 5GB RAM with RAM Booster",
-          reviewNumber: "13,808",
-          mrp: "₹11,999",
-          price: "8,999",
-          discount: "(25% off)",
-          selection6: [
-            {
-              name: "Camera: 13MP Rear Camera | 5MP Front Camera"
-            },
-            {
-              name: "Display: HD+(1600x700) IPS LCD display; 15.58 centimeters (6.53 inch); 20:9 aspect ratio"
-            },
-            {
-              name: "Processor: MediaTek Helio G25 Octa-core processor; Up to 2.0 GHz clock speed"
-            },
-            {
-              name: "Battery: 5000 mAh large battery with 10W fast charger in-box and Micro USB connectivity"
-            },
-            {
-              name: "Memory, Storage & SIM:4GB RAM | 64GB storage expandable upto 512GB with dedicated SD card slot | Dual SIM (nano+nano) dual standby(4G+4G)"
-            }
-          ]
-        },
-        {
-          image: "https://m.media-amazon.com/images/I/81eM15lVcJL._AC_UL320_.jpg",
-          Name: "Redmi 10 Power (Power Black, 8GB RAM, 128GB Storage)",
-          reviewNumber: "763",
-          mrp: "₹18,999",
-          price: "11,999",
-          discount: "(37% off)",
-          selection6: [
-            {
-              name: "Processor: Snapdragon 680 6nm Octa-core processor; Up to 2.4GHz clock speed"
-            },
-            {
-              name: "Camera: 50 MP Primary Rear Camera with 2MP Portrait Lens| 5 MP Front camera"
-            },
-            {
-              name: "Display: HD+ (720x1650) IPS LCD Display; 17.01 centimeters(6.7 inch); 20.6:9 aspect ratio"
-            },
-            {
-              name: "Battery: 6000 mAh large battery with 18W fast charging support(10W in-box) and Type-C connectivity"
-            },
-            {
-              name: "Memory, Storage & SIM: 8GB RAM | 128GB UFS 2.2 storage expandable up to 512GB with dedicated SD card slot | Dual SIM (nano+nano) dual standby (4G+4G)"
-            }
-          ]
-        },
-        {
-          image: "https://m.media-amazon.com/images/I/71kVEmAMyEL._AC_UL320_.jpg",
-          Name: "Redmi 10A (Slate Grey, 4GB RAM, 64GB Storage) | 2 Ghz Octa Core Helio G25 | 5000 mAh Battery | Finger Print Sensor | Upto 5GB RAM with RAM Booster",
-          reviewNumber: "13,808",
-          mrp: "₹11,999",
-          price: "8,999",
-          discount: "(25% off)",
-          selection6: [
-            {
-              name: "Camera: 13MP Rear Camera | 5MP Front Camera"
-            },
-            {
-              name: "Display: HD+(1600x700) IPS LCD display; 15.58 centimeters (6.53 inch); 20:9 aspect ratio"
-            },
-            {
-              name: "Processor: MediaTek Helio G25 Octa-core processor; Up to 2.0 GHz clock speed"
-            },
-            {
-              name: "Battery: 5000 mAh large battery with 10W fast charger in-box and Micro USB connectivity"
-            },
-            {
-              name: "Memory, Storage & SIM:4GB RAM | 64GB storage expandable upto 512GB with dedicated SD card slot | Dual SIM (nano+nano) dual standby(4G+4G)"
-            }
-          ]
-        },
-        {
-          image: "https://m.media-amazon.com/images/I/61VuVU94RnL._AC_UL320_.jpg",
-          Name: "Apple iPhone 13 (128GB) - Midnight",
-          reviewNumber: "13,013",
-          mrp: "₹79,900",
-          price: "61,999",
-          discount: "(22% off)",
-          selection6: [
-            {
-              name: "15 cm (6.1-inch) Super Retina XDR display"
-            },
-            {
-              name: "Cinematic mode adds shallow depth of field and shifts focus automatically in your videos"
-            },
-            {
-              name: "Advanced dual-camera system with 12MP Wide and Ultra Wide cameras; Photographic Styles, Smart HDR 4, Night mode, 4K Dolby Vision HDR recording"
-            },
-            {
-              name: "12MP TrueDepth front camera with Night mode, 4K Dolby Vision HDR recording"
-            },
-            {
-              name: "A15 Bionic chip for lightning-fast performance"
-            }
-          ]
-        },
-        {
-          image: "https://m.media-amazon.com/images/I/812YsUxpyfL._AC_UL320_.jpg",
-          Name: "Samsung Galaxy M13 (Midnight Blue, 4GB, 64GB Storage) | 6000mAh Battery | Upto 8GB RAM with RAM Plus",
-          reviewNumber: "20,577",
-          mrp: "₹14,999",
-          price: "10,999",
-          discount: "(27% off)",
-          selection6: [
-            {
-              name: "6000mAh lithium-ion battery, 1 year manufacturer warranty for device and 6 months manufacturer warranty for in-box accessories including batteries from the date of purchase"
-            },
-            {
-              name: "Upto 12GB RAM with RAM Plus | 64GB internal memory expandable up to 1TB| Dual Sim (Nano)"
-            },
-            {
-              name: "50MP+5MP+2MP Triple camera setup- True 50MP (F1.8) main camera +5MP(F2.2)+ 2MP (F2.4) | 8MP (F2.2) front cam"
-            },
-            {
-              name: "Android 12,One UI Core 4 with a powerful Octa Core Processor"
-            },
-            {
-              name: "16.72 centimeters (6.6-inch) FHD+ LCD - infinity O Display, FHD+ resolution with 1080 x 2408 pixels resolution, 401 PPI with 16M color"
-            }
-          ]
-        },
-        {
-          image: "https://m.media-amazon.com/images/I/81I3w4J6yjL._AC_UL320_.jpg",
-          Name: "Samsung Galaxy M33 5G (Mystique Green, 6GB, 128GB Storage) | 6000mAh Battery | Upto 12GB RAM with RAM Plus | Travel Adapter to be Purchased Separately",
-          reviewNumber: "23,280",
-          mrp: "₹24,999",
-          price: "18,999",
-          discount: "(24% off)",
-          selection6: [
-            {
-              name: "Exynos 1280 Octa Core 2.4GHz 5nm Processor with the 12 band support for a True 5G experience"
-            },
-            {
-              name: "16.72 centimeters (6.6-inch) LCD Display, FHD+ resolution, 1080x2400 pixels protected by Gorilla Glass 5"
-            },
-            {
-              name: "Versatile Quad camera setup-50MP (F1.8)+ 5MP (F2.2/UW- 123 FOV) + 2MP (F2.4/Depth) + 2MP (F2.4/Macro) QuadCamera| 8MP (F1.8) Front Camera"
-            },
-            {
-              name: "Massive 6000 mAh Battery | Memory, Storage & SIM: 6GB RAM | 128GB internal memory expandable up to 1TB| SIM 1 + SIM 2+ Micro SD"
-            },
-            {
-              name: "Latest Android v12.0, One UI 4 operating system."
-            },
-            {
-              name: "Intelligent Voice Focus | Power Cool Technology | Auto Data Switching"
-            },
-            {
-              name: "Connector type: 3.5mm jack"
-            }
-          ]
-        },
-        {
-          image: "https://m.media-amazon.com/images/I/81-fFXQdPTL._AC_UL320_.jpg",
-          Name: "Samsung Galaxy M13 (Aqua Green, 4GB, 64GB Storage) | 6000mAh Battery | Upto 8GB RAM with RAM Plus",
-          reviewNumber: "20,577",
-          mrp: "₹14,999",
-          price: "10,999",
-          discount: "(27% off)",
-          selection6: [
-            {
-              name: "6000mAh lithium-ion battery, 1 year manufacturer warranty for device and 6 months manufacturer warranty for in-box accessories including batteries from the date of purchase"
-            },
-            {
-              name: "Upto 12GB RAM with RAM Plus | 64GB internal memory expandable up to 1TB| Dual Sim (Nano)"
-            },
-            {
-              name: "50MP+5MP+2MP Triple camera setup- True 50MP (F1.8) main camera +5MP(F2.2)+ 2MP (F2.4) | 8MP (F2.2) front cam"
-            },
-            {
-              name: "Android 12,One UI Core 4 with a powerful Octa Core Processor"
-            },
-            {
-              name: "16.72 centimeters (6.6-inch) FHD+ LCD - infinity O Display, FHD+ resolution with 1080 x 2408 pixels resolution, 401 PPI with 16M color"
-            }
-          ]
-        },
-        {
-          image: "https://m.media-amazon.com/images/I/81OZGH4fZiL._AC_UL320_.jpg",
-          Name: "Xiaomi Redmi 10 Power (Sporty Orange, 8GB RAM, 128GB Storage)",
-          reviewNumber: "763",
-          mrp: "₹18,999",
-          price: "11,999",
-          discount: "(37% off)",
-          selection6: [
-            {
-              name: "Processor: Snapdragon 680 6nm Octa-core processor; Up to 2.4GHz clock speed"
-            },
-            {
-              name: "Camera: 50 MP Primary Rear Camera with 2MP Portrait Lens| 5 MP Front camera"
-            },
-            {
-              name: "Display: HD+ (720x1650) IPS LCD Display; 17.01 centimeters(6.7 inch); 20.6:9 aspect ratio"
-            },
-            {
-              name: "Battery: 6000 mAh large battery with 18W fast charging support(10W in-box) and Type-C connectivity"
-            },
-            {
-              name: "Memory, Storage & SIM: 8GB RAM | 128GB UFS 2.2 storage expandable up to 512GB with dedicated SD card slot | Dual SIM (nano+nano) dual standby (4G+4G)"
-            }
-          ]
-        },
-        {
-          image: "https://m.media-amazon.com/images/I/71geVdy6-OS._AC_UL320_.jpg",
-          Name: "OPPO A74 5G (Fantastic Purple,6GB RAM,128GB Storage) with No Cost EMI/Additional Exchange Offers",
-          reviewNumber: "33,437",
-          mrp: "₹20,990",
-          price: "15,490",
-          discount: "(26% off)",
-          selection6: [
-            {
-              name: "6.49 Inch 16.5cm FHD+ Punch-hole Display with 2400x1080 pixels. Larger screen to body ratio of 90.5%.Side Fingerprint Sensor"
-            },
-            {
-              name: "Qualcomm Snapdragon 480 5G GPU 619 at 650 MHz Support 5G sim Powerful 2 GHz Octa-core processor, support LPDDR4X memory and latest UFS 2.1 gear 3 storage"
-            },
-            {
-              name: "5000 mAh lithium polymer battery"
-            },
-            {
-              name: "48MP Quad Camera 48MP Main + 2MP Macro + 2MP Depth Lens 8MP Front Camera"
-            },
-            {
-              name: "Memory, Storage & SIM: 6GB RAM 128GB internal memory expandable up to 256GB Dual SIM nano+nano dual-standby 5G+5G. Color OS 11.1 based on Android v11.0 operating system"
-            },
-            {
-              name: "Connector type: USB Type C"
-            },
-            {
-              name: "Display type: LCD"
-            }
-          ]
-        },
-        {
-          image: "https://m.media-amazon.com/images/I/716uVx3Wr5L._AC_UL320_.jpg",
-          Name: "OnePlus 10R 5G (Forest Green, 8GB RAM, 128GB Storage, 80W SuperVOOC)",
-          reviewNumber: "11,521",
-          mrp: "₹38,999",
-          price: "32,999",
-          discount: "(15% off)",
-          selection6: [
-            {
-              name: "Camera: 50MP Main Camera with Sony IMX766 and 2MP Macro Camera with Dual LED Flash; 16MP Front (Selfie) Camera with Sony IMX471"
-            },
-            {
-              name: "Camera Features: Nightscape2.0, Super Macro, UltraShot HDR, Smart Scene Recognition, Portrait mode, Pro mode, Panorama, Tilt-shift mode, Focus Peaking, Filters, Video Nightscape, Video HDR, Video Portrait Timelapse, Hyperlapse Mode"
-            },
-            {
-              name: "Display: 6.7 Inches; 120 Hz IRIS Display; Resolution: 2400 X 1080 pixels 394 ppi; Aspect Ratio: 20:9"
-            },
-            {
-              name: "Display Features: Hyper Touch Mode, Reading Mode, Night Mode, Eye Comfort Mode, Auto brightness"
-            },
-            {
-              name: "Operating System: OxygenOS based on Android 12, Processor: MTK D8100 Max"
-            },
-            {
-              name: "Battery & Charging: 5000 mAh with 80W SuperVOOC. In-Display Fingerprint Sensor"
-            },
-            {
-              name: "Special Features: Hyperboost gaming engine"
-            }
-          ]
-        },
-        {
-          image: "https://m.media-amazon.com/images/I/81xvGbBFNhL._AC_UL320_.jpg",
-          Name: "Samsung Galaxy M33 5G (Deep Ocean Blue, 8GB, 128GB Storage) | 6000mAh Battery | Upto 16GB RAM with RAM Plus | Travel Adapter to be Purchased Separately",
-          reviewNumber: "23,280",
-          mrp: "₹25,999",
-          price: "20,499",
-          discount: "(21% off)",
-          selection6: [
-            {
-              name: "Exynos 1280 Octa Core 2.4GHz 5nm Processor with the 12 band support for a True 5G experience"
-            },
-            {
-              name: "16.72 centimeters (6.6-inch) LCD Display, FHD+ resolution, 1080x2400 pixels protected by Gorilla Glass 5"
-            },
-            {
-              name: "Versatile Quad camera setup-50MP (F1.8)+ 5MP (F2.2/UW- 123 FOV) + 2MP (F2.4/Depth) + 2MP (F2.4/Macro) QuadCamera| 8MP (F1.8) Front Camera"
-            },
-            {
-              name: "Massive 6000 mAh Battery | Memory, Storage & SIM: 8GB RAM | 128GB internal memory expandable up to 1TB| SIM 1 + SIM 2+ Micro SD"
-            },
-            {
-              name: "Latest Android v12.0, One UI 4 operating system."
-            },
-            {
-              name: "Intelligent Voice Focus | Power Cool Technology | Auto Data Switching"
-            },
-            {
-              name: "Connector type: 3.5mm jack"
-            }
-          ]
-        },
-        {
-          image: "https://m.media-amazon.com/images/I/81t6Av5DvXL._AC_UL320_.jpg",
-          Name: "Samsung Galaxy M04 Dark Blue, 4GB RAM, 128GB Storage | Upto 8GB RAM with RAM Plus | MediaTek Helio P35 | 5000 mAh Battery",
-          reviewNumber: "649",
-          mrp: "₹13,499",
-          price: "9,499",
-          discount: "(30% off)",
-          selection6: [
-            {
-              name: "Powerful MediaTek Helio P35 Octa Core 2.3GHz with Android 12,One UI Core 4.1"
-            },
-            {
-              name: "13MP+2MP Dual camera setup- True 13MP (F2.2) main camera + 2MP (F2.4) | 5MP (F2.2) front came"
-            },
-            {
-              name: "16.55 centimeters (6.5-inch) LCD, HD+ resolution with 720 x 1600 pixels resolution, 269 PPI with 16M color"
-            },
-            {
-              name: "5000mAH lithium-ion battery, 1 year manufacturer warranty for device and 6 months manufacturer warranty for in-box accessories including batteries from the date of purchase"
-            }
-          ]
-        },
-        {
-          image: "https://m.media-amazon.com/images/I/617MPEZB5mL._AC_UL320_.jpg",
-          Name: "OnePlus Nord 2T 5G (Gray Shadow, 8GB RAM, 128GB Storage)",
-          reviewNumber: "18,792",
-          price: "28,999",
-          selection6: [
-            {
-              name: "Camera: 50MP Main Camera with Sony IMX766 and OIS, 8MP Ultrawide Camera with 120 degree FOV and 2MP mono lens with Dual LED Flash; 32MP Front (Selfie) Camera with Sony IMX615"
-            },
-            {
-              name: "Camera Features: AI Scene Enhancement, AI Highlight Video, Slow-motion captures, Dual-view Video, HDR, Nightscape, Portrait mode, Pano, Retouching and exciting filters."
-            },
-            {
-              name: "Display: 6.43 Inches; 90 Hz AMOLED Display with Corning Gorilla Glass 5; Resolution: 2400 X 1080 pixels; HDR 10+ Certified"
-            },
-            {
-              name: "Display Features: Ambient Display, AI colour enhancement and Dark mode"
-            },
-            {
-              name: "Operating System: OxygenOS based on Android 12"
-            },
-            {
-              name: "Processor: Mediatek Dimensity 1300"
-            },
-            {
-              name: "Battery & Charging: 4500 mAh with 80W SuperVOOC"
-            }
-          ]
-        },
-        {
-          image: "https://m.media-amazon.com/images/I/71BoiXkrEmL._AC_UL320_.jpg",
-          Name: "OnePlus 10R 5G (Sierra Black, 8GB RAM, 128GB Storage, 80W SuperVOOC)",
-          reviewNumber: "11,521",
-          mrp: "₹38,999",
-          price: "32,999",
-          discount: "(15% off)",
-          selection6: [
-            {
-              name: "Camera: 50MP Main Camera with Sony IMX766 and 2MP Macro Camera with Dual LED Flash; 16MP Front (Selfie) Camera with Sony IMX471"
-            },
-            {
-              name: "Camera Features: Nightscape2.0, Super Macro, UltraShot HDR, Smart Scene Recognition, Portrait mode, Pro mode, Panorama, Tilt-shift mode, Focus Peaking, Filters, Video Nightscape, Video HDR, Video Portrait Timelapse, Hyperlapse Mode"
-            },
-            {
-              name: "Display: 6.7 Inches; 120 Hz IRIS Display; Resolution: 2400 X 1080 pixels 394 ppi; Aspect Ratio: 20:9"
-            },
-            {
-              name: "Display Features: Hyper Touch Mode, Reading Mode, Night Mode, Eye Comfort Mode, Auto brightness"
-            },
-            {
-              name: "Operating System: OxygenOS based on Android 12, Processor: MTK D8100 Max"
-            },
-            {
-              name: "Battery & Charging: 5000 mAh with 80W SuperVOOC"
-            },
-            {
-              name: "In-Display Fingerprint Sensor"
-            }
-          ]
-        },
-        {
-          image: "https://m.media-amazon.com/images/I/8104evx11QL._AC_UL320_.jpg",
-          Name: "Oppo A78 5G (Glowing Blue, 8GB RAM, 128 Storage) | 5000 mAh Battery with 33W SUPERVOOC Charger| 50MP AI Camera | 90Hz Refresh Rate | with No Cost EMI/Additional Exchange Offers",
-          reviewNumber: "20",
-          mrp: "₹21,999",
-          price: "18,999",
-          discount: "(14% off)",
-          selection6: [
-            {
-              name: "Big 5000 mAh Battery with 33W SUPERVOOC Charging"
-            },
-            {
-              name: "Super smooth experience with ColorOS 13 and 8GB RAM (+ RAM expansion up to 8GB) | 128GB ROM | Expandable Upto 1TB"
-            },
-            {
-              name: "Crystal clear details with AI Camera setup 50MP + 2MP Rear Camera | 8MP Front Camera"
-            },
-            {
-              name: "OPPO Glow Design with 6.56 inch (16.66cm) 90Hz Color-Rich Display and Large Screen to Body ratio of 89.8%"
-            },
-            {
-              name: "Dual Ultra Linear Stereo Speakers with ROST and flagship hardware which produce an immersive sound effect"
-            }
-          ]
-        },
-        {
-          image: "https://m.media-amazon.com/images/I/71Ta0Hcl+PL._AC_UL320_.jpg",
-          Name: "Redmi 10A Sport (Sea Blue, 6GB RAM, 128GB Storage) | 2 Ghz Octa Cor Helio G25 | 5000 mAh Battery | Finger Print Sensor | Upto 8GB RAM with RAM Booster",
-          reviewNumber: "1,108",
-          mrp: "₹13,999",
-          price: "9,999",
-          discount: "(29% off)",
-          selection6: [
-            {
-              name: "Camera: 13MP Rear Camera | 5MP Front Camera"
-            },
-            {
-              name: "Display: HD+(1600x700) IPS LCD display; 15.58 centimeters (6.53 inch); 20:9 aspect ratio"
-            },
-            {
-              name: "Processor: MediaTek Helio G25 Octa-core processor; Up to 2.0 GHz clock speed"
-            },
-            {
-              name: "Battery: 5000 mAh large battery with 10W fast charger in-box and Micro USB connectivity"
-            },
-            {
-              name: "Memory, Storage & SIM:6GB RAM (expandable to 8GB with RAM Booster) | 128GB storage expandable upto 512GB with dedicated SD card slot | Dual SIM (nano+nano) dual standby(4G+4G)"
-            }
-          ]
-        },
-        {
-          image: "https://m.media-amazon.com/images/I/71WC+Qz1KgL._AC_UL320_.jpg",
-          Name: "Redmi 10A (Sea Blue, 4GB RAM, 64GB Storage) | 2 Ghz Octa Core Helio G25 | 5000 mAh Battery | Finger Print Sensor | Upto 5GB RAM with RAM Booster",
-          reviewNumber: "13,808",
-          mrp: "₹11,999",
-          price: "8,999",
-          discount: "(25% off)",
-          selection6: [
-            {
-              name: "Camera: 13MP Rear Camera | 5MP Front Camera"
-            },
-            {
-              name: "Display: HD+(1600x700) IPS LCD display; 15.58 centimeters (6.53 inch); 20:9 aspect ratio"
-            },
-            {
-              name: "Processor: MediaTek Helio G25 Octa-core processor; Up to 2.0 GHz clock speed"
-            },
-            {
-              name: "Battery: 5000 mAh large battery with 10W fast charger in-box and Micro USB connectivity"
-            },
-            {
-              name: "Memory, Storage & SIM:4GB RAM | 64GB storage expandable upto 512GB with dedicated SD card slot | Dual SIM (nano+nano) dual standby(4G+4G)"
-            }
-          ]
-        },
-        {
-          image: "https://m.media-amazon.com/images/I/71yTvU9VgdL._AC_UL320_.jpg",
-          Name: "Redmi Note 11 (Space Black, 4GB RAM, 64GB Storage)|90Hz FHD+ AMOLED Display | Qualcomm® Snapdragon™ 680-6nm | 33W Charger Included",
-          reviewNumber: "52,064",
-          mrp: "₹17,999",
-          price: "12,999",
-          discount: "(28% off)",
-          selection6: [
-            {
-              name: "Display: 90Hz FHD+ (1080x2400) AMOLED display; 16.33 centimeters (6.43 inch); 20:9 aspect ratio"
-            },
-            {
-              name: "Camera: 50 MP Quad Rear camera with 8MP Ultra-wide, 2MP Macro and Portrait lens| 13 MP Front camera"
-            },
-            {
-              name: "Battery: 5000 mAh large battery with 33W Pro fast charger in-box and Type-C connectivity"
-            },
-            {
-              name: "Processor: Qualcomm Snapdragon 680 Octa-core; 6nm processor; Up to 2.4GHz clock speed"
-            },
-            {
-              name: "Memory, Storage & SIM: 4GB RAM | 64GB UFS 2.2 storage expandable up to 512GB with dedicated SD card slot | Dual SIM (nano+nano) dual standby (4G+4G)"
-            }
-          ]
-        },
-        {
-          image: "https://m.media-amazon.com/images/I/81xvGbBFNhL._AC_UL320_.jpg",
-          Name: "Samsung Galaxy M33 5G (Deep Ocean Blue, 6GB, 128GB Storage) | 6000mAh Battery | Upto 12GB RAM with RAM Plus | Travel Adapter to be Purchased Separately",
-          reviewNumber: "23,280",
-          mrp: "₹24,999",
-          price: "18,999",
-          discount: "(24% off)",
-          selection6: [
-            {
-              name: "Exynos 1280 Octa Core 2.4GHz 5nm Processor with 12 band support for a True 5G experience"
-            },
-            {
-              name: "16.72 centimeters (6.6-inch) LCD Display, FHD+ resolution, 1080x2400 pixels protected by Gorilla Glass 5"
-            },
-            {
-              name: "Versatile Quad camera setup-50MP (F1.8)+ 5MP (F2.2/UW- 123 FOV) + 2MP (F2.4/Depth) + 2MP (F2.4/Macro) QuadCamera| 8MP (F1.8) Front Camera"
-            },
-            {
-              name: "Massive 6000 mAh Battery | Memory, Storage & SIM: 6GB RAM | 128GB internal memory expandable up to 1TB| SIM 1 + SIM 2+ Micro SD"
-            },
-            {
-              name: "Latest Android v12.0, One UI 4 operating system."
-            },
-            {
-              name: "Intelligent Voice Focus | Power Cool Technology | Auto Data Switching"
-            }
-          ]
-        },
-        {
-          image: "https://m.media-amazon.com/images/I/81-fFXQdPTL._AC_UL320_.jpg",
-          Name: "Samsung Galaxy M13 (Aqua Green, 6GB, 128GB Storage) | 6000mAh Battery | Upto 12GB RAM with RAM Plus",
-          reviewNumber: "20,577",
-          mrp: "₹17,999",
-          price: "12,999",
-          discount: "(28% off)",
-          selection6: [
-            {
-              name: "6000mAh lithium-ion battery, 1 year manufacturer warranty for device and 6 months manufacturer warranty for in-box accessories including batteries from the date of purchase"
-            },
-            {
-              name: "Upto 12GB RAM with RAM Plus | 128GB internal memory expandable up to 1TB| Dual Sim (Nano)"
-            },
-            {
-              name: "50MP+5MP+2MP Triple camera setup- True 50MP (F1.8) main camera +5MP(F2.2)+ 2MP (F2.4) | 8MP (F2.2) front cam"
-            },
-            {
-              name: "Android 12,One UI Core 4 with a powerful Octa Core Processor"
-            },
-            {
-              name: "16.72 centimeters (6.6-inch) FHD+ LCD - infinity O Display, FHD+ resolution with 1080 x 2408 pixels resolution, 401 PPI with 16M color"
-            }
-          ]
-        },
-        {
-          image: "https://m.media-amazon.com/images/I/812YsUxpyfL._AC_UL320_.jpg",
-          Name: "Samsung Galaxy M13 (Midnight Blue, 6GB, 128GB Storage) | 6000mAh Battery | Upto 12GB RAM with RAM Plus",
-          reviewNumber: "20,577",
-          mrp: "₹17,999",
-          price: "12,999",
-          discount: "(28% off)",
-          selection6: [
-            {
-              name: "6000mAh lithium-ion battery, 1 year manufacturer warranty for device and 6 months manufacturer warranty for in-box accessories including batteries from the date of purchase"
-            },
-            {
-              name: "Upto 12GB RAM with RAM Plus | 128GB internal memory expandable up to 1TB| Dual Sim (Nano)"
-            },
-            {
-              name: "50MP+5MP+2MP Triple camera setup- True 50MP (F1.8) main camera +5MP(F2.2)+ 2MP (F2.4) | 8MP (F2.2) front cam"
-            },
-            {
-              name: "Android 12,One UI Core 4 with a powerful Octa Core Processor"
-            },
-            {
-              name: "16.72 centimeters (6.6-inch) FHD+ LCD - infinity O Display, FHD+ resolution with 1080 x 2408 pixels resolution, 401 PPI with 16M color"
-            }
-          ]
-        },
-        {
-          image: "https://m.media-amazon.com/images/I/810KHyQ4WcL._AC_UL320_.jpg",
-          Name: "Redmi 9A Sport (Coral Green, 2GB RAM, 32GB Storage) | 2GHz Octa-core Helio G25 Processor | 5000 mAh Battery",
-          reviewNumber: "316,285",
-          mrp: "₹7,999",
-          price: "6,499",
-          discount: "(19% off)",
-          selection6: [
-            {
-              name: "Processor: MediaTek Helio G25 Octa-core; Up to 2.0GHz clock speed"
-            },
-            {
-              name: "Camera: 13 MP Rear camera with AI portrait| 5 MP front camera"
-            },
-            {
-              name: "Display: 16.58 centimeters (6.53-inch) HD+ display with 720x1600 pixels and 20:9 aspect ratio"
-            },
-            {
-              name: "Battery: 5000 mAH large battery with 10W wired charger in-box"
-            },
-            {
-              name: "Memory, Storage & SIM: 2GB RAM | 32GB storage | Dual SIM (nano+nano) + Dedicated SD card slot"
-            },
-            {
-              name: "The Selfie camera allows easy and convenient access to your phone with AI face unlock"
-            },
-            {
-              name: "Form factor:Bar,Operating system:MIUI 12"
-            }
-          ]
-        },
-        {
-          image: "https://m.media-amazon.com/images/I/814ePfNubRL._AC_UL320_.jpg",
-          Name: "Samsung Galaxy M04 Light Green, 4GB RAM, 128GB Storage | Upto 8GB RAM with RAM Plus | MediaTek Helio P35 | 5000 mAh Battery",
-          reviewNumber: "649",
-          mrp: "₹13,499",
-          price: "9,499",
-          discount: "(30% off)",
-          selection6: [
-            {
-              name: "Powerful MediaTek Helio P35 Octa Core 2.3GHz with Android 12,One UI Core 4.1"
-            },
-            {
-              name: "13MP+2MP Dual camera setup- True 13MP (F2.2) main camera + 2MP (F2.4) | 5MP (F2.2) front came"
+              name: "UK Size: 9.5 / Insole Length: 16.8 CM"
             },
             {
-              name: "16.55 centimeters (6.5-inch) LCD, HD+ resolution with 720 x 1600 pixels resolution, 269 PPI with 16M color"
+              name: "Styling Tip: Mix And Match These Cute footwear With Matching Casual Wear"
             },
             {
-              name: "5000mAH lithium-ion battery, 1 year manufacturer warranty for device and 6 months manufacturer warranty for in-box accessories including batteries from the date of purchase"
+              name: "Note: Kindly Purchase Footwear Size 1/2 Cm More Than Your Kid'S Foot Size."
             }
           ]
         },
         {
-          image: "https://m.media-amazon.com/images/I/81I3w4J6yjL._AC_UL320_.jpg",
-          Name: "Samsung Galaxy M33 5G (Mystique Green, 8GB, 128GB Storage) | 6000mAh Battery | Upto 16GB RAM with RAM Plus | Travel Adapter to be Purchased Separately",
-          reviewNumber: "23,280",
-          mrp: "₹25,999",
-          price: "20,499",
-          discount: "(21% off)",
+          image: "https://m.media-amazon.com/images/I/91iHkRbk8vL._AC_UL320_.jpg",
+          Name: "Silk Cotton Blend (Party wear Sarees for Women_Mustard)",
+          mrp: "₹2,499",
+          price: "329",
+          discount: "(87% off)",
           selection6: [
-            {
-              name: "Exynos 1280 Octa Core 2.4GHz 5nm Processor with the 12 band support for a True 5G experience"
-            },
-            {
-              name: "16.72 centimeters (6.6-inch) LCD Display, FHD+ resolution, 1080x2400 pixels protected by Gorilla Glass 5"
-            },
-            {
-              name: "Versatile Quad camera setup-50MP (F1.8)+ 5MP (F2.2/UW- 123 FOV) + 2MP (F2.4/Depth) + 2MP (F2.4/Macro) QuadCamera| 8MP (F1.8) Front Camera"
-            },
-            {
-              name: "Massive 6000 mAh Battery | Memory, Storage & SIM: 8GB RAM | 128GB internal memory expandable up to 1TB| SIM 1 + SIM 2+ Micro SD"
-            },
-            {
-              name: "Latest Android v12.0, One UI 4 operating system."
-            },
             {
-              name: "Intelligent Voice Focus | Power Cool Technology | Auto Data Switching"
+              name: "Care Instructions: Hand Wash Only"
             },
-            {
-              name: "Connector type: 3.5mm jack"
-            }
-          ]
-        },
-        {
-          image: "https://m.media-amazon.com/images/I/81lnKynSaqL._AC_UL320_.jpg",
-          Name: "Samsung Galaxy M33 5G (Emerald Brown, 6GB, 128GB Storage) | 6000mAh Battery | Upto 12GB RAM with RAM Plus | Travel Adapter to be Purchased Separately",
-          reviewNumber: "23,280",
-          mrp: "₹24,999",
-          price: "18,999",
-          discount: "(24% off)",
-          selection6: [
             {
-              name: "Exynos 1280 Octa Core 2.4GHz 5nm Processor with the 12 band support for a True 5G experience"
+              name: "Saree Fabric:-Cotton Silk,Blouse Fabric :-Cotton Silk"
             },
             {
-              name: "16.72 centimeters (6.6-inch) LCD Display, FHD+ resolution, 1080x2400 pixels protected by Gorilla Glass 5"
+              name: "Color : This Amazing Saree have Soft Finished Mustard colour which make you look awesome and star of Party."
             },
             {
-              name: "Versatile Quad camera setup-50MP (F1.8)+ 5MP (F2.2/UW- 123 FOV) + 2MP (F2.4/Depth) + 2MP (F2.4/Macro) QuadCamera| 8MP (F1.8) Front Camera"
+              name: "Occasions :- This Saree is Specially design for wedding, Party and Festive Season of indian women's wear."
             },
             {
-              name: "Massive 6000 mAh Battery | Memory, Storage & SIM: 6GB RAM | 128GB internal memory expandable up to 1TB| SIM 1 + SIM 2+ Micro SD"
+              name: "Length :- Saree Length is 5.5 Meter and Blouse Length is is 0.80 Meter."
             },
             {
-              name: "Latest Android v12.0, One UI 4 operating system."
+              name: "Product color may slightly vary due to photographic lighting sources on your monitor settings or device setting and lighting used in mode."
             }
           ]
         },
         {
-          image: "https://m.media-amazon.com/images/I/71t7mcs1VoL._AC_UL320_.jpg",
-          Name: "Redmi 10A Sport (Slate Grey, 6GB RAM, 128GB Storage) | 2 Ghz Octa Cor Helio G25 | 5000 mAh Battery | Finger Print Sensor | Upto 8GB RAM with RAM Booster",
-          reviewNumber: "1,108",
-          mrp: "₹13,999",
-          price: "9,999",
-          discount: "(29% off)",
+          image: "https://m.media-amazon.com/images/I/712BvZclUFL._AC_UL320_.jpg",
+          Name: "Women's Lycra Malai Silk Embroidery Work Saree",
+          reviewNumber: "1,039",
+          mrp: "₹5,999",
+          price: "1,498",
+          discount: "(75% off)",
           selection6: [
-            {
-              name: "Camera: 13MP Rear Camera | 5MP Front Camera"
-            },
-            {
-              name: "Display: HD+(1600x700) IPS LCD display; 15.58 centimeters (6.53 inch); 20:9 aspect ratio"
-            },
-            {
-              name: "Processor: MediaTek Helio G25 Octa-core processor; Up to 2.0 GHz clock speed"
-            },
             {
-              name: "Battery: 5000 mAh large battery with 10W fast charger in-box and Micro USB connectivity"
+              name: "Care Instructions: hand wash"
             },
-            {
-              name: "Memory, Storage & SIM:6GB RAM (expandable to 8GB with RAM Booster) | 128GB storage expandable upto 512GB with dedicated SD card slot | Dual SIM (nano+nano) dual standby(4G+4G)"
-            }
-          ]
-        },
-        {
-          image: "https://m.media-amazon.com/images/I/71poFSdDs5S._AC_UL320_.jpg",
-          Name: "OPPO A74 5G (Fluid Black, 6GB RAM, 128GB Storage) with No Cost EMI/Additional Exchange Offers",
-          reviewNumber: "33,437",
-          mrp: "₹20,990",
-          price: "15,490",
-          discount: "(26% off)",
-          selection6: [
             {
-              name: "6.49 Inch (16.5cm) FHD+ Punch-hole Display with 2400x1080 pixels. Larger screen to body ratio of 90.5%.|Side Fingerprint Sensor. Bluetooth Audio Codec: SBC, AAC, APTX HD, LDAC"
+              name: "Fit Type: Regular"
             },
             {
-              name: "Qualcomm Snapdragon 480 5G GPU 619 at 650 MHz Support 5G sim| Powerful 2 GHz Octa-core processor, support LPDDR4X memory and latest UFS 2.1 gear 3 storage"
+              name: "Saree Length: 5.50 mtr || Blouse Length: 1 mtr || With Unstitched Blouse"
             },
             {
-              name: "5000 mAh lithium polymer battery"
+              name: "Saree Details: Color-gold.|| Material: Malai Silk"
             },
             {
-              name: "48MP Quad Camera ( 48MP Main + 2MP Macro + 2MP Depth Lens) | 8MP Front Camera."
+              name: "Content : 1 Saree with 1 un-stitched Blouse Piece also || Blouse Fabric: Dupion Silk"
             },
             {
-              name: "Memory, Storage & SIM: 6GB RAM | 128GB internal memory expandable up to 256GB | Dual SIM (nano+nano) dual-standby (5G+5G).| Color OS 11.1 based on Android v11.0 operating system."
+              name: "Occasions : Party > Festive > Wedding Wear > Traditional wear || Best gift for your Loved ones."
             },
             {
-              name: "Connector type: USB Type C"
+              name: "|| You will get full satisfaction with this brand || its a Very attractive Design ||"
             }
           ]
         },
         {
-          image: "https://m.media-amazon.com/images/I/81zLNgcvlaL._AC_UL320_.jpg",
-          Name: "Redmi Note 11 (Horizon Blue, 6GB RAM, 64GB Storage)|90Hz FHD+ AMOLED Display | Qualcomm® Snapdragon™ 680-6nm | 33W Charger Included",
-          reviewNumber: "52,064",
-          mrp: "₹18,999",
-          price: "12,499",
-          discount: "(34% off)",
+          image: "https://m.media-amazon.com/images/I/71rYgo3q0sL._AC_UL320_.jpg",
+          Name: "Women's Elegant Shiny Glitte Short Sleeve V Neck Ruched Bodycon Party Maxi Dress",
+          reviewNumber: "108",
+          mrp: "₹1,999",
+          price: "369",
+          discount: "(82% off)",
           selection6: [
-            {
-              name: "Display: 90Hz FHD+ (1080x2400) AMOLED display; 16.33 centimeters (6.43 inch); 20:9 aspect ratio"
-            },
-            {
-              name: "Camera: 50 MP Quad Rear camera with 8MP Ultra-wide, 2MP Macro and Portrait lens| 13 MP Front camera"
-            },
             {
-              name: "Battery: 5000 mAh large battery with 33W Pro fast charger in-box and Type-C connectivity"
+              name: "Care Instructions: Dry Clean Only"
             },
             {
-              name: "Processor: Qualcomm Snapdragon 680 Octa-core; 6nm processor; Up to 2.4GHz clock speed"
+              name: "Fit Type: Slim"
             },
-            {
-              name: "Memory, Storage & SIM: 6GB RAM | 64GB UFS 2.2 storage expandable up to 512GB with dedicated SD card slot | Dual SIM (nano+nano) dual standby (4G+4G)"
-            }
-          ]
-        },
-        {
-          image: "https://m.media-amazon.com/images/I/81LrmorQeQL._AC_UL320_.jpg",
-          Name: "Oppo A78 5G (Glowing Black, 8GB RAM, 128 Storage) | 5000 mAh Battery with 33W SUPERVOOC Charger| 50MP AI Camera | 90Hz Refresh Rate | with No Cost EMI/Additional Exchange Offers",
-          reviewNumber: "20",
-          mrp: "₹21,999",
-          price: "18,999",
-          discount: "(14% off)",
-          selection6: [
             {
-              name: "Big 5000 mAh Battery with 33W SUPERVOOC Charging"
+              name: "Fabric: sparkle 90% Polyester, 10% Spandex , Super soft and comfortable fabric inside"
             },
             {
-              name: "Super smooth experience with ColorOS 13 and 8GB RAM (+ RAM expansion up to 8GB) | 128GB ROM | Expandable Upto 1TB"
+              name: "Style: Elegant v neck, 3/4 Sleeves, rich bodycon dress that hide belly fat, slit in leg, maxi dress"
             },
             {
-              name: "Crystal clear details with AI Camera setup 50MP + 2MP Rear Camera | 8MP Front Camera"
+              name: "Fit Type: Slim Fit; Occasion: Casual || Party || Beach || Formal || Meeting || Office wear"
             },
             {
-              name: "OPPO Glow Design with 6.56 inch (16.66cm) 90Hz Color-Rich Display and Large Screen to Body ratio of 89.8%"
+              name: "S-2XL. Please carefully check the sizing info to ensure your size prior to ordering"
             },
             {
-              name: "Dual Ultra Linear Stereo Speakers with ROST and flagship hardware which produce an immersive sound effect"
+              name: "Age Range Description: Adult; Closure Type: Pull On"
             }
           ]
         },
         {
-          image: "https://m.media-amazon.com/images/I/71kVEmAMyEL._AC_UL320_.jpg",
-          Name: "Redmi 10A (Slate Grey, 3GB RAM, 32GB Storage) | 2 Ghz Octa Core Helio G25 | 5000 mAh Battery | Finger Print Sensor | Upto 5GB RAM with RAM Booster",
-          reviewNumber: "13,808",
-          mrp: "₹10,999",
-          price: "7,499",
-          discount: "(32% off)",
+          image: "https://m.media-amazon.com/images/I/61Hi7hpMK6S._AC_UL320_.jpg",
+          Name: "Women's Codding Long Anarkali Dress Material Gown With Duppta(Free Size)",
+          reviewNumber: "2,253",
+          mrp: "₹3,499",
+          price: "1,099",
+          discount: "(69% off)",
           selection6: [
-            {
-              name: "Camera: 13MP Rear Camera | 5MP Front Camera"
-            },
-            {
-              name: "Display: HD+(1600x700) IPS LCD display; 15.58 centimeters (6.53 inch); 20:9 aspect ratio"
-            },
-            {
-              name: "Processor: MediaTek Helio G25 Octa-core processor; Up to 2.0 GHz clock speed"
-            },
             {
-              name: "Battery: 5000 mAh large battery with 10W fast charger in-box and Micro USB connectivity"
+              name: "Fit Type: Regular"
             },
-            {
-              name: "Memory, Storage & SIM:3GB RAM | 32GB storage expandable upto 512GB with dedicated SD card slot | Dual SIM (nano+nano) dual standby(4G+4G)"
-            }
-          ]
-        },
-        {
-          image: "https://m.media-amazon.com/images/I/81zLNgcvlaL._AC_UL320_.jpg",
-          Name: "Redmi Note 11 (Horizon Blue, 6GB RAM, 128GB Storage)|90Hz FHD+ AMOLED Display | Qualcomm® Snapdragon™ 680-6nm | 33W Charger Included",
-          reviewNumber: "52,064",
-          mrp: "₹19,999",
-          price: "14,499",
-          discount: "(28% off)",
-          selection6: [
             {
-              name: "Display: 90Hz FHD+ (1080x2400) AMOLED display; 16.33 centimeters (6.43 inch); 20:9 aspect ratio"
+              name: "Gown Fabric : Top:- Georgette || Inner:-Shantton || Duppta:-Georggette With Hevay Work.Which Will Provide Full Comfort Everywhere."
             },
             {
-              name: "Camera: 50 MP Quad Rear camera with 8MP Ultra-wide, 2MP Macro and Portrait lens| 13 MP Front camera"
+              name: "Gown Work: Codding || Type: Semi-Stiched(Free Size)||You Can Fit To Small To Xxl Size."
             },
             {
-              name: "Battery: 5000 mAh large battery with 33W Pro fast charger in-box and Type-C connectivity"
+              name: "Suitable For Weddings And Special Occasion This Can Be Paired With Beautiful Earrings And Footwear To Enhance Your Appearance"
             },
             {
-              name: "Processor: Qualcomm Snapdragon 680 Octa-core; 6nm processor; Up to 2.4GHz clock speed"
+              name: "There Might Be Slight Colour Variation Due To Lightings And Flash While Photo Shoot; Closure Type: Popper; Sleeve Type: Long Sleeve"
             },
             {
-              name: "Memory, Storage & SIM: 6GB RAM | 128GB UFS 2.2 storage expandable up to 512GB with dedicated SD card slot | Dual SIM (nano+nano) dual standby (4G+4G)"
+              name: "Age Range Description: Adult"
             }
           ]
         },
         {
-          image: "https://m.media-amazon.com/images/I/81Bc+XzxecL._AC_UL320_.jpg",
-          Name: "Redmi 11 Prime 5G (Meadow Green, 4GB RAM 64GB ROM) | Prime Design | MTK Dimensity 700 | 50 MP Dual Cam | 5000mAh | 7 Band 5G",
-          reviewNumber: "2,651",
-          mrp: "₹15,999",
-          price: "13,999",
-          discount: "(13% off)",
+          image: "https://m.media-amazon.com/images/I/71Nnzf73vXL._AC_UL320_.jpg",
+          Name: "Shiv Textiles Women's Pure Georgette Saree With Blouse Piece",
+          reviewNumber: "638",
+          mrp: "₹1,499",
+          price: "699",
+          discount: "(53% off)",
           selection6: [
-            {
-              name: "Processor: MediaTek Dimensity 700 with 5G, 7nm Octa-core processor; Up to 2.2GHz"
-            },
-            {
-              name: "Display: 90Hz FHD+(1080x2400) AdaptiveSync Display; 16.71centimeters; 20:9 aspect ratio"
-            },
             {
-              name: "Camera: 50MP AI Dual camera | 8MP Front camera"
+              name: "Care Instructions: hand wash"
             },
             {
-              name: "Memory, Storage & SIM: 4GB RAM | 64GB UFS 2.2 storage expandable up to 512GB with dedicated SD card slot | Dual SIM (nano+nano) dual standby (5G+5G)"
+              name: "Fit Type: Regular"
             },
-            {
-              name: "Battery: 5000 mAh large battery with 18W fast charging support and 22.5W fast charger in-box with Type-C connectivity"
-            }
-          ]
-        },
-        {
-          image: "https://m.media-amazon.com/images/I/71xb2xkN5qL._AC_UL320_.jpg",
-          Name: "Apple iPhone 13 (128GB) - Blue",
-          reviewNumber: "13,013",
-          mrp: "₹69,900",
-          price: "61,999",
-          discount: "(11% off)",
-          selection6: [
             {
-              name: "15 cm (6.1-inch) Super Retina XDR display"
+              name: "Saree Fabric: Georgette, Blouse Color: Pink, Saree Type: Crushed"
             },
             {
-              name: "Cinematic mode adds shallow depth of field and shifts focus automatically in your videos"
+              name: "Saree Length:-5.6 Meter, Blouse Length:-0.80 Meter (Unstitched)"
             },
             {
-              name: "Advanced dual-camera system with 12MP Wide and Ultra Wide cameras; Photographic Styles, Smart HDR 4, Night mode, 4K Dolby Vision HDR recording"
+              name: "Saree Wash Care :- Hand Wash, Dry the Saree under Shade."
             },
             {
-              name: "12MP TrueDepth front camera with Night mode, 4K Dolby Vision HDR recording"
+              name: "Made of Finely Georgette Fabric Decorated with Intricate Design with Attractive Pallu and Blouse attached."
             },
             {
-              name: "A15 Bionic chip for lightning-fast performance"
+              name: "The Modern designs and color combination make it a worth having saree for your wardrobe."
             }
           ]
         },
         {
-          image: "https://m.media-amazon.com/images/I/7155Pasn1aL._AC_UL320_.jpg",
-          Name: "Redmi Note 11T 5G (Matte Black, 6GB RAM, 128GB ROM)| Dimensity 810 5G | 33W Pro Fast Charging | Charger Included | Additional Exchange Offers|Get 2 Months of YouTube Premium Free!",
-          reviewNumber: "32,684",
-          mrp: "₹20,999",
-          price: "16,999",
-          discount: "(19% off)",
+          image: "https://m.media-amazon.com/images/I/61bGxcZM8YL._AC_UL320_.jpg",
+          Name: "Men's Regular Fit Casual Shirt",
+          reviewNumber: "5,873",
+          mrp: "₹1,999",
+          price: "499",
+          discount: "(75% off)",
           selection6: [
             {
-              name: "Processor: MediaTek Dimensity 810 Octa-core 5G processor based on 6nm process with HyperEngine 2.0 and clock speed up to 2.4GHz;"
+              name: "Care Instructions: Hand Wash Only"
             },
             {
-              name: "Display: 6.6 inch FHD+ (2400x1080) Dot display with 90Hz high refresh rate and adaptive refresh rate technology; 240Hz touch sampling rate;"
+              name: "Fit Type: Regular Fit"
             },
             {
-              name: "Camera: 50MP High resolution primary camera f/1.8 with 8MP Ultra-wide sensor| 16 MP Front camera"
+              name: "Wash Care: Hand Wash Only"
             },
             {
-              name: "Battery: 5000mAh battery with 33W Pro fast charging support"
+              name: "Fabric Type: Cotton; Pattern Name: Solid"
             },
             {
-              name: "Memory, Storage : 6GB LPDDR4X RAM | 128GB UFS2.2 Internal storage"
+              name: "Closure Type: Buttoned"
             },
             {
-              name: "Headphones jack:3.5mm,Display type:LCD,Operating system:MIUI 12.5 based on Android 11"
+              name: "Sleeve Type: Long Sleeve; Collar Style: Round Collar"
             },
             {
-              name: "Get 2 months of YouTube Premium free!"
+              name: "Fit Type: Regular Fit"
             }
           ]
         },
         {
-          image: "https://m.media-amazon.com/images/I/81OC0ojxH6L._AC_UL320_.jpg",
-          Name: "Samsung Galaxy M32 Prime Edition (Light Blue, 6GB RAM, 128GB)",
-          reviewNumber: "56,762",
-          mrp: "₹18,999",
-          price: "15,499",
-          discount: "(18% off)",
+          image: "https://m.media-amazon.com/images/I/51IAgWvFuGS._AC_UL320_.jpg",
+          Name: "Women Rayon Casual Wear Western Maxi Dress Gown for Girl/Women/Ladies",
+          reviewNumber: "1,056",
+          mrp: "₹1,999",
+          price: "419",
+          discount: "(79% off)",
           selection6: [
-            {
-              name: "Segment Best 16.21 centimeters (6.4-inch) Super AMOLED - Infinity U-cut display, FHD+ resolution with 90Hz Refresh rate, 800 Nits High Brightness Mode, protected by Gorilla Glass 5"
-            },
-            {
-              name: "Versatile 64MP+8MP+2MP+2MP Quad camera setup-64MP (F 1.8) main camera + 8MP (F2.2) Ultra wide camera+ 2MP (F2.4) depth camera + 2MP (2.4) Macro Camera| 20MP (F2.2) front camera"
-            },
             {
-              name: "Monster 6000 mAh Battery| Memory, Storage & SIM: 6GB RAM | 128GB internal memory expandable up to 1TB| SIM 1 + SIM 2 + MicroSD"
+              name: "Care Instructions: Dry Clean Only"
             },
             {
-              name: "Android v12.0, One UI 4.1 operating system with MediaTek | Helio G80 Octa Core Processor 2GHz,1.8GHz"
+              name: "Fit Type: Regular"
             },
-            {
-              name: "6000mAH lithium-ion battery, 1 year manufacturer warranty for device and 6 months manufacturer warranty for in-box accessories including batteries from the date of purchase"
-            }
-          ]
-        },
-        {
-          image: "https://m.media-amazon.com/images/I/81E8fhm0dcL._AC_UL320_.jpg",
-          Name: "Redmi Note 12 5G Mystique Blue 4GB RAM 128GB ROM | 1st Phone with 120Hz Super AMOLED and Snapdragon® 4 Gen 1 | 48MP AI Triple Camera",
-          reviewNumber: "431",
-          mrp: "₹19,999",
-          price: "17,999",
-          discount: "(10% off)",
-          selection6: [
             {
-              name: "Display: Super AMOLED (1080x2400) Display with 120Hz Refresh rate; 1200nits peak brightness; 240Hz Touch sampling rate"
+              name: "Fabric: Slub Rayon || Pattern: Printed || Style: Anarkali"
             },
             {
-              name: "Processor: Snapdragon 4 Gen1 6nm Octa-core 5G processor for high performance and efficiency with Adreno 619 GPU; Up to 2.0GHz"
+              name: "Sleeves : Three-Quarter Sleeves || Sleeve Styling :Regular Sleeves || Neck : V-Neck"
             },
             {
-              name: "Camera: 48MP AI Triple camera setup with 8MP Ultra Wide sensor and 2MP Macro camera| 13MP Front camera"
+              name: "There might be slight color variation between the actual product and image shown on the screen due to photoshoot lighting."
             },
             {
-              name: "Battery: 5000mAh large battery with 33W fast charger in-box and Type-C connectivity"
+              name: "Ocassion: Traditional wear,Casual Wear, Office Wear, Formal wear, Evening wear, Work Wear, Party Wear"
             },
             {
-              name: "Memory, Storage & SIM: 4GB RAM | 128GB UFS 2.2 storage expandable up to 1TB | Dual SIM (nano+nano) Dual 5G (5G+5G)"
+              name: "SATISFACTION GUARANTEED- Customer service is our number one priority. If you’re not satisfied with your purchase, we will be happy to process a 100% exchange or refund for you."
             }
           ]
         },
         {
-          image: "https://m.media-amazon.com/images/I/71KCwNV6MuL._AC_UL320_.jpg",
-          Name: "OPPO A31 (Mystery Black, 6GB RAM, 128GB Storage) with No Cost EMI/Additional Exchange Offers",
-          reviewNumber: "58,811",
-          mrp: "₹15,990",
-          price: "12,490",
-          discount: "(22% off)",
+          image: "https://m.media-amazon.com/images/I/71GxB8DJLyL._AC_UL320_.jpg",
+          Name: "Women's Georgette Digital Floral Printed Gown Dress for Women (Gown Dress 35)",
+          reviewNumber: "821",
+          mrp: "₹3,499",
+          price: "679",
+          discount: "(81% off)",
           selection6: [
             {
-              name: "12+2+2MP triple rear camera (12MP main camera+2MP macro lens+2MP depth camera) with Portrait bokeh, macro lens, dazzle color mode, AI beautification | 8MP front camera. OTG : Supported NFC : No"
+              name: "Care Instructions: Dry Clean Only"
             },
             {
-              name: "16.5 centimeters (6.5-inch) waterdrop multi touch screen with an 89% screen to body ratio | 1600 x 720 pixels resolution, 269 ppi pixel density"
+              name: "Fit Type: Regular"
             },
             {
-              name: "Memory, Storage & SIM: 6GB RAM | 128GB internal memory expandable up to 256GB | Dual SIM (nano+nano) dual-standby (4G+4G)"
+              name: "Dress Fabric : Georgette"
             },
             {
-              name: "Android Pie v9.0 based on ColorOS 6.1 operating system with 2.3GHz Mediatek 6765 octa core processor, IMG GE8320"
+              name: "Style : Flare Straight || Length : Ankle Length"
             },
             {
-              name: "4230mAH lithium-polymer battery providing talk-time of 45 hours and standby time of 450 hours"
+              name: "Sleeves : Short Sleeves || Sleeve Styling : Butterfly Sleeves || Neck : Round Neck"
             },
             {
-              name: "1 year manufacturer warranty for device and 6 months manufacturer warranty for in-box accessories including batteries from the date of purchase"
+              name: "Ocassion: Casual || Party || Wedding || Festival || Formal"
             },
             {
-              name: "Box also includes: USB cable, Sim tray ejecter, pre-applied screen protector and protective case, booklet with warranty card and quick guide. The box does not include earphones"
+              name: "Sleeves :- Short Sleeve || Neck :- Round Neck"
             }
           ]
         },
         {
-          image: "https://m.media-amazon.com/images/I/81E8fhm0dcL._AC_UL320_.jpg",
-          Name: "Redmi Note 12 5G Mystique Blue 6GB RAM 128GB ROM | 1st Phone with 120Hz Super AMOLED and Snapdragon® 4 Gen 1 | 48MP AI Triple Camera",
-          reviewNumber: "431",
-          mrp: "₹21,999",
-          price: "19,999",
-          discount: "(9% off)",
+          image: "https://m.media-amazon.com/images/I/61DeRAjBAvL._AC_UL320_.jpg",
+          Name: "Women's Fit and Flare Knee Length Gown with Dupatta (Navy_X-Large)",
+          reviewNumber: "62",
+          mrp: "₹2,999",
+          price: "898",
+          discount: "(70% off)",
           selection6: [
-            {
-              name: "Display: Super AMOLED (1080x2400) Display with 120Hz Refresh rate; 1200nits peak brightness; 240Hz Touch sampling rate"
-            },
             {
-              name: "Processor: Snapdragon 4 Gen1 6nm Octa-core 5G processor for high performance and efficiency with Adreno 619 GPU; Up to 2.0GHz"
+              name: "Care Instructions: Dry Clean Only"
             },
             {
-              name: "Camera: 48MP AI Triple camera setup with 8MP Ultra Wide sensor and 2MP Macro camera| 13MP Front camera"
+              name: "Fit Type: Regular"
             },
             {
-              name: "Battery: 5000mAh large battery with 33W fast charger in-box and Type-C connectivity"
+              name: "Color Declaration : There might be slight variation in the actual colour of the product due to different screen resolutions; Care Instructions: Only Dry Clean"
             },
             {
-              name: "Memory, Storage & SIM: 6GB RAM | 128GB UFS 2.2 storage expandable up to 1TB | Dual SIM (nano+nano) Dual 5G (5G+5G)"
+              name: "Color Map: Blue; Closure Type: Drawstring; Occasion Type: Wedding; Sleeve Type: Short Sleeve"
             }
           ]
         },
         {
-          image: "https://m.media-amazon.com/images/I/81Jov18YvpL._AC_UL320_.jpg",
-          Name: "Samsung Galaxy M32 Prime Edition (Black, 6GB RAM, 128GB)",
-          reviewNumber: "56,762",
-          price: "15,499",
+          image: "https://m.media-amazon.com/images/I/51XWI+rIQvL._AC_UL320_.jpg",
+          Name: "Women's Cotton Foil Printed Straight Kurta with Pant & Dupatta(NAVLIK-PINK-001)",
+          reviewNumber: "3,091",
+          mrp: "₹3,599",
+          price: "659",
+          discount: "(82% off)",
           selection6: [
-            {
-              name: "Segment Best 16.21 centimeters (6.4-inch) Super AMOLED - Infinity U-cut display, FHD+ resolution with 90Hz Refresh rate, 800 Nits High Brightness Mode, protected by Gorilla Glass 5"
-            },
-            {
-              name: "Versatile 64MP+8MP+2MP+2MP Quad camera setup-64MP (F 1.8) main camera + 8MP (F2.2) Ultra wide camera+ 2MP (F2.4) depth camera + 2MP (2.4) Macro Camera| 20MP (F2.2) front camera"
-            },
             {
-              name: "Monster 6000 mAh Battery| Memory, Storage & SIM: 6GB RAM | 128GB internal memory expandable up to 1TB| SIM 1 + SIM 2 + MicroSD"
+              name: "Care Instructions: Dry Clean Only"
             },
             {
-              name: "Android v12.0, One UI 4.1 operating system with MediaTek | Helio G80 Octa Core Processor 2GHz,1.8GHz"
+              name: "Fit Type: Regular"
             },
-            {
-              name: "6000mAH lithium-ion battery, 1 year manufacturer warranty for device and 6 months manufacturer warranty for in-box accessories including batteries from the date of purchase"
-            }
-          ]
-        },
-        {
-          image: "https://m.media-amazon.com/images/I/51RqXqfn1iL._AC_UL320_.jpg",
-          Name: "Redmi Note 12 5G Matte Black 6GB RAM 128GB ROM | 1st Phone with 120Hz Super AMOLED and Snapdragon® 4 Gen 1 | 48MP AI Triple Camera",
-          reviewNumber: "431",
-          mrp: "₹21,999",
-          price: "19,999",
-          discount: "(9% off)",
-          selection6: [
             {
-              name: "Display: Super AMOLED (1080x2400) Display with 120Hz Refresh rate; 1200nits peak brightness; 240Hz Touch sampling rate"
+              name: "This three piece set includes kurta, Pant and dupatta."
             },
             {
-              name: "Processor: Snapdragon 4 Gen1 6nm Octa-core 5G processor for high performance and efficiency with Adreno 619 GPU; Up to 2.0GHz"
+              name: "Style: Straight || Length: Calf Length || Sleeves: 3/4"
             },
             {
-              name: "Camera: 48MP AI Triple camera setup with 8MP Ultra Wide sensor and 2MP Macro camera| 13MP Front camera"
+              name: "Kurta , Pant And Dupatta Fabric : Pure Cotton"
             },
             {
-              name: "Battery: 5000mAh large battery with 33W fast charger in-box and Type-C connectivity"
+              name: "Ocassion: Traditional wear, Casual Wear, party wear, evening wear"
             },
             {
-              name: "Memory, Storage & SIM: 6GB RAM | 128GB UFS 2.2 storage expandable up to 1TB | Dual SIM (nano+nano) Dual 5G (5G+5G)"
+              name: "Product Color May Slightly Vary Due To Photographic Lighting Sources Or Your Monitor Settings"
             }
           ]
-        },
-        {
-          image: "https://m.media-amazon.com/images/I/71EjohFmm6L._AC_UL320_.jpg",
-          Name: "Samsung Galaxy M13 5G (Midnight Blue, 4GB, 64GB Storage) | 5000mAh Battery | Upto 8GB RAM with RAM Plus",
-          reviewNumber: "20,577",
-          mrp: "₹16,999",
-          price: "13,999",
-          discount: "(18% off)"
-        },
-        {
-          image: "https://m.media-amazon.com/images/I/51RqXqfn1iL._AC_UL320_.jpg",
-          Name: "Redmi Note 12 5G Matte Black 4GB RAM 128GB ROM | 1st Phone with 120Hz Super AMOLED and Snapdragon® 4 Gen 1 | 48MP AI Triple Camera",
-          reviewNumber: "431",
-          mrp: "₹19,999",
-          price: "17,999",
-          discount: "(10% off)"
         }
       ]
     for(let i=0;i<selection1.length;i++){
-      selection1[i].category="Phone"
-      selection1[i].rating=((Math.random() * (5 - 3) ) + 3).toPrecision(1)
+      selection1[i].category="Women Clothing"
+      selection1[i].rating=((Math.random() * (5 - 3) ) + 2).toPrecision(2)
     }
    await ProductModule.insertMany([
         ...selection1
