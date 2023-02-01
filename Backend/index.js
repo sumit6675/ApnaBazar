@@ -6,6 +6,7 @@ const cors = require("cors");
 const { connection } = require("./config/db");
 const { usersRoute } = require("./routes/user.routes");
 const { authenticate } = require("./middlewere/Authentication.middlewere");
+const { ProductRoute } = require("./routes/Product.route");
 
 app.use(
   cors({
@@ -14,13 +15,15 @@ app.use(
 );
 app.use(express.json());
 
+app.get("/", (req, res) => {
+  res.send("Welcome to the Apna Bazar");
+});
+
 app.use("/users", usersRoute);
 
 app.use(authenticate);
 
-app.get("/", (req, res) => {
-  res.send("Welcome to the Apna Bazar");
-});
+app.use("/products",ProductRoute)
 
 app.listen(PORT, async () => {
   try {
