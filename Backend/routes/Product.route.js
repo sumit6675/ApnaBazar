@@ -9,1418 +9,430 @@ ProductRoute.get("/",async(req,res)=>{
 })
 
 ProductRoute.post("/add",async(req,res)=>{
-    let selection1= [
+    let  selection1= [
         {
-          image: "https://m.media-amazon.com/images/I/91YBoLo16ZL._AC_UL320_.jpg",
-          Name: "Women's Crepe A-Line Maxi Dress (Smocked}",
-          reviewNumber: "391",
-          mrp: "₹2,330",
-          price: "388",
-          discount: "(83% off)",
-          selection6: [
-            {
-              name: "Care Instructions: Hand Wash Only"
-            },
-            {
-              name: "Fit Type: Relaxed"
-            },
-            {
-              name: "Offshoulder dress with puffed sleeves, smocked bodice and ruffles wrap skirt"
-            },
-            {
-              name: "Floral printed fabric"
-            },
-            {
-              name: "Can be be styled both as a breezy casual outfit and a playful party outfit."
-            },
-            {
-              name: "Garment is made with relaxed fit. Model Model is height 5'9 with bust 34 and is wearing size S."
-            },
-            {
-              name: "Garment is made of crepe, which drapes well on all body types"
-            }
-          ]
-        },
-        {
-          image: "https://m.media-amazon.com/images/I/61IId18ZazL._AC_UL320_.jpg",
-          Name: "Women's Pure Georgette sequence saree with unstiched blouse piece(Free size)",
-          reviewNumber: "1,155",
-          mrp: "₹3,999",
-          price: "899",
-          discount: "(78% off)",
-          selection6: [
-            {
-              name: "Care Instructions: Dry Clean Only"
-            },
-            {
-              name: "Saree Material: Georgette | Blouse Material: Banglory Silk"
-            },
-            {
-              name: "Saree Length:-5.5 ,Blouse Length:-0.80. Blouse is attached with saree. No Seprate Blouse. Blouse to be cut from saree. Blouse is unstitched Fabric."
-            },
-            {
-              name: "Saree Work : Full Sequence , Blouse Work : Plain"
-            },
-            {
-              name: "Occasion : Party Wear , Wedding Wear , Use For All Festival Saree"
-            },
-            {
-              name: "Work: Sequins work with border to border double run thread with stylish look."
-            }
-          ]
-        },
-        {
-          image: "https://m.media-amazon.com/images/I/61ARin+9vLL._AC_UL320_.jpg",
-          Name: "Women's Sequence Work Georgette Saree With Blouse Piece (Kriti Sanon Sequence)",
-          reviewNumber: "37",
+          image: "https://m.media-amazon.com/images/I/51TBDBLpnnL._AC_UL320_.jpg",
+          Name: "Mens Jackets",
           mrp: "₹2,999",
-          price: "999",
-          discount: "(67% off)",
-          selection6: [
-            {
-              name: "Care Instructions: Machine Wash"
-            },
-            {
-              name: "Fit Type: Regular"
-            },
-            {
-              name: "Fabric : Georgette || Type : Sequenced Work With Lace Border"
-            },
-            {
-              name: "Colour : : Black || Design : Sequence Work"
-            },
-            {
-              name: "Saree Length : 5.5 Mtr + Blouse Length : 0.80 Mtr Rasal Net + 0.80 Mtr Raw Silk Black (Unstitched)"
-            },
-            {
-              name: "Whole Saree is Sequence Worked and Exact As Shown In Image & This is Very Soft Fabric So Comfertable to wear"
-            },
-            {
-              name: "This Saree is Suitable For Get Just Stylish Casual look in office or work, normal occasions, family get together, regular or daily Use or gifting to loved one"
-            }
-          ]
+          price: "1,439",
+          discount: "(52% off)",
+          selection2: "Product details\nProduct Dimensions \u200f : \u200e 27.5 x 27.5 x 4 cm; 600 Grams\nDate First Available \u200f : \u200e 20 October 2022\nManufacturer \u200f : \u200e ABFRL\nASIN \u200f : \u200e B0BJVPLWRP\nItem model number \u200f : \u200e PCJKSBOFK53280\nDepartment \u200f : \u200e Mens\nManufacturer \u200f : \u200e ABFRL, Aditya Birla Fashion and Retail Ltd,7th Floor, Skyline Icon Business Park, 86-92, Off A.K. Road, Marol Village, Andheri (East), Mumbai, Maharashtra 400059\nItem Weight \u200f : \u200e 600 g\nItem Dimensions LxWxH \u200f : \u200e 27.5 x 27.5 x 4 Centimeters\nGeneric Name \u200f : \u200e Jackets\nBest Sellers Rank: #76,254 in Clothing & Accessories (See Top 100 in Clothing & Accessories)\n#917 in Men's Jackets"
         },
         {
-          image: "https://m.media-amazon.com/images/I/410Kw-Y21XL._AC_UL320_.jpg",
-          Name: "Ready To Wear Sarees For Women With Unstitched Blouse.",
-          reviewNumber: "18",
-          mrp: "₹2,399",
-          price: "899",
-          discount: "(63% off)",
-          selection6: [
-            {
-              name: "Care Instructions: Hand Wash Only"
-            },
-            {
-              name: "Belt Is Not Included With Sari || This Is Pre Stitched Saree Ready To Wear || You Will Get Ready For Party In One Minute Saree For Women ||"
-            },
-            {
-              name: "Saree Fabric -Chinon Polyester || Type- 1 Minute Saree Ready To Wear || Blouse -polyester"
-            },
-            {
-              name: "Saari Length -5.5m Free Size || Blouse-0.80 Unhitch || Colour -pink Sarees For Women Latest Design"
-            },
-            {
-              name: "This Pre Draped Saree Is Very Useful As Party Wear Saree . This Pink Saree Is Suitable For Girls"
-            },
-            {
-              name: "Other Details : Soft Finished Comfortable To Wear And Easy To Take Fleets } {size-free Size} { Saree Is Not Transparent } Package Included: 1 Saree With 1 Blouse Piece"
-            }
-          ]
-        },
-        {
-          image: "https://m.media-amazon.com/images/I/910G6lheEMS._AC_UL320_.jpg",
-          Name: "Women's Kanchipuram Silk Woven Half and Half Sare With Blouse Piece",
-          reviewNumber: "3,869",
-          mrp: "₹2,159",
-          price: "489",
-          discount: "(77% off)",
-          selection6: [
-            {
-              name: "Care Instructions: Dry Clean Only"
-            },
-            {
-              name: "Saree details- Saree Color: Multicolor (Rama & Pink)| Material: Kanchipuram Silk | Length: 6 yards | Work Type: Zari Woven Work"
-            },
-            {
-              name: "Blouse details- Color: Rama | Material: Silk Blend| Length- 0.8m | Work Type: Zari Woven"
-            },
-            {
-              name: "Border & Pallu details- Border Color: Golden | Border Work Type: Woven design | Pallu Color: Pink & Golden| Pallu Work Type: Zari Woven"
-            },
-            {
-              name: "Wash Care: Dry Clean Only"
-            },
-            {
-              name: "Weave Type: Kanchipuram | Included components: Saree with Blouse Piece | Type : Half and Half Saree"
-            }
-          ]
-        },
-        {
-          image: "https://m.media-amazon.com/images/I/61O07oBRsJL._AC_UL320_.jpg",
-          Name: "Women's Anarkali Maxi Gown",
-          reviewNumber: "341",
-          mrp: "₹2,999",
-          price: "999",
-          discount: "(67% off)",
-          selection6: [
-            {
-              name: "Care Instructions: Hand Wash Only"
-            },
-            {
-              name: "Fit Type: Regular"
-            },
-            {
-              name: "Style ; Anarkali Dress ; Long Gown"
-            },
-            {
-              name: "Fabric :- Velvet , Work :- Embroidered, Dupatta :- Yes"
-            },
-            {
-              name: "Gown :- Free Size"
-            },
-            {
-              name: "Wash Care :- Dry Clean Or Normal Hand wash"
-            },
-            {
-              name: "Disclaimer :- Product Color May Slightly Vary Due To Photographic Lighting Sources Or Your Monitor Settings"
-            }
-          ]
-        },
-        {
-          image: "https://m.media-amazon.com/images/I/61Bn8P11wwL._AC_UL320_.jpg",
-          Name: "Women Kurta with Pant & Dupatta",
-          reviewNumber: "682",
-          mrp: "₹2,599",
-          price: "759",
-          discount: "(71% off)",
-          selection6: [
-            {
-              name: "Care Instructions: Dry Clean Only"
-            },
-            {
-              name: "Fit Type: Straight"
-            },
-            {
-              name: "Kurta Set Fabric: Banarasi Silk"
-            },
-            {
-              name: "Style: Straight || Length: Calf Length || Sleeves: 3/4"
-            },
-            {
-              name: "This set includes: Kurta with Bottomwear & Dupatta"
-            },
-            {
-              name: "Ocassion: Traditional wear, Casual Wear, party wear, evening wear"
-            },
-            {
-              name: "Product Color May Slightly Vary Due To Photographic Lighting Sources Or Your Monitor Settings"
-            }
-          ]
-        },
-        {
-          image: "https://m.media-amazon.com/images/I/61wlFY2BdJL._AC_UL320_.jpg",
-          Name: "Women's Anarkali Long Gown With Dupatta",
-          reviewNumber: "Another way to buy",
-          mrp: "₹4,999",
-          price: "1,235",
-          discount: "(75% off)",
-          selection6: [
-            {
-              name: "Care Instructions: Regular Hand And Machine Wash"
-            },
-            {
-              name: "Fit Type: Regular"
-            },
-            {
-              name: "Gown Fabric :Pure Georgette ; Bottom : Santoon ; Inner : Santoon ; Duppta : Nazmeen"
-            },
-            {
-              name: "Free Size (Length : 52 | Waist : 38 | Chest/Bust : 42) | Semi-stitched freesize | Flare : 2.5 Meters, Maximum Size Up To Xxl."
-            },
-            {
-              name: "Gown Type : Anarkali gown , Ball Gown , Long Anarkali gown."
-            },
-            {
-              name: "Care Instructions: Regular Hand & Mechine Wash is Recommended."
-            },
-            {
-              name: "Gown Work: Embroidery With Coding Work,"
-            }
-          ]
-        },
-        {
-          image: "https://m.media-amazon.com/images/I/81fvcBZh6NL._AC_UL320_.jpg",
-          Name: "Party Dresses for Women Choker Multicolor Bodycon Mini Wrap Dress",
-          reviewNumber: "42",
-          mrp: "₹1,999",
-          price: "279",
-          discount: "(86% off)",
-          selection6: [
-            {
-              name: "Care Instructions: Dry Clean Only"
-            },
-            {
-              name: "Fit Type: Regular"
-            },
-            {
-              name: "Wash Care : first wash is dry clean after that use machine wash or hand wash"
-            },
-            {
-              name: "Fabric: Lycre || Pattern: Tie-Dye Printed || Style: A-Line"
-            },
-            {
-              name: "Ocassion: Traditional wear,Casual Wear, Office Wear, Formal wear, Evening wear, Work Wear, Party Wear"
-            },
-            {
-              name: "SATISFACTION GUARANTEED- Customer service is our number one priority. If you’re not satisfied with your purchase, we will be happy to process a 100% exchange or refund for you."
-            },
-            {
-              name: "High Definition Print - Using the highest quality solvents and colors combines with fully automated machines, we ensure our t-shirt dresses have razor-sharp prints that highlight every single detail.; Closure Type: Elastic; Occasion Type: Casual; Sleeve Type: Half Sleeve"
-            }
-          ]
-        },
-        {
-          image: "https://m.media-amazon.com/images/I/6142tbfHTDL._AC_UL320_.jpg",
-          Name: "Women's Latest Black Sequence Embroidery Maxi Georgette Long Dress Gown for Women",
-          reviewNumber: "49",
-          mrp: "₹6,999",
-          price: "935",
-          discount: "(87% off)",
-          selection6: [
-            {
-              name: "Care Instructions: Dry Clean Only"
-            },
-            {
-              name: "Style : This Dress Is A Maxi Dress.; Pattern : the dress has sequence embroidery work and have length of around 54 To 55 Inch"
-            },
-            {
-              name: "Occation : This Dress Is Suitable For Festive, Party, Wedding Etc."
-            },
-            {
-              name: "S-36 , M-38, L-40 , Xl-42 ,Xxl-44 ,3Xl-46; Care Instructions: Dry Clean Only; Closure Type: Zipper; Care Instructions: Dry Clean Only"
-            },
-            {
-              name: "Material Composition: Polyster Silk"
-            },
-            {
-              name: "Sleeve Type: Cap Sleeve"
-            }
-          ]
-        },
-        {
-          image: "https://m.media-amazon.com/images/I/51llet9Ww4L._AC_UL320_.jpg",
-          Name: "Women Casual Dress",
-          reviewNumber: "2,131",
-          mrp: "₹1,799",
-          price: "542",
-          discount: "(70% off)",
-          selection6: [
-            {
-              name: "Care Instructions: Hand Wash Only"
-            },
-            {
-              name: "Fit Type: Regular"
-            },
-            {
-              name: "A-Line, Inseam length - 22 inch"
-            }
-          ]
-        },
-        {
-          image: "https://m.media-amazon.com/images/I/41zEt6W-LLL._AC_UL320_.jpg",
-          Name: "Women's Knitted Stretchable Bodycon Lycra Dress",
-          reviewNumber: "319",
-          mrp: "₹1,805",
-          price: "349",
-          discount: "(81% off)",
-          selection6: [
-            {
-              name: "Care Instructions: Dry Clean Only"
-            },
-            {
-              name: "Fit Type: Regular"
-            },
-            {
-              name: "Fabric : Lycra || Color: Wine"
-            },
-            {
-              name: "Dress Length :38Inch|| Bust Size :34Inch||Sleeve Length :15Inch || Dress Inner: N/A"
-            },
-            {
-              name: "Pattern: Knitted"
-            },
-            {
-              name: "Sleeve Type: Half Sleeve; Closure Type: Popper"
-            }
-          ]
-        },
-        {
-          image: "https://m.media-amazon.com/images/I/71m-a5IoDbL._AC_UL320_.jpg",
-          Name: "Women's Lycra Saree With Blouse Piece",
-          reviewNumber: "3,747",
-          mrp: "₹2,399",
-          price: "301",
-          discount: "(87% off)",
-          selection6: [
-            {
-              name: "Care Instructions: hand wash"
-            },
-            {
-              name: "Occasions: this ruffle sarees for women is specially design for festive season of Indian women's wear"
-            },
-            {
-              name: "Color: this teal green ruffle saree for women make you look awesome"
-            },
-            {
-              name: "Fabric: this ruffle saree have soft finished lycra fabric easy and comfortable to wear"
-            },
-            {
-              name: "Work type: this frill saree have plastic mirror work on shoulder lace"
-            },
-            {
-              name: "Blouse: this saree have beautiful blouse piece. Includes: 1 saree and unstitched blouse. Saree length- 5.5 metre, blouse length- 0.8 metre"
-            }
-          ]
-        },
-        {
-          image: "https://m.media-amazon.com/images/I/61RADkpTHPL._AC_UL320_.jpg",
-          Name: "Women's Cotton Blend Printed Anarkali Kurta (Votiki)",
-          reviewNumber: "204",
-          mrp: "₹2,599",
-          price: "699",
-          discount: "(73% off)",
-          selection6: [
-            {
-              name: "Care Instructions: Dry Clean Only"
-            },
-            {
-              name: "Fit Type: Regular"
-            },
-            {
-              name: "Kurta Fabric: Cotton Blend"
-            },
-            {
-              name: "Style: Anarkali || Length: Calf Length || Sleeves: 3/4"
-            },
-            {
-              name: "This set includes: Kurta || Pattern :- Printed."
-            },
-            {
-              name: "Ocassion: Traditional wear, Casual Wear, party wear, evening wear,Please Click On Brand Name ANNI DESIGNER For More Products."
-            },
-            {
-              name: "Product Color May Slightly Vary Due To Photographic Lighting Sources Or Your Monitor Settings"
-            }
-          ]
-        },
-        {
-          image: "https://m.media-amazon.com/images/I/710YR58lquS._AC_UL320_.jpg",
-          Name: "Women's Silk Saree With Blouse Piece",
-          reviewNumber: "240",
-          mrp: "₹3,999",
-          price: "809",
-          discount: "(80% off)",
-          selection6: [
-            {
-              name: "Care Instructions: hand wash"
-            },
-            {
-              name: "Saree Details : Saree Color- Grey, Saree Material- Silk, Saree Length- 6.3 m, Saree Work Type- Sequins Embroidery Work"
-            },
-            {
-              name: "Blouse Details: Blouse Color-Black, Blouse Material- Velvet, Blouse Length- 0.8 m, Blouse Work Type- Sequins Embroidered Work"
-            },
-            {
-              name: "Border & Pallu Details: Border Color- Grey, Border Work Type- Sequins Embroidered Lace Work, Pallu Color- Purple, Pallu Work Type- Sequins Embroidery Work"
-            },
-            {
-              name: "Occasions: Party, festive, wedding wear, traditional wear. Best gift for your loved ones."
-            },
-            {
-              name: "Included Contents: Saree with Blouse Piece"
-            }
-          ]
-        },
-        {
-          image: "https://m.media-amazon.com/images/I/71WT18Au5ZL._AC_UL320_.jpg",
-          Name: "Women's Faux Georgette Semi Stitched Top With Faux Georgette Jacket Solid Flared Top Dress Material (Gown)",
-          reviewNumber: "108",
-          mrp: "₹5,999",
-          price: "1,650",
-          discount: "(72% off)",
-          selection6: [
-            {
-              name: "Top Fabric : Faux Georgette With Santoon Inner; Top : Semi Stitched"
-            },
-            {
-              name: "Work : Solid , Type : Party Wear Gown; Color : Green"
-            },
-            {
-              name: "Please Read The Products Description Below For Full Details Of The Product."
-            },
-            {
-              name: "Item Length Description: Maxi; Sleeve Type: 3/4 Sleeve; Closure Type: Drawstring"
-            },
-            {
-              name: "Age Range Description: Adult"
-            }
-          ]
-        },
-        {
-          image: "https://m.media-amazon.com/images/I/71Lqt9hrR-L._AC_UL320_.jpg",
-          Name: "Women Georgette A-Line Dress(MCAW19D08-57-102_Blue & Black_S)",
-          reviewNumber: "Another way to buy",
-          mrp: "₹2,899",
-          price: "1,217",
-          discount: "(58% off)",
-          selection6: [
-            {
-              name: "Care Instructions: Hand Wash Only"
-            },
-            {
-              name: "Fit Type: Relaxed"
-            },
-            {
-              name: "Fabric: Georgette; Sleeveless, Round Neck, Lace detail,Side zip and Back button closure, Woven"
-            },
-            {
-              name: "The model is wearing size Small and her height is 5 ft 9 inches(175 cm)"
-            },
-            {
-              name: "Length(inches): XS-55.25, S-56.25, M-57.25, L-58.25, XL-59.25"
-            },
-            {
-              name: "Closure Type: Zipper"
-            }
-          ]
-        },
-        {
-          image: "https://m.media-amazon.com/images/I/61xrTERNdCL._AC_UL320_.jpg",
-          Name: "Women's Synthetic Ready to Wear Saree With Blouse Piece",
-          reviewNumber: "538",
-          mrp: "₹2,999",
-          price: "949",
-          discount: "(68% off)",
-          selection6: [
-            {
-              name: "Care Instructions: Hand Wash Only"
-            },
-            {
-              name: "Fit Type: Regular"
-            },
-            {
-              name: "This is Ready To Wear Stitched Draped 1 Minute Saree (Please Swipe images and check Product Video Before Buying)"
-            },
-            {
-              name: "Fabric : Chinon || Type : Plain Padding"
-            },
-            {
-              name: "Colour : Rani || Size : Free Size Adjustable"
-            },
-            {
-              name: "Saree Length : 5.5 Mtr + Blouse Length : 0.80 Mtr (Unstitched)"
-            },
-            {
-              name: "This Saree is Suitable For Get Just Stylish Casual look in office or work, normal occasions, family get together, regular or daily Use or gifting to loved one"
-            }
-          ]
-        },
-        {
-          image: "https://m.media-amazon.com/images/I/51yz-CmbcML._AC_UL320_.jpg",
-          Name: "Women's Cotton Blend Straight Solid Kurta with Pant & Dupatta (Resoti)",
-          reviewNumber: "658",
-          mrp: "₹2,599",
-          price: "659",
-          discount: "(75% off)",
-          selection6: [
-            {
-              name: "Care Instructions: Dry Clean Only"
-            },
-            {
-              name: "Kurta Set Fabric: Cotton Blend"
-            },
-            {
-              name: "Style: Straight || Length: Calf Length || Sleeves: 3/4"
-            },
-            {
-              name: "This set includes:: Kurta, Pant & Dupatta"
-            },
-            {
-              name: "Ocassion: Traditional wear, Casual Wear, party wear, evening wear"
-            },
-            {
-              name: "Product Color May Slightly Vary Due To Photographic Lighting Sources Or Your Monitor Settings"
-            }
-          ]
-        },
-        {
-          image: "https://m.media-amazon.com/images/I/51Mf7N9KjHL._AC_UL320_.jpg",
-          Name: "Women Dress",
-          reviewNumber: "318",
-          mrp: "₹1,497",
-          price: "359",
-          discount: "(76% off)",
-          selection6: [
-            {
-              name: "Care Instructions: Machine Wash"
-            },
-            {
-              name: "Fit Type: Regular"
-            },
-            {
-              name: "Fabric : Lycra || Color : Black"
-            },
-            {
-              name: "Bodykon Length : 49 Inch|| Bust Size : 34 Inch|| Sleeve Length : 12 Inch || Select required Bust Size from Filter Box S (34 Inch),M (36 Inch),L (38 Inch),XL (40 Inch)"
-            },
-            {
-              name: "Work : Solid; Sleeve Type : Half Sleeve || Neck Style : Square Neck || Wash Care : Machine Wash"
-            },
-            {
-              name: "Occasion: Evening,Party or Casual Wear"
-            },
-            {
-              name: "Closure Type: Pull On"
-            }
-          ]
-        },
-        {
-          image: "https://m.media-amazon.com/images/I/81Iqp0TAC+L._AC_UL320_.jpg",
-          Name: "Party Dresses for Women Choker Multicolor Bodycon Mini Wrap Dress",
-          reviewNumber: "44",
-          mrp: "₹1,999",
-          price: "389",
-          discount: "(81% off)",
-          selection6: [
-            {
-              name: "Care Instructions: Dry Clean Only"
-            },
-            {
-              name: "Fit Type: Regular"
-            },
-            {
-              name: "Wash Care : first wash is dry clean after that use machine wash or hand wash"
-            },
-            {
-              name: "Fabric: Lycre || Pattern: Tie-Dye Printed || Style: A-Line"
-            },
-            {
-              name: "Ocassion: Traditional wear,Casual Wear, Office Wear, Formal wear, Evening wear, Work Wear, Party Wear."
-            },
-            {
-              name: "SATISFACTION GUARANTEED- Customer service is our number one priority. If you’re not satisfied with your purchase, we will be happy to process a 100% exchange or refund for you."
-            },
-            {
-              name: "High Definition Print - Using the highest quality solvents and colors combines with fully automated machines, we ensure our t-shirt dresses have razor-sharp prints that highlight every single detail.; Closure Type: Elastic; Occasion Type: Casual; Sleeve Type: Half Sleeve."
-            }
-          ]
-        },
-        {
-          image: "https://m.media-amazon.com/images/I/51G9HRFhtrL._AC_UL320_.jpg",
-          Name: "Women’s High-Low Knee Length Dress(Ruby-062-to-069)",
-          reviewNumber: "309",
-          mrp: "₹1,999",
-          price: "444",
-          discount: "(78% off)",
-          selection6: [
-            {
-              name: "Care Instructions: Hand Wash Only"
-            },
-            {
-              name: "Fit Type: Regular"
-            },
-            {
-              name: "Material:-100% Heavy Imported With fully Stretchable"
-            },
-            {
-              name: "Stitch Type:- Stitched (No stitching required)"
-            },
-            {
-              name: "Item Length: Knee-Long, Style Name: High-Low; Package Content: 1 Dress"
-            },
-            {
-              name: "Wash Care : Machine wash warm wash with like colours only non-chlorine bleach when needed tumble dry low warm iron if needed."
-            },
-            {
-              name: "Age Range Description: Adult; Occasion Type: Work; Sleeve Type: Short Sleeve"
-            }
-          ]
-        },
-        {
-          image: "https://m.media-amazon.com/images/I/71oBJuyL1tL._AC_UL320_.jpg",
-          Name: "Women's Wine Halter Neck Sleeveless Solid Embellished Midi Dress",
-          reviewNumber: "129",
-          mrp: "₹3,495",
-          price: "1,188",
-          discount: "(66% off)",
-          selection6: [
-            {
-              name: "Care Instructions: Hand Wash Only"
-            },
-            {
-              name: "Fit Type: Regular"
-            },
-            {
-              name: "Fabric: 100% Polyester | Wash Care: Hand Wash with Warm Water, wash dark colors separately, Do not Bleach, Dip Dry away from direct heat, Warm Iron Only"
-            },
-            {
-              name: "Style: Embellished | Pattern: Solid | Fit: Slim Fit | Length: Midi | Neck: Halter Neck | Sleeves: Sleeveless"
-            },
-            {
-              name: "Occasion: Casual wear, Daily wear, Party wear, Evening wear"
-            },
-            {
-              name: "The model is 5'9 and she is wearing size S"
-            },
-            {
-              name: "There might be slight color variation between the actual product and image shown on the screen due to photoshoot lighting."
-            }
-          ]
-        },
-        {
-          image: "https://m.media-amazon.com/images/I/91ZfXXT0PqL._AC_UL320_.jpg",
-          Name: "Women's Pure Georgette Saree with Unstitched Blouse Piece",
-          reviewNumber: "243",
-          mrp: "₹3,999",
-          price: "999",
-          discount: "(75% off)",
-          selection6: [
-            {
-              name: "Care Instructions: hand wash"
-            },
-            {
-              name: "★ Fabric :- This Saree have soft finished Pure Georgette Fabric easy and Comfortable to wear."
-            },
-            {
-              name: "★ Color :- This Amazing Saree have Soft Finished Purple colour which make you look awsome and star of Party."
-            },
-            {
-              name: "★ Occasions :- This Saree is Specially design for wedding, Party and Festive Season of indian women's wear."
-            },
-            {
-              name: "★ Length :- Saree Length is 5.5 Meter and Blouse Length is is 0.80 Meter."
-            },
-            {
-              name: "★ Package Included :- 1 Unstitched Saree with Blouse Piece"
-            }
-          ]
-        },
-        {
-          image: "https://m.media-amazon.com/images/I/71XAzGJXvkL._AC_UL320_.jpg",
-          Name: "Women's Bandhani Printed & Embroidery Work In Lace Georgette Saree with Unstitched Blouse Piece",
-          reviewNumber: "1,145",
-          mrp: "₹4,900",
-          price: "949",
-          discount: "(81% off)",
-          selection6: [
-            {
-              name: "Care Instructions: Hand Wash Only"
-            },
-            {
-              name: "Saree Fabric : Georgette | Blouse Fabric : Bhagalpuri Silk"
-            },
-            {
-              name: "Length :: Saree : 5.50Mtr | Blouse(Unstitch Fabric) : 0.80Mtr, Which Need To Be Stitched As Per Size And Fit"
-            },
-            {
-              name: "Colour :: Saree : Mint Green | Blouse : Mint Green"
-            },
-            {
-              name: "Work Type :: Saree : Bandhani Printed & Embroidery Work In Lace | Blouse : Dyed, Embroidery Work | Wash Care: dry & clean is Recommernded."
-            },
-            {
-              name: "Package Content : 1 Saree With 1 Blouses Pice Included"
-            }
-          ]
-        },
-        {
-          image: "https://m.media-amazon.com/images/I/616OC0ZWOhL._AC_UL320_.jpg",
-          Name: "Women's Georgette Semi Stitched Anarkali Gown(SSEY-F1349_Red_Free Size)",
-          reviewNumber: "199",
-          mrp: "₹5,299",
-          price: "1,690",
-          discount: "(68% off)",
-          selection6: [
-            {
-              name: "Care Instructions: Dry Clean Only"
-            },
-            {
-              name: "Top Fabric : Georgette || Bottom Fabric : Silk || Duptta Fabric : Net|| Inner Fabric : Santoon"
-            },
-            {
-              name: "Top Length : 56 ( Inch ) ||Top Width Size : 44 ( Inch ) || Bottom Length : 2.2 (MTR) || Duptta Length : 2.2 (MTR) || Inner Length : 2 (MTR)"
-            },
-            {
-              name: "Top Work : Embroidered ||Bottom Work : Solid ( Plain ) || Duptta Work : Lace || Sleeve Style : Full Sleeve|| Neck Style : Round Neck"
-            },
-            {
-              name: "Sleeve Type: Long Sleeve; Item Length Description: Ankle Length; Occasion Type: Ceremony"
-            }
-          ]
-        },
-        {
-          image: "https://m.media-amazon.com/images/I/71U0Wo-rizL._AC_UL320_.jpg",
-          Name: "Dresses for Women (491-524)",
-          reviewNumber: "3,490",
-          mrp: "₹1,499",
-          price: "449",
-          discount: "(70% off)",
-          selection6: [
-            {
-              name: "Care Instructions: Dry Clean Only"
-            },
-            {
-              name: "Fit Type: Regular"
-            },
-            {
-              name: "To choose the right size- please refer Slim Fit Dress size chart and how to measure image''"
-            },
-            {
-              name: "Occasion: Casual || Party || Beach || Formal || Meeting || Office wear"
-            },
-            {
-              name: "Sleeve Type : Half Sleeve"
-            },
-            {
-              name: "95% Polyester 5% spendex"
-            },
-            {
-              name: "Fabric : Polyester"
-            }
-          ]
-        },
-        {
-          image: "https://m.media-amazon.com/images/I/61Z9og5gnkL._AC_UL320_.jpg",
-          Name: "Women's Woven Georgette Saree With Blouse Piece (SSFB-SARI2845)",
-          reviewNumber: "259",
-          mrp: "₹3,999",
-          price: "999",
-          discount: "(75% off)",
-          selection6: [
-            {
-              name: "Care Instructions: Dry Clean Only"
-            },
-            {
-              name: "Fit Type: Regular"
-            },
-            {
-              name: "Sari Fabric : Georgette || Blouse Fabric : Banglory Silk"
-            },
-            {
-              name: "Sari Color : Light green || Blouse Color : Dark green"
-            },
-            {
-              name: "Work :- Embroidery Sequence Work"
-            },
-            {
-              name: "Wash Care: Dry clean for the first wash, there after hand wash"
-            },
-            {
-              name: "We are providing a piece of 80 centimeter unstitched blouse at the end of the saree, You have to cut it from there and stitch it as per your fit and style."
-            }
-          ]
-        },
-        {
-          image: "https://m.media-amazon.com/images/I/71qut3JXCoL._AC_UL320_.jpg",
-          Name: "Women's Rayon Full Sleeve A-Line Knee-Length Western Dresses for Women or Girls Western Dress",
-          reviewNumber: "1,941",
-          mrp: "₹2,299",
-          price: "389",
-          discount: "(83% off)",
-          selection6: [
-            {
-              name: "Care Instructions: Machine Wash"
-            },
-            {
-              name: "Fit Type: Loose"
-            },
-            {
-              name: "Fabric : Rayon Dress For Women"
-            },
-            {
-              name: "Color : Multi Dress For Women"
-            },
-            {
-              name: "Sleeve Type : Fullsleeve Dress For Women"
-            },
-            {
-              name: "Can be be styled both as a breezy casual outfit and a playful party outfit."
-            },
-            {
-              name: "Wash Care : first wash is dry clean after that use machine wash or hand wash"
-            }
-          ]
-        },
-        {
-          image: "https://m.media-amazon.com/images/I/41i20s8WZCL._AC_UL320_.jpg",
-          Name: "Jai Style Kutis Women Solid Cotton Rayon Blend Straight Anarkali Dress with Dupatta for Party and Office Wear",
-          reviewNumber: "5",
-          mrp: "₹1,499",
-          price: "699",
-          discount: "(53% off)",
-          selection6: [
-            {
-              name: "Care Instructions: Hand Wash Only"
-            },
-            {
-              name: "Care Instructions: Machine Wash"
-            },
-            {
-              name: "Fabric Type: rayon & cotton mix"
-            },
-            {
-              name: "Length & Style: Calf Length; Straight Kurta, Neck Line: Keyhole Neck"
-            },
-            {
-              name: "Size Chart: - M-40 | L-42 | XL-44 | XXL-46"
-            },
-            {
-              name: "Style: Anarkali"
-            },
-            {
-              name: "Sleeve type: Full Sleeve"
-            }
-          ]
-        },
-        {
-          image: "https://m.media-amazon.com/images/I/712R-zZ9D3L._AC_UL320_.jpg",
-          Name: "Batwing Gold Foil Party Top for Women's",
-          reviewNumber: "61",
-          mrp: "₹1,599",
-          price: "421.",
-          discount: "(74% off)",
-          selection6: [
-            {
-              name: "Care Instructions: Machine Wash"
-            },
-            {
-              name: "Fit Type: Regular Fit"
-            },
-            {
-              name: "Premium Polyester Material with Golden Checks Foil Print."
-            },
-            {
-              name: "Batwing Cap Sleeves with Notch V-Neck."
-            },
-            {
-              name: "Gold Foil for Party wear Looks."
-            },
-            {
-              name: "Front Yoke Line Pattern with Regular Length 24 inches longer."
-            },
-            {
-              name: "Women's & Girl's Can Pair with Shorty, Capri, Jeans, Skirts."
-            }
-          ]
-        },
-        {
-          image: "https://m.media-amazon.com/images/I/41fbLyS-h8L._AC_UL320_.jpg",
-          Name: "Zoya Creation Hoop Skirt Slips Crinoline Petticoat Long Underskirt for Wedding Bridal Dress Ball Gown for Party and Ethnic Wear White for Women & Girls",
-          reviewNumber: "18",
-          mrp: "₹1,599",
-          price: "950",
-          discount: "(41% off)",
-          selection6: [
-            {
-              name: "Care Instructions: Dry Clean Only"
-            },
-            {
-              name: "4 ring to 6 ring hoops Crinoline Petticoat has Single Layer,with 6 Strong Hoops,Which make your Ball Gown Wedding Dress more Fluffy and in Good Full Shape.You will be the most Dazzling person in the crowd, get the more Praise."
-            },
-            {
-              name: "This Plus Size Hoop skirt Elastic Waist is Adjustable, its Stretch range is 29-39.4 inches(66-100cm),suitable for Any Size.The bottom of Hoop Skirt maximum circle diameter is approx 43.3 inches(110cm),hoop skirt floor length is approx 39 inches (100 ± 5cm),The Petticoat Hoop Skirt is Fluffy,and 6 Hoops can be adjustable about the length,easily walk and turn."
-            },
-            {
-              name: "ADJUSTABLE PETTICOAT--The Petticoats Skirt has High Elastic Waist,with Drawstring.The Drawstring can be adjusted,suitable for any size.You can adjust the waistline according to your waist size.Perfect for Wedding Dress Ball Gown."
-            },
-            {
-              name: "The Crinoline Hoop Petticoats Skirt are perfect for wedding/evening/Quinceanera/Princess dresses/Ball Gown Slips. It will make your wedding dress more puffy and charming. Most dresses need a petticoat underneath to keep its shape."
-            },
-            {
-              name: "Please Hand Wash or Dry Clean your Hoop Petticoat,No Bleaching,No Wringing,because it may destroy the original shape of the Petticoat Skirt."
-            }
-          ]
-        },
-        {
-          image: "https://m.media-amazon.com/images/I/61DJyRZ2byL._AC_UL320_.jpg",
-          Name: "Women's Rayon Flared Kurta And Palazzo With Dupatta Set",
-          reviewNumber: "748",
-          mrp: "₹5,099",
-          price: "1,427",
-          discount: "(72% off)",
-          selection6: [
-            {
-              name: "Care Instructions: Machine Wash"
-            },
-            {
-              name: "Fit Type: Regular"
-            },
-            {
-              name: "Kurta Fabric:- Rayon || Bottom Fabric:- Rayon || Dupatta Fabric : Rayon"
-            },
-            {
-              name: "Kurta Sleeve & Neckline : 3/4 Sleeve & Mandarin Collar"
-            },
-            {
-              name: "Kurta Pattern - Flared"
-            },
-            {
-              name: "Contents = One Kurta, One Palazzo, One Dupatta *"
-            },
-            {
-              name: "Please click on Brand Name KHUSHAL K For More Stylish and Unic Colours Products"
-            }
-          ]
-        },
-        {
-          image: "https://m.media-amazon.com/images/I/51F8qaDJTbL._AC_UL320_.jpg",
-          Name: "Women's & Girls' Solid Fit and Flare Tank Dress",
-          reviewNumber: "785",
-          mrp: "₹1,999",
-          price: "474",
-          discount: "(76% off)",
-          selection6: [
-            {
-              name: "Care Instructions: Machine Wash"
-            },
-            {
-              name: "Fit Type: Slim"
-            },
-            {
-              name: "Material: 95% Polyester 5% Polyester, Pattern: Solid"
-            },
-            {
-              name: "Closure Type: Elastic; Sleeve Type: Sleeveless; Material Composition: 95% Polyester, 5% Spandex"
-            }
-          ]
-        },
-        {
-          image: "https://m.media-amazon.com/images/I/71H5s+Nn1KL._AC_UL320_.jpg",
-          Name: "Women's Net Embroidered Semi-Stitched Lehenga Choli(Green-Rani_Green_Free Size)",
-          reviewNumber: "761",
-          mrp: "₹4,999",
-          price: "919",
-          discount: "(82% off)",
-          selection6: [
-            {
-              name: "Care Instructions: Dry Clean Only"
-            },
-            {
-              name: "Fit Type: Regular"
-            },
-            {
-              name: "Fit Type: Regular"
-            },
-            {
-              name: "Fabric: Net"
-            },
-            {
-              name: "Closure Type: Drawstring"
-            },
-            {
-              name: "Sleeve Type: Full Sleeve"
-            },
-            {
-              name: "Choli Fabric : Net Embroidery Chain Work With Diamond Work Choli Color : Sky Choli Work :Embroidery Zari Work Duptta : Net With Four Side Embroidery Chain Lace Border Work : Embroidery"
-            },
-            {
-              name: "Lahenga Fabric : Net With Heavy Embroidery Chain Work With Diamond Work Lahenga Color : Green Lahenga Inner : SIlk, Lahenga Length :44 Lahenga Size :Up To 42"
-            },
-            {
-              name: "Disclaimer :-Product color may slightly vary due to photographic lighting sources or your monitor settings"
-            }
-          ]
-        },
-        {
-          image: "https://m.media-amazon.com/images/I/41JQsjyf8uL._AC_UL320_.jpg",
-          Name: "Western Dresses for Women|Stylish Latest Dresses|Skirts|Kurti with Palazzo Set|Long Kurtis|Stylish Tops|Western Tops for Girls| Gown |Maxi Dress Crop top | Party Dress Red Dress",
-          reviewNumber: "44",
-          mrp: "₹1,899",
-          price: "590",
-          discount: "(69% off)",
-          selection6: [
-            {
-              name: "Care Instructions: Dry Clean Only"
-            },
-            {
-              name: "Fit Type: Regular"
-            },
-            {
-              name: "Fit Type: Regular"
-            },
-            {
-              name: "A-line; full sleeve"
-            },
-            {
-              name: "Dresses For Women One Piece for Women"
-            },
-            {
-              name: "GG Fashion Girl's and womens Full Length Party Dress"
-            },
-            {
-              name: "Actual colour of the product may marginally vary due to photographic lighting sources or your device settings"
-            }
-          ]
-        },
-        {
-          image: "https://m.media-amazon.com/images/I/711iAeJg0AL._AC_UL320_.jpg",
-          Name: "Women's Net Embroidered Semi Stitch Gown(SARA02_Sami Stitched) Peach",
-          reviewNumber: "51",
-          mrp: "₹1,999",
-          price: "999",
-          discount: "(50% off)",
-          selection6: [
-            {
-              name: "Care Instructions: Dry Clean Only"
-            },
-            {
-              name: "Fit Type: Regular"
-            },
-            {
-              name: "Maxi, Net, Embroidered, Party, Anarkali Gown; Length: Up To 56 , Size: Max Up To 44 (Up To Xl ); Type: Semi Stitched"
-            },
-            {
-              name: "Fabric:- Butterfly Net; Inner: Silk; Dupatta: Net; Flare:- 3 Mtr; Care Instructions: Only Dry Clean, Do Not Bleach"
-            },
-            {
-              name: "Top: Heavy Net Embroidery Work With Stone Work & Cording Work; Bottom:- Silk & Dupatta: Net With Embroidery Work"
-            },
-            {
-              name: "Disclaimer: Product Color May Slightly Vary Due To Photographic Lighting Sources On Your Monitor/ Device Setting"
-            },
-            {
-              name: "Age Range Description: Adult"
-            }
-          ]
-        },
-        {
-          image: "https://m.media-amazon.com/images/I/51AlaS-fz3L._AC_UL320_.jpg",
-          Name: "PU Bow Applique Sandals in Purple Color (1158574)",
-          mrp: "₹1,129",
-          price: "1,010",
-          discount: "(11% off)",
-          selection6: [
-            {
-              name: "Sole: Rubber"
-            },
-            {
-              name: "Closure: Buckle"
-            },
-            {
-              name: "Shoe Width: Medium"
-            },
-            {
-              name: "Material: 100% PU"
-            },
-            {
-              name: "UK Size: 9.5 / Insole Length: 16.8 CM"
-            },
-            {
-              name: "Styling Tip: Mix And Match These Cute footwear With Matching Casual Wear"
-            },
-            {
-              name: "Note: Kindly Purchase Footwear Size 1/2 Cm More Than Your Kid'S Foot Size."
-            }
-          ]
-        },
-        {
-          image: "https://m.media-amazon.com/images/I/91iHkRbk8vL._AC_UL320_.jpg",
-          Name: "Silk Cotton Blend (Party wear Sarees for Women_Mustard)",
+          image: "https://m.media-amazon.com/images/I/61nxroFTF8L._AC_UL320_.jpg",
+          Name: "Mens Jackets",
           mrp: "₹2,499",
-          price: "329",
-          discount: "(87% off)",
-          selection6: [
-            {
-              name: "Care Instructions: Hand Wash Only"
-            },
-            {
-              name: "Saree Fabric:-Cotton Silk,Blouse Fabric :-Cotton Silk"
-            },
-            {
-              name: "Color : This Amazing Saree have Soft Finished Mustard colour which make you look awesome and star of Party."
-            },
-            {
-              name: "Occasions :- This Saree is Specially design for wedding, Party and Festive Season of indian women's wear."
-            },
-            {
-              name: "Length :- Saree Length is 5.5 Meter and Blouse Length is is 0.80 Meter."
-            },
-            {
-              name: "Product color may slightly vary due to photographic lighting sources on your monitor settings or device setting and lighting used in mode."
-            }
-          ]
+          price: "1,199",
+          discount: "(52% off)",
+          selection2: "Product details\nProduct Dimensions \u200f : \u200e 27.5 x 27.5 x 4 cm; 600 Grams\nDate First Available \u200f : \u200e 20 October 2022\nManufacturer \u200f : \u200e ABFRL\nASIN \u200f : \u200e B0BJVRJYFH\nItem model number \u200f : \u200e PCJKSGLPZ80950\nDepartment \u200f : \u200e Mens\nManufacturer \u200f : \u200e ABFRL, Aditya Birla Fashion and Retail Ltd,7th Floor, Skyline Icon Business Park, 86-92, Off A.K. Road, Marol Village, Andheri (East), Mumbai, Maharashtra 400059\nItem Weight \u200f : \u200e 600 g\nItem Dimensions LxWxH \u200f : \u200e 27.5 x 27.5 x 4 Centimeters\nGeneric Name \u200f : \u200e Jackets\nBest Sellers Rank: #48,763 in Clothing & Accessories (See Top 100 in Clothing & Accessories)\n#576 in Men's Jackets"
         },
         {
-          image: "https://m.media-amazon.com/images/I/712BvZclUFL._AC_UL320_.jpg",
-          Name: "Women's Lycra Malai Silk Embroidery Work Saree",
-          reviewNumber: "1,039",
-          mrp: "₹5,999",
-          price: "1,498",
-          discount: "(75% off)",
-          selection6: [
-            {
-              name: "Care Instructions: hand wash"
-            },
-            {
-              name: "Fit Type: Regular"
-            },
-            {
-              name: "Saree Length: 5.50 mtr || Blouse Length: 1 mtr || With Unstitched Blouse"
-            },
-            {
-              name: "Saree Details: Color-gold.|| Material: Malai Silk"
-            },
-            {
-              name: "Content : 1 Saree with 1 un-stitched Blouse Piece also || Blouse Fabric: Dupion Silk"
-            },
-            {
-              name: "Occasions : Party > Festive > Wedding Wear > Traditional wear || Best gift for your Loved ones."
-            },
-            {
-              name: "|| You will get full satisfaction with this brand || its a Very attractive Design ||"
-            }
-          ]
+          image: "https://m.media-amazon.com/images/I/81fNSZ6IbOL._AC_UL320_.jpg",
+          Name: "Mens Jacket",
+          reviewNumber: "1",
+          mrp: "₹3,799",
+          price: "2,289",
+          discount: "(40% off)",
+          selection2: "Product details\nProduct Dimensions \u200f : \u200e 20 x 25 x 9 cm; 600 Grams\nDate First Available \u200f : \u200e 11 October 2022\nManufacturer \u200f : \u200e Puma\nASIN \u200f : \u200e B0BHWWWPT5\nItem model number \u200f : \u200e 67524425\nDepartment \u200f : \u200e Mens\nManufacturer \u200f : \u200e Puma, Triangle Apparels 6 No. 25/26, Industrial Suburb Yeshwanthpur 560022 Bangalore\nPacker \u200f : \u200e Puma Sports India Pvt Ltd\nImporter \u200f : \u200e Puma Sports India Pvt Ltd\nItem Weight \u200f : \u200e 600 g\nItem Dimensions LxWxH \u200f : \u200e 20 x 25 x 9 Centimeters\nGeneric Name \u200f : \u200e Jacket\nBest Sellers Rank: #90,195 in Clothing & Accessories (See Top 100 in Clothing & Accessories)\n#1,083 in Men's Jackets\nCustomer Reviews:\n5.0 out of 5 stars\n1 rating"
         },
         {
-          image: "https://m.media-amazon.com/images/I/71rYgo3q0sL._AC_UL320_.jpg",
-          Name: "Women's Elegant Shiny Glitte Short Sleeve V Neck Ruched Bodycon Party Maxi Dress",
-          reviewNumber: "108",
-          mrp: "₹1,999",
-          price: "369",
-          discount: "(82% off)",
-          selection6: [
-            {
-              name: "Care Instructions: Dry Clean Only"
-            },
-            {
-              name: "Fit Type: Slim"
-            },
-            {
-              name: "Fabric: sparkle 90% Polyester, 10% Spandex , Super soft and comfortable fabric inside"
-            },
-            {
-              name: "Style: Elegant v neck, 3/4 Sleeves, rich bodycon dress that hide belly fat, slit in leg, maxi dress"
-            },
-            {
-              name: "Fit Type: Slim Fit; Occasion: Casual || Party || Beach || Formal || Meeting || Office wear"
-            },
-            {
-              name: "S-2XL. Please carefully check the sizing info to ensure your size prior to ordering"
-            },
-            {
-              name: "Age Range Description: Adult; Closure Type: Pull On"
-            }
-          ]
+          image: "https://m.media-amazon.com/images/I/71VeuIuo3DL._AC_UL320_.jpg",
+          Name: "Mens Jacket",
+          reviewNumber: "2",
+          mrp: "₹3,799",
+          price: "1,696",
+          discount: "(55% off)",
+          selection2: "Product details\nProduct Dimensions \u200f : \u200e 20 x 25 x 9 cm; 600 Grams\nDate First Available \u200f : \u200e 11 October 2022\nManufacturer \u200f : \u200e Puma\nASIN \u200f : \u200e B0BHWXK75H\nItem model number \u200f : \u200e 67524416\nDepartment \u200f : \u200e Mens\nManufacturer \u200f : \u200e Puma, Triangle Apparels 6 No. 25/26, Industrial Suburb Yeshwanthpur 560022 Bangalore\nPacker \u200f : \u200e Puma Sports India Pvt Ltd\nImporter \u200f : \u200e Puma Sports India Pvt Ltd\nItem Weight \u200f : \u200e 600 g\nItem Dimensions LxWxH \u200f : \u200e 20 x 25 x 9 Centimeters\nGeneric Name \u200f : \u200e Jacket\nBest Sellers Rank: #173,214 in Clothing & Accessories (See Top 100 in Clothing & Accessories)\n#2,178 in Men's Jackets\nCustomer Reviews:\n3.5 out of 5 stars\n2 ratings"
         },
         {
-          image: "https://m.media-amazon.com/images/I/61Hi7hpMK6S._AC_UL320_.jpg",
-          Name: "Women's Codding Long Anarkali Dress Material Gown With Duppta(Free Size)",
-          reviewNumber: "2,253",
-          mrp: "₹3,499",
-          price: "1,099",
+          image: "https://m.media-amazon.com/images/I/71vkyIbup5L._AC_UL320_.jpg",
+          Name: "Mens Jacket",
+          mrp: "₹3,799",
+          price: "1,696",
+          discount: "(55% off)",
+          selection2: "Product details\nProduct Dimensions \u200f : \u200e 20 x 25 x 9 cm; 600 Grams\nDate First Available \u200f : \u200e 11 October 2022\nManufacturer \u200f : \u200e Puma\nASIN \u200f : \u200e B0BHWXGBY4\nItem model number \u200f : \u200e 67533001\nDepartment \u200f : \u200e Mens\nManufacturer \u200f : \u200e Puma, Triangle Apparels 6 No. 25/26, Industrial Suburb Yeshwanthpur 560022 Bangalore\nPacker \u200f : \u200e Puma Sports India Pvt Ltd\nImporter \u200f : \u200e Puma Sports India Pvt Ltd\nItem Weight \u200f : \u200e 600 g\nItem Dimensions LxWxH \u200f : \u200e 20 x 25 x 9 Centimeters\nGeneric Name \u200f : \u200e Jacket\nBest Sellers Rank: #73,222 in Clothing & Accessories (See Top 100 in Clothing & Accessories)\n#882 in Men's Jackets"
+        },
+        {
+          image: "https://m.media-amazon.com/images/I/81x074HSo-L._AC_UL320_.jpg",
+          Name: "Mens Jacket",
+          mrp: "₹4,499",
+          price: "2,008",
+          discount: "(55% off)",
+          selection2: "Product details\nProduct Dimensions \u200f : \u200e 20 x 25 x 9 cm; 600 Grams\nDate First Available \u200f : \u200e 11 October 2022\nManufacturer \u200f : \u200e Puma\nASIN \u200f : \u200e B0BHWYY8QF\nItem model number \u200f : \u200e 67530307\nDepartment \u200f : \u200e Mens\nManufacturer \u200f : \u200e Puma, Triangle Apparels 6 No. 25/26, Industrial Suburb Yeshwanthpur 560022 Bangalore\nPacker \u200f : \u200e Puma Sports India Pvt Ltd\nImporter \u200f : \u200e Puma Sports India Pvt Ltd\nItem Weight \u200f : \u200e 600 g\nItem Dimensions LxWxH \u200f : \u200e 20 x 25 x 9 Centimeters\nGeneric Name \u200f : \u200e Jacket\nBest Sellers Rank: #331,065 in Clothing & Accessories (See Top 100 in Clothing & Accessories)\n#4,073 in Men's Jackets"
+        },
+        {
+          image: "https://m.media-amazon.com/images/I/71KBn65yCQL._AC_UL320_.jpg",
+          Name: "Mens Jacket",
+          mrp: "₹4,499",
+          price: "2,008",
+          discount: "(55% off)",
+          selection2: "Product details\nProduct Dimensions \u200f : \u200e 20 x 25 x 9 cm; 600 Grams\nDate First Available \u200f : \u200e 11 October 2022\nManufacturer \u200f : \u200e Puma\nASIN \u200f : \u200e B0BHWX4DZZ\nItem model number \u200f : \u200e 67530011\nDepartment \u200f : \u200e Mens\nManufacturer \u200f : \u200e Puma, Triangle Apparels 6 No. 25/26, Industrial Suburb Yeshwanthpur 560022 Bangalore\nPacker \u200f : \u200e Puma Sports India Pvt Ltd\nImporter \u200f : \u200e Puma Sports India Pvt Ltd\nItem Weight \u200f : \u200e 600 g\nItem Dimensions LxWxH \u200f : \u200e 20 x 25 x 9 Centimeters\nGeneric Name \u200f : \u200e Jacket\nBest Sellers Rank: #215,297 in Clothing & Accessories (See Top 100 in Clothing & Accessories)\n#2,720 in Men's Jackets"
+        },
+        {
+          image: "https://m.media-amazon.com/images/I/71zDDAztirL._AC_UL320_.jpg",
+          Name: "Mens Jacket",
+          mrp: "₹4,499",
+          price: "2,008",
+          discount: "(55% off)",
+          selection2: "Product details\nProduct Dimensions \u200f : \u200e 20 x 25 x 9 cm; 600 Grams\nDate First Available \u200f : \u200e 11 October 2022\nManufacturer \u200f : \u200e Puma\nASIN \u200f : \u200e B0BHX65GQ4\nItem model number \u200f : \u200e 67485162\nDepartment \u200f : \u200e Mens\nManufacturer \u200f : \u200e Puma, Triangle Apparels 6 No. 25/26, Industrial Suburb Yeshwanthpur 560022 Bangalore\nPacker \u200f : \u200e Puma Sports India Pvt Ltd\nImporter \u200f : \u200e Puma Sports India Pvt Ltd\nItem Weight \u200f : \u200e 600 g\nItem Dimensions LxWxH \u200f : \u200e 20 x 25 x 9 Centimeters\nGeneric Name \u200f : \u200e Jacket\nBest Sellers Rank: #72,018 in Clothing & Accessories (See Top 100 in Clothing & Accessories)\n#869 in Men's Jackets"
+        },
+        {
+          image: "https://m.media-amazon.com/images/I/71KgHH-jPHL._AC_UL320_.jpg",
+          Name: "Mens AS_High Neck Jacket_4799",
+          mrp: "₹4,799",
+          price: "2,149",
+          discount: "(55% off)",
+          selection2: "Product details\nProduct Dimensions \u200f : \u200e 55.9 x 45.7 x 12.7 cm; 400 Grams\nDate First Available \u200f : \u200e 6 October 2022\nManufacturer \u200f : \u200e Ventura Trading Pvt Ltd.\nASIN \u200f : \u200e B0BHJ55V3Y\nItem model number \u200f : \u200e ASAEOJK4826\nDepartment \u200f : \u200e Mens\nManufacturer \u200f : \u200e Ventura Trading Pvt Ltd., Venture Trading Pvt. Ltd. 144/1b, Sri Sai Anusuya Nilaya, Near Kaveri Water Tank, A Narayanapura, BENGALURU Bangalore KA 560016 IN\nPacker \u200f : \u200e Arvind Fashions Ltd, Duparc Trinity Bengaluru 560001\nImporter \u200f : \u200e Arvind Fashions Ltd, Duparc Trinity Bengaluru 560001\nItem Weight \u200f : \u200e 400 g\nItem Dimensions LxWxH \u200f : \u200e 55.9 x 45.7 x 12.7 Centimeters\nGeneric Name \u200f : \u200e High Neck Jacket\nBest Sellers Rank: #191,750 in Clothing & Accessories (See Top 100 in Clothing & Accessories)\n#2,402 in Men's Jackets"
+        },
+        {
+          image: "https://m.media-amazon.com/images/I/71e5hCt1ZDL._AC_UL320_.jpg",
+          Name: "Men Jacket",
+          reviewNumber: "1",
+          mrp: "₹3,999",
+          price: "1,789",
+          discount: "(55% off)",
+          selection2: "Product details\nProduct Dimensions \u200f : \u200e 55.9 x 45.7 x 12.7 cm; 400 Grams\nDate First Available \u200f : \u200e 6 October 2022\nManufacturer \u200f : \u200e Ventura Trading Pvt Ltd.\nASIN \u200f : \u200e B0BHJ8V5JV\nItem model number \u200f : \u200e ASAEOJK4819\nDepartment \u200f : \u200e Mens\nManufacturer \u200f : \u200e Ventura Trading Pvt Ltd., Venture Trading Pvt. Ltd. 144/1b, Sri Sai Anusuya Nilaya, Near Kaveri Water Tank, A Narayanapura, BENGALURU Bangalore KA 560016 IN\nPacker \u200f : \u200e Arvind Fashions Ltd, Duparc Trinity Bengaluru 560001\nImporter \u200f : \u200e Arvind Fashions Ltd, Duparc Trinity Bengaluru 560001\nItem Weight \u200f : \u200e 400 g\nItem Dimensions LxWxH \u200f : \u200e 55.9 x 45.7 x 12.7 Centimeters\nGeneric Name \u200f : \u200e Quilted Jacket\nBest Sellers Rank: #125,026 in Clothing & Accessories (See Top 100 in Clothing & Accessories)\n#1,554 in Men's Jackets\nCustomer Reviews:\n5.0 out of 5 stars\n1 rating"
+        },
+        {
+          image: "https://m.media-amazon.com/images/I/71oWAYLC0yL._AC_UL320_.jpg",
+          Name: "Men AS_High Neck Jacket_5499",
+          reviewNumber: "1",
+          mrp: "₹5,499",
+          price: "2,459",
+          discount: "(55% off)",
+          selection2: "Product details\nProduct Dimensions \u200f : \u200e 55.9 x 45.7 x 12.7 cm; 400 Grams\nDate First Available \u200f : \u200e 6 October 2022\nManufacturer \u200f : \u200e Ventura Trading Pvt Ltd.\nASIN \u200f : \u200e B0BHJ9H9MX\nItem model number \u200f : \u200e ASAEOJK4814\nDepartment \u200f : \u200e Mens\nManufacturer \u200f : \u200e Ventura Trading Pvt Ltd., Venture Trading Pvt. Ltd. 144/1b, Sri Sai Anusuya Nilaya, Near Kaveri Water Tank, A Narayanapura, BENGALURU Bangalore KA 560016 IN\nPacker \u200f : \u200e Arvind Fashions Ltd, Duparc Trinity Bengaluru 560001\nImporter \u200f : \u200e Arvind Fashions Ltd, Duparc Trinity Bengaluru 560001\nItem Weight \u200f : \u200e 400 g\nItem Dimensions LxWxH \u200f : \u200e 55.9 x 45.7 x 12.7 Centimeters\nGeneric Name \u200f : \u200e High Neck Jacket\nBest Sellers Rank: #62,303 in Clothing & Accessories (See Top 100 in Clothing & Accessories)\n#721 in Men's Jackets\nCustomer Reviews:\n5.0 out of 5 stars\n1 rating"
+        },
+        {
+          image: "https://m.media-amazon.com/images/I/71Hk3+Z3beL._AC_UL320_.jpg",
+          Name: "Mens AS_Quilted Jacket_3999",
+          mrp: "₹3,999",
+          price: "1,789",
+          discount: "(55% off)",
+          selection2: "Product details\nProduct Dimensions \u200f : \u200e 55.9 x 45.7 x 12.7 cm; 400 Grams\nDate First Available \u200f : \u200e 6 October 2022\nManufacturer \u200f : \u200e Ventura Trading Pvt Ltd.\nASIN \u200f : \u200e B0BHJ8QCXL\nItem model number \u200f : \u200e ASAEOJK4818\nDepartment \u200f : \u200e Mens\nManufacturer \u200f : \u200e Ventura Trading Pvt Ltd., Venture Trading Pvt. Ltd. 144/1b, Sri Sai Anusuya Nilaya, Near Kaveri Water Tank, A Narayanapura, BENGALURU Bangalore KA 560016 IN\nPacker \u200f : \u200e Arvind Fashions Ltd, Duparc Trinity Bengaluru 560001\nImporter \u200f : \u200e Arvind Fashions Ltd, Duparc Trinity Bengaluru 560001\nItem Weight \u200f : \u200e 400 g\nItem Dimensions LxWxH \u200f : \u200e 55.9 x 45.7 x 12.7 Centimeters\nGeneric Name \u200f : \u200e Quilted Jacket\nBest Sellers Rank: #213,134 in Clothing & Accessories (See Top 100 in Clothing & Accessories)\n#2,691 in Men's Jackets"
+        },
+        {
+          image: "https://m.media-amazon.com/images/I/81PJIxcrYML._AC_UL320_.jpg",
+          Name: "Men's Quilted Jacket",
+          reviewNumber: "3",
+          mrp: "₹3,999",
+          price: "1,259",
           discount: "(69% off)",
-          selection6: [
-            {
-              name: "Fit Type: Regular"
-            },
-            {
-              name: "Gown Fabric : Top:- Georgette || Inner:-Shantton || Duppta:-Georggette With Hevay Work.Which Will Provide Full Comfort Everywhere."
-            },
-            {
-              name: "Gown Work: Codding || Type: Semi-Stiched(Free Size)||You Can Fit To Small To Xxl Size."
-            },
-            {
-              name: "Suitable For Weddings And Special Occasion This Can Be Paired With Beautiful Earrings And Footwear To Enhance Your Appearance"
-            },
-            {
-              name: "There Might Be Slight Colour Variation Due To Lightings And Flash While Photo Shoot; Closure Type: Popper; Sleeve Type: Long Sleeve"
-            },
-            {
-              name: "Age Range Description: Adult"
-            }
-          ]
+          selection2: "Product details\nProduct Dimensions \u200f : \u200e 10 x 5 x 10 cm; 50 Grams\nDate First Available \u200f : \u200e 28 April 2022\nManufacturer \u200f : \u200e Amazon Brand - Symbol\nASIN \u200f : \u200e B09Z36KNKJ\nItem model number \u200f : \u200e AW22-SY-LW-JK-06\nDepartment \u200f : \u200e Mens\nManufacturer \u200f : \u200e Amazon Brand - Symbol, CLOUDTAIL INDIA PRIVATE LIMITED, Ground Floor, Rear Portion, H-9, Block B-1, Mohan Cooperative Industrial Area, Mathura Road, New Delhi-110177\nPacker \u200f : \u200e CLOUDTAIL INDIA PRIVATE LIMITED, Ground Floor, Rear Portion, H-9, Block B-1, Mohan Cooperative Industrial Area, Mathura Road, New Delhi-110177\nItem Weight \u200f : \u200e 50 g\nItem Dimensions LxWxH \u200f : \u200e 10 x 5 x 10 Centimeters\nGeneric Name \u200f : \u200e Jacket\nBest Sellers Rank: #11,336 in Clothing & Accessories (See Top 100 in Clothing & Accessories)\n#162 in Men's Jackets\nCustomer Reviews:\n4.6 out of 5 stars\n3 ratings"
         },
         {
-          image: "https://m.media-amazon.com/images/I/71Nnzf73vXL._AC_UL320_.jpg",
-          Name: "Shiv Textiles Women's Pure Georgette Saree With Blouse Piece",
-          reviewNumber: "638",
-          mrp: "₹1,499",
-          price: "699",
-          discount: "(53% off)",
-          selection6: [
-            {
-              name: "Care Instructions: hand wash"
-            },
-            {
-              name: "Fit Type: Regular"
-            },
-            {
-              name: "Saree Fabric: Georgette, Blouse Color: Pink, Saree Type: Crushed"
-            },
-            {
-              name: "Saree Length:-5.6 Meter, Blouse Length:-0.80 Meter (Unstitched)"
-            },
-            {
-              name: "Saree Wash Care :- Hand Wash, Dry the Saree under Shade."
-            },
-            {
-              name: "Made of Finely Georgette Fabric Decorated with Intricate Design with Attractive Pallu and Blouse attached."
-            },
-            {
-              name: "The Modern designs and color combination make it a worth having saree for your wardrobe."
-            }
-          ]
-        },
-        {
-          image: "https://m.media-amazon.com/images/I/61bGxcZM8YL._AC_UL320_.jpg",
-          Name: "Men's Regular Fit Casual Shirt",
-          reviewNumber: "5,873",
-          mrp: "₹1,999",
-          price: "499",
-          discount: "(75% off)",
-          selection6: [
-            {
-              name: "Care Instructions: Hand Wash Only"
-            },
-            {
-              name: "Fit Type: Regular Fit"
-            },
-            {
-              name: "Wash Care: Hand Wash Only"
-            },
-            {
-              name: "Fabric Type: Cotton; Pattern Name: Solid"
-            },
-            {
-              name: "Closure Type: Buttoned"
-            },
-            {
-              name: "Sleeve Type: Long Sleeve; Collar Style: Round Collar"
-            },
-            {
-              name: "Fit Type: Regular Fit"
-            }
-          ]
-        },
-        {
-          image: "https://m.media-amazon.com/images/I/51IAgWvFuGS._AC_UL320_.jpg",
-          Name: "Women Rayon Casual Wear Western Maxi Dress Gown for Girl/Women/Ladies",
-          reviewNumber: "1,056",
-          mrp: "₹1,999",
-          price: "419",
-          discount: "(79% off)",
-          selection6: [
-            {
-              name: "Care Instructions: Dry Clean Only"
-            },
-            {
-              name: "Fit Type: Regular"
-            },
-            {
-              name: "Fabric: Slub Rayon || Pattern: Printed || Style: Anarkali"
-            },
-            {
-              name: "Sleeves : Three-Quarter Sleeves || Sleeve Styling :Regular Sleeves || Neck : V-Neck"
-            },
-            {
-              name: "There might be slight color variation between the actual product and image shown on the screen due to photoshoot lighting."
-            },
-            {
-              name: "Ocassion: Traditional wear,Casual Wear, Office Wear, Formal wear, Evening wear, Work Wear, Party Wear"
-            },
-            {
-              name: "SATISFACTION GUARANTEED- Customer service is our number one priority. If you’re not satisfied with your purchase, we will be happy to process a 100% exchange or refund for you."
-            }
-          ]
-        },
-        {
-          image: "https://m.media-amazon.com/images/I/71GxB8DJLyL._AC_UL320_.jpg",
-          Name: "Women's Georgette Digital Floral Printed Gown Dress for Women (Gown Dress 35)",
-          reviewNumber: "821",
-          mrp: "₹3,499",
-          price: "679",
-          discount: "(81% off)",
-          selection6: [
-            {
-              name: "Care Instructions: Dry Clean Only"
-            },
-            {
-              name: "Fit Type: Regular"
-            },
-            {
-              name: "Dress Fabric : Georgette"
-            },
-            {
-              name: "Style : Flare Straight || Length : Ankle Length"
-            },
-            {
-              name: "Sleeves : Short Sleeves || Sleeve Styling : Butterfly Sleeves || Neck : Round Neck"
-            },
-            {
-              name: "Ocassion: Casual || Party || Wedding || Festival || Formal"
-            },
-            {
-              name: "Sleeves :- Short Sleeve || Neck :- Round Neck"
-            }
-          ]
-        },
-        {
-          image: "https://m.media-amazon.com/images/I/61DeRAjBAvL._AC_UL320_.jpg",
-          Name: "Women's Fit and Flare Knee Length Gown with Dupatta (Navy_X-Large)",
-          reviewNumber: "62",
+          image: "https://m.media-amazon.com/images/I/61IQm14e-xL._AC_UL320_.jpg",
+          Name: "Mens Jacket",
+          reviewNumber: "1",
           mrp: "₹2,999",
-          price: "898",
-          discount: "(70% off)",
-          selection6: [
-            {
-              name: "Care Instructions: Dry Clean Only"
-            },
-            {
-              name: "Fit Type: Regular"
-            },
-            {
-              name: "Color Declaration : There might be slight variation in the actual colour of the product due to different screen resolutions; Care Instructions: Only Dry Clean"
-            },
-            {
-              name: "Color Map: Blue; Closure Type: Drawstring; Occasion Type: Wedding; Sleeve Type: Short Sleeve"
-            }
-          ]
+          price: "1,439",
+          discount: "(52% off)",
+          selection2: "Product details\nProduct Dimensions \u200f : \u200e 27.5 x 27.5 x 4 cm; 600 Grams\nDate First Available \u200f : \u200e 16 August 2022\nManufacturer \u200f : \u200e ABFRL\nASIN \u200f : \u200e B0B9SLBPYV\nItem model number \u200f : \u200e PCJKSBOF386277\nDepartment \u200f : \u200e Mens\nManufacturer \u200f : \u200e ABFRL, Aditya Birla Fashion and Retail Ltd,7th Floor, Skyline Icon Business Park, 86-92, Off A.K. Road, Marol Village, Andheri (East), Mumbai, Maharashtra 400059\nItem Weight \u200f : \u200e 600 g\nItem Dimensions LxWxH \u200f : \u200e 27.5 x 27.5 x 4 Centimeters\nGeneric Name \u200f : \u200e Jacket\nBest Sellers Rank: #58,755 in Clothing & Accessories (See Top 100 in Clothing & Accessories)\n#681 in Men's Jackets\nCustomer Reviews:\n5.0 out of 5 stars\n1 rating"
         },
         {
-          image: "https://m.media-amazon.com/images/I/51XWI+rIQvL._AC_UL320_.jpg",
-          Name: "Women's Cotton Foil Printed Straight Kurta with Pant & Dupatta(NAVLIK-PINK-001)",
-          reviewNumber: "3,091",
-          mrp: "₹3,599",
-          price: "659",
-          discount: "(82% off)",
-          selection6: [
-            {
-              name: "Care Instructions: Dry Clean Only"
-            },
-            {
-              name: "Fit Type: Regular"
-            },
-            {
-              name: "This three piece set includes kurta, Pant and dupatta."
-            },
-            {
-              name: "Style: Straight || Length: Calf Length || Sleeves: 3/4"
-            },
-            {
-              name: "Kurta , Pant And Dupatta Fabric : Pure Cotton"
-            },
-            {
-              name: "Ocassion: Traditional wear, Casual Wear, party wear, evening wear"
-            },
-            {
-              name: "Product Color May Slightly Vary Due To Photographic Lighting Sources Or Your Monitor Settings"
-            }
-          ]
+          image: "https://m.media-amazon.com/images/I/61FK0-+FKIL._AC_UL320_.jpg",
+          Name: "Men's Solid Padded Jacket",
+          reviewNumber: "8",
+          mrp: "₹7,299",
+          price: "1,459",
+          discount: "(80% off)",
+          selection2: "Product details\nProduct Dimensions \u200f : \u200e 32 x 28 x 7 cm; 500 Grams\nDate First Available \u200f : \u200e 23 August 2022\nManufacturer \u200f : \u200e Red Tape\nASIN \u200f : \u200e B0BBLYYBCM\nItem model number \u200f : \u200e RFJ0196\nDepartment \u200f : \u200e Mens\nManufacturer \u200f : \u200e Red Tape, Importer:-MIRZA INTERNATIONAL LTD., 14/6, CIVIL LINES, KANPUR-208001\nPacker \u200f : \u200e Importer:-MIRZA INTERNATIONAL LTD., 14/6, CIVIL LINES, KANPUR-208001\nImporter \u200f : \u200e Importer:-MIRZA INTERNATIONAL LTD., 14/6, CIVIL LINES, KANPUR-208001\nItem Weight \u200f : \u200e 500 g\nItem Dimensions LxWxH \u200f : \u200e 32 x 28 x 7 Centimeters\nGeneric Name \u200f : \u200e Jacket\nBest Sellers Rank: #7,465 in Clothing & Accessories (See Top 100 in Clothing & Accessories)\n#112 in Men's Jackets\nCustomer Reviews:\n3.6 out of 5 stars\n8 ratings"
+        },
+        {
+          image: "https://m.media-amazon.com/images/I/71Jg1PvPymL._AC_UL320_.jpg",
+          Name: "Men's Regular Jacket (ASAEOSS3990_Olive_M)",
+          mrp: "₹2,299",
+          price: "987",
+          discount: "(57% off)",
+          selection2: "Product details\nProduct Dimensions \u200f : \u200e 25 x 20 x 4.5 cm; 500 Grams\nDate First Available \u200f : \u200e 19 September 2022\nManufacturer \u200f : \u200e G S Settia and bros Pvt Ltd\nASIN \u200f : \u200e B0BFRKPY5B\nItem model number \u200f : \u200e ASAEOSS3990\nCountry of Origin \u200f : \u200e India\nDepartment \u200f : \u200e Men\nManufacturer \u200f : \u200e G S Settia and bros Pvt Ltd, ARVIND LIFESTYLE BRANDS LIMITED, DU PARC TRINITY, 8TH FLOOR, 17, MG ROAD BANGALORE 560001\nPacker \u200f : \u200e Arvind Fashions Ltd, Duparc Trinity Bengaluru 560001\nImporter \u200f : \u200e Arvind Fashions Ltd, Duparc Trinity Bengaluru 560001\nItem Weight \u200f : \u200e 500 g\nItem Dimensions LxWxH \u200f : \u200e 25 x 20 x 4.5 Centimeters\nNet Quantity \u200f : \u200e 1.00 count\nGeneric Name \u200f : \u200e sweat shirt\nBest Sellers Rank: #208,564 in Clothing & Accessories (See Top 100 in Clothing & Accessories)\n#2,623 in Men's Jackets"
+        },
+        {
+          image: "https://m.media-amazon.com/images/I/71yfmUYf-EL._AC_UL320_.jpg",
+          Name: "Mens Jacket",
+          mrp: "₹5,499",
+          price: "3,299",
+          discount: "(40% off)",
+          selection2: "Product details\nProduct Dimensions \u200f : \u200e 20 x 25 x 9 cm; 600 Grams\nDate First Available \u200f : \u200e 10 August 2022\nManufacturer \u200f : \u200e Puma\nASIN \u200f : \u200e B0B97P27HV\nItem model number \u200f : \u200e 52212801\nDepartment \u200f : \u200e Mens\nManufacturer \u200f : \u200e Puma, Viet Duc International Investment Company Ltd 2 Hamlet, Xuan Tam Commune, Xuan Loc District 76620 Dong Nai\nPacker \u200f : \u200e Puma Sports India Pvt Ltd\nImporter \u200f : \u200e Puma Sports India Pvt Ltd\nItem Weight \u200f : \u200e 600 g\nItem Dimensions LxWxH \u200f : \u200e 20 x 25 x 9 Centimeters\nGeneric Name \u200f : \u200e Jacket\nBest Sellers Rank: #544,768 in Clothing & Accessories (See Top 100 in Clothing & Accessories)\n#6,261 in Men's Jackets"
+        },
+        {
+          image: "https://m.media-amazon.com/images/I/71tFaEprprL._AC_UL320_.jpg",
+          Name: "Mens Jacket",
+          reviewNumber: "2",
+          mrp: "₹2,999",
+          price: "869",
+          discount: "(71% off)",
+          selection2: "Product details\nProduct Dimensions \u200f : \u200e 10 x 5 x 10 cm; 50 Grams\nDate First Available \u200f : \u200e 28 April 2022\nManufacturer \u200f : \u200e Amazon Brand - Symbol\nASIN \u200f : \u200e B09Z37LXX5\nItem model number \u200f : \u200e AZ-TR-AW02\nDepartment \u200f : \u200e Mens\nManufacturer \u200f : \u200e Amazon Brand - Symbol, CLOUDTAIL INDIA PRIVATE LIMITED, Ground Floor, Rear Portion, H-9, Block B-1, Mohan Cooperative Industrial Area, Mathura Road, New Delhi-110289\nPacker \u200f : \u200e CLOUDTAIL INDIA PRIVATE LIMITED, Ground Floor, Rear Portion, H-9, Block B-1, Mohan Cooperative Industrial Area, Mathura Road, New Delhi-110289\nItem Weight \u200f : \u200e 50 g\nItem Dimensions LxWxH \u200f : \u200e 10 x 5 x 10 Centimeters\nGeneric Name \u200f : \u200e Jacket\nBest Sellers Rank: #43,676 in Clothing & Accessories (See Top 100 in Clothing & Accessories)\n#521 in Men's Jackets\nCustomer Reviews:\n3.0 out of 5 stars\n2 ratings"
+        },
+        {
+          image: "https://m.media-amazon.com/images/I/61GxKGb+PeL._AC_UL320_.jpg",
+          Name: "Men Jacket",
+          reviewNumber: "9",
+          mrp: "₹8,599",
+          price: "1,719",
+          discount: "(80% off)",
+          selection2: "Product details\nProduct Dimensions \u200f : \u200e 32 x 28 x 7 cm; 500 Grams\nDate First Available \u200f : \u200e 23 August 2022\nManufacturer \u200f : \u200e Red Tape\nASIN \u200f : \u200e B0BBLV7WDQ\nItem model number \u200f : \u200e RFJ0187\nDepartment \u200f : \u200e Men\nManufacturer \u200f : \u200e Red Tape, Importer:-MIRZA INTERNATIONAL LTD., 14/6, CIVIL LINES, KANPUR-208001\nPacker \u200f : \u200e Importer:-MIRZA INTERNATIONAL LTD., 14/6, CIVIL LINES, KANPUR-208001\nImporter \u200f : \u200e Importer:-MIRZA INTERNATIONAL LTD., 14/6, CIVIL LINES, KANPUR-208001\nItem Weight \u200f : \u200e 500 g\nItem Dimensions LxWxH \u200f : \u200e 32 x 28 x 7 Centimeters\nGeneric Name \u200f : \u200e Jacket\nBest Sellers Rank: #2,787 in Clothing & Accessories (See Top 100 in Clothing & Accessories)\n#45 in Men's Jackets\nCustomer Reviews:\n4.1 out of 5 stars\n9 ratings"
+        },
+        {
+          image: "https://m.media-amazon.com/images/I/71X4hVqxjNL._AC_UL320_.jpg",
+          Name: "Men's Quilted Jacket",
+          reviewNumber: "1",
+          mrp: "₹4,999",
+          price: "1,179",
+          discount: "(76% off)",
+          selection2: "Product details\nProduct Dimensions \u200f : \u200e 5 x 5 x 5 cm; 50 Grams\nDate First Available \u200f : \u200e 13 June 2022\nManufacturer \u200f : \u200e Amazon Brand - Symbol\nASIN \u200f : \u200e B0B3XB5RP2\nItem model number \u200f : \u200e AW20-QB-SY-01\nDepartment \u200f : \u200e Mens\nManufacturer \u200f : \u200e Amazon Brand - Symbol, INDRA HOSIERY MILLS,PLOT NO. 31,32,33,34,35,36, BEHIND NAGESH BUILDING,SHARMAN ENCLAVE, NEAR JALANDHAR BYE PASS, LUDHIANA, PUNJAB-141007\nPacker \u200f : \u200e INDRA HOSIERY MILLS,PLOT NO. 31,32,33,34,35,36, BEHIND NAGESH BUILDING,SHARMAN ENCLAVE, NEAR JALANDHAR BYE PASS, LUDHIANA, PUNJAB-141029\nImporter \u200f : \u200e INDRA HOSIERY MILLS,PLOT NO. 31,32,33,34,35,36, BEHIND NAGESH BUILDING,SHARMAN ENCLAVE, NEAR JALANDHAR BYE PASS, LUDHIANA, PUNJAB-141029\nItem Weight \u200f : \u200e 50 g\nItem Dimensions LxWxH \u200f : \u200e 50 x 50 x 50 Millimeters\nGeneric Name \u200f : \u200e Jacket\nBest Sellers Rank: #166,467 in Clothing & Accessories (See Top 100 in Clothing & Accessories)\n#2,092 in Men's Jackets\nCustomer Reviews:\n5.0 out of 5 stars\n1 rating"
+        },
+        {
+          image: "https://m.media-amazon.com/images/I/71S8+V5JEQL._AC_UL320_.jpg",
+          Name: "Men's Windcheater",
+          reviewNumber: "1,532",
+          mrp: "₹2,999",
+          price: "1,019",
+          discount: "(66% off)",
+          selection2: "Product details\nDate First Available \u200f : \u200e 22 November 2021\nManufacturer \u200f : \u200e Amazon Brand - Symbol\nASIN \u200f : \u200e B08DG9K6K6\nItem model number \u200f : \u200e AW20-LW-SY-02\nDepartment \u200f : \u200e Men\nManufacturer \u200f : \u200e Amazon Brand - Symbol, CLOUDTAIL INDIA PRIVATE LIMITED, Ground Floor, Rear Portion, H-9, Block B-1, Mohan Cooperative Industrial Area, Mathura Road, New Delhi-110044\nPacker \u200f : \u200e CLOUDTAIL INDIA PRIVATE LIMITED, Ground Floor, Rear Portion, H-9, Block B-1, Mohan Cooperative Industrial Area, Mathura Road, New Delhi-110044\nGeneric Name \u200f : \u200e Windbreaker Jacket\nBest Sellers Rank: #7,415 in Clothing & Accessories (See Top 100 in Clothing & Accessories)\n#110 in Men's Jackets\nCustomer Reviews:\n3.9 out of 5 stars\n1,532 ratings"
+        },
+        {
+          image: "https://m.media-amazon.com/images/I/61HVNfXCpUL._AC_UL320_.jpg",
+          Name: "Men's Full Sleeve Regular Fit Nylon Casual Jacket",
+          reviewNumber: "13",
+          mrp: "₹3,999",
+          price: "799",
+          discount: "(80% off)",
+          selection2: "Product details\nProduct Dimensions \u200f : \u200e 25 x 18 x 3 cm; 270 Grams\nDate First Available \u200f : \u200e 25 September 2021\nManufacturer \u200f : \u200e Maruti Enterprises\nASIN \u200f : \u200e B09H4RKWCQ\nItem part number \u200f : \u200e 6-BM-JKT-FS-20522-1\nDepartment \u200f : \u200e Men\nManufacturer \u200f : \u200e Maruti Enterprises, Maruti Enterprises SRS-167,National Market,Peeragarhi,New Delhi-110087\nPacker \u200f : \u200e Maruti Enterprises SRS-167,National Market,Peeragarhi,New Delhi-110087\nItem Weight \u200f : \u200e 270 g\nItem Dimensions LxWxH \u200f : \u200e 25 x 18 x 3 Centimeters\nBest Sellers Rank: #194,714 in Clothing & Accessories (See Top 100 in Clothing & Accessories)\n#2,446 in Men's Jackets\nCustomer Reviews:\n4.0 out of 5 stars\n13 ratings"
+        },
+        {
+          image: "https://m.media-amazon.com/images/I/61dGo-UEt7L._AC_UL320_.jpg",
+          Name: "Men's Solid Regular Jacket",
+          reviewNumber: "2,905",
+          mrp: "₹3,999",
+          price: "799",
+          discount: "(80% off)",
+          selection2: "Product details\nProduct Dimensions \u200f : \u200e 25 x 22 x 3 cm; 350 Grams\nDate First Available \u200f : \u200e 21 November 2022\nManufacturer \u200f : \u200e Maruti Enterprises\nASIN \u200f : \u200e B0BN21BJDY\nItem part number \u200f : \u200e A-BM-JKT-FS-19972-YELLOW-36\nDepartment \u200f : \u200e Men\nManufacturer \u200f : \u200e Maruti Enterprises, SRS-167, National Market, Peeragarhi,New Delhi 98101-18100, For Any Query Please Contact us :- mybenmartincare@gmail.com\nPacker \u200f : \u200e Maruti Enterprises SRS-167, National Market, Peeragarhi,New Delhi 98101-18100, For Any Query Please Contact us :- mybenmartincare@gmail.com\nItem Weight \u200f : \u200e 350 g\nItem Dimensions LxWxH \u200f : \u200e 25 x 22 x 3 Centimeters\nNet Quantity \u200f : \u200e 1.00 count\nBest Sellers Rank: #1,934 in Clothing & Accessories (See Top 100 in Clothing & Accessories)\n#32 in Men's Jackets\nCustomer Reviews:\n3.6 out of 5 stars\n2,905 ratings"
+        },
+        {
+          image: "https://m.media-amazon.com/images/I/61XH6uYloUL._AC_UL320_.jpg",
+          Name: "Women’s Casual Cotton Zipper Sweatshirt Relaxed Fit for Everyday Wear | Full Sleeve | Latest Stylish Jacket Crafted with Comfort Fit and High Performance for Regular Wear",
+          reviewNumber: "1",
+          mrp: "₹1,699",
+          price: "799",
+          discount: "(53% off)",
+          selection2: "Product details\nPackage Dimensions \u200f : \u200e 26 x 23 x 1 cm; 300 Grams\nDate First Available \u200f : \u200e 10 September 2022\nManufacturer \u200f : \u200e Campussutra Retail private limited,2nd floor, 117/A,5th main road,yeshwanthpur,Bengaluru 560022\nASIN \u200f : \u200e B0BDVJLQ3Y\nItem part number \u200f : \u200e WIN22_ZHHH_W_PLN_GRBL_S\nDepartment \u200f : \u200e Women\nManufacturer \u200f : \u200e Campussutra Retail private limited,2nd floor, 117/A,5th main road,yeshwanthpur,Bengaluru 560022, Campussutra Retail private limited,2nd floor, 117/A,5th main road,yeshwanthpur,Bengaluru 560022\nPacker \u200f : \u200e Campussutra Retail private limited,2nd floor, 117/A,5th main road,yeshwanthpur,Bengaluru 560022\nItem Weight \u200f : \u200e 300 g\nGeneric Name \u200f : \u200e Sweatshirt\nBest Sellers Rank: #454,282 in Clothing & Accessories (See Top 100 in Clothing & Accessories)\n#2,307 in Women's Sweatshirts\nCustomer Reviews:\n1.0 out of 5 stars\n1 rating|"
+        },
+        {
+          image: "https://m.media-amazon.com/images/I/610ysTt7-3L._AC_UL320_.jpg",
+          Name: "Men’s Cotton Jacket Regular Fit For Casual Wear | Full Sleeve |Cotton Jacket Crafted With Comfort Fit",
+          reviewNumber: "26",
+          mrp: "₹2,399",
+          price: "790",
+          discount: "(67% off)",
+          selection2: "Product details\nPackage Dimensions \u200f : \u200e 27 x 26 x 1 cm; 300 Grams\nDate First Available \u200f : \u200e 8 September 2022\nManufacturer \u200f : \u200e Campus Sutra Retail private limited,2nd floor, 117/A,5th main road,yeshwanthpur,Bengaluru 560022\nASIN \u200f : \u200e B0BDLL6JD2\nItem part number \u200f : \u200e AW22_CSM-AW-HD4036_S\nDepartment \u200f : \u200e Men\nManufacturer \u200f : \u200e Campus Sutra Retail private limited,2nd floor, 117/A,5th main road,yeshwanthpur,Bengaluru 560022, Campus Sutra Retail private limited,2nd floor, 117/A,5th main road,yeshwanthpur,Bengaluru 560022\nPacker \u200f : \u200e Campus Sutra Retail private limited,2nd floor, 117/A,5th main road,yeshwanthpur,Bengaluru 560022\nItem Weight \u200f : \u200e 300 g\nBest Sellers Rank: #9,675 in Clothing & Accessories (See Top 100 in Clothing & Accessories)\n#146 in Men's Jackets\nCustomer Reviews:\n3.7 out of 5 stars\n26 ratings"
+        },
+        {
+          image: "https://m.media-amazon.com/images/I/61kx+zxo2VL._AC_UL320_.jpg",
+          Name: "Men's Black Regular Fit Activewear Jacket For Winter Wear | Dri-Fit Standing Collar Full Sleeve Zipper Casual Sports Man Western Stylish Men",
+          reviewNumber: "9",
+          mrp: "₹2,499",
+          price: "704",
+          discount: "(72% off)",
+          selection2: "Product details\nPackage Dimensions \u200f : \u200e 27 x 26 x 1 cm; 300 Grams\nDate First Available \u200f : \u200e 8 September 2022\nManufacturer \u200f : \u200e Campus Sutra Retail private limited,2nd floor, 117/A,5th main road,yeshwanthpur,Bengaluru 560022\nASIN \u200f : \u200e B0BDLTKFNC\nItem part number \u200f : \u200e AW22_JRHJK_M_PLN_BL_S\nDepartment \u200f : \u200e Men\nManufacturer \u200f : \u200e Campus Sutra Retail private limited,2nd floor, 117/A,5th main road,yeshwanthpur,Bengaluru 560022, Campus Sutra Retail private limited,2nd floor, 117/A,5th main road,yeshwanthpur,Bengaluru 560022\nPacker \u200f : \u200e Campus Sutra Retail private limited,2nd floor, 117/A,5th main road,yeshwanthpur,Bengaluru 560022\nItem Weight \u200f : \u200e 300 g\nBest Sellers Rank: #19,887 in Clothing & Accessories (See Top 100 in Clothing & Accessories)\n#260 in Men's Jackets\nCustomer Reviews:\n3.5 out of 5 stars\n9 ratings"
+        },
+        {
+          image: "https://m.media-amazon.com/images/I/61IkU6TzWZL._AC_UL320_.jpg",
+          Name: "Men’s Varsity Jacket Regular Fit For Casual Wear | Low-Cut Standing Collar | Full Sleeve | Latest Stylish Varsity Jacket Crafted With Comfort Fit And High Performance For Everyday Wear",
+          reviewNumber: "4",
+          mrp: "₹1,999",
+          price: "713",
+          discount: "(64% off)",
+          selection2: "Product details\nPackage Dimensions \u200f : \u200e 27 x 26 x 1 cm; 300 Grams\nDate First Available \u200f : \u200e 8 September 2022\nManufacturer \u200f : \u200e Campus Sutra Retail private limited,2nd floor, 117/A,5th main road,yeshwanthpur,Bengaluru 560022\nASIN \u200f : \u200e B0BDLH8XQV\nItem part number \u200f : \u200e AW22_HVAR_M_PLN_BLGR_S\nDepartment \u200f : \u200e Men\nManufacturer \u200f : \u200e Campus Sutra Retail private limited,2nd floor, 117/A,5th main road,yeshwanthpur,Bengaluru 560022, Campus Sutra Retail private limited,2nd floor, 117/A,5th main road,yeshwanthpur,Bengaluru 560022\nPacker \u200f : \u200e Campus Sutra Retail private limited,2nd floor, 117/A,5th main road,yeshwanthpur,Bengaluru 560022\nItem Weight \u200f : \u200e 300 g\nBest Sellers Rank: #32,680 in Clothing & Accessories (See Top 100 in Clothing & Accessories)\n#392 in Men's Jackets\nCustomer Reviews:\n4.7 out of 5 stars\n4 ratings"
+        },
+        {
+          image: "https://m.media-amazon.com/images/I/71ylqjAWYvL._AC_UL320_.jpg",
+          Name: "Men’s Cotton Denim Jacket Regular Fit For Casual Wear | Full Sleeve | Button Closure | Latest Stylish Wear Denim Jacket Crafted With Comfort Fit For Everyday Wear",
+          reviewNumber: "24",
+          mrp: "₹2,599",
+          price: "939",
+          discount: "(64% off)",
+          selection2: "Product details\nPackage Dimensions \u200f : \u200e 27 x 26 x 1 cm; 300 Grams\nDate First Available \u200f : \u200e 8 September 2022\nManufacturer \u200f : \u200e Campus Sutra Retail private limited,2nd floor, 117/A,5th main road,yeshwanthpur,Bengaluru 560022\nASIN \u200f : \u200e B0BDLKYTDZ\nItem part number \u200f : \u200e AW22_JKDENIM_M_PLN_YEBL_S\nDepartment \u200f : \u200e Men\nManufacturer \u200f : \u200e Campus Sutra Retail private limited,2nd floor, 117/A,5th main road,yeshwanthpur,Bengaluru 560022, Campus Sutra Retail private limited,2nd floor, 117/A,5th main road,yeshwanthpur,Bengaluru 560022\nPacker \u200f : \u200e Campus Sutra Retail private limited,2nd floor, 117/A,5th main road,yeshwanthpur,Bengaluru 560022\nItem Weight \u200f : \u200e 300 g\nBest Sellers Rank: #11,774 in Clothing & Accessories (See Top 100 in Clothing & Accessories)\n#165 in Men's Jackets\nCustomer Reviews:\n3.3 out of 5 stars\n24 ratings"
+        },
+        {
+          image: "https://m.media-amazon.com/images/I/61Dzm1VHR+L._AC_UL320_.jpg",
+          Name: "Men Jacket",
+          reviewNumber: "56",
+          mrp: "₹7,299",
+          price: "1,459",
+          discount: "(80% off)",
+          selection2: "Product details\nProduct Dimensions \u200f : \u200e 32 x 28 x 7 cm; 500 Grams\nDate First Available \u200f : \u200e 23 August 2022\nManufacturer \u200f : \u200e Red Tape\nASIN \u200f : \u200e B0BBLXWP47\nItem model number \u200f : \u200e RFJ0264\nDepartment \u200f : \u200e Men\nManufacturer \u200f : \u200e Red Tape, Importer:-MIRZA INTERNATIONAL LTD., 14/6, CIVIL LINES, KANPUR-208001\nPacker \u200f : \u200e Importer:-MIRZA INTERNATIONAL LTD., 14/6, CIVIL LINES, KANPUR-208001\nImporter \u200f : \u200e Importer:-MIRZA INTERNATIONAL LTD., 14/6, CIVIL LINES, KANPUR-208001\nItem Weight \u200f : \u200e 500 g\nItem Dimensions LxWxH \u200f : \u200e 32 x 28 x 7 Centimeters\nGeneric Name \u200f : \u200e Jacket\nBest Sellers Rank: #1,279 in Clothing & Accessories (See Top 100 in Clothing & Accessories)\n#17 in Men's Jackets\nCustomer Reviews:\n3.8 out of 5 stars\n56 ratings"
+        },
+        {
+          image: "https://m.media-amazon.com/images/I/61oEx2EEkML._AC_UL320_.jpg",
+          Name: "Men's Solid Padded Jacket",
+          reviewNumber: "16",
+          mrp: "₹6,499",
+          price: "1,299",
+          discount: "(80% off)",
+          selection2: "Product details\nProduct Dimensions \u200f : \u200e 32 x 28 x 7 cm; 500 Grams\nDate First Available \u200f : \u200e 23 August 2022\nManufacturer \u200f : \u200e Red Tape\nASIN \u200f : \u200e B0BBLTTPNV\nItem model number \u200f : \u200e RFJ0157\nDepartment \u200f : \u200e Men\nManufacturer \u200f : \u200e Red Tape, Importer:-MIRZA INTERNATIONAL LTD., 14/6, CIVIL LINES, KANPUR-208001\nPacker \u200f : \u200e Importer:-MIRZA INTERNATIONAL LTD., 14/6, CIVIL LINES, KANPUR-208001\nImporter \u200f : \u200e Importer:-MIRZA INTERNATIONAL LTD., 14/6, CIVIL LINES, KANPUR-208001\nItem Weight \u200f : \u200e 500 g\nItem Dimensions LxWxH \u200f : \u200e 32 x 28 x 7 Centimeters\nGeneric Name \u200f : \u200e Jacket\nBest Sellers Rank: #2,768 in Clothing & Accessories (See Top 100 in Clothing & Accessories)\n#44 in Men's Jackets\nCustomer Reviews:\n3.3 out of 5 stars\n16 ratings"
+        },
+        {
+          image: "https://m.media-amazon.com/images/I/71vBuUDMu9L._AC_UL320_.jpg",
+          Name: "Men's Quilted",
+          reviewNumber: "2,296",
+          mrp: "₹2,999",
+          price: "869",
+          discount: "(71% off)",
+          selection2: "Product details\nDate First Available \u200f : \u200e 28 October 2020\nManufacturer \u200f : \u200e Amazon Brand - Symbol\nASIN \u200f : \u200e B08DGDMCSX\nItem model number \u200f : \u200e AZ-TR-AW01_Camel_M\nDepartment \u200f : \u200e Men\nManufacturer \u200f : \u200e Amazon Brand - Symbol, CLOUDTAIL INDIA PRIVATE LIMITED, Ground Floor, Rear Portion, H-9, Block B-1, Mohan Cooperative Industrial Area, Mathura Road, New Delhi-110044\nPacker \u200f : \u200e CLOUDTAIL INDIA PRIVATE LIMITED, Ground Floor, Rear Portion, H-9, Block B-1, Mohan Cooperative Industrial Area, Mathura Road, New Delhi-110044\nGeneric Name \u200f : \u200e Quilted Sleeveless Bomber Jacket\nBest Sellers Rank: #1,942 in Clothing & Accessories (See Top 100 in Clothing & Accessories)\n#33 in Men's Jackets\nCustomer Reviews:\n3.9 out of 5 stars\n2,296 ratings"
+        },
+        {
+          image: "https://m.media-amazon.com/images/I/71B+qTda1uL._AC_UL320_.jpg",
+          Name: "Men Windbreaker Jacket",
+          reviewNumber: "905",
+          mrp: "₹2,599",
+          price: "729",
+          discount: "(72% off)",
+          selection2: "Product details\nProduct Dimensions \u200f : \u200e 10 x 5 x 10 cm; 50 Grams\nDate First Available \u200f : \u200e 28 April 2022\nManufacturer \u200f : \u200e Amazon Brand - Symbol\nASIN \u200f : \u200e B09Z367TD4\nItem model number \u200f : \u200e AW20-LW-SY-01\nDepartment \u200f : \u200e Men\nManufacturer \u200f : \u200e Amazon Brand - Symbol, CLOUDTAIL INDIA PRIVATE LIMITED, Ground Floor, Rear Portion, H-9, Block B-1, Mohan Cooperative Industrial Area, Mathura Road, New Delhi-110044\nPacker \u200f : \u200e CLOUDTAIL INDIA PRIVATE LIMITED, Ground Floor, Rear Portion, H-9, Block B-1, Mohan Cooperative Industrial Area, Mathura Road, New Delhi-110044\nItem Weight \u200f : \u200e 50 g\nItem Dimensions LxWxH \u200f : \u200e 10 x 5 x 10 Centimeters\nGeneric Name \u200f : \u200e Windbreaker Jacket\nBest Sellers Rank: #6,498 in Clothing & Accessories (See Top 100 in Clothing & Accessories)\n#94 in Men's Jackets\nCustomer Reviews:\n3.8 out of 5 stars\n905 ratings"
+        },
+        {
+          image: "https://m.media-amazon.com/images/I/81YCRMt6zVL._AC_UL320_.jpg",
+          Name: "Men's Quilted Jacket",
+          reviewNumber: "244",
+          mrp: "₹3,999",
+          price: "1,219",
+          discount: "(70% off)",
+          selection2: "Product details\nProduct Dimensions \u200f : \u200e 1.3 x 1.3 x 1.3 cm; 500 Grams\nDate First Available \u200f : \u200e 25 May 2021\nManufacturer \u200f : \u200e Amazon Brand - Symbol\nASIN \u200f : \u200e B095SWGZWD\nItem model number \u200f : \u200e AW21-SY-QWH-153\nDepartment \u200f : \u200e Men\nManufacturer \u200f : \u200e Amazon Brand - Symbol, CLOUDTAIL INDIA PRIVATE LIMITED, Ground Floor, Rear Portion, H-9, Block B-1, Mohan Cooperative Industrial Area, Mathura Road, New Delhi-110044\nPacker \u200f : \u200e CLOUDTAIL INDIA PRIVATE LIMITED, Ground Floor, Rear Portion, H-9, Block B-1, Mohan Cooperative Industrial Area, Mathura Road, New Delhi-110044\nItem Weight \u200f : \u200e 500 g\nItem Dimensions LxWxH \u200f : \u200e 13 x 13 x 13 Millimeters\nGeneric Name \u200f : \u200e Jacket\nBest Sellers Rank: #61,629 in Clothing & Accessories (See Top 100 in Clothing & Accessories)\n#712 in Men's Jackets\nCustomer Reviews:\n4.0 out of 5 stars\n244 ratings"
+        },
+        {
+          image: "https://m.media-amazon.com/images/I/71ALjjRlI3L._AC_UL320_.jpg",
+          Name: "Men's Quilted Jacket",
+          reviewNumber: "5",
+          mrp: "₹3,699",
+          price: "1,139",
+          discount: "(69% off)",
+          selection2: "Product details\nProduct Dimensions \u200f : \u200e 10 x 5 x 10 cm; 50 Grams\nDate First Available \u200f : \u200e 28 April 2022\nManufacturer \u200f : \u200e Amazon Brand - Symbol\nASIN \u200f : \u200e B09Z37TC7J\nItem model number \u200f : \u200e AW20-QB-SY-01\nDepartment \u200f : \u200e Men\nManufacturer \u200f : \u200e Amazon Brand - Symbol, CLOUDTAIL INDIA PRIVATE LIMITED, Ground Floor, Rear Portion, H-9, Block B-1, Mohan Cooperative Industrial Area, Mathura Road, New Delhi-110094\nPacker \u200f : \u200e CLOUDTAIL INDIA PRIVATE LIMITED, Ground Floor, Rear Portion, H-9, Block B-1, Mohan Cooperative Industrial Area, Mathura Road, New Delhi-110094\nItem Weight \u200f : \u200e 50 g\nItem Dimensions LxWxH \u200f : \u200e 10 x 5 x 10 Centimeters\nGeneric Name \u200f : \u200e Jacket\nBest Sellers Rank: #15,102 in Clothing & Accessories (See Top 100 in Clothing & Accessories)\n#205 in Men's Jackets\nCustomer Reviews:\n4.4 out of 5 stars\n5 ratings"
+        },
+        {
+          image: "https://m.media-amazon.com/images/I/71blLS+dA0L._AC_UL320_.jpg",
+          Name: "Mens Jacket",
+          reviewNumber: "558",
+          mrp: "₹3,999",
+          price: "1,319",
+          discount: "(67% off)",
+          selection2: "Product details\nProduct Dimensions \u200f : \u200e 10 x 5 x 10 cm; 50 Grams\nDate First Available \u200f : \u200e 28 April 2022\nManufacturer \u200f : \u200e Amazon Brand - Symbol\nASIN \u200f : \u200e B09Z36PB1K\nItem model number \u200f : \u200e AW20-QH-SY-06\nDepartment \u200f : \u200e Men\nManufacturer \u200f : \u200e Amazon Brand - Symbol, CLOUDTAIL INDIA PRIVATE LIMITED, Ground Floor, Rear Portion, H-9, Block B-1, Mohan Cooperative Industrial Area, Mathura Road, New Delhi-110100\nPacker \u200f : \u200e CLOUDTAIL INDIA PRIVATE LIMITED, Ground Floor, Rear Portion, H-9, Block B-1, Mohan Cooperative Industrial Area, Mathura Road, New Delhi-110100\nItem Weight \u200f : \u200e 50 g\nItem Dimensions LxWxH \u200f : \u200e 10 x 5 x 10 Centimeters\nGeneric Name \u200f : \u200e Jacket\nBest Sellers Rank: #5,522 in Clothing & Accessories (See Top 100 in Clothing & Accessories)\n#82 in Men's Jackets\nCustomer Reviews:\n4.0 out of 5 stars\n558 ratings"
+        },
+        {
+          image: "https://m.media-amazon.com/images/I/71IZedh4FmL._AC_UL320_.jpg",
+          Name: "Men Solid Stylish Casual Hooded Sports Jacket(AZ22_JRHNZP_M_PLN_BL)",
+          reviewNumber: "97",
+          mrp: "₹2,499",
+          price: "845",
+          discount: "(66% off)",
+          selection2: "Product details\nPackage Dimensions \u200f : \u200e 30 x 22 x 3.5 cm; 450 Grams\nDate First Available \u200f : \u200e 28 February 2022\nManufacturer \u200f : \u200e Campussutra Retail private limited,2nd floor, 117/A,5th main road,Yeshwanthpur,Bengaluru 560022\nASIN \u200f : \u200e B09TL2TKZP\nItem part number \u200f : \u200e AZ22_JRHNZP_M_PLN_BL_S\nDepartment \u200f : \u200e Men\nManufacturer \u200f : \u200e Campussutra Retail private limited,2nd floor, 117/A,5th main road,Yeshwanthpur,Bengaluru 560022, Campussutra Retail private limited,2nd floor, 117/A,5th main road,Yeshwanthpur,Bengaluru 560023\nItem Weight \u200f : \u200e 450 g\nNet Quantity \u200f : \u200e 1.00 count\nBest Sellers Rank: #9,204 in Clothing & Accessories (See Top 100 in Clothing & Accessories)\n#140 in Men's Jackets\nCustomer Reviews:\n4.2 out of 5 stars\n97 ratings"
+        },
+        {
+          image: "https://m.media-amazon.com/images/I/81868XHl5UL._AC_UL320_.jpg",
+          Name: "Mens Jacket",
+          mrp: "₹3,999",
+          price: "1,785",
+          discount: "(55% off)",
+          selection2: "Product details\nProduct Dimensions \u200f : \u200e 20 x 25 x 9 cm; 600 Grams\nDate First Available \u200f : \u200e 21 October 2021\nManufacturer \u200f : \u200e Puma\nASIN \u200f : \u200e B09JZMT1VM\nItem model number \u200f : \u200e 84777407\nDepartment \u200f : \u200e Mens\nManufacturer \u200f : \u200e Puma, Triangle Apparels 6 No. 25/26, Industrial Suburb Yeshwanthpur 560022 Bangalore\nPacker \u200f : \u200e Puma Sports India Pvt Ltd\nImporter \u200f : \u200e Puma Sports India Pvt Ltd\nItem Weight \u200f : \u200e 600 g\nItem Dimensions LxWxH \u200f : \u200e 20 x 25 x 9 Centimeters\nNet Quantity \u200f : \u200e 1.00 count\nGeneric Name \u200f : \u200e Jacket\nBest Sellers Rank: #401,480 in Clothing & Accessories (See Top 100 in Clothing & Accessories)\n#4,835 in Men's Jackets"
+        },
+        {
+          image: "https://m.media-amazon.com/images/I/6139uQVX0vL._AC_UL320_.jpg",
+          Name: "Red Colorblock Regular Fit Jacket",
+          reviewNumber: "14",
+          mrp: "₹5,699",
+          price: "2,849",
+          discount: "(50% off)",
+          selection2: "Product details\nProduct Dimensions \u200f : \u200e 12 x 6 x 4 cm; 400 Grams\nDate First Available \u200f : \u200e 8 December 2021\nManufacturer \u200f : \u200e #101/1A, Thigalarapalya T Juction, Karivobanahalli Village, Near Peenya 2 Stage, Bangalore - 560058\nASIN \u200f : \u200e B09N8WJFHZ\nItem model number \u200f : \u200e LMJK000032_S\nDepartment \u200f : \u200e Men\nManufacturer \u200f : \u200e #101/1A, Thigalarapalya T Juction, Karivobanahalli Village, Near Peenya 2 Stage, Bangalore - 560058, #101/1A, Thigalarapalya T Juction, Karivobanahalli Village, Near Peenya 2 Stage, Bangalore - 560058\nPacker \u200f : \u200e #101/1A, Thigalarapalya T Juction, Karivobanahalli Village, Near Peenya 2 Stage, Bangalore - 560058\nImporter \u200f : \u200e #101/1A, Thigalarapalya T Juction, Karivobanahalli Village, Near Peenya 2 Stage, Bangalore - 560058\nItem Weight \u200f : \u200e 400 g\nItem Dimensions LxWxH \u200f : \u200e 12 x 6 x 4 Centimeters\nNet Quantity \u200f : \u200e 1.00 count\nGeneric Name \u200f : \u200e Jacket\nBest Sellers Rank: #102,666 in Clothing & Accessories (See Top 100 in Clothing & Accessories)\n#873 in Women's Jackets\nCustomer Reviews:\n4.1 out of 5 stars\n14 ratings"
+        },
+        {
+          image: "https://m.media-amazon.com/images/I/81LwUDDNiFL._AC_UL320_.jpg",
+          Name: "Men's Jacket",
+          reviewNumber: "30",
+          mrp: "₹5,999",
+          price: "2,099",
+          discount: "(65% off)",
+          selection2: "Product details\nProduct Dimensions \u200f : \u200e 10 x 6 x 4 cm; 400 Grams\nDate First Available \u200f : \u200e 7 September 2021\nManufacturer \u200f : \u200e #101/1A, Thigalarapalya T Juction, Karivobanahalli Village, Near Peenya 2 Stage, Bangalore - 560058\nASIN \u200f : \u200e B09FLS26NZ\nItem model number \u200f : \u200e LMJK000038_S\nDepartment \u200f : \u200e Men\nManufacturer \u200f : \u200e #101/1A, Thigalarapalya T Juction, Karivobanahalli Village, Near Peenya 2 Stage, Bangalore - 560058, #101/1A, Thigalarapalya T Juction, Karivobanahalli Village, Near Peenya 2 Stage, Bangalore - 560058\nPacker \u200f : \u200e #101/1A, Thigalarapalya T Juction, Karivobanahalli Village, Near Peenya 2 Stage, Bangalore - 560058\nImporter \u200f : \u200e #101/1A, Thigalarapalya T Juction, Karivobanahalli Village, Near Peenya 2 Stage, Bangalore - 560058\nItem Weight \u200f : \u200e 400 g\nItem Dimensions LxWxH \u200f : \u200e 10 x 6 x 4 Centimeters\nNet Quantity \u200f : \u200e 1.00 count\nGeneric Name \u200f : \u200e Jacket\nBest Sellers Rank: #57,013 in Clothing & Accessories (See Top 100 in Clothing & Accessories)\n#660 in Men's Jackets\nCustomer Reviews:\n3.5 out of 5 stars\n30 ratings"
+        },
+        {
+          image: "https://m.media-amazon.com/images/I/813RblUzmnL._AC_UL320_.jpg",
+          Name: "Men's Jacket",
+          reviewNumber: "22",
+          mrp: "₹5,999",
+          price: "2,099",
+          discount: "(65% off)",
+          selection2: "Product details\nProduct Dimensions \u200f : \u200e 10 x 6 x 4 cm; 400 Grams\nDate First Available \u200f : \u200e 7 September 2021\nManufacturer \u200f : \u200e #101/1A, Thigalarapalya T Juction, Karivobanahalli Village, Near Peenya 2 Stage, Bangalore - 560058\nASIN \u200f : \u200e B09FLQKCCB\nItem model number \u200f : \u200e LMJK000037_M\nDepartment \u200f : \u200e Men\nManufacturer \u200f : \u200e #101/1A, Thigalarapalya T Juction, Karivobanahalli Village, Near Peenya 2 Stage, Bangalore - 560058, #101/1A, Thigalarapalya T Juction, Karivobanahalli Village, Near Peenya 2 Stage, Bangalore - 560058\nPacker \u200f : \u200e #101/1A, Thigalarapalya T Juction, Karivobanahalli Village, Near Peenya 2 Stage, Bangalore - 560058\nImporter \u200f : \u200e #101/1A, Thigalarapalya T Juction, Karivobanahalli Village, Near Peenya 2 Stage, Bangalore - 560058\nItem Weight \u200f : \u200e 400 g\nItem Dimensions LxWxH \u200f : \u200e 10 x 6 x 4 Centimeters\nNet Quantity \u200f : \u200e 1.00 count\nGeneric Name \u200f : \u200e Jacket\nBest Sellers Rank: #18,593 in Clothing & Accessories (See Top 100 in Clothing & Accessories)\n#237 in Men's Jackets\nCustomer Reviews:\n3.4 out of 5 stars\n22 ratings"
+        },
+        {
+          image: "https://m.media-amazon.com/images/I/71JXs4uHNhL._AC_UL320_.jpg",
+          Name: "Men's Trench Coat",
+          reviewNumber: "7",
+          mrp: "₹5,499",
+          price: "3,059",
+          discount: "(44% off)",
+          selection2: "Product details\nProduct Dimensions \u200f : \u200e 35.6 x 21.6 x 7.6 cm; 400 Grams\nDate First Available \u200f : \u200e 3 August 2021\nManufacturer \u200f : \u200e GLOBAL FASHION UK LTD ROOM 1305A SINO CTR 582-592 NATHAN ROAD KOWLOON 94089\nASIN \u200f : \u200e B09BRGZK29\nItem model number \u200f : \u200e USJCKS0030\nDepartment \u200f : \u200e mens\nManufacturer \u200f : \u200e GLOBAL FASHION UK LTD ROOM 1305A SINO CTR 582-592 NATHAN ROAD KOWLOON 94089, GLOBAL FASHION UK LTD ROOM 1305A SINO CTR 582-592 NATHAN ROAD KOWLOON 94089\nPacker \u200f : \u200e GLOBAL FASHION UK LTD ROOM 1305A SINO CTR 582-592 NATHAN ROAD KOWLOON 94089\nImporter \u200f : \u200e Arvind Fashions Limited, Du Parc Trinity, M.G. Road, Bangalore, Karnataka, India, 560001\nItem Weight \u200f : \u200e 400 g\nItem Dimensions LxWxH \u200f : \u200e 35.6 x 21.6 x 7.6 Centimeters\nGeneric Name \u200f : \u200e Jacket\nBest Sellers Rank: #222,247 in Clothing & Accessories (See Top 100 in Clothing & Accessories)\n#233 in Men's Coats\nCustomer Reviews:\n4.2 out of 5 stars\n7 ratings"
+        },
+        {
+          image: "https://m.media-amazon.com/images/I/61kngipQa9L._AC_UL320_.jpg",
+          Name: "Men Brown Suede Windcheater Outdoor Bomber Jacket",
+          reviewNumber: "24",
+          mrp: "₹3,499",
+          price: "1,127",
+          discount: "(68% off)",
+          selection2: "Product details\nProduct Dimensions \u200f : \u200e 22 x 30 x 3.5 cm; 300 Grams\nDate First Available \u200f : \u200e 16 October 2021\nASIN \u200f : \u200e B09JLZY7XY\nItem part number \u200f : \u200e AZ_WIN21CS_CSMAWJK060TN_S\nDepartment \u200f : \u200e Men\nItem Weight \u200f : \u200e 300 g\nItem Dimensions LxWxH \u200f : \u200e 22 x 30 x 3.5 Centimeters\nNet Quantity \u200f : \u200e 1.00 count\nBest Sellers Rank: #4,461 in Clothing & Accessories (See Top 100 in Clothing & Accessories)\n#64 in Men's Jackets\nCustomer Reviews:\n3.1 out of 5 stars\n24 ratings"
+        },
+        {
+          image: "https://m.media-amazon.com/images/I/51XK1GAQYsL._AC_UL320_.jpg",
+          Name: "Men Solid Full Sleeve Black Stylish Sports Jacket",
+          reviewNumber: "32",
+          mrp: "₹2,499",
+          price: "704",
+          discount: "(72% off)",
+          selection2: "Product details\nProduct Dimensions \u200f : \u200e 22 x 30 x 3.5 cm; 300 Grams\nDate First Available \u200f : \u200e 16 October 2021\nASIN \u200f : \u200e B09JLYG6T5\nItem part number \u200f : \u200e AZ_WIN21CS_JRHJK_M_PLN_BL_S\nDepartment \u200f : \u200e Men\nItem Weight \u200f : \u200e 300 g\nItem Dimensions LxWxH \u200f : \u200e 22 x 30 x 3.5 Centimeters\nNet Quantity \u200f : \u200e 1.00 count\nBest Sellers Rank: #25,970 in Clothing & Accessories (See Top 100 in Clothing & Accessories)\n#326 in Men's Jackets\nCustomer Reviews:\n3.5 out of 5 stars\n32 ratings"
+        },
+        {
+          image: "https://m.media-amazon.com/images/I/614WYWanM+L._AC_UL320_.jpg",
+          Name: "Men Blue Colourblocked Windcheater Padded Hooded Jacket",
+          reviewNumber: "25",
+          mrp: "₹3,499",
+          price: "986",
+          discount: "(72% off)",
+          selection2: "Product details\nProduct Dimensions \u200f : \u200e 22 x 30 x 3.5 cm; 300 Grams\nDate First Available \u200f : \u200e 16 October 2021\nASIN \u200f : \u200e B09JLWT1NY\nItem part number \u200f : \u200e AZ_WIN21CS_CSM-AW-JK0527_S\nDepartment \u200f : \u200e Men\nItem Weight \u200f : \u200e 300 g\nItem Dimensions LxWxH \u200f : \u200e 22 x 30 x 3.5 Centimeters\nNet Quantity \u200f : \u200e 1.00 count\nBest Sellers Rank: #70,816 in Clothing & Accessories (See Top 100 in Clothing & Accessories)\n#847 in Men's Jackets\nCustomer Reviews:\n3.7 out of 5 stars\n25 ratings"
+        },
+        {
+          image: "https://m.media-amazon.com/images/I/71XqvM6gCLL._AC_UL320_.jpg",
+          Name: "Grey Solid Regular Fit Jacket",
+          reviewNumber: "6",
+          mrp: "₹5,399",
+          price: "2,699",
+          discount: "(50% off)",
+          selection2: "Product details\nProduct Dimensions \u200f : \u200e 10 x 6 x 4 cm; 400 Grams\nDate First Available \u200f : \u200e 7 September 2021\nManufacturer \u200f : \u200e #101/1A, Thigalarapalya T Juction, Karivobanahalli Village, Near Peenya 2 Stage, Bangalore - 560058\nASIN \u200f : \u200e B09FLSJNTH\nItem model number \u200f : \u200e LMJK000023_S\nDepartment \u200f : \u200e Men\nManufacturer \u200f : \u200e #101/1A, Thigalarapalya T Juction, Karivobanahalli Village, Near Peenya 2 Stage, Bangalore - 560058, #101/1A, Thigalarapalya T Juction, Karivobanahalli Village, Near Peenya 2 Stage, Bangalore - 560058\nPacker \u200f : \u200e #101/1A, Thigalarapalya T Juction, Karivobanahalli Village, Near Peenya 2 Stage, Bangalore - 560058\nImporter \u200f : \u200e #101/1A, Thigalarapalya T Juction, Karivobanahalli Village, Near Peenya 2 Stage, Bangalore - 560058\nItem Weight \u200f : \u200e 400 g\nItem Dimensions LxWxH \u200f : \u200e 10 x 6 x 4 Centimeters\nNet Quantity \u200f : \u200e 1.00 count\nGeneric Name \u200f : \u200e Jacket\nBest Sellers Rank: #258,306 in Clothing & Accessories (See Top 100 in Clothing & Accessories)\n#3,240 in Men's Jackets\nCustomer Reviews:\n3.4 out of 5 stars\n6 ratings"
+        },
+        {
+          image: "https://m.media-amazon.com/images/I/71dYBGHaRJL._AC_UL320_.jpg",
+          Name: "Men's Jacket",
+          reviewNumber: "66",
+          mrp: "₹5,799",
+          price: "1,159",
+          discount: "(80% off)",
+          selection2: "Product details\nProduct Dimensions \u200f : \u200e 32 x 28 x 7 cm; 500 Grams\nDate First Available \u200f : \u200e 6 July 2021\nManufacturer \u200f : \u200e Red Tape\nASIN \u200f : \u200e B098QT8ZXD\nItem model number \u200f : \u200e RFJ0174\nDepartment \u200f : \u200e Men\nManufacturer \u200f : \u200e Red Tape, Importer:-MIRZA INTERNATIONAL LTD., 14/6, CIVIL LINES, KANPUR-208001\nPacker \u200f : \u200e Importer:-MIRZA INTERNATIONAL LTD., 14/6, CIVIL LINES, KANPUR-208001\nImporter \u200f : \u200e Importer:-MIRZA INTERNATIONAL LTD., 14/6, CIVIL LINES, KANPUR-208001\nItem Weight \u200f : \u200e 500 g\nItem Dimensions LxWxH \u200f : \u200e 32 x 28 x 7 Centimeters\nGeneric Name \u200f : \u200e Padded Jacket\nBest Sellers Rank: #51,427 in Clothing & Accessories (See Top 100 in Clothing & Accessories)\n#599 in Men's Jackets\nCustomer Reviews:\n3.7 out of 5 stars\n66 ratings"
+        },
+        {
+          image: "https://m.media-amazon.com/images/I/71EcRKfbOrL._AC_UL320_.jpg",
+          Name: "Men's Casual Jacket",
+          reviewNumber: "43",
+          mrp: "₹5,799",
+          price: "1,159",
+          discount: "(80% off)",
+          selection2: "Product details\nProduct Dimensions \u200f : \u200e 32 x 28 x 7 cm; 500 Grams\nDate First Available \u200f : \u200e 6 July 2021\nManufacturer \u200f : \u200e Red Tape\nASIN \u200f : \u200e B098QWQSGB\nItem model number \u200f : \u200e RFJ0147\nDepartment \u200f : \u200e Men\nManufacturer \u200f : \u200e Red Tape, Importer:-MIRZA INTERNATIONAL LTD., 14/6, CIVIL LINES, KANPUR-208001\nPacker \u200f : \u200e Importer:-MIRZA INTERNATIONAL LTD., 14/6, CIVIL LINES, KANPUR-208001\nImporter \u200f : \u200e Importer:-MIRZA INTERNATIONAL LTD., 14/6, CIVIL LINES, KANPUR-208001\nItem Weight \u200f : \u200e 500 g\nItem Dimensions LxWxH \u200f : \u200e 32 x 28 x 7 Centimeters\nGeneric Name \u200f : \u200e Padded Jacket\nBest Sellers Rank: #31,773 in Clothing & Accessories (See Top 100 in Clothing & Accessories)\n#382 in Men's Jackets\nCustomer Reviews:\n3.8 out of 5 stars\n43 ratings"
+        },
+        {
+          image: "https://m.media-amazon.com/images/I/81pHtCmxKtL._AC_UL320_.jpg",
+          Name: "Men Jacket",
+          mrp: "₹7,499",
+          price: "3,029",
+          discount: "(60% off)",
+          selection2: "Product details\nPackage Dimensions \u200f : \u200e 49.79 x 39.7 x 18.3 cm; 870 Grams\nDate First Available \u200f : \u200e 5 September 2019\nManufacturer \u200f : \u200e Park Avenue\nASIN \u200f : \u200e B07XG8YYLB\nItem model number \u200f : \u200e PMJP02355-B7_Dark Blue_104\nDepartment \u200f : \u200e Men\nManufacturer \u200f : \u200e Park Avenue\nItem Weight \u200f : \u200e 870 g\nGeneric Name \u200f : \u200e Jacket"
         }
       ]
     for(let i=0;i<selection1.length;i++){
-      selection1[i].category="Women Clothing"
+      selection1[i].category="Men Clothing"
       selection1[i].rating=((Math.random() * (5 - 3) ) + 2).toPrecision(2)
     }
    await ProductModule.insertMany([

@@ -11,6 +11,7 @@ const ProductSchema = mongoose.Schema({
       name: String,
     }
   ],
+  selection2:String,
   category: String,
   rating: String,
 });
