@@ -13,7 +13,7 @@ const ProductSchema = mongoose.Schema({
   ],
   selection2:String,
   category: String,
-  rating: String,
+  rating: Number,
 });
 
 const ProductModule = mongoose.model("product", ProductSchema);

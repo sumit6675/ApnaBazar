@@ -21,7 +21,7 @@ app.get("/", (req, res) => {
 
 app.use("/users", usersRoute);
 
-app.use(authenticate);
+// app.use(authenticate);
 
 app.use("/products",ProductRoute)
 
