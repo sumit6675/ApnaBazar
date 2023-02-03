@@ -8,29 +8,36 @@ ProductRoute.get("/",async(req,res)=>{
 })
 
 ProductRoute.get("/phone",async(req,res)=>{
-    const { page = 1, limit = 10 } = req.query;
+    const { page = 1, limit = 16 } = req.query;
     let data = await ProductModule.find({ category: "Phone" })
       .limit(limit * 1)
       .skip((page - 1) * limit);
     res.send(data);
 })
 ProductRoute.get("/laptop",async(req,res)=>{
-    const { page = 1, limit = 10 } = req.query;
+    const { page = 1, limit = 16 } = req.query;
     let data = await ProductModule.find({ category: "Laptop"})
       .limit(limit * 1)
       .skip((page - 1) * limit);
     res.send(data);
 })
 ProductRoute.get("/women",async(req,res)=>{
-    const { page = 1, limit = 10 } = req.query;
+    const { page = 1, limit = 16 } = req.query;
     let data = await ProductModule.find({ category: "Women Clothing"})
       .limit(limit * 1)
       .skip((page - 1) * limit);
     res.send(data);
 })
 ProductRoute.get("/men",async(req,res)=>{
-    const { page = 1, limit = 10 } = req.query;
+    const { page = 1, limit = 16 } = req.query;
     let data = await ProductModule.find({ category: "Men Clothing"})
+      .limit(limit * 1)
+      .skip((page - 1) * limit);
+    res.send(data);
+})
+ProductRoute.get("/home",async(req,res)=>{
+    const { page = 1, limit = 16 } = req.query;
+    let data = await ProductModule.find({ category: "Home Appliances"})
       .limit(limit * 1)
       .skip((page - 1) * limit);
     res.send(data);
