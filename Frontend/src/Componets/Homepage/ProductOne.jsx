@@ -7,11 +7,11 @@ function Productonepage({image,alt,title,category,rate,count}) {
           <Image src={image} alt={alt} w="300px"  h="300px"/>
     
           <Box p='6'>
-            <Box display='flex' alignItems='baseline'>
-              <Badge borderRadius='full' px='2' colorScheme='teal'>
-               {category}
-              </Badge>
-            </Box>
+          {+rate>3.5&&<Box display="flex" alignItems="baseline">
+          <Badge borderRadius="full" px="2" colorScheme="yellow">
+            Best Seller
+          </Badge>
+        </Box>}
     
             <Box
               mt='1'

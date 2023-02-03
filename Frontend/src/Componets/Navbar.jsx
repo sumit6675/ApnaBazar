@@ -27,7 +27,7 @@ import { BsFillCartFill } from "react-icons/bs";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { GrLogin } from "react-icons/gr";
 import { RiLoginCircleFill } from "react-icons/ri";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 function Navbar() {
   const [isLargerThan1100] = useMediaQuery("(min-width: 1100px)");
@@ -159,7 +159,7 @@ function Navbar() {
             bg="blue"
             border={"none"}
           >
-            Mobiles
+           <NavLink to={"/mobile"}> Mobiles</NavLink>
           </Button>
 
           <Button
@@ -173,7 +173,9 @@ function Navbar() {
             bg="blue"
             border={"none"}
           >
+            <NavLink to="/laptop">
             Laptops
+            </NavLink>
           </Button>
 
           <Button
@@ -187,7 +189,9 @@ function Navbar() {
             bg="blue"
             border={"none"}
           >
-            Men Fashion
+           <NavLink to="/menfashion">
+           Men Fashion
+           </NavLink>
           </Button>
 
           <Button
@@ -201,7 +205,9 @@ function Navbar() {
             bg="blue"
             border={"none"}
           >
-            Women Fashion
+            <NavLink to="/womenfashion">
+           Women Fashion
+           </NavLink>
           </Button>
 
           <Button
@@ -215,7 +221,9 @@ function Navbar() {
             bg="blue"
             border={"none"}
           >
-            Home Appliances
+           <NavLink to="/homeApplinces">
+           Home Appliances
+           </NavLink>
           </Button>
         </Flex>
       </Box>

@@ -1,4 +1,5 @@
 import { AllRoutes } from "./Componets/AllRoutes";
+import  Footer  from "./Componets/Footer";
 import Navbar from "./Componets/Navbar";
 
 function App() {
@@ -6,6 +7,7 @@ function App() {
     <div>
         <Navbar/>
         <AllRoutes/>
+        <Footer/>
     </div>
   );
 }
