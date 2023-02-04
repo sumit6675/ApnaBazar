@@ -6,21 +6,23 @@ function SingleProduct({
   alt,
   title,
   price,
-  category,
   rate,
   count,
-  handleClick,
+  mrp,
+  discount,
 }) {
   return (
     <Box maxW="sm" borderWidth="1px" borderRadius="lg" overflow="hidden">
       <Image src={image} alt={alt} w="300px" h="300px" />
 
       <Box p="6">
-        {+rate>3.5&&<Box display="flex" alignItems="baseline">
-          <Badge borderRadius="full" px="2" colorScheme="teal">
-            Best Seller
-          </Badge>
-        </Box>}
+        {+rate > 3.5 && (
+          <Box display="flex" alignItems="baseline">
+            <Badge borderRadius="full" px="2" colorScheme="teal">
+              Best Seller
+            </Badge>
+          </Box>
+        )}
 
         <Box
           mt="1"
@@ -32,12 +34,21 @@ function SingleProduct({
           {title}
         </Box>
 
-        <Flex>
+        <Flex gap="1">
           <Heading size={"md"}>Rs. {price}</Heading>
           <Box as="span" color="gray.600" fontSize="md">
             / Unit
           </Box>
+          <s>
+            <Heading size={"sm"}>Rs. {mrp}</Heading>
+          </s>
         </Flex>
+
+        <Box display="flex" alignItems="baseline">
+          <Badge fontSize={"md"} borderRadius="full" px="2" colorScheme="teal">
+            {discount}
+          </Badge>
+        </Box>
 
         <Box display="flex" mt="2" alignItems="center">
           {Array(5)
@@ -50,8 +61,8 @@ function SingleProduct({
           </Box>
         </Box>
       </Box>
-      <Button ml="80px" mb="20px" onClick={handleClick}>
-        Add To Cart
+      <Button ml="80px" mb="20px">
+        View Product
       </Button>
     </Box>
   );
