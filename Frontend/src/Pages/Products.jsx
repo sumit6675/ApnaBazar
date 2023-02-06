@@ -1,25 +1,139 @@
-import { Grid, Heading, Link, Skeleton, Text, VStack } from "@chakra-ui/react";
+import { Grid, Heading, Skeleton, VStack } from "@chakra-ui/react";
 import React, { useState } from "react";
 import SingleProduct from "../Componets/SingleProduct";
 
 function Productpage({ category }) {
   const [data, setData] = React.useState([]);
-  const [discount, setDiscount] = React.useState("");
   const [loading, setLoading] = React.useState(true);
-  const [selectedValue, setSelectedValue] = useState("All");
+  const [selectedValue1, setSelectedValue] = useState("All");
   React.useEffect(() => {
-    setLoading(true);
-    fetch(`http://localhost:8080/products/${category}?brand=${selectedValue}&discount=${discount}`)
+      setLoading(true);
+    fetch(`http://localhost:8080/products/${category}?brand=${selectedValue1}`)
       .then((res) => res.json())
       .then((res) => {
         setData(res);
         setLoading(false);
       });
-  }, [category, selectedValue,discount]);
+    }, [category, selectedValue1]);
+
+ 
+
+  const handleCheckboxClick = (value) => {
+    setSelectedValue(value);
+    console.log(value);
+  };
+
+  const checkboxList1 = [
+    "All",
+    "Redmi",
+    "OnePlus",
+    "Samsung",
+    "Xiaomi",
+    "IPhone",
+  ];
+
+  const checkboxList2 = ["All", "Dell", "MacBook", "HP", "ASUS", "Lenovo"];
+  const checkboxList3 = ["All", "Jacket", "Puma", "High Neck Jacket"];
+  const checkboxList4 = ["All", "saree", "Dress"];
+  const checkboxList5 = ["All", "Masala", "Roll", "Ready To Eat"];
 
   if (loading) {
     return (
-      <div>
+      <Grid gridTemplateColumns={"0.15fr 0.85fr"}>
+          {category === "phone" && (
+        <VStack gap="1">
+          <VStack p="25px" gap="1" alignItems={"left"}>
+            <Heading size="md">Brands</Heading>
+            {checkboxList1.map((value) => (
+              <label key={value}>
+                <input
+                  type="checkbox"
+                  value={value}
+                  checked={value === selectedValue1}
+                  onChange={() => handleCheckboxClick(value)}
+                />
+                {value}
+              </label>
+            ))}
+          </VStack>
+        </VStack>
+      )}
+
+      {category === "laptop" && (
+        <VStack gap="1">
+          <VStack p="25px" gap="1" alignItems={"left"}>
+            <Heading size="md">Brands</Heading>
+            {checkboxList2.map((value) => (
+              <label key={value}>
+                <input
+                  type="checkbox"
+                  value={value}
+                  checked={value === selectedValue1}
+                  onChange={() => handleCheckboxClick(value)}
+                />
+                {value}
+              </label>
+            ))}
+          </VStack>
+        </VStack>
+      )}
+
+      {category === "men" && (
+        <VStack gap="1">
+          <VStack p="25px" gap="1" alignItems={"left"}>
+            <Heading size="md">Brands</Heading>
+            {checkboxList3.map((value) => (
+              <label key={value}>
+                <input
+                  type="checkbox"
+                  value={value}
+                  checked={value === selectedValue1}
+                  onChange={() => handleCheckboxClick(value)}
+                />
+                {value}
+              </label>
+            ))}
+          </VStack>
+        </VStack>
+      )}
+
+      {category === "women" && (
+        <VStack gap="1">
+          <VStack p="25px" gap="1" alignItems={"left"}>
+            <Heading size="md">Brands</Heading>
+            {checkboxList4.map((value) => (
+              <label key={value}>
+                <input
+                  type="checkbox"
+                  value={value}
+                  checked={value === selectedValue1}
+                  onChange={() => handleCheckboxClick(value)}
+                />
+                {value}
+              </label>
+            ))}
+          </VStack>
+        </VStack>
+      )}
+
+      {category === "home" && (
+        <VStack gap="1">
+          <VStack p="25px" gap="1" alignItems={"left"}>
+            <Heading size="md">Brands</Heading>
+            {checkboxList5.map((value) => (
+              <label key={value}>
+                <input
+                  type="checkbox"
+                  value={value}
+                  checked={value === selectedValue1}
+                  onChange={() => handleCheckboxClick(value)}
+                />
+                {value}
+              </label>
+            ))}
+          </VStack>
+        </VStack>
+      )}
         <Grid w="90%" m="auto" templateColumns={"repeat(4, 1fr)"} gap="20px">
           <Skeleton height="220px" />
           <Skeleton height="220px" />
@@ -38,49 +152,109 @@ function Productpage({ category }) {
           <Skeleton height="220px" />
           <Skeleton height="220px" />
         </Grid>
-      </div>
+      </Grid>
     );
   }
 
-  const handleCheckboxClick = (value) => {
-    setSelectedValue(value);
-    console.log(value);
-  };
-
-  const checkboxList = [
-    "All",
-    "Redmi",
-    "OnePlus",
-    "Samsung",
-    "Xiaomi",
-    "IPhone",
-  ];
-
   return (
     <Grid gridTemplateColumns={"0.15fr 0.85fr"}>
-      <VStack gap="2">
-      <VStack p="25px" gap="1" alignItems={"left"}>
-        <Heading size="md">Brands</Heading>
-        {checkboxList.map((value) => (
-          <label key={value}>
-            <input
-              type="checkbox"
-              value={value}
-              checked={value === selectedValue}
-              onChange={() => handleCheckboxClick(value)}
-            />
-            {value}
-          </label>
-        ))}
-      </VStack>
-      <VStack  p="25px" gap="0.5" alignItems={"left"}>
-        <Heading size="md">Sort By Discount</Heading>
-        <Link onClick={()=>setDiscount("lowToHigh")}>Low to High</Link>
-        <Link onClick={()=>setDiscount("highToLow")}>High To Low</Link>
-      </VStack>
-      </VStack>
+      {category === "phone" && (
+        <VStack gap="1">
+          <VStack p="25px" gap="1" alignItems={"left"}>
+            <Heading size="md">Brands</Heading>
+            {checkboxList1.map((value) => (
+              <label key={value}>
+                <input
+                  type="checkbox"
+                  value={value}
+                  checked={value === selectedValue1}
+                  onChange={() => handleCheckboxClick(value)}
+                />
+                {value}
+              </label>
+            ))}
+          </VStack>
+        </VStack>
+      )}
+
+      {category === "laptop" && (
+        <VStack gap="1">
+          <VStack p="25px" gap="1" alignItems={"left"}>
+            <Heading size="md">Brands</Heading>
+            {checkboxList2.map((value) => (
+              <label key={value}>
+                <input
+                  type="checkbox"
+                  value={value}
+                  checked={value === selectedValue1}
+                  onChange={() => handleCheckboxClick(value)}
+                />
+                {value}
+              </label>
+            ))}
+          </VStack>
+        </VStack>
+      )}
+
+      {category === "men" && (
+        <VStack gap="1">
+          <VStack p="25px" gap="1" alignItems={"left"}>
+            <Heading size="md">Brands</Heading>
+            {checkboxList3.map((value) => (
+              <label key={value}>
+                <input
+                  type="checkbox"
+                  value={value}
+                  checked={value === selectedValue1}
+                  onChange={() => handleCheckboxClick(value)}
+                />
+                {value}
+              </label>
+            ))}
+          </VStack>
+        </VStack>
+      )}
+
+      {category === "women" && (
+        <VStack gap="1">
+          <VStack p="25px" gap="1" alignItems={"left"}>
+            <Heading size="md">Brands</Heading>
+            {checkboxList4.map((value) => (
+              <label key={value}>
+                <input
+                  type="checkbox"
+                  value={value}
+                  checked={value === selectedValue1}
+                  onChange={() => handleCheckboxClick(value)}
+                />
+                {value}
+              </label>
+            ))}
+          </VStack>
+        </VStack>
+      )}
+
+      {category === "home" && (
+        <VStack gap="1">
+          <VStack p="25px" gap="1" alignItems={"left"}>
+            <Heading size="md">Brands</Heading>
+            {checkboxList5.map((value) => (
+              <label key={value}>
+                <input
+                  type="checkbox"
+                  value={value}
+                  checked={value === selectedValue1}
+                  onChange={() => handleCheckboxClick(value)}
+                />
+                {value}
+              </label>
+            ))}
+          </VStack>
+        </VStack>
+      )}
+
       <Grid w="90%" m="auto" templateColumns={"repeat(4, 1fr)"} gap="20px">
-        {data.map((i) => {
+        {data?data.map((i) => {
           return (
             <SingleProduct
               image={i.image}
@@ -95,7 +269,7 @@ function Productpage({ category }) {
               discount={i.discount}
             />
           );
-        })}
+        }):<Heading>Please Select Filters</Heading>}
       </Grid>
     </Grid>
   );

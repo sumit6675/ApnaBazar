@@ -46,7 +46,7 @@ function SingleProduct({
 
         <Box display="flex" alignItems="baseline">
           <Badge fontSize={"md"} borderRadius="full" px="2" colorScheme="teal">
-            {discount}
+            {discount}%OFF
           </Badge>
         </Box>
 
