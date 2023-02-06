@@ -5,7 +5,7 @@ const ProductSchema = mongoose.Schema({
   reviewNumber: String,
   mrp: String,
   price: String,
-  discount: String,
+  discount: Number,
   selection6: [
     {
       name: String,

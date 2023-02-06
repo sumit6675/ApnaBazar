@@ -25,11 +25,11 @@ function ProductCarousal({phone,count}) {
     navigation
     pagination={{ clickable: true }}
     scrollbar={{ draggable: true }}
-    Autoplay={true}
+    autoPlay={true}
   >
     {data.map((i) => {
       return (
-        <SwiperSlide>
+        <SwiperSlide key={i._id}>
           <Productonepage
             image={i.image}
             alt={i.Name}
@@ -37,6 +37,7 @@ function ProductCarousal({phone,count}) {
             category={i.category}
             rate={i.rating}
             count={i.reviewNumber}
+            key={i._id}
           />
         </SwiperSlide>
       );
