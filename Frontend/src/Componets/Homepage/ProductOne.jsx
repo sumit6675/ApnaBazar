@@ -1,7 +1,7 @@
 import React from "react";
 import { Box, Image, Badge, Button } from "@chakra-ui/react";
 import { StarIcon } from "@chakra-ui/icons";
-function Productonepage({ image, alt, title, rate, count }) {
+function Productonepage({id, image, alt, title, rate, count,handleSingleProduct }) {
   return (
     <Box maxW="sm" p="2" borderWidth="1px" borderRadius="lg" overflow="hidden" m="auto">
       <Image src={image} alt={alt} w="300px" h="300px" />
@@ -36,7 +36,7 @@ function Productonepage({ image, alt, title, rate, count }) {
           </Box>
         </Box>
       </Box>
-      <Button ml="8">
+      <Button ml="8" onClick={handleSingleProduct}>
           View Product
         </Button>
     </Box>

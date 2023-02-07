@@ -1,22 +1,25 @@
-import { Grid, Heading, Skeleton, VStack } from "@chakra-ui/react";
+import { Grid, Heading, Skeleton, Text, VStack } from "@chakra-ui/react";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import SingleProduct from "../Componets/SingleProduct";
 
 function Productpage({ category }) {
-  const [data, setData] = React.useState([]);
+  let [data, setData] = React.useState([]);
   const [loading, setLoading] = React.useState(true);
   const [selectedValue1, setSelectedValue] = useState("All");
+  const [sort, setSort] = useState("default");
   const navigate = useNavigate();
   React.useEffect(() => {
     setLoading(true);
-    fetch(`http://localhost:8080/products/${category}?brand=${selectedValue1}`)
+    fetch(
+      `http://localhost:8080/products/${category}?brand=${selectedValue1}&sort=${sort}`
+    )
       .then((res) => res.json())
       .then((res) => {
         setData(res);
         setLoading(false);
       });
-  }, [category, selectedValue1]);
+  }, [category, selectedValue1, sort]);
 
   const handleCheckboxClick = (value) => {
     setSelectedValue(value);
@@ -161,11 +164,11 @@ function Productpage({ category }) {
   };
 
   return (
-    <Grid gridTemplateColumns={"0.15fr 0.85fr"}>
+    <Grid p="5" gridTemplateColumns={"0.15fr 0.85fr"}>
       {category === "phone" && (
         <VStack gap="1">
           <VStack p="25px" gap="1" alignItems={"left"}>
-            <Heading size="md">Brands</Heading>
+            <Heading size="md">Filter By Brands</Heading>
             {checkboxList1.map((value) => (
               <label key={value}>
                 <input
@@ -177,6 +180,39 @@ function Productpage({ category }) {
                 {value}
               </label>
             ))}
+          </VStack>
+          <VStack>
+            <Heading size="md">Sort By Rating</Heading>
+            <Text onClick={() => setSort("RatingLowToHigh")} cursor={"pointer"}>
+              Low To High
+            </Text>
+            <Text onClick={() => setSort("RatingHighToLow")} cursor={"pointer"}>
+              High To Low
+            </Text>
+          </VStack>
+          <VStack>
+            <Heading size="md">Sort By Price</Heading>
+            <Text onClick={() => setSort("PriceLowToHigh")} cursor={"pointer"}>
+              Low To High
+            </Text>
+            <Text onClick={() => setSort("PriceHighToLow")} cursor={"pointer"}>
+              High To Low
+            </Text>
+          </VStack>
+          <VStack>
+            <Heading size="md">Sort By Discount</Heading>
+            <Text
+              onClick={() => setSort("DiscountLowToHigh")}
+              cursor={"pointer"}
+            >
+              Low To High
+            </Text>
+            <Text
+              onClick={() => setSort("DiscountHighToLow")}
+              cursor={"pointer"}
+            >
+              High To Low
+            </Text>
           </VStack>
         </VStack>
       )}
@@ -197,6 +233,39 @@ function Productpage({ category }) {
               </label>
             ))}
           </VStack>
+          <VStack>
+            <Heading size="md">Sort By Rating</Heading>
+            <Text onClick={() => setSort("RatingLowToHigh")} cursor={"pointer"}>
+              Low To High
+            </Text>
+            <Text onClick={() => setSort("RatingHighToLow")} cursor={"pointer"}>
+              High To Low
+            </Text>
+          </VStack>
+          <VStack>
+            <Heading size="md">Sort By Price</Heading>
+            <Text onClick={() => setSort("PriceLowToHigh")} cursor={"pointer"}>
+              Low To High
+            </Text>
+            <Text onClick={() => setSort("PriceHighToLow")} cursor={"pointer"}>
+              High To Low
+            </Text>
+          </VStack>
+          <VStack>
+            <Heading size="md">Sort By Discount</Heading>
+            <Text
+              onClick={() => setSort("DiscountLowToHigh")}
+              cursor={"pointer"}
+            >
+              Low To High
+            </Text>
+            <Text
+              onClick={() => setSort("DiscountHighToLow")}
+              cursor={"pointer"}
+            >
+              High To Low
+            </Text>
+          </VStack>
         </VStack>
       )}
 
@@ -215,6 +284,39 @@ function Productpage({ category }) {
                 {value}
               </label>
             ))}
+          </VStack>
+          <VStack>
+            <Heading size="md">Sort By Rating</Heading>
+            <Text onClick={() => setSort("RatingLowToHigh")} cursor={"pointer"}>
+              Low To High
+            </Text>
+            <Text onClick={() => setSort("RatingHighToLow")} cursor={"pointer"}>
+              High To Low
+            </Text>
+          </VStack>
+          <VStack>
+            <Heading size="md">Sort By Price</Heading>
+            <Text onClick={() => setSort("PriceLowToHigh")} cursor={"pointer"}>
+              Low To High
+            </Text>
+            <Text onClick={() => setSort("PriceHighToLow")} cursor={"pointer"}>
+              High To Low
+            </Text>
+          </VStack>
+          <VStack>
+            <Heading size="md">Sort By Discount</Heading>
+            <Text
+              onClick={() => setSort("DiscountLowToHigh")}
+              cursor={"pointer"}
+            >
+              Low To High
+            </Text>
+            <Text
+              onClick={() => setSort("DiscountHighToLow")}
+              cursor={"pointer"}
+            >
+              High To Low
+            </Text>
           </VStack>
         </VStack>
       )}
@@ -235,6 +337,39 @@ function Productpage({ category }) {
               </label>
             ))}
           </VStack>
+          <VStack>
+            <Heading size="md">Sort By Rating</Heading>
+            <Text onClick={() => setSort("RatingLowToHigh")} cursor={"pointer"}>
+              Low To High
+            </Text>
+            <Text onClick={() => setSort("RatingHighToLow")} cursor={"pointer"}>
+              High To Low
+            </Text>
+          </VStack>
+          <VStack>
+            <Heading size="md">Sort By Price</Heading>
+            <Text onClick={() => setSort("PriceLowToHigh")} cursor={"pointer"}>
+              Low To High
+            </Text>
+            <Text onClick={() => setSort("PriceHighToLow")} cursor={"pointer"}>
+              High To Low
+            </Text>
+          </VStack>
+          <VStack>
+            <Heading size="md">Sort By Discount</Heading>
+            <Text
+              onClick={() => setSort("DiscountLowToHigh")}
+              cursor={"pointer"}
+            >
+              Low To High
+            </Text>
+            <Text
+              onClick={() => setSort("DiscountHighToLow")}
+              cursor={"pointer"}
+            >
+              High To Low
+            </Text>
+          </VStack>
         </VStack>
       )}
 
@@ -253,6 +388,39 @@ function Productpage({ category }) {
                 {value}
               </label>
             ))}
+          </VStack>
+          <VStack>
+            <Heading size="md">Sort By Rating</Heading>
+            <Text onClick={() => setSort("RatingLowToHigh")} cursor={"pointer"}>
+              Low To High
+            </Text>
+            <Text onClick={() => setSort("RatingHighToLow")} cursor={"pointer"}>
+              High To Low
+            </Text>
+          </VStack>
+          <VStack>
+            <Heading size="md">Sort By Price</Heading>
+            <Text onClick={() => setSort("PriceLowToHigh")} cursor={"pointer"}>
+              Low To High
+            </Text>
+            <Text onClick={() => setSort("PriceHighToLow")} cursor={"pointer"}>
+              High To Low
+            </Text>
+          </VStack>
+          <VStack>
+            <Heading size="md">Sort By Discount</Heading>
+            <Text
+              onClick={() => setSort("DiscountLowToHigh")}
+              cursor={"pointer"}
+            >
+              Low To High
+            </Text>
+            <Text
+              onClick={() => setSort("DiscountHighToLow")}
+              cursor={"pointer"}
+            >
+              High To Low
+            </Text>
           </VStack>
         </VStack>
       )}

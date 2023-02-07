@@ -34,8 +34,7 @@ function Footer() {
           }}
         >
           <Image
-            src="ApnaBazarLogo.jpg"
-            alt="logo"
+           src="https://iili.io/HE2SHlt.gif" alt="ApnaBazarLogo" border="0"
             w="120px"
             ml="70px"
           />

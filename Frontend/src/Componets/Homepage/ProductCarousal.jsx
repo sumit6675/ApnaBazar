@@ -8,13 +8,20 @@ import "swiper/css/scrollbar";
 import "swiper/css/autoplay";
 import Productonepage from './ProductOne';
 import { Box } from '@chakra-ui/react';
+import { useNavigate } from 'react-router-dom';
 function ProductCarousal({phone,count}) {
+  const navigate=useNavigate()
     const [data, setData] = React.useState([]);
   useEffect(() => {
-    fetch(`http://localhost:8080/products/${phone}`)
+    fetch(`http://localhost:8080/products/${phone}?brand=All`)
       .then((response) => response.json())
       .then((data) => setData(data));
   }, [phone]);
+
+  const handleSingleProduct=(id)=>{
+    navigate(`/${phone}/${id}`);
+  }
+
   return (
     <Box mt="30px" p="5">
         <Swiper
@@ -37,6 +44,8 @@ function ProductCarousal({phone,count}) {
             category={i.category}
             rate={i.rating}
             count={i.reviewNumber}
+            id={i._id}
+            handleSingleProduct={()=>handleSingleProduct(i._id)}
             key={i._id}
           />
         </SwiperSlide>

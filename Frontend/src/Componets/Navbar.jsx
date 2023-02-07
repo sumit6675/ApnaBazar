@@ -51,7 +51,7 @@ function Navbar() {
         >
           <Link to="/">
             <Box>
-              <Image src="ApnaBazarLogo.gif" alt="logo" w="190px" h="120px" />
+              <Image src="https://iili.io/HE2SHlt.gif" alt="ApnaBazarLogo" border="0" w="190px" h="120px" />
             </Box>
           </Link>
           <Flex
@@ -103,7 +103,7 @@ function Navbar() {
             </Flex>
             <Flex cursor={"pointer"} p="2">
               <RiLoginCircleFill color="black" fontSize="24px" />
-              <Link to="login">
+              <Link to="/signup">
                 <Heading
                   cursor={"pointer"}
                   fontSize={"24px"}
