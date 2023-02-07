@@ -372,10 +372,70 @@ ProductRoute.get("/phone", async (req, res) => {
         res.send(data);
       }
     } else if (brand === "All") {
-      let data = await ProductModule.find({ category: "Phone" })
-        .limit(limit * 1)
-        .skip((page - 1) * limit);
-      res.send(data);
+      if (sort === "RatingLowToHigh") {
+        let data = await ProductModule.find({
+          category: "Phone",
+        })
+          .limit(limit * 1)
+          .skip((page - 1) * limit);
+        data = data.sort((a, b) => a.rating - b.rating);
+        res.send(data);
+      } else if (sort === "RatingHighToLow") {
+        let data = await ProductModule.find({
+          category: "Phone",
+        })
+          .limit(limit * 1)
+          .skip((page - 1) * limit);
+        data = data.sort((a, b) => b.rating - a.rating);
+        res.send(data);
+      } else if (sort === "PriceLowToHigh") {
+        let data = await ProductModule.find({
+          category: "Phone",
+        })
+          .limit(limit * 1)
+          .skip((page - 1) * limit);
+        data = data.sort(
+          (a, b) =>
+            parseInt(a.price.replace(/,/g, "")) -
+            parseInt(b.price.replace(/,/g, ""))
+        );
+        res.send(data);
+      } else if (sort === "PriceHighToLow") {
+        let data = await ProductModule.find({
+          category: "Phone",
+        })
+          .limit(limit * 1)
+          .skip((page - 1) * limit);
+        data = data.sort(
+          (a, b) =>
+            parseInt(b.price.replace(/,/g, "")) -
+            parseInt(a.price.replace(/,/g, ""))
+        );
+        res.send(data);
+      } else if (sort === "DiscountLowToHigh") {
+        let data = await ProductModule.find({
+          category: "Phone",
+        })
+          .limit(limit * 1)
+          .skip((page - 1) * limit);
+        data = data.sort((a, b) => +a.discount - +b.discount);
+        res.send(data);
+      } else if (sort === "DiscountHighToLow") {
+        let data = await ProductModule.find({
+          category: "Phone",
+        })
+          .limit(limit * 1)
+          .skip((page - 1) * limit);
+        data = data.sort((a, b) => +b.discount - +a.discount);
+        res.send(data);
+      } else if (sort === "default") {
+        let data = await ProductModule.find({
+          category: "Phone",
+        })
+          .limit(limit * 1)
+          .skip((page - 1) * limit);
+        res.send(data);
+      }
     }
   } catch (err) {
     console.log(err);
@@ -763,10 +823,70 @@ ProductRoute.get("/laptop", async (req, res) => {
         res.send(data);
       }
     } else if (brand === "All") {
-      let data = await ProductModule.find({ category: "Laptop" })
-        .limit(limit * 1)
-        .skip((page - 1) * limit);
-      res.send(data);
+      if (sort === "RatingLowToHigh") {
+        let data = await ProductModule.find({
+          category: "Laptop",
+        })
+          .limit(limit * 1)
+          .skip((page - 1) * limit);
+        data = data.sort((a, b) => a.rating - b.rating);
+        res.send(data);
+      } else if (sort === "RatingHighToLow") {
+        let data = await ProductModule.find({
+          category: "Laptop",
+        })
+          .limit(limit * 1)
+          .skip((page - 1) * limit);
+        data = data.sort((a, b) => b.rating - a.rating);
+        res.send(data);
+      } else if (sort === "PriceLowToHigh") {
+        let data = await ProductModule.find({
+          category: "Laptop",
+        })
+          .limit(limit * 1)
+          .skip((page - 1) * limit);
+        data = data.sort(
+          (a, b) =>
+            parseInt(a.price.replace(/,/g, "")) -
+            parseInt(b.price.replace(/,/g, ""))
+        );
+        res.send(data);
+      } else if (sort === "PriceHighToLow") {
+        let data = await ProductModule.find({
+          category: "Laptop",
+        })
+          .limit(limit * 1)
+          .skip((page - 1) * limit);
+        data = data.sort(
+          (a, b) =>
+            parseInt(b.price.replace(/,/g, "")) -
+            parseInt(a.price.replace(/,/g, ""))
+        );
+        res.send(data);
+      } else if (sort === "DiscountLowToHigh") {
+        let data = await ProductModule.find({
+          category: "Laptop",
+        })
+          .limit(limit * 1)
+          .skip((page - 1) * limit);
+        data = data.sort((a, b) => a.discount - b.discount);
+        res.send(data);
+      } else if (sort === "DiscountHighToLow") {
+        let data = await ProductModule.find({
+          category: "Laptop",
+        })
+          .limit(limit * 1)
+          .skip((page - 1) * limit);
+        data = data.sort((a, b) => b.discount - a.discount);
+        res.send(data);
+      } else if (sort === "default") {
+        let data = await ProductModule.find({
+          category: "Laptop",
+        })
+          .limit(limit * 1)
+          .skip((page - 1) * limit);
+        res.send(data);
+      }
     }
   } catch (err) {
     console.log(err);
@@ -938,10 +1058,70 @@ ProductRoute.get("/women", async (req, res) => {
         res.send(data);
       }
     } else if (brand === "All") {
-      let data = await ProductModule.find({ category: "Women Clothing" })
-        .limit(limit * 1)
-        .skip((page - 1) * limit);
-      res.send(data);
+      if (sort === "RatingLowToHigh") {
+        let data = await ProductModule.find({
+          category: "Women Clothing",
+        })
+          .limit(limit * 1)
+          .skip((page - 1) * limit);
+        data = data.sort((a, b) => a.rating - b.rating);
+        res.send(data);
+      } else if (sort === "RatingHighToLow") {
+        let data = await ProductModule.find({
+          category: "Women Clothing",
+        })
+          .limit(limit * 1)
+          .skip((page - 1) * limit);
+        data = data.sort((a, b) => b.rating - a.rating);
+        res.send(data);
+      } else if (sort === "PriceLowToHigh") {
+        let data = await ProductModule.find({
+          category: "Women Clothing",
+        })
+          .limit(limit * 1)
+          .skip((page - 1) * limit);
+        data = data.sort(
+          (a, b) =>
+            parseInt(a.price.replace(/,/g, "")) -
+            parseInt(b.price.replace(/,/g, ""))
+        );
+        res.send(data);
+      } else if (sort === "PriceHighToLow") {
+        let data = await ProductModule.find({
+          category: "Women Clothing",
+        })
+          .limit(limit * 1)
+          .skip((page - 1) * limit);
+        data = data.sort(
+          (a, b) =>
+            parseInt(b.price.replace(/,/g, "")) -
+            parseInt(a.price.replace(/,/g, ""))
+        );
+        res.send(data);
+      } else if (sort === "DiscountLowToHigh") {
+        let data = await ProductModule.find({
+          category: "Women Clothing",
+        })
+          .limit(limit * 1)
+          .skip((page - 1) * limit);
+        data = data.sort((a, b) => a.discount - b.discount);
+        res.send(data);
+      } else if (sort === "DiscountHighToLow") {
+        let data = await ProductModule.find({
+          category: "Women Clothing",
+        })
+          .limit(limit * 1)
+          .skip((page - 1) * limit);
+        data = data.sort((a, b) => b.discount - a.discount);
+        res.send(data);
+      } else if (sort === "default") {
+        let data = await ProductModule.find({
+          category: "Women Clothing",
+        })
+          .limit(limit * 1)
+          .skip((page - 1) * limit);
+        res.send(data);
+      }
     }
   } catch (e) {}
 });
@@ -1173,10 +1353,70 @@ ProductRoute.get("/men", async (req, res) => {
         res.send(data);
       }
     } else if (brand === "All") {
-      let data = await ProductModule.find({ category: "Men Clothing" })
-        .limit(limit * 1)
-        .skip((page - 1) * limit);
-      res.send(data);
+      if (sort === "RatingLowToHigh") {
+        let data = await ProductModule.find({
+          category: "Men Clothing",
+        })
+          .limit(limit * 1)
+          .skip((page - 1) * limit);
+        data = data.sort((a, b) => a.rating - b.rating);
+        res.send(data);
+      } else if (sort === "RatingHighToLow") {
+        let data = await ProductModule.find({
+          category: "Men Clothing",
+        })
+          .limit(limit * 1)
+          .skip((page - 1) * limit);
+        data = data.sort((a, b) => b.rating - a.rating);
+        res.send(data);
+      } else if (sort === "PriceLowToHigh") {
+        let data = await ProductModule.find({
+          category: "Men Clothing",
+        })
+          .limit(limit * 1)
+          .skip((page - 1) * limit);
+        data = data.sort(
+          (a, b) =>
+            parseInt(a.price.replace(/,/g, "")) -
+            parseInt(b.price.replace(/,/g, ""))
+        );
+        res.send(data);
+      } else if (sort === "PriceHighToLow") {
+        let data = await ProductModule.find({
+          category: "Men Clothing",
+        })
+          .limit(limit * 1)
+          .skip((page - 1) * limit);
+        data = data.sort(
+          (a, b) =>
+            parseInt(b.price.replace(/,/g, "")) -
+            parseInt(a.price.replace(/,/g, ""))
+        );
+        res.send(data);
+      } else if (sort === "DiscountLowToHigh") {
+        let data = await ProductModule.find({
+          category: "Men Clothing",
+        })
+          .limit(limit * 1)
+          .skip((page - 1) * limit);
+        data = data.sort((a, b) => a.discount - b.discount);
+        res.send(data);
+      } else if (sort === "DiscountHighToLow") {
+        let data = await ProductModule.find({
+          category: "Men Clothing",
+        })
+          .limit(limit * 1)
+          .skip((page - 1) * limit);
+        data = data.sort((a, b) => b.discount - a.discount);
+        res.send(data);
+      } else if (sort === "default") {
+        let data = await ProductModule.find({
+          category: "Men Clothing",
+        })
+          .limit(limit * 1)
+          .skip((page - 1) * limit);
+        res.send(data);
+      }
     }
   } catch (e) {}
 });
@@ -1410,10 +1650,71 @@ ProductRoute.get("/home", async (req, res) => {
         res.send(data);
       }
     } else if (brand === "All") {
-      let data = await ProductModule.find({ category: "Home Appliances" })
-        .limit(limit * 1)
-        .skip((page - 1) * limit);
-      res.send(data);
+      if (sort === "RatingLowToHigh") {
+        let data = await ProductModule.find({
+          category: "Home Appliances",
+        })
+          .limit(limit * 1)
+          .skip((page - 1) * limit);
+        data = data.sort((a, b) => a.rating - b.rating);
+        res.send(data);
+      } else if (sort === "RatingHighToLow") {
+        let data = await ProductModule.find({
+          category: "Home Appliances",
+        })
+          .limit(limit * 1)
+          .skip((page - 1) * limit);
+        data = data.sort((a, b) => b.rating - a.rating);
+        res.send(data);
+      } else if (sort === "PriceLowToHigh") {
+        let data = await ProductModule.find({
+          category: "Home Appliances",
+        })
+          .limit(limit * 1)
+          .skip((page - 1) * limit);
+        data = data.sort(
+          (a, b) =>
+            parseInt(a.price.replace(/,/g, "")) -
+            parseInt(b.price.replace(/,/g, ""))
+        );
+        res.send(data);
+      } else if (sort === "PriceHighToLow") {
+        let data = await ProductModule.find({
+          category: "Home Appliances",
+        })
+          .limit(limit * 1)
+          .skip((page - 1) * limit);
+        data = data.sort(
+          (a, b) =>
+            parseInt(b.price.replace(/,/g, "")) -
+            parseInt(a.price.replace(/,/g, ""))
+        );
+        res.send(data);
+      } else if (sort === "DiscountLowToHigh") {
+        let data = await ProductModule.find({
+          category: "Home Appliances",
+        })
+          .limit(limit * 1)
+          .skip((page - 1) * limit);
+        data = data.sort((a, b) => a.discount - b.discount);
+        res.send(data);
+      } else if (sort === "DiscountHighToLow") {
+        let data = await ProductModule.find({
+          category: "Home Appliances",
+        })
+          .limit(limit * 1)
+          .skip((page - 1) * limit);
+        data = data.sort((a, b) => b.discount - a.discount);
+        res.send(data);
+      } else if (sort === "default") {
+        let data = await ProductModule.find({
+          category: "Home Appliances",
+        })
+          .limit(limit * 1)
+          .skip((page - 1) * limit);
+
+        res.send(data);
+      }
     }
   } catch (e) {}
 });
