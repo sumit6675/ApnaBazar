@@ -159,7 +159,7 @@ function Navbar() {
             bg="blue"
             border={"none"}
           >
-           <NavLink to={"/mobile"}> Mobiles</NavLink>
+           <NavLink to={"/phone"}> Mobiles</NavLink>
           </Button>
 
           <Button
@@ -189,7 +189,7 @@ function Navbar() {
             bg="blue"
             border={"none"}
           >
-           <NavLink to="/menfashion">
+           <NavLink to="/men">
            Men Fashion
            </NavLink>
           </Button>
@@ -205,7 +205,7 @@ function Navbar() {
             bg="blue"
             border={"none"}
           >
-            <NavLink to="/womenfashion">
+            <NavLink to="/women">
            Women Fashion
            </NavLink>
           </Button>
@@ -221,7 +221,7 @@ function Navbar() {
             bg="blue"
             border={"none"}
           >
-           <NavLink to="/homeApplinces">
+           <NavLink to="/home">
            Home Appliances
            </NavLink>
           </Button>

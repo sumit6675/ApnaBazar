@@ -1,22 +1,22 @@
 import { Grid, Heading, Skeleton, VStack } from "@chakra-ui/react";
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import SingleProduct from "../Componets/SingleProduct";
 
 function Productpage({ category }) {
   const [data, setData] = React.useState([]);
   const [loading, setLoading] = React.useState(true);
   const [selectedValue1, setSelectedValue] = useState("All");
+  const navigate = useNavigate();
   React.useEffect(() => {
-      setLoading(true);
+    setLoading(true);
     fetch(`http://localhost:8080/products/${category}?brand=${selectedValue1}`)
       .then((res) => res.json())
       .then((res) => {
         setData(res);
         setLoading(false);
       });
-    }, [category, selectedValue1]);
-
- 
+  }, [category, selectedValue1]);
 
   const handleCheckboxClick = (value) => {
     setSelectedValue(value);
@@ -40,100 +40,100 @@ function Productpage({ category }) {
   if (loading) {
     return (
       <Grid gridTemplateColumns={"0.15fr 0.85fr"}>
-          {category === "phone" && (
-        <VStack gap="1">
-          <VStack p="25px" gap="1" alignItems={"left"}>
-            <Heading size="md">Brands</Heading>
-            {checkboxList1.map((value) => (
-              <label key={value}>
-                <input
-                  type="checkbox"
-                  value={value}
-                  checked={value === selectedValue1}
-                  onChange={() => handleCheckboxClick(value)}
-                />
-                {value}
-              </label>
-            ))}
+        {category === "phone" && (
+          <VStack gap="1">
+            <VStack p="25px" gap="1" alignItems={"left"}>
+              <Heading size="md">Brands</Heading>
+              {checkboxList1.map((value) => (
+                <label key={value}>
+                  <input
+                    type="checkbox"
+                    value={value}
+                    checked={value === selectedValue1}
+                    onChange={() => handleCheckboxClick(value)}
+                  />
+                  {value}
+                </label>
+              ))}
+            </VStack>
           </VStack>
-        </VStack>
-      )}
+        )}
 
-      {category === "laptop" && (
-        <VStack gap="1">
-          <VStack p="25px" gap="1" alignItems={"left"}>
-            <Heading size="md">Brands</Heading>
-            {checkboxList2.map((value) => (
-              <label key={value}>
-                <input
-                  type="checkbox"
-                  value={value}
-                  checked={value === selectedValue1}
-                  onChange={() => handleCheckboxClick(value)}
-                />
-                {value}
-              </label>
-            ))}
+        {category === "laptop" && (
+          <VStack gap="1">
+            <VStack p="25px" gap="1" alignItems={"left"}>
+              <Heading size="md">Brands</Heading>
+              {checkboxList2.map((value) => (
+                <label key={value}>
+                  <input
+                    type="checkbox"
+                    value={value}
+                    checked={value === selectedValue1}
+                    onChange={() => handleCheckboxClick(value)}
+                  />
+                  {value}
+                </label>
+              ))}
+            </VStack>
           </VStack>
-        </VStack>
-      )}
+        )}
 
-      {category === "men" && (
-        <VStack gap="1">
-          <VStack p="25px" gap="1" alignItems={"left"}>
-            <Heading size="md">Brands</Heading>
-            {checkboxList3.map((value) => (
-              <label key={value}>
-                <input
-                  type="checkbox"
-                  value={value}
-                  checked={value === selectedValue1}
-                  onChange={() => handleCheckboxClick(value)}
-                />
-                {value}
-              </label>
-            ))}
+        {category === "men" && (
+          <VStack gap="1">
+            <VStack p="25px" gap="1" alignItems={"left"}>
+              <Heading size="md">Brands</Heading>
+              {checkboxList3.map((value) => (
+                <label key={value}>
+                  <input
+                    type="checkbox"
+                    value={value}
+                    checked={value === selectedValue1}
+                    onChange={() => handleCheckboxClick(value)}
+                  />
+                  {value}
+                </label>
+              ))}
+            </VStack>
           </VStack>
-        </VStack>
-      )}
+        )}
 
-      {category === "women" && (
-        <VStack gap="1">
-          <VStack p="25px" gap="1" alignItems={"left"}>
-            <Heading size="md">Brands</Heading>
-            {checkboxList4.map((value) => (
-              <label key={value}>
-                <input
-                  type="checkbox"
-                  value={value}
-                  checked={value === selectedValue1}
-                  onChange={() => handleCheckboxClick(value)}
-                />
-                {value}
-              </label>
-            ))}
+        {category === "women" && (
+          <VStack gap="1">
+            <VStack p="25px" gap="1" alignItems={"left"}>
+              <Heading size="md">Brands</Heading>
+              {checkboxList4.map((value) => (
+                <label key={value}>
+                  <input
+                    type="checkbox"
+                    value={value}
+                    checked={value === selectedValue1}
+                    onChange={() => handleCheckboxClick(value)}
+                  />
+                  {value}
+                </label>
+              ))}
+            </VStack>
           </VStack>
-        </VStack>
-      )}
+        )}
 
-      {category === "home" && (
-        <VStack gap="1">
-          <VStack p="25px" gap="1" alignItems={"left"}>
-            <Heading size="md">Brands</Heading>
-            {checkboxList5.map((value) => (
-              <label key={value}>
-                <input
-                  type="checkbox"
-                  value={value}
-                  checked={value === selectedValue1}
-                  onChange={() => handleCheckboxClick(value)}
-                />
-                {value}
-              </label>
-            ))}
+        {category === "home" && (
+          <VStack gap="1">
+            <VStack p="25px" gap="1" alignItems={"left"}>
+              <Heading size="md">Brands</Heading>
+              {checkboxList5.map((value) => (
+                <label key={value}>
+                  <input
+                    type="checkbox"
+                    value={value}
+                    checked={value === selectedValue1}
+                    onChange={() => handleCheckboxClick(value)}
+                  />
+                  {value}
+                </label>
+              ))}
+            </VStack>
           </VStack>
-        </VStack>
-      )}
+        )}
         <Grid w="90%" m="auto" templateColumns={"repeat(4, 1fr)"} gap="20px">
           <Skeleton height="220px" />
           <Skeleton height="220px" />
@@ -155,6 +155,10 @@ function Productpage({ category }) {
       </Grid>
     );
   }
+
+  const handleSignleProduct = (id) => {
+    navigate(`/${category}/${id}`);
+  };
 
   return (
     <Grid gridTemplateColumns={"0.15fr 0.85fr"}>
@@ -254,22 +258,27 @@ function Productpage({ category }) {
       )}
 
       <Grid w="90%" m="auto" templateColumns={"repeat(4, 1fr)"} gap="20px">
-        {data?data.map((i) => {
-          return (
-            <SingleProduct
-              image={i.image}
-              alt={i.Name}
-              title={i.Name}
-              price={i.price}
-              category={i.category}
-              rate={i.rating}
-              count={i.reviewNumber}
-              mrp={i.mrp}
-              key={i._id}
-              discount={i.discount}
-            />
-          );
-        }):<Heading>Please Select Filters</Heading>}
+        {data ? (
+          data.map((i) => {
+            return (
+              <SingleProduct
+                image={i.image}
+                alt={i.Name}
+                title={i.Name}
+                price={i.price}
+                category={i.category}
+                rate={i.rating}
+                count={i.reviewNumber}
+                mrp={i.mrp}
+                key={i._id}
+                discount={i.discount}
+                handleClick={() => handleSignleProduct(i._id)}
+              />
+            );
+          })
+        ) : (
+          <Heading>Please Select Filters</Heading>
+        )}
       </Grid>
     </Grid>
   );

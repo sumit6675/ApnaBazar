@@ -10,6 +10,7 @@ function SingleProduct({
   count,
   mrp,
   discount,
+  handleClick
 }) {
   return (
     <Box maxW="sm" borderWidth="1px" borderRadius="lg" overflow="hidden">
@@ -61,7 +62,7 @@ function SingleProduct({
           </Box>
         </Box>
       </Box>
-      <Button ml="80px" mb="20px">
+      <Button ml="80px" mb="20px" onClick={handleClick}>
         View Product
       </Button>
     </Box>
