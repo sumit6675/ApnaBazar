@@ -3,6 +3,7 @@ import { Route, Routes } from "react-router-dom";
 import HomePage from "../Pages/HomePage";
 import Login from "../Pages/Login";
 import Productpage from "../Pages/Products";
+import Signup from "../Pages/Signup";
 import SingleProduct from "../Pages/SingleProductPage";
 export const AllRoutes = () => {
   return (
@@ -29,6 +30,7 @@ export const AllRoutes = () => {
         />
         <Route path="/home" element={<Productpage category={"home"} />} />
         <Route path="/home/:id" element={<SingleProduct category={"home"} />} />
+        <Route path="/signup"element={<Signup/>}/>
       </Routes>
     </div>
   );

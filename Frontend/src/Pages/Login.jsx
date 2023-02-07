@@ -12,6 +12,7 @@ import {
   Text,
   useColorModeValue,
 } from "@chakra-ui/react";
+import { NavLink } from "react-router-dom";
 
 export default function Login() {
   return (
@@ -25,7 +26,7 @@ export default function Login() {
         <Stack align={"center"}>
           <Heading fontSize={"4xl"}>Sign in to your account</Heading>
           <Text fontSize={"lg"} color={"gray.600"}>
-            New to ApnaBazar ? <Link color={"blue.400"}>SignUp</Link> ✌️
+            New to ApnaBazar ? <NavLink to={"/signup"}  color={"blue.400"}>SignUp</NavLink> ✌️
           </Text>
         </Stack>
         <Box
