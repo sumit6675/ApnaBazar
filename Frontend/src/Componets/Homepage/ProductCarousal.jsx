@@ -13,7 +13,7 @@ function ProductCarousal({phone,count}) {
   const navigate=useNavigate()
     const [data, setData] = React.useState([]);
   useEffect(() => {
-    fetch(`http://localhost:8080/products/${phone}?brand=All`)
+    fetch(`http://localhost:8080/products/${phone}?brand=All&sort=default`)
       .then((response) => response.json())
       .then((data) => setData(data));
   }, [phone]);

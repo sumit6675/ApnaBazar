@@ -19,6 +19,7 @@ import {
   VStack,
   MenuItem,
   Button,
+  useToast,
 } from "@chakra-ui/react";
 import React from "react";
 import { ChevronDownIcon } from "@chakra-ui/icons";
@@ -27,15 +28,31 @@ import { BsFillCartFill } from "react-icons/bs";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { GrLogin } from "react-icons/gr";
 import { RiLoginCircleFill } from "react-icons/ri";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { logout } from "../Redux/Auth/auth.action";
 
 function Navbar() {
+  const { isAuth, name } = useSelector((store) => store.AuthManager);
   const [isLargerThan1100] = useMediaQuery("(min-width: 1100px)");
   const [isLargerThan750px] = useMediaQuery("(min-width: 750px)");
   const [islesserThan740px] = useMediaQuery("(max-width: 750px)");
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const toast = useToast();
   const btnRef = React.useRef();
-  let isAuth = false;
+  const handleLogout = () => {
+    dispatch(logout());
+    navigate("/login");
+    toast({
+      title: "Logout  success.",
+      description: "We will miss you 😭",
+      status: "success",
+      duration: 9000,
+      isClosable: true,
+    });
+  };
   if (isLargerThan1100) {
     return (
       <Box>
@@ -51,7 +68,13 @@ function Navbar() {
         >
           <Link to="/">
             <Box>
-              <Image src="https://iili.io/HE2SHlt.gif" alt="ApnaBazarLogo" border="0" w="190px" h="120px" />
+              <Image
+                src="https://iili.io/HE2SHlt.gif"
+                alt="ApnaBazarLogo"
+                border="0"
+                w="190px"
+                h="120px"
+              />
             </Box>
           </Link>
           <Flex
@@ -79,7 +102,7 @@ function Navbar() {
                 cursor={"pointer"}
                 fontSize={"24px"}
                 color="black"
-                _hover={{textDecoration: "underline" }}
+                _hover={{ textDecoration: "underline" }}
               >
                 Cart
               </Heading>
@@ -88,34 +111,33 @@ function Navbar() {
 
           {!isAuth ? (
             <Flex gap="30px">
-                <Flex cursor={"pointer"} p="2">
-              <GrLogin color="black" fontSize="24px" />
-              <Link to="login">
-                <Heading
-                  cursor={"pointer"}
-                  fontSize={"24px"}
-                  color="black"
-                  _hover={{ textDecoration: "underline" }}
-                >
-                  Login
-                </Heading>
-              </Link>
+              <Flex cursor={"pointer"} p="2">
+                <GrLogin color="black" fontSize="24px" />
+                <Link to="login">
+                  <Heading
+                    cursor={"pointer"}
+                    fontSize={"24px"}
+                    color="black"
+                    _hover={{ textDecoration: "underline" }}
+                  >
+                    Login
+                  </Heading>
+                </Link>
+              </Flex>
+              <Flex cursor={"pointer"} p="2">
+                <RiLoginCircleFill color="black" fontSize="24px" />
+                <Link to="/signup">
+                  <Heading
+                    cursor={"pointer"}
+                    fontSize={"24px"}
+                    color="black"
+                    _hover={{ textDecoration: "underline" }}
+                  >
+                    SignUp
+                  </Heading>
+                </Link>
+              </Flex>
             </Flex>
-            <Flex cursor={"pointer"} p="2">
-              <RiLoginCircleFill color="black" fontSize="24px" />
-              <Link to="/signup">
-                <Heading
-                  cursor={"pointer"}
-                  fontSize={"24px"}
-                  color="black"
-                  _hover={{ textDecoration: "underline" }}
-                >
-                  SignUp
-                </Heading>
-              </Link>
-            </Flex>
-            </Flex>
-
           ) : (
             <Menu>
               <MenuButton
@@ -123,7 +145,7 @@ function Navbar() {
                 as={Button}
                 rightIcon={<ChevronDownIcon />}
               >
-                Hi
+                Hi {name}
               </MenuButton>
               <MenuList>
                 <MenuItem>My Profile</MenuItem>
@@ -133,7 +155,7 @@ function Navbar() {
                   {" "}
                   <MenuItem>My Wishlist</MenuItem>
                 </Link>
-                <MenuItem>Logout</MenuItem>
+                <MenuItem onClick={handleLogout}>Logout</MenuItem>
               </MenuList>
             </Menu>
           )}
@@ -159,7 +181,7 @@ function Navbar() {
             bg="blue"
             border={"none"}
           >
-           <NavLink to={"/phone"}> Mobiles</NavLink>
+            <NavLink to={"/phone"}> Mobiles</NavLink>
           </Button>
 
           <Button
@@ -173,9 +195,7 @@ function Navbar() {
             bg="blue"
             border={"none"}
           >
-            <NavLink to="/laptop">
-            Laptops
-            </NavLink>
+            <NavLink to="/laptop">Laptops</NavLink>
           </Button>
 
           <Button
@@ -189,9 +209,7 @@ function Navbar() {
             bg="blue"
             border={"none"}
           >
-           <NavLink to="/men">
-           Men Fashion
-           </NavLink>
+            <NavLink to="/men">Men Fashion</NavLink>
           </Button>
 
           <Button
@@ -205,9 +223,7 @@ function Navbar() {
             bg="blue"
             border={"none"}
           >
-            <NavLink to="/women">
-           Women Fashion
-           </NavLink>
+            <NavLink to="/women">Women Fashion</NavLink>
           </Button>
 
           <Button
@@ -221,9 +237,7 @@ function Navbar() {
             bg="blue"
             border={"none"}
           >
-           <NavLink to="/home">
-           Home Appliances
-           </NavLink>
+            <NavLink to="/home">Home Appliances</NavLink>
           </Button>
         </Flex>
       </Box>

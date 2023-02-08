@@ -1,23 +1,60 @@
 import {
-  Flex,
   Box,
+  Button,
+  Checkbox,
+  Flex,
   FormControl,
   FormLabel,
-  Input,
-  Checkbox,
-  Stack,
-  Link,
-  Button,
   Heading,
+  Input,
+  Link,
+  Stack,
   Text,
   useColorModeValue,
+  useToast,
 } from "@chakra-ui/react";
-import { NavLink } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { NavLink, useNavigate } from "react-router-dom";
+import { login } from "../Redux/Auth/auth.action";
 
-export default function Login() {
+function Login() {
+  const [loginCreds, setLoginCreds] = useState({});
+  const dispatch = useDispatch();
+  const toast = useToast();
+  const { isAuth } = useSelector((store) => store.AuthManager);
+  const navigate = useNavigate();
+  const hanldeChange = (e) => {
+    const { name, value } = e.target;
+    setLoginCreds({
+      ...loginCreds,
+      [name]: value,
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    dispatch(login(loginCreds));
+  };
+
+  useEffect(() => {
+    if (isAuth) {
+      navigate("/");
+      toast({
+        title: "Login Sucsess",
+
+        description: "We've login to your account for you.",
+
+        status: "success",
+        duration: 8000,
+        isClosable: true,
+      });
+    }
+  }, [isAuth, navigate, toast]);
+
   return (
     <Flex
-      minH={"100vh"}
+      w="100%"
       align={"center"}
       justify={"center"}
       bg={useColorModeValue("gray.50", "gray.800")}
@@ -25,9 +62,12 @@ export default function Login() {
       <Stack spacing={8} mx={"auto"} maxW={"lg"} py={12} px={6}>
         <Stack align={"center"}>
           <Heading fontSize={"4xl"}>Sign in to your account</Heading>
-          <Text fontSize={"lg"} color={"gray.600"}>
-            New to ApnaBazar ? <NavLink to={"/signup"}  color={"blue.400"}>SignUp</NavLink> ✌️
-          </Text>
+          <NavLink to="/signup">
+            <Text fontSize={"lg"} color={"gray.600"}>
+              New To Website Please
+              <Link color={"blue.400"}> Signup</Link> ✌️
+            </Text>
+          </NavLink>
         </Stack>
         <Box
           rounded={"lg"}
@@ -38,11 +78,21 @@ export default function Login() {
           <Stack spacing={4}>
             <FormControl id="email">
               <FormLabel>Email address</FormLabel>
-              <Input type="email" />
+              <Input
+                name="email"
+                type="email"
+                placeholder="Enter Email"
+                onChange={hanldeChange}
+              />
             </FormControl>
             <FormControl id="password">
               <FormLabel>Password</FormLabel>
-              <Input type="password" />
+              <Input
+                name="password"
+                type="password"
+                placeholder="Enter Password..."
+                onChange={hanldeChange}
+              />
             </FormControl>
             <Stack spacing={10}>
               <Stack
@@ -54,6 +104,7 @@ export default function Login() {
                 <Link color={"blue.400"}>Forgot password?</Link>
               </Stack>
               <Button
+                onClick={handleSubmit}
                 bg={"blue.400"}
                 color={"white"}
                 _hover={{
@@ -69,3 +120,5 @@ export default function Login() {
     </Flex>
   );
 }
+
+export default Login;
