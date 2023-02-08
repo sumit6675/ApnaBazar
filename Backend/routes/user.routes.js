@@ -134,6 +134,15 @@ usersRoute.post("/login", async (req, res) => {
   }
 });
 
+usersRoute.patch("/cart",async(req,res)=>{
+  let {email}=req.query
+  let payload=req.body
+  let data=await RegisterModule.findOne({email:email})
+  data.cart.push(payload)
+  data.save()
+  res.send({"message":"Data saved successfully"})
+})
+
 module.exports = {
   usersRoute,
 };

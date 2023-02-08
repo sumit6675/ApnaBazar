@@ -59,7 +59,7 @@ import {
             } else {
               toast({
                 title: "Account has been created",
-                description: "Welcome to RUS Digital",
+                description: "Welcome to Apna Bazar",
                 status: "success",
                 duration: 2000,
                 isClosable: true,
