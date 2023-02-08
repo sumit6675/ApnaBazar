@@ -1,11 +1,9 @@
-import React, {  useState } from "react";
-import { Flex, Box, Image, Button, Heading, useToast } from "@chakra-ui/react";
+import React from "react";
+import { Flex, Box, Image, Button, Heading } from "@chakra-ui/react";
 import { FcPlus } from "react-icons/fc";
 import { TbTruckDelivery } from "react-icons/tb";
 
-const SingleCartItem = ({ name, img, price, id, DeleteRequest }) => {
-  const toast = useToast();
-
+const SingleCartItem = ({ name, img, price, id }) => {
   var months = [
     "January",
     "February",
@@ -99,7 +97,7 @@ const SingleCartItem = ({ name, img, price, id, DeleteRequest }) => {
           gap="2"
         >
           <Box>
-            <Image src={"https://www.reliancedigital.in/medias/Mi-4A-Horizon-Edition-Television-492166368-i-1-1200Wx1200H-300Wx300H?context=bWFzdGVyfGltYWdlc3wxNjcxM3xpbWFnZS9qcGVnfGltYWdlcy9oNDcvaDk4Lzk3OTA4NzQ3MTQxNDIuanBnfDhjNDk4M2M1MTM1YTViZmFkMTY1NGM1ZmU4ZjFiODNiOGQ2NTMyYzUxYjg0NWJmYWE4MjIzODg4YmEzMWM5ZDY"} alt={name} width="200px" />
+            <Image src={img} alt={name} width="200px" />
           </Box>
           <Box display={"flex"} gap="2">
             <Button>-</Button>
@@ -132,7 +130,7 @@ const SingleCartItem = ({ name, img, price, id, DeleteRequest }) => {
             fontWeight="600"
             lineHeight={"1.1"}
           >
-            name
+            {name}
           </Heading>
           <Heading
             fontSize="14px"
@@ -140,7 +138,7 @@ const SingleCartItem = ({ name, img, price, id, DeleteRequest }) => {
             fontWeight="600"
             lineHeight={"1.1"}
           >
-            {Date.now()}
+            {id}
           </Heading>
           <Flex>
             <FcPlus />
@@ -163,7 +161,7 @@ const SingleCartItem = ({ name, img, price, id, DeleteRequest }) => {
           fontWeight="500"
         >
           <Heading fontSize="18px" color={"rgb(0, 0, 0)"}>
-            price
+            Rs.{price.toLocaleString()}
           </Heading>
           <Heading
             fontSize="14px"
@@ -203,28 +201,28 @@ const SingleCartItem = ({ name, img, price, id, DeleteRequest }) => {
             backgroundColor={"white"}
             color=" rgb(23, 116, 239)"
             _hover={"backgroundColor:white"}
-            onClick={() => {
-              DeleteRequest(id)
-                .then((response) => {
-                  toast({
-                    title: "Delete Item Successfully",
-                    status: "success",
-                    duration: 4000,
-                    isClosable: true,
-                    position: "top",
-                  });
-                })
-                .catch((reject) => {
-                  toast({
-                    title: "Something Went Wrong",
-                    description: `${reject.message}`,
-                    status: "error",
-                    duration: 5000,
-                    isClosable: true,
-                    position: "bottom-right",
-                  });
-                });
-            }}
+            // onClick={() => {
+            //   DeleteRequest(id)
+            //     .then((response) => {
+            //       toast({
+            //         title: "Delete Item Successfully",
+            //         status: "success",
+            //         duration: 4000,
+            //         isClosable: true,
+            //         position: "top",
+            //       });
+            //     })
+            //     .catch((reject) => {
+            //       toast({
+            //         title: "Something Went Wrong",
+            //         description: `${reject.message}`,
+            //         status: "error",
+            //         duration: 5000,
+            //         isClosable: true,
+            //         position: "bottom-right",
+            //       });
+            //     });
+            // }}
           >
             Remove
           </Button>

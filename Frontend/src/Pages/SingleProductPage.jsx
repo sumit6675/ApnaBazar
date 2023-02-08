@@ -10,16 +10,21 @@ import {
   ListItem,
   Text,
   UnorderedList,
+  useToast,
   VStack,
 } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { useNavigate, useParams } from "react-router-dom";
 import ProductCarousal from "../Componets/Homepage/ProductCarousal";
 
 const SingleProduct = ({ category }) => {
+  const toast = useToast();
+  const navigate = useNavigate();
+  const { email } = useSelector((store) => store.AuthManager);
   const [singleData, setSingleData] = useState([]);
   const [prodductData, setProductData] = useState([]);
-  const [menData,setMenData]=useState([])
+  const [menData, setMenData] = useState([]);
   const params = useParams();
 
   useEffect(() => {
@@ -29,11 +34,52 @@ const SingleProduct = ({ category }) => {
       .then((res) => {
         setSingleData(res);
         setProductData(res.selection6);
-        let men=singleData.selection2
-        setMenData(men.split("\n"))
+        let men = singleData.selection2;
+        setMenData(men.split("\n"));
       });
-  }, [category, params,singleData.selection2]);
-  console.log(prodductData);
+  }, [category, params, singleData.selection2]);
+  
+  const handleCart = () => {
+    fetch(`http://localhost:8080/users?email=${email}`)
+      .then((res) => res.json())
+      .then((res) => {
+        let flag = false;
+        for (let i = 0; i < res.cart.length; i++) {
+          if (res.cart[i]._id === singleData._id) {
+            flag = true;
+          }
+        }
+
+        if (!flag) {
+          fetch(`http://localhost:8080/users/cart?email=${email}`, {
+            method: "PATCH",
+            body: JSON.stringify(singleData),
+            headers: {
+              "Content-type": "application/json; charset=UTF-8",
+            },
+          })
+            .then((response) => response.json())
+            .then((json) => {
+              toast({
+                title: `${singleData.Name} Product added successfully`,
+                description: "Product added successfully in Cart",
+                status: "success",
+                duration: 4000,
+                isClosable: true,
+              });
+              navigate("/cart");
+            });
+        } else {
+          toast({
+            title: `${singleData.Name} Product Already Exists`,
+            description: "Product Already Exists in Cart",
+            status: "error",
+            duration: 4000,
+            isClosable: true,
+          });
+        }
+      });
+  };
   return (
     <Box p="5">
       <Grid gridTemplateColumns={"0.25fr 0.40fr 0.35fr"}>
@@ -109,14 +155,14 @@ const SingleProduct = ({ category }) => {
               Product Details
             </Heading>
             <UnorderedList color="gray.600" fontSize="sm" marginBottom={4}>
-              {category!=="men" && prodductData.map((i) => (
-                <ListItem key="i._id">{i.name}</ListItem>
-              ))}
+              {category !== "men" &&
+                prodductData.map((i) => (
+                  <ListItem key="i._id">{i.name}</ListItem>
+                ))}
             </UnorderedList>
             <UnorderedList color="gray.600" fontSize="sm" marginBottom={4}>
-              {category==="men" && menData.map((i) => (
-                <ListItem key={i}>{i}</ListItem>
-              ))}
+              {category === "men" &&
+                menData.map((i) => <ListItem key={i}>{i}</ListItem>)}
             </UnorderedList>
             <Heading size="sm" marginBottom={3}>
               Additional Services & Warranties (3){" "}
@@ -192,7 +238,7 @@ const SingleProduct = ({ category }) => {
               fontSize="lg"
               p={6}
               _hover={{ bg: "blue.800" }}
-              //   onClick={() => handlePost(singleData)}
+              onClick={handleCart}
             >
               ADD TO CART
             </Button>
