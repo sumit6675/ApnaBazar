@@ -142,6 +142,23 @@ usersRoute.patch("/cart",async(req,res)=>{
   data.save()
   res.send({"message":"Data saved successfully"})
 })
+usersRoute.patch("/addWishlist",async(req,res)=>{
+  let {email}=req.query
+  let payload=req.body
+  let data=await RegisterModule.findOne({email:email})
+  data.wishlist.push(payload)
+  data.save()
+  res.send({"message":"Data saved successfully"})
+})
+
+usersRoute.patch("/deleteCart",async(req,res)=>{
+  let {email}=req.query
+  let payload=req.body
+  let data=await RegisterModule.findOne({email:email})
+  data.cart.pull(payload)
+  data.save()
+  res.send({"message":"Data deleted successfully"})
+})
 
 module.exports = {
   usersRoute,

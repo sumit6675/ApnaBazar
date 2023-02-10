@@ -40,17 +40,18 @@ const SingleProduct = ({ category }) => {
   }, [category, params, singleData.selection2]);
   
   const handleCart = () => {
+
     fetch(`http://localhost:8080/users?email=${email}`)
       .then((res) => res.json())
       .then((res) => {
-        let flag = false;
+        let checkProductInCart = false;
         for (let i = 0; i < res.cart.length; i++) {
           if (res.cart[i]._id === singleData._id) {
-            flag = true;
+            checkProductInCart = true;
           }
         }
 
-        if (!flag) {
+        if (!checkProductInCart) {
           fetch(`http://localhost:8080/users/cart?email=${email}`, {
             method: "PATCH",
             body: JSON.stringify(singleData),
@@ -75,6 +76,45 @@ const SingleProduct = ({ category }) => {
             description: "Product Already Exists in Cart",
             status: "error",
             duration: 4000,
+            isClosable: true,
+          });
+        }
+      });
+  };
+  const addWishlist = (product) => {
+    fetch(`http://localhost:8080/users?email=${email}`)
+      .then((res) => res.json())
+      .then((res) => {
+        let checkProductInWishlist = false;
+        for (let i = 0; i < res.wishlist.length; i++) {
+          if (res.wishlist[i]._id === product._id) {
+            checkProductInWishlist = true;
+          }
+        }
+        if (!checkProductInWishlist) {
+          fetch(`http://localhost:8080/users/addWishlist?email=${email}`, {
+            method: "PATCH",
+            body: JSON.stringify(product),
+            headers: {
+              "Content-type": "application/json; charset=UTF-8",
+            },
+          })
+            .then((response) => response.json())
+            .then((json) => {
+              toast({
+                title: `${product.Name} Product added successfully`,
+                description: "Product added successfully in Wishlist",
+                status: "success",
+                duration: 2000,
+                isClosable: true,
+              });
+            });
+        } else {
+          toast({
+            title: `${product.Name} Product Already Exists`,
+            description: "Product Already Exists in Wishlist",
+            status: "error",
+            duration: 2000,
             isClosable: true,
           });
         }
@@ -250,7 +290,7 @@ const SingleProduct = ({ category }) => {
               fontSize="lg"
               p={6}
               _hover={{ backgroundColor: "orangered" }}
-              //   onClick={() => handleWish(singleData)}
+                onClick={() => addWishlist(singleData)}
             >
               Add to Wishlist
             </Button>
