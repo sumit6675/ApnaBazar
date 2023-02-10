@@ -3,7 +3,7 @@ import { Flex, Box, Image, Button, Heading } from "@chakra-ui/react";
 import { FcPlus } from "react-icons/fc";
 import { TbTruckDelivery } from "react-icons/tb";
 
-const SingleCartItem = ({ name, img, price, id }) => {
+const SingleCartItem = ({ name, img, price, id,deleteCart,addWishlist }) => {
   var months = [
     "January",
     "February",
@@ -201,28 +201,7 @@ const SingleCartItem = ({ name, img, price, id }) => {
             backgroundColor={"white"}
             color=" rgb(23, 116, 239)"
             _hover={"backgroundColor:white"}
-            // onClick={() => {
-            //   DeleteRequest(id)
-            //     .then((response) => {
-            //       toast({
-            //         title: "Delete Item Successfully",
-            //         status: "success",
-            //         duration: 4000,
-            //         isClosable: true,
-            //         position: "top",
-            //       });
-            //     })
-            //     .catch((reject) => {
-            //       toast({
-            //         title: "Something Went Wrong",
-            //         description: `${reject.message}`,
-            //         status: "error",
-            //         duration: 5000,
-            //         isClosable: true,
-            //         position: "bottom-right",
-            //       });
-            //     });
-            // }}
+            onClick={deleteCart}
           >
             Remove
           </Button>
@@ -232,6 +211,7 @@ const SingleCartItem = ({ name, img, price, id }) => {
             backgroundColor={"white"}
             color=" rgb(23, 116, 239)"
             _hover={"backgroundColor:white"}
+            onClick={addWishlist}
           >
             Move to Wishlist
           </Button>
