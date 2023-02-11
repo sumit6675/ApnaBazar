@@ -7,7 +7,9 @@ const registerSchema = mongoose.Schema({
   cart:[],
   orders:[],
   wishlist:[],
-  address:[]
+  address:[],
+  pincode:Number,
+  City:String
 });
 
 const RegisterModule = mongoose.model("users", registerSchema);
