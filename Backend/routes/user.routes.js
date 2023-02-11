@@ -150,6 +150,14 @@ usersRoute.patch("/addWishlist",async(req,res)=>{
   data.save()
   res.send({"message":"Data saved successfully"})
 })
+usersRoute.patch("/addAdress",async(req,res)=>{
+  let {email}=req.query
+  let payload=req.body
+  let data=await RegisterModule.findOne({email:email})
+  data.address.push(payload)
+  data.save()
+  res.send({"message":"Address saved successfully"})
+})
 
 usersRoute.patch("/deleteCart",async(req,res)=>{
   let {email}=req.query
