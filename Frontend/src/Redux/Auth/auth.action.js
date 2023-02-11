@@ -10,10 +10,13 @@ import {
 export const login = (creds) => async (dispatch) => { 
   dispatch({ type: LOGIN_LOADING });
   try {
-    let res = await axios.post("http://localhost:8080/users/login", creds);
-    dispatch({ type: LOGIN_SUCCESS, payload: res.data });
-    console.log(res.data);
+    await axios.post("http://localhost:8080/users/login", creds)
+    .then((res)=>{
+      dispatch({ type: LOGIN_SUCCESS, payload: res.data });
+      console.log(res.data);
+    })
   } catch (e) {
+    console.log(e.message)
     dispatch({ type: LOGIN_ERROR, payload: e.message });
     alert(`Login failed: ${e.message}`);
   }

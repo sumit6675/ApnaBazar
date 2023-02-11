@@ -128,7 +128,7 @@ usersRoute.post("/login", async (req, res) => {
     }
   } catch (err) {
     res.status(401).json({
-      error,
+      err,
       message: "Something went wrong",
     });
   }
@@ -155,6 +155,8 @@ usersRoute.patch("/addAdress",async(req,res)=>{
   let payload=req.body
   let data=await RegisterModule.findOne({email:email})
   data.address.push(payload)
+  data.pincode=payload.pin
+  data.City=payload.city
   data.save()
   res.send({"message":"Address saved successfully"})
 })

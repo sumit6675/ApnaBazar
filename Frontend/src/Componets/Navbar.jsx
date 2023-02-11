@@ -49,7 +49,7 @@ function Navbar() {
       title: "Logout  success.",
       description: "We will miss you 😭",
       status: "success",
-      duration: 9000,
+      duration: 2000,
       isClosable: true,
     });
   };
