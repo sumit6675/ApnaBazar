@@ -9,6 +9,7 @@ import {
 } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
+import { NavLink } from "react-router-dom";
 import SingleCartItem from "../Componets/SingleCartPage";
 
 function Cart() {
@@ -151,7 +152,9 @@ function Cart() {
               Rs.{total.toLocaleString()}
             </Heading>
           </Flex>
-          <Button>Checkout</Button>
+          <Button>
+          <NavLink to="/checkout">Checkout</NavLink>
+          </Button>
         </VStack>
       </Grid>
     </Box>

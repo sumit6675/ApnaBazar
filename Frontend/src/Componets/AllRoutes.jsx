@@ -1,6 +1,7 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 import Cart from "../Pages/Cart";
+import Checkout from "../Pages/Checkout";
 import HomePage from "../Pages/HomePage";
 import Login from "../Pages/Login";
 import Productpage from "../Pages/Products";
@@ -99,6 +100,14 @@ export const AllRoutes = () => {
           element={
             <PrivateRoute>
               <Cart />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/checkout"
+          element={
+            <PrivateRoute>
+              <Checkout />
             </PrivateRoute>
           }
         />
