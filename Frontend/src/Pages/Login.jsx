@@ -46,7 +46,7 @@ function Login() {
         description: "We've login to your account for you.",
 
         status: "success",
-        duration: 8000,
+        duration: 2000,
         isClosable: true,
       });
     }
