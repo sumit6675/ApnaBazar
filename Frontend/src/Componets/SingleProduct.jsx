@@ -27,8 +27,8 @@ function SingleProduct({
 
         <Box
           mt="1"
-          fontWeight="semibold"
           as="h4"
+          fontWeight="semibold"
           lineHeight="tight"
           noOfLines={1}
         >
