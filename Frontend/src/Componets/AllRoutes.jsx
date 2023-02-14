@@ -5,6 +5,7 @@ import Checkout from "../Pages/Checkout";
 import { LastPage } from "../Pages/FinalPage";
 import HomePage from "../Pages/HomePage";
 import Login from "../Pages/Login";
+import NotFound from "../Pages/PageNotFound";
 import Productpage from "../Pages/Products";
 import Signup from "../Pages/Signup";
 import SingleProduct from "../Pages/SingleProductPage";
@@ -120,6 +121,7 @@ export const AllRoutes = () => {
             </PrivateRoute>
           }
         />
+         <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
   );

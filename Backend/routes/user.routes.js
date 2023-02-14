@@ -181,7 +181,7 @@ usersRoute.patch("/addOrder", async (req, res) => {
   let payload = req.body;
   let data = await RegisterModule.findOne({ email: email });
   data.orders.push(...payload);
-  data.cart=[]
+  data.cart = [];
   data.save();
   res.send({ message: "Data saved successfully" });
 });
@@ -207,5 +207,5 @@ usersRoute.patch("/deleteCart", async (req, res) => {
 });
 
 module.exports = {
-  usersRoute
+  usersRoute,
 };

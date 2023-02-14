@@ -16,6 +16,7 @@ import {
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink, useNavigate } from "react-router-dom";
+import Social from "../Componets/SocialMediaLoginSignup";
 import { login } from "../Redux/Auth/auth.action";
 
 function Login() {
@@ -114,6 +115,10 @@ function Login() {
                 Sign in
               </Button>
             </Stack>
+            <Heading textAlign={"center"} size="md">
+              OR
+            </Heading>
+            <Social />
           </Stack>
         </Box>
       </Stack>

@@ -93,9 +93,9 @@ function Cart() {
       });
   };
 
-  const handlePlus=(product,data)=>{
-    console.log(data,product)
-  }
+  const handlePlus = (product, data) => {
+    console.log(data, product);
+  };
 
   return (
     <Box p="10">
@@ -125,7 +125,7 @@ function Cart() {
               deleteCart={() => deleteCart(i)}
               addWishlist={() => addWishlist(i)}
               count={i.qty}
-              handlePlus={()=>handlePlus(i,1)}
+              handlePlus={() => handlePlus(i, 1)}
             />
           ))}
         </Flex>
@@ -159,7 +159,7 @@ function Cart() {
             </Heading>
           </Flex>
           <Button>
-          <NavLink to="/checkout">Checkout</NavLink>
+            <NavLink to="/checkout">Checkout</NavLink>
           </Button>
         </VStack>
       </Grid>

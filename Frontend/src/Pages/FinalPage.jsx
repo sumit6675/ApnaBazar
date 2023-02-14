@@ -3,11 +3,11 @@ import { Box, Flex, Image } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
 
 export const LastPage = () => {
-    const navigate = useNavigate();
-    setTimeout(() => {
-        navigate("/");
-        },1500)
-        
+  const navigate = useNavigate();
+  setTimeout(() => {
+    navigate("/");
+  }, 1500);
+
   return (
     <>
       <Flex
