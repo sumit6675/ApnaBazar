@@ -1727,5 +1727,5 @@ ProductRoute.get("/home/:id", async (req, res) => {
 });
 
 module.exports = {
-  ProductRoute,
+  ProductRoute
 };
