@@ -54,7 +54,7 @@ const SingleProduct = ({ category }) => {
         if (!checkProductInCart) {
           fetch(`http://localhost:8080/users/cart?email=${email}`, {
             method: "PATCH",
-            body: JSON.stringify(singleData),
+            body: JSON.stringify({...singleData,qty:1}),
             headers: {
               "Content-type": "application/json; charset=UTF-8",
             },

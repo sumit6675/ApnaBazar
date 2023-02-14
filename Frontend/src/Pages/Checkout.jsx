@@ -44,6 +44,7 @@ function Checkout() {
   const [upiId, setupiId] = useState("");
   const [cart, setCart] = useState([]);
   const [total, setTotal] = useState(0);
+  const [flag, setFlag] = useState(false);
   const toast = useToast();
   useEffect(() => {
     fetch(`http://localhost:8080/users?email=${email}`)
@@ -58,8 +59,13 @@ function Checkout() {
           }
         }
         setCart(res.cart);
+        let tot = 0;
+        for (let i = 0; i < res.cart.length; i++) {
+          tot += parseInt(res.cart[i].price.replace(/,/g, ""));
+        }
+        setTotal(tot);
       });
-  }, [email]);
+  }, [email, flag, total]);
   const handleAddress = () => {
     const payload = {
       Username,
@@ -138,21 +144,21 @@ function Checkout() {
     }
   };
   const handleCardPayment = () => {
-    let payload = {
+    let paymentOption = {
       cardNumber,
       cardMonthYear,
       cvv,
       nameOnCard,
       payBy: "CARD",
     };
-    if (cardNumber !== 16) {
+    if (cardNumber.length !== 16) {
       toast({
         title: `Please Check Your Card Number`,
         status: "error",
         duration: 2000,
         isClosable: true,
       });
-    } else if (cardMonthYear.includes("/") || cardMonthYear.length !== 5) {
+    } else if (!cardMonthYear.includes("/") || cardMonthYear.length !== 5) {
       toast({
         title: `Please Check Your Card expiry Year and Month it should be in MM/YY formate`,
         status: "error",
@@ -174,11 +180,20 @@ function Checkout() {
         isClosable: true,
       });
     } else {
-      console.log(payload);
+      let payload = [];
+      cart.forEach((i) => {
+        payload.push({
+          ...i,
+          ...paymentOption,
+          orderStatus: "Processing",
+          orderBook: true,
+        });
+      });
+      console.log(...payload);
     }
   };
   const handleUpi = () => {
-    const payload = {
+    const paymentOption = {
       upiId: upiId,
       payBy: "UPI",
     };
@@ -190,14 +205,76 @@ function Checkout() {
         isClosable: true,
       });
     } else {
+      let payload = [];
+
+      cart.forEach((i) => {
+        payload.push({
+          ...i,
+          ...paymentOption,
+          orderStatus: "Processing",
+          orderBook: true,
+        });
+      });
+
       console.log(payload);
     }
   };
   const handleCod = () => {
-    const payload = {
+    const paymentOption = {
       payBy: "Cash",
     };
-    console.log(payload);
+    let payload = [];
+
+    cart.forEach((i) => {
+      payload.push({
+        ...i,
+        ...paymentOption,
+        orderStatus: "Processing",
+        orderBook: true,
+        address,
+        city,
+        state,
+        pin,
+      });
+    });
+
+    fetch(`http://localhost:8080/users/addOrder?email=${email}`, {
+      method: "PATCH",
+      body: JSON.stringify(payload),
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+      },
+    })
+      .then((response) => response.json())
+      .then((json) => {
+        toast({
+          title: `Your Order Successfully Placed`,
+          status: "success",
+          duration: 2000,
+          isClosable: true,
+        });
+        setFlag(!flag)
+      });
+  };
+  const deleteCart = (product) => {
+    fetch(`http://localhost:8080/users/deleteCart?email=${email}`, {
+      method: "PATCH",
+      body: JSON.stringify(product),
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+      },
+    })
+      .then((response) => response.json())
+      .then((json) => {
+        toast({
+          title: `${product.Name} Product deleted successfully`,
+          description: "Product deleted successfully from Cart",
+          status: "success",
+          duration: 2000,
+          isClosable: true,
+        });
+        setFlag(!flag);
+      });
   };
   return (
     <Box w="100%" margin="auto" p="5">
@@ -600,24 +677,26 @@ function Checkout() {
         <VStack
           w="55%"
           p="8"
-          gap="5"
           alignItems={"left"}
           border="1px solid teal"
+          h={`${cart.length * 240}px`}
+          justifyContent="space-between"
           mt="100px"
         >
           <Heading size={"md"} fontWeight="bold">
             Order Summary
           </Heading>
-            {cart.map((i) => (
-              <SingleCheckoutProduct
-                img={i.image}
-                name={i.Name}
-                price={i.price}
-              />
-            ))}
+          {cart.map((i) => (
+            <SingleCheckoutProduct
+              img={i.image}
+              name={i.Name}
+              price={i.price}
+              deleteProduct={() => deleteCart(i)}
+            />
+          ))}
           <Flex gap="5">
-            <Heading size={"md"}>Total</Heading>
-            <Heading size={"md"} fontWeight={"bold"}>
+            <Heading size={"lg"}>Total : </Heading>
+            <Heading size={"lg"} fontWeight={"bold"}>
               Rs.{total.toLocaleString()}
             </Heading>
           </Flex>

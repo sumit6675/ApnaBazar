@@ -1,7 +1,7 @@
 import { Box, Button, Flex, Image } from "@chakra-ui/react";
 import React from "react";
 
-function SingleCheckoutProduct({ img, name, price }) {
+function SingleCheckoutProduct({ img, name, price , deleteProduct}) {
   return (
     <Flex w="100%" alignItems={"center"} justifyContent={"space-evenly"}>
       <Image src={img} alt="name" w="60px" />
@@ -14,7 +14,7 @@ function SingleCheckoutProduct({ img, name, price }) {
       <Box fontWeight="semibold" as="h4" lineHeight="tight" noOfLines={1}>
         Rs.{price}
       </Box>
-      <Button size={"xs"} color="red">
+      <Button size={"xs"} color="red" onClick={deleteProduct}>
         Remove
       </Button>
     </Flex>

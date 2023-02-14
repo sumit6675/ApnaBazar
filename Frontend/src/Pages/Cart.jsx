@@ -93,6 +93,10 @@ function Cart() {
       });
   };
 
+  const handlePlus=(product,data)=>{
+    console.log(data,product)
+  }
+
   return (
     <Box p="10">
       <Heading textAlign={"center"}>
@@ -120,6 +124,8 @@ function Cart() {
               id={i._id}
               deleteCart={() => deleteCart(i)}
               addWishlist={() => addWishlist(i)}
+              count={i.qty}
+              handlePlus={()=>handlePlus(i,1)}
             />
           ))}
         </Flex>
