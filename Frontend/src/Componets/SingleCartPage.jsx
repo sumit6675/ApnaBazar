@@ -3,7 +3,7 @@ import { Flex, Box, Image, Button, Heading } from "@chakra-ui/react";
 import { FcPlus } from "react-icons/fc";
 import { TbTruckDelivery } from "react-icons/tb";
 
-const SingleCartItem = ({ name, img, price, id,deleteCart,addWishlist }) => {
+const SingleCartItem = ({ name, img, price, id,deleteCart,addWishlist,count,handleMinus,handlePlus }) => {
   var months = [
     "January",
     "February",
@@ -67,6 +67,7 @@ const SingleCartItem = ({ name, img, price, id,deleteCart,addWishlist }) => {
       maxW={"full"}
       boxShadow={"rgb(0 0 0 / 6%) 0px 2px 2px"}
       borderRadius="4px"
+      alignItems={"center"}
     >
       <Flex
         p={"16px"}
@@ -97,18 +98,18 @@ const SingleCartItem = ({ name, img, price, id,deleteCart,addWishlist }) => {
           gap="2"
         >
           <Box>
-            <Image src={img} alt={name} width="200px" />
+            <Image src={img} alt={name} width="200px" height="220px" />
           </Box>
           <Box display={"flex"} gap="2">
-            <Button>-</Button>
+            <Button onClick={handleMinus}>-</Button>
             <Button
               backgroundColor={"white"}
               disabled={true}
               fontWeight={"bold"}
             >
-              {1}
+              {count}
             </Button>
-            <Button>+</Button>
+            <Button onClick={handlePlus}>+</Button>
           </Box>
         </Flex>
         {/* //part2-line 46 to 71 */}

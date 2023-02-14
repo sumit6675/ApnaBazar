@@ -4,5 +4,5 @@ const mongoose = require("mongoose");
 const connection = mongoose.connect(URL);
 
 module.exports = {
-  connection,
+  connection
 };

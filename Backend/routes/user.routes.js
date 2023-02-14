@@ -3,9 +3,7 @@ const jwt = require("jsonwebtoken");
 require("dotenv").config();
 const usersRoute = express.Router();
 const { RegisterModule } = require("../models/user.model");
-
 const bcrypt = require("bcrypt");
-
 //registered data using signup page
 //if email already registered then redirected to login page
 const isValidPassword = (password) => {
@@ -134,42 +132,80 @@ usersRoute.post("/login", async (req, res) => {
   }
 });
 
-usersRoute.patch("/cart",async(req,res)=>{
-  let {email}=req.query
-  let payload=req.body
-  let data=await RegisterModule.findOne({email:email})
-  data.cart.push(payload)
-  data.save()
-  res.send({"message":"Data saved successfully"})
-})
-usersRoute.patch("/addWishlist",async(req,res)=>{
-  let {email}=req.query
-  let payload=req.body
-  let data=await RegisterModule.findOne({email:email})
-  data.wishlist.push(payload)
-  data.save()
-  res.send({"message":"Data saved successfully"})
-})
-usersRoute.patch("/addAdress",async(req,res)=>{
-  let {email}=req.query
-  let payload=req.body
-  let data=await RegisterModule.findOne({email:email})
-  data.address.push(payload)
-  data.pincode=payload.pin
-  data.City=payload.city
-  data.save()
-  res.send({"message":"Address saved successfully"})
-})
+usersRoute.patch("/cart", async (req, res) => {
+  let { email } = req.query;
+  let payload = req.body;
+  let data = await RegisterModule.findOne({ email: email });
+  data.cart.push(payload);
+  data.save();
+  res.send({ message: "Data saved successfully" });
+});
 
-usersRoute.patch("/deleteCart",async(req,res)=>{
-  let {email}=req.query
-  let payload=req.body
-  let data=await RegisterModule.findOne({email:email})
-  data.cart.pull(payload)
-  data.save()
-  res.send({"message":"Data deleted successfully"})
-})
+// usersRoute.patch("/handleqty", async (req, res) => {
+//   // let { email, id } = req.query;
+//   // let data = await RegisterModule.findOne({'email':email},{'cart._id':id},(err,doc)=>{
+//   //   if(err){
+//   //     console.log(err)
+//   //   }else{
+//   //     console.log(doc)
+//   //     res.send(doc);
+//   //   }
+//   // })
+//   const userId = "63d8f31c259add9dd25f1876"; // the user ID
+//   const wishlistItemId = "63dab1bd25c1ca87fb9d6932"; // the wishlist item ID
+//   const qtyToDecrease = 1; // the amount to decrease the qty field by
+//   await RegisterModule.findOneAndUpdate(
+//     { _id: userId, "wishlist._id": wishlistItemId },
+//     { $set: { "wishlist.$.qty": 0 }, $inc: { "wishlist.$.qty": qtyToDecrease } }, // update operators
+//     (err, doc) => {
+//       if (err) {
+//         console.log(err);
+//       }else{
+//         console.log("done")
+//       }
+//     }
+//   );
+// });
+
+usersRoute.patch("/addWishlist", async (req, res) => {
+  let { email } = req.query;
+  let payload = req.body;
+  let data = await RegisterModule.findOne({ email: email });
+  data.wishlist.push(payload);
+  data.save();
+  res.send({ message: "Data saved successfully" });
+});
+
+usersRoute.patch("/addOrder", async (req, res) => {
+  let { email } = req.query;
+  let payload = req.body;
+  let data = await RegisterModule.findOne({ email: email });
+  data.orders.push(...payload);
+  data.cart=[]
+  data.save();
+  res.send({ message: "Data saved successfully" });
+});
+
+usersRoute.patch("/addAdress", async (req, res) => {
+  let { email } = req.query;
+  let payload = req.body;
+  let data = await RegisterModule.findOne({ email: email });
+  data.address.push(payload);
+  data.pincode = payload.pin;
+  data.City = payload.city;
+  data.save();
+  res.send({ message: "Address saved successfully" });
+});
+
+usersRoute.patch("/deleteCart", async (req, res) => {
+  let { email } = req.query;
+  let payload = req.body;
+  let data = await RegisterModule.findOne({ email: email });
+  data.cart.pull(payload);
+  data.save();
+  res.send({ message: "Data deleted successfully" });
+});
 
 module.exports = {
-  usersRoute,
+  usersRoute
 };
