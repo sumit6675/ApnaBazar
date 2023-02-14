@@ -31,6 +31,7 @@ const registerSchema = mongoose.Schema({
       city: String,
       state: String,
       pin: String,
+      date:String
     },
   ],
   wishlist: [],

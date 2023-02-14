@@ -181,15 +181,42 @@ function Checkout() {
       });
     } else {
       let payload = [];
+      const today = new Date();
+      const day = String(today.getDate()).padStart(2, "0");
+      const month = String(today.getMonth() + 1).padStart(2, "0");
+      const year = today.getFullYear();
+      const date = `${day}-${month}-${year}`;
       cart.forEach((i) => {
         payload.push({
           ...i,
           ...paymentOption,
           orderStatus: "Processing",
           orderBook: true,
+          address,
+          city,
+          state,
+          pin,
+          date,
         });
       });
-      console.log(...payload);
+
+      fetch(`http://localhost:8080/users/addOrder?email=${email}`, {
+        method: "PATCH",
+        body: JSON.stringify(payload),
+        headers: {
+          "Content-type": "application/json; charset=UTF-8",
+        },
+      })
+        .then((response) => response.json())
+        .then((json) => {
+          toast({
+            title: `Your Order Successfully Placed`,
+            status: "success",
+            duration: 2000,
+            isClosable: true,
+          });
+          setFlag(!flag);
+        });
     }
   };
   const handleUpi = () => {
@@ -207,16 +234,42 @@ function Checkout() {
     } else {
       let payload = [];
 
+      const today = new Date();
+      const day = String(today.getDate()).padStart(2, "0");
+      const month = String(today.getMonth() + 1).padStart(2, "0");
+      const year = today.getFullYear();
+      const date = `${day}-${month}-${year}`;
       cart.forEach((i) => {
         payload.push({
           ...i,
           ...paymentOption,
           orderStatus: "Processing",
           orderBook: true,
+          address,
+          city,
+          state,
+          pin,
+          date,
         });
       });
 
-      console.log(payload);
+      fetch(`http://localhost:8080/users/addOrder?email=${email}`, {
+        method: "PATCH",
+        body: JSON.stringify(payload),
+        headers: {
+          "Content-type": "application/json; charset=UTF-8",
+        },
+      })
+        .then((response) => response.json())
+        .then((json) => {
+          toast({
+            title: `Your Order Successfully Placed`,
+            status: "success",
+            duration: 2000,
+            isClosable: true,
+          });
+          setFlag(!flag);
+        });
     }
   };
   const handleCod = () => {
@@ -225,6 +278,11 @@ function Checkout() {
     };
     let payload = [];
 
+    const today = new Date();
+    const day = String(today.getDate()).padStart(2, "0");
+    const month = String(today.getMonth() + 1).padStart(2, "0");
+    const year = today.getFullYear();
+    const date = `${day}-${month}-${year}`;
     cart.forEach((i) => {
       payload.push({
         ...i,
@@ -235,6 +293,7 @@ function Checkout() {
         city,
         state,
         pin,
+        date,
       });
     });
 
@@ -253,7 +312,7 @@ function Checkout() {
           duration: 2000,
           isClosable: true,
         });
-        setFlag(!flag)
+        setFlag(!flag);
       });
   };
   const deleteCart = (product) => {
