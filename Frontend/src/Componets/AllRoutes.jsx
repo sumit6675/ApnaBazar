@@ -2,6 +2,7 @@ import React from "react";
 import { Route, Routes } from "react-router-dom";
 import Cart from "../Pages/Cart";
 import Checkout from "../Pages/Checkout";
+import { LastPage } from "../Pages/FinalPage";
 import HomePage from "../Pages/HomePage";
 import Login from "../Pages/Login";
 import Productpage from "../Pages/Products";
@@ -108,6 +109,14 @@ export const AllRoutes = () => {
           element={
             <PrivateRoute>
               <Checkout />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/finalPage"
+          element={
+            <PrivateRoute>
+              <LastPage />
             </PrivateRoute>
           }
         />

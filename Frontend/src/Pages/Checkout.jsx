@@ -27,6 +27,7 @@ import { TbAddressBook } from "react-icons/tb";
 import { PhoneIcon } from "@chakra-ui/icons";
 import { useSelector } from "react-redux";
 import SingleCheckoutProduct from "../Componets/SingleCheckoutProduct";
+import { useNavigate } from "react-router-dom";
 function Checkout() {
   const { email, name } = useSelector((store) => store.AuthManager);
   const [Username, setName] = useState(`${name}`);
@@ -46,6 +47,7 @@ function Checkout() {
   const [total, setTotal] = useState(0);
   const [flag, setFlag] = useState(false);
   const toast = useToast();
+  const navigate = useNavigate();
   useEffect(() => {
     fetch(`http://localhost:8080/users?email=${email}`)
       .then((res) => res.json())
@@ -215,7 +217,7 @@ function Checkout() {
             duration: 2000,
             isClosable: true,
           });
-          setFlag(!flag);
+          navigate("/finalPage");
         });
     }
   };
@@ -268,7 +270,7 @@ function Checkout() {
             duration: 2000,
             isClosable: true,
           });
-          setFlag(!flag);
+          navigate("/finalPage");
         });
     }
   };
@@ -312,7 +314,7 @@ function Checkout() {
           duration: 2000,
           isClosable: true,
         });
-        setFlag(!flag);
+        navigate("/finalPage");
       });
   };
   const deleteCart = (product) => {
