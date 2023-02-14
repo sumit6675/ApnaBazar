@@ -16,6 +16,7 @@ import {
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
+import { backendLink } from "../backendLink";
 import ProductCarousal from "../Componets/Homepage/ProductCarousal";
 
 const SingleProduct = ({ category }) => {
@@ -29,7 +30,7 @@ const SingleProduct = ({ category }) => {
 
   useEffect(() => {
     let id = params.id;
-    fetch(`http://localhost:8080/products/${category}/${id}`)
+    fetch(`${backendLink}/products/${category}/${id}`)
       .then((res) => res.json())
       .then((res) => {
         setSingleData(res);
@@ -41,7 +42,7 @@ const SingleProduct = ({ category }) => {
   
   const handleCart = () => {
 
-    fetch(`http://localhost:8080/users?email=${email}`)
+    fetch(`${backendLink}/users?email=${email}`)
       .then((res) => res.json())
       .then((res) => {
         let checkProductInCart = false;
@@ -52,7 +53,7 @@ const SingleProduct = ({ category }) => {
         }
 
         if (!checkProductInCart) {
-          fetch(`http://localhost:8080/users/cart?email=${email}`, {
+          fetch(`${backendLink}/users/cart?email=${email}`, {
             method: "PATCH",
             body: JSON.stringify({...singleData,qty:1}),
             headers: {
@@ -82,7 +83,7 @@ const SingleProduct = ({ category }) => {
       });
   };
   const addWishlist = (product) => {
-    fetch(`http://localhost:8080/users?email=${email}`)
+    fetch(`${backendLink}/users?email=${email}`)
       .then((res) => res.json())
       .then((res) => {
         let checkProductInWishlist = false;
@@ -92,7 +93,7 @@ const SingleProduct = ({ category }) => {
           }
         }
         if (!checkProductInWishlist) {
-          fetch(`http://localhost:8080/users/addWishlist?email=${email}`, {
+          fetch(`${backendLink}/users/addWishlist?email=${email}`, {
             method: "PATCH",
             body: JSON.stringify(product),
             headers: {

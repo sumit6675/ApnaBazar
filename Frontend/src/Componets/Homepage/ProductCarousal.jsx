@@ -9,11 +9,12 @@ import "swiper/css/autoplay";
 import Productonepage from './ProductOne';
 import { Box } from '@chakra-ui/react';
 import { useNavigate } from 'react-router-dom';
+import { backendLink } from '../../backendLink';
 function ProductCarousal({phone,count}) {
   const navigate=useNavigate()
     const [data, setData] = React.useState([]);
   useEffect(() => {
-    fetch(`http://localhost:8080/products/${phone}?brand=All&sort=default`)
+    fetch(`${backendLink}/products/${phone}?brand=All&sort=default`)
       .then((response) => response.json())
       .then((data) => setData(data));
   }, [phone]);

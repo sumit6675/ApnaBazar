@@ -28,6 +28,7 @@ import { PhoneIcon } from "@chakra-ui/icons";
 import { useSelector } from "react-redux";
 import SingleCheckoutProduct from "../Componets/SingleCheckoutProduct";
 import { useNavigate } from "react-router-dom";
+import { backendLink } from "../backendLink";
 function Checkout() {
   const { email, name } = useSelector((store) => store.AuthManager);
   const [Username, setName] = useState(`${name}`);
@@ -49,7 +50,7 @@ function Checkout() {
   const toast = useToast();
   const navigate = useNavigate();
   useEffect(() => {
-    fetch(`http://localhost:8080/users?email=${email}`)
+    fetch(`${backendLink}/users?email=${email}`)
       .then((res) => res.json())
       .then((res) => {
         for (let i = 0; i < res.address.length; i++) {
@@ -106,7 +107,7 @@ function Checkout() {
         isClosable: true,
       });
     } else {
-      fetch(`http://localhost:8080/users?email=${email}`)
+      fetch(`${backendLink}/users?email=${email}`)
         .then((res) => res.json())
         .then((res) => {
           let checkAddressInDatabase = false;
@@ -116,7 +117,7 @@ function Checkout() {
             }
           }
           if (!checkAddressInDatabase) {
-            fetch(`http://localhost:8080/users/addAdress?email=${email}`, {
+            fetch(`${backendLink}/users/addAdress?email=${email}`, {
               method: "PATCH",
               body: JSON.stringify(payload),
               headers: {
@@ -202,7 +203,7 @@ function Checkout() {
         });
       });
 
-      fetch(`http://localhost:8080/users/addOrder?email=${email}`, {
+      fetch(`${backendLink}/users/addOrder?email=${email}`, {
         method: "PATCH",
         body: JSON.stringify(payload),
         headers: {
@@ -255,7 +256,7 @@ function Checkout() {
         });
       });
 
-      fetch(`http://localhost:8080/users/addOrder?email=${email}`, {
+      fetch(`${backendLink}/users/addOrder?email=${email}`, {
         method: "PATCH",
         body: JSON.stringify(payload),
         headers: {
@@ -299,7 +300,7 @@ function Checkout() {
       });
     });
 
-    fetch(`http://localhost:8080/users/addOrder?email=${email}`, {
+    fetch(`${backendLink}/users/addOrder?email=${email}`, {
       method: "PATCH",
       body: JSON.stringify(payload),
       headers: {
@@ -318,7 +319,7 @@ function Checkout() {
       });
   };
   const deleteCart = (product) => {
-    fetch(`http://localhost:8080/users/deleteCart?email=${email}`, {
+    fetch(`${backendLink}/users/deleteCart?email=${email}`, {
       method: "PATCH",
       body: JSON.stringify(product),
       headers: {

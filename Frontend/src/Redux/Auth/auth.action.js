@@ -6,14 +6,15 @@ import {
   LOGIN_SUCCESS,
   LOGOUT,
 } from "./auth.types";
+import {backendLink} from "../../backendLink"
 
 export const login = (creds) => async (dispatch) => { 
   dispatch({ type: LOGIN_LOADING });
   try {
-    await axios.post("http://localhost:8080/users/login", creds)
+    await axios.post(`${backendLink}/users/login`, creds)
     .then((res)=>{
       dispatch({ type: LOGIN_SUCCESS, payload: res.data });
-      console.log(res.data);
+      console.log(backendLink);
     })
   } catch (e) {
     console.log(e.message)

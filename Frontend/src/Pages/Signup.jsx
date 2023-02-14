@@ -19,6 +19,7 @@ import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
 import React from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import Social from "../Componets/SocialMediaLoginSignup";
+import { backendLink } from "../backendLink";
 
 function Signup() {
   const [showPassword, setShowPassword] = useState(false);
@@ -36,7 +37,7 @@ function Signup() {
         email,
         password,
       };
-      fetch("http://localhost:8080/users/register", {
+      fetch(`${backendLink}/users/register`, {
         method: "POST",
         body: JSON.stringify(payload),
         headers: {

@@ -148,7 +148,7 @@ function Navbar() {
                 Hi {name}
               </MenuButton>
               <MenuList>
-                <MenuItem>My Profile</MenuItem>
+                <MenuItem><NavLink to="/profile">My Profile</NavLink></MenuItem>
                 <MenuItem>My Order</MenuItem>
                 <MenuItem>My Address</MenuItem>
                 <Link to="whishlist">

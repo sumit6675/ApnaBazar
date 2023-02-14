@@ -1,5 +1,4 @@
 require("dotenv").config();
-const PORT = process.env.port;
 const express = require("express");
 const app = express();
 const cors = require("cors");
@@ -25,12 +24,12 @@ app.use("/users", usersRoute);
 
 app.use("/products",ProductRoute)
 
-app.listen(PORT, async () => {
+app.listen(8080, async () => {
   try {
     await connection;
     console.log("Coonected to the database");
   } catch (err) {
     console.log("err", err);
   }
-  console.log(`Server is live at PORT : ${PORT}`);
+  console.log(`Server is live at PORT : 8080`);
 });

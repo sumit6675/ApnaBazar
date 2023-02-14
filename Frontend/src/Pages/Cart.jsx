@@ -10,6 +10,7 @@ import {
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
+import { backendLink } from "../backendLink";
 import SingleCartItem from "../Componets/SingleCartPage";
 
 function Cart() {
@@ -19,7 +20,7 @@ function Cart() {
   const [flag, setFlag] = useState(false);
   const toast = useToast();
   useEffect(() => {
-    fetch(`http://localhost:8080/users?email=${email}`)
+    fetch(`${backendLink}/users?email=${email}`)
       .then((res) => res.json())
       .then((res) => {
         setCart(res.cart);
@@ -32,7 +33,7 @@ function Cart() {
   }, [email, total, flag]);
 
   const deleteCart = (product) => {
-    fetch(`http://localhost:8080/users/deleteCart?email=${email}`, {
+    fetch(`${backendLink}/users/deleteCart?email=${email}`, {
       method: "PATCH",
       body: JSON.stringify(product),
       headers: {
@@ -53,7 +54,7 @@ function Cart() {
   };
 
   const addWishlist = (product) => {
-    fetch(`http://localhost:8080/users?email=${email}`)
+    fetch(`${backendLink}/users?email=${email}`)
       .then((res) => res.json())
       .then((res) => {
         let checkProductInWishlist = false;
@@ -63,7 +64,7 @@ function Cart() {
           }
         }
         if (!checkProductInWishlist) {
-          fetch(`http://localhost:8080/users/addWishlist?email=${email}`, {
+          fetch(`${backendLink}/users/addWishlist?email=${email}`, {
             method: "PATCH",
             body: JSON.stringify(product),
             headers: {

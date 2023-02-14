@@ -1,6 +1,7 @@
 import { Grid, Heading, Skeleton, Text, VStack } from "@chakra-ui/react";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { backendLink } from "../backendLink";
 import SingleProduct from "../Componets/SingleProduct";
 
 function Productpage({ category }) {
@@ -12,7 +13,7 @@ function Productpage({ category }) {
   React.useEffect(() => {
     setLoading(true);
     fetch(
-      `http://localhost:8080/products/${category}?brand=${selectedValue1}&sort=${sort}`
+      `${backendLink}/products/${category}?brand=${selectedValue1}&sort=${sort}`
     )
       .then((res) => res.json())
       .then((res) => {

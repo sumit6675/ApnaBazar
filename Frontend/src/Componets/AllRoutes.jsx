@@ -7,6 +7,7 @@ import HomePage from "../Pages/HomePage";
 import Login from "../Pages/Login";
 import NotFound from "../Pages/PageNotFound";
 import Productpage from "../Pages/Products";
+import ProfilePage from "../Pages/ProfilePage";
 import Signup from "../Pages/Signup";
 import SingleProduct from "../Pages/SingleProductPage";
 import PrivateRoute from "./PrivateRoutes";
@@ -118,6 +119,14 @@ export const AllRoutes = () => {
           element={
             <PrivateRoute>
               <LastPage />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/profile"
+          element={
+            <PrivateRoute>
+              <ProfilePage />
             </PrivateRoute>
           }
         />
