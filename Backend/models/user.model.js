@@ -38,6 +38,8 @@ const registerSchema = mongoose.Schema({
   address: [],
   pincode: Number,
   City: String,
+  address: String,
+  state: String,
 });
 
 const RegisterModule = mongoose.model("users", registerSchema);

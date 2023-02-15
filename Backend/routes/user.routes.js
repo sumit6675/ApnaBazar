@@ -141,31 +141,31 @@ usersRoute.patch("/cart", async (req, res) => {
   res.send({ message: "Data saved successfully" });
 });
 
-usersRoute.patch("/handleqty", async (req, res) => {
-  let { email, id } = req.query;
-  let data = await RegisterModule.findOne({'email':email},{'cart._id':id},(err,doc)=>{
-    if(err){
-      console.log(err)
-    }else{
-      console.log(doc)
-      res.send(doc);
-    }
-  })
-  const userId = "63d8f31c259add9dd25f1876"; // the user ID
-  const wishlistItemId = "63dab1bd25c1ca87fb9d6932"; // the wishlist item ID
-  const qtyToDecrease = 1; // the amount to decrease the qty field by
-  await RegisterModule.findOneAndUpdate(
-    { _id: userId, "wishlist._id": wishlistItemId },
-    { $set: { "wishlist.$.qty": 0 }, $inc: { "wishlist.$.qty": qtyToDecrease } }, // update operators
-    (err, doc) => {
-      if (err) {
-        console.log(err);
-      }else{
-        console.log("done")
-      }
-    }
-  );
-});
+// usersRoute.patch("/handleqty", async (req, res) => {
+//   let { email, id } = req.query;
+//   let data = await RegisterModule.findOne({'email':email},{'cart._id':id},(err,doc)=>{
+//     if(err){
+//       console.log(err)
+//     }else{
+//       console.log(doc)
+//       res.send(doc);
+//     }
+//   })
+//   const userId = "63d8f31c259add9dd25f1876"; // the user ID
+//   const wishlistItemId = "63dab1bd25c1ca87fb9d6932"; // the wishlist item ID
+//   const qtyToDecrease = 1; // the amount to decrease the qty field by
+//   await RegisterModule.findOneAndUpdate(
+//     { _id: userId, "wishlist._id": wishlistItemId },
+//     { $set: { "wishlist.$.qty": 0 }, $inc: { "wishlist.$.qty": qtyToDecrease } }, // update operators
+//     (err, doc) => {
+//       if (err) {
+//         console.log(err);
+//       }else{
+//         console.log("done")
+//       }
+//     }
+//   );
+// });
 
 usersRoute.patch("/addWishlist", async (req, res) => {
   let { email } = req.query;
@@ -205,6 +205,24 @@ usersRoute.patch("/deleteCart", async (req, res) => {
   data.save();
   res.send({ message: "Data deleted successfully" });
 });
+
+usersRoute.patch("/updateuser",async(req,res)=>{
+  let { id } = req.query;
+  let payload = req.body;
+ try{
+  await RegisterModule.findByIdAndUpdate(id,payload,(err,doc)=>{
+    if(err){
+      res.send(err)
+    }else{
+      console.log("Data updated successfully")
+      res.send(doc);
+    }
+  })
+ }catch(err){
+  console.log(err)
+ }
+
+})
 
 module.exports = {
   usersRoute,
