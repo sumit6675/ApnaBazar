@@ -75,9 +75,9 @@
 
 ## Login Page :
 
-<h5>Our login page is designed to make it easy for you to access your account and start shopping. Simply enter your registered email address and password, and you'll be redirected to our homepage where you can start exploring our vast collection of high-quality products.</h5
+<h5>Our login page is designed to make it easy for you to access your account and start shopping. Simply enter your registered email address and password, and you'll be redirected to our homepage where you can start exploring our vast collection of high-quality products.</h5>
 
-<h5>In the event that you enter an incorrect email address or password, our system will recognize the error and prompt you to enter the correct information. We value the security of your account and take measures to ensure that your login information is protected.</h5
+<h5>In the event that you enter an incorrect email address or password, our system will recognize the error and prompt you to enter the correct information. We value the security of your account and take measures to ensure that your login information is protected.</h5>
 
 <h5>At Apna Bazar, we strive to make your shopping experience as smooth and enjoyable as possible. With our user-friendly login page, you can easily access your account and start shopping with just a few clicks. So, login to your account and start shopping with confidence at Apna Bazar.</h5>
 <br/>
