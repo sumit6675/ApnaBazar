@@ -37,8 +37,6 @@
 
 <br/>
 
-## Let's Dive into What we have made
-
 ## Home Page :
 
 <h5>Our homepage is designed to give you a seamless shopping experience with visually stunning carousels, videos, and product sliders showcasing our latest offerings. Explore our vast collection of men's and women's clothing, phones, laptops, home appliances, and more.</h5>
