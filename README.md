@@ -1,16 +1,10 @@
 # Welcome to ShubhYatra
 
-<h3>Apna Bazar is your one-stop-shop for all your shopping needs. Our e-commerce website offers a wide range of products including men's and women's clothing, phones, laptops, and home appliances. You can explore our vast collection of high-quality products from the comfort of your home and enjoy hassle-free delivery right to your doorstep. Whether you're looking for the latest fashion trends or the newest gadgets, Apna Bazar has it all. Shop with us and experience the convenience of online shopping at its best.</h3>
+<h4>Apna Bazar is your one-stop-shop for all your shopping needs. Our e-commerce website offers a wide range of products including men's and women's clothing, phones, laptops, and home appliances. You can explore our vast collection of high-quality products from the comfort of your home and enjoy hassle-free delivery right to your doorstep. Whether you're looking for the latest fashion trends or the newest gadgets, Apna Bazar has it all. Shop with us and experience the convenience of online shopping at its best.</h4>
 
 <br/>
 
 # Deployed URL 👉 [Click here](https://apnaabazar.netlify.app/)
-
-## Our Team Members
-
-- Sumit Chimkar ( My Linkedin profile :- https://www.linkedin.com/in/sumitchimkar/ )
-  <br/>
-  <br/>
   <br/>
   <br/>
 
@@ -47,7 +41,7 @@
 
 ## Home Page :
 
-<h3>Our homepage is designed to give you a seamless shopping experience with visually stunning carousels, videos, and product sliders showcasing our latest offerings. Explore our vast collection of men's and women's clothing, phones, laptops, home appliances, and more.</h3>
+<h5>Our homepage is designed to give you a seamless shopping experience with visually stunning carousels, videos, and product sliders showcasing our latest offerings. Explore our vast collection of men's and women's clothing, phones, laptops, home appliances, and more.</h5>
 <br/>
 
 <div align="center">
@@ -58,15 +52,15 @@
 
 ## Signup Page :
 
-<h3>At Apna Bazar, we value our customers and want to make your shopping experience as seamless as possible. Our sign-up page is designed to be user-friendly and straightforward, so you can quickly and easily create your account. Simply enter your name, email, phone number, and password, and you'll be on your way to shopping with us.</h3>
+<h5>At Apna Bazar, we value our customers and want to make your shopping experience as seamless as possible. Our sign-up page is designed to be user-friendly and straightforward, so you can quickly and easily create your account. Simply enter your name, email, phone number, and password, and you'll be on your way to shopping with us.</h5>
 
-<h3>In the event that you enter an email address that is already in use, our system will recognize it and prompt you to login instead. Similarly, if you enter an email address in the wrong format, our system will recognize the error and prompt you to enter a valid email address. Additionally, if your phone number is not 10 digits long, our system will recognize the error and prompt you to enter a valid phone number.</h3>
+<h5>In the event that you enter an email address that is already in use, our system will recognize it and prompt you to login instead. Similarly, if you enter an email address in the wrong format, our system will recognize the error and prompt you to enter a valid email address. Additionally, if your phone number is not 10 digits long, our system will recognize the error and prompt you to enter a valid phone number.</h5>
 
-<h3>At Apna Bazar, we strive to provide our customers with the best shopping experience possible. By making our sign-up page user-friendly and error-free, we ensure that you can quickly and easily create your account and start shopping with us.</h3>
+<h5>At Apna Bazar, we strive to provide our customers with the best shopping experience possible. By making our sign-up page user-friendly and error-free, we ensure that you can quickly and easily create your account and start shopping with us.</h5>
 <br/>
 
 <div align="center">
-<img src="https://freeimage.host/i/HGJy56x" alt ="signup page" />
+<img src="https://iili.io/HGJy56x.jpg" alt ="signup page" />
 </div>
 
 <!-- ![SignUp](https://user-images.githubusercontent.com/107460451/213929583-e48c32af-fb3e-4bb1-afa0-1fa64475ecf3.jpg) -->
@@ -75,11 +69,11 @@
 
 ## Login Page :
 
-<h3>Our login page is designed to make it easy for you to access your account and start shopping. Simply enter your registered email address and password, and you'll be redirected to our homepage where you can start exploring our vast collection of high-quality products.</h3
+<h5>Our login page is designed to make it easy for you to access your account and start shopping. Simply enter your registered email address and password, and you'll be redirected to our homepage where you can start exploring our vast collection of high-quality products.</h5
 
-<h3>In the event that you enter an incorrect email address or password, our system will recognize the error and prompt you to enter the correct information. We value the security of your account and take measures to ensure that your login information is protected.</h3
+<h5>In the event that you enter an incorrect email address or password, our system will recognize the error and prompt you to enter the correct information. We value the security of your account and take measures to ensure that your login information is protected.</h5
 
-<h3>At Apna Bazar, we strive to make your shopping experience as smooth and enjoyable as possible. With our user-friendly login page, you can easily access your account and start shopping with just a few clicks. So, login to your account and start shopping with confidence at Apna Bazar.</h3>
+<h5>At Apna Bazar, we strive to make your shopping experience as smooth and enjoyable as possible. With our user-friendly login page, you can easily access your account and start shopping with just a few clicks. So, login to your account and start shopping with confidence at Apna Bazar.</h5>
 <br/>
 
 <table align="center">
