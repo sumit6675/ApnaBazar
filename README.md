@@ -58,13 +58,16 @@
 <h5>At Apna Bazar, we strive to provide our customers with the best shopping experience possible. By making our sign-up page user-friendly and error-free, we ensure that you can quickly and easily create your account and start shopping with us.</h5>
 <br/>
 
-<div align="center">
-<tr>
- <td>
-     <img src="https://iili.io/HGJy56x.jpg" alt ="signup page" />
+<table align="center">
+  <tr>
+    <td>
+        <img src="https://iili.io/HGJy56x.jpg" alt ="signup page" />
     </td>
-</tr>
-</div>
+    <!-- <td>
+      <img height="400px" src="https://user-images.githubusercontent.com/107460451/213929611-dffa65a1-132c-46c1-92c9-402d0d079757.jpg" alt="login page 2">
+    </td> -->
+  </tr>
+</table>
 
 <!-- ![SignUp](https://user-images.githubusercontent.com/107460451/213929583-e48c32af-fb3e-4bb1-afa0-1fa64475ecf3.jpg) -->
 
