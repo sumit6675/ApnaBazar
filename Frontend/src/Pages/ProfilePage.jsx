@@ -41,7 +41,7 @@ export default function ProfilePage() {
       phone,
       City,
       pincode,
-      address,
+      addressName:address,
       state
     }
     fetch(`${backendLink}/users/updateuser?id=${data._id}`, {
