@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Box, Container, Flex, Grid, GridItem, Heading } from "@chakra-ui/react";
+import { Box, Flex, Grid, GridItem, Heading, Skeleton } from "@chakra-ui/react";
 import Sidebar from "../Componets/Sidebar";
 import SingleOrderContainer from "../Componets/SingleOrderContainer";
 import { backendLink } from "../backendLink";
@@ -7,16 +7,52 @@ import { useSelector } from "react-redux";
 function Orders() {
   const { email } = useSelector((store) => store.AuthManager);
   const [data, setData] = useState([]);
+  const [loading, setLoading] = React.useState(true);
   useEffect(() => {
+    setLoading(true);
     fetch(`${backendLink}/users?email=${email}`)
       .then((res) => res.json())
-      .then((res) => setData(res.orders));
+      .then((res) => {
+        setLoading(false);
+        setData(res.orders);
+      });
   }, [email]);
+
+  if (loading) {
+    return (
+      <Flex w="100%" gap="5">
+        <Sidebar />
+        <Grid w="90%" m="auto" templateColumns={"repeat(4, 1fr)"} gap="20px">
+          <Skeleton height="220px" />
+          <Skeleton height="220px" />
+          <Skeleton height="220px" />
+          <Skeleton height="220px" />
+          <Skeleton height="220px" />
+          <Skeleton height="220px" />
+          <Skeleton height="220px" />
+          <Skeleton height="220px" />
+          <Skeleton height="220px" />
+          <Skeleton height="220px" />
+          <Skeleton height="220px" />
+          <Skeleton height="220px" />
+          <Skeleton height="220px" />
+          <Skeleton height="220px" />
+          <Skeleton height="220px" />
+          <Skeleton height="220px" />
+        </Grid>
+      </Flex>
+    );
+  }
   return (
     <Flex w="100%" gap="5">
       <Sidebar />
       <Box w="100%">
-        <Heading lineHeight={1.1} textAlign="center" my="2" fontSize={{ base: "2xl", sm: "3xl" }}>
+        <Heading
+          lineHeight={1.1}
+          textAlign="center"
+          my="8"
+          fontSize={{ base: "2xl", sm: "3xl" }}
+        >
           ORDERS HISTORY
         </Heading>
         <Grid w="95%" gap="5" gridTemplateColumns={"repeat(4,1fr)"}>

@@ -11,6 +11,7 @@ import Productpage from "../Pages/Products";
 import ProfilePage from "../Pages/ProfilePage";
 import Signup from "../Pages/Signup";
 import SingleProduct from "../Pages/SingleProductPage";
+import Wishlist from "../Pages/Wishlist";
 import PrivateRoute from "./PrivateRoutes";
 export const AllRoutes = () => {
   return (
@@ -139,7 +140,15 @@ export const AllRoutes = () => {
             </PrivateRoute>
           }
         />
-         <Route path="*" element={<NotFound />} />
+        <Route
+          path="/Wishlist"
+          element={
+            <PrivateRoute>
+              <Wishlist />
+            </PrivateRoute>
+          }
+        />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
   );
