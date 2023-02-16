@@ -5,6 +5,7 @@
 <br/>
 
 # Deployed URL 👉 [Click here](https://apnaabazar.netlify.app/)
+
   <br/>
   <br/>
 
@@ -58,7 +59,11 @@
 <br/>
 
 <div align="center">
-<img src="https://iili.io/HGJy56x.jpg" alt ="signup page" />
+<tr>
+ <td>
+     <img src="https://iili.io/HGJy56x.jpg" alt ="signup page" />
+    </td>
+</tr>
 </div>
 
 <!-- ![SignUp](https://user-images.githubusercontent.com/107460451/213929583-e48c32af-fb3e-4bb1-afa0-1fa64475ecf3.jpg) -->
@@ -86,4 +91,3 @@
 </table>
 
 <br/>
-
