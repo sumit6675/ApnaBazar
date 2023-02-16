@@ -1,5 +1,13 @@
 import React from "react";
-import { Box, Image, Badge, Button, Heading, Flex } from "@chakra-ui/react";
+import {
+  Box,
+  Image,
+  Badge,
+  Button,
+  Heading,
+  Flex,
+  useColorModeValue,
+} from "@chakra-ui/react";
 import { StarIcon } from "@chakra-ui/icons";
 function SingleProduct({
   image,
@@ -10,10 +18,20 @@ function SingleProduct({
   count,
   mrp,
   discount,
-  handleClick
+  handleClick,
 }) {
   return (
-    <Box maxW="sm" borderWidth="1px" borderRadius="lg" overflow="hidden">
+    <Box
+      maxW="md"
+      borderWidth="1px"
+      p="4"
+      borderRadius="lg"
+      bg={useColorModeValue("white", "gray.800")}
+      boxShadow={"2xl"}
+      rounded={"lg"}
+      overflow="hidden"
+      w="100%"
+    >
       <Image src={image} alt={alt} w="300px" h="300px" />
 
       <Box p="6">
@@ -47,7 +65,7 @@ function SingleProduct({
 
         <Box display="flex" alignItems="baseline">
           <Badge fontSize={"md"} borderRadius="full" px="2" colorScheme="teal">
-            {discount?`${discount}%OFF`:`0%OFF`}
+            {discount ? `${discount}%OFF` : `0%OFF`}
           </Badge>
         </Box>
 
@@ -62,7 +80,7 @@ function SingleProduct({
           </Box>
         </Box>
       </Box>
-      <Button ml="80px" mb="20px" onClick={handleClick}>
+      <Button ml="40px" mb="20px" onClick={handleClick}>
         View Product
       </Button>
     </Box>

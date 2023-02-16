@@ -5,11 +5,13 @@ import Checkout from "../Pages/Checkout";
 import { LastPage } from "../Pages/FinalPage";
 import HomePage from "../Pages/HomePage";
 import Login from "../Pages/Login";
+import Orders from "../Pages/Orders";
 import NotFound from "../Pages/PageNotFound";
 import Productpage from "../Pages/Products";
 import ProfilePage from "../Pages/ProfilePage";
 import Signup from "../Pages/Signup";
 import SingleProduct from "../Pages/SingleProductPage";
+import Wishlist from "../Pages/Wishlist";
 import PrivateRoute from "./PrivateRoutes";
 export const AllRoutes = () => {
   return (
@@ -130,7 +132,23 @@ export const AllRoutes = () => {
             </PrivateRoute>
           }
         />
-         <Route path="*" element={<NotFound />} />
+        <Route
+          path="/Orders"
+          element={
+            <PrivateRoute>
+              <Orders />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/Wishlist"
+          element={
+            <PrivateRoute>
+              <Wishlist />
+            </PrivateRoute>
+          }
+        />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
   );

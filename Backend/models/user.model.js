@@ -5,6 +5,12 @@ const registerSchema = mongoose.Schema({
   phone: { type: String, required: true },
   password: { type: String, required: true },
   cart: [],
+  wishlist: [],
+  address: [],
+  pincode: Number,
+  City: String,
+  addressName: String,
+  state: String,
   orders: [
     {
       Name: String,
@@ -34,10 +40,6 @@ const registerSchema = mongoose.Schema({
       date: String,
     },
   ],
-  wishlist: [],
-  address: [],
-  pincode: Number,
-  City: String,
 });
 
 const RegisterModule = mongoose.model("users", registerSchema);

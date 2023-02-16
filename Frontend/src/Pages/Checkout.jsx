@@ -53,6 +53,7 @@ function Checkout() {
     fetch(`${backendLink}/users?email=${email}`)
       .then((res) => res.json())
       .then((res) => {
+       if(res.address){
         for (let i = 0; i < res.address.length; i++) {
           if (res.address.length > 0) {
             setAddress(res.address[0].address);
@@ -61,6 +62,7 @@ function Checkout() {
             setPhone(res.address[0].phone);
           }
         }
+       }
         setCart(res.cart);
         let tot = 0;
         for (let i = 0; i < res.cart.length; i++) {
@@ -111,9 +113,11 @@ function Checkout() {
         .then((res) => res.json())
         .then((res) => {
           let checkAddressInDatabase = false;
-          for (let i = 0; i < res.address.length; i++) {
-            if (res.address.length > 0 && res.address[i].pin === payload.pin) {
-              checkAddressInDatabase = true;
+          if(res.address){
+            for (let i = 0; i < res.address.length; i++) {
+              if (res.address.length > 0 && res.address[i].pin === payload.pin) {
+                checkAddressInDatabase = true;
+              }
             }
           }
           if (!checkAddressInDatabase) {
