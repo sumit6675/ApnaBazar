@@ -25,7 +25,7 @@ import {
 } from "@chakra-ui/react";
 import axios from "axios";
 
-const PhoneProducts = () => {
+const PhoneProducts = ({ category }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const initialRef = React.useRef(null);
   const [page, setPage] = React.useState(1);
@@ -41,12 +41,12 @@ const PhoneProducts = () => {
   let toast = useToast();
   useEffect(() => {
     axios
-      .get(`http://localhost:8080/products/admin/phone?page=${page}`)
+      .get(`http://localhost:8080/products/admin/${category}?page=${page}`)
       .then((res) => {
         setData(res.data);
       })
       .catch((err) => console.error(err));
-  }, [page, flag]);
+  }, [page, flag, category]);
 
   const handleAddProduct = () => {
     const MRP = parseInt(`${phoneMRP}`.replace(/[^0-9.-]+/g, ""));
@@ -57,7 +57,7 @@ const PhoneProducts = () => {
       image: phoneImage,
       mrp: phoneMRP,
       price: phonePrice,
-      category: "Phone",
+      category: `${category}`,
       selection6: [],
       discount,
     };
@@ -71,11 +71,11 @@ const PhoneProducts = () => {
     }
 
     axios
-      .post("http://localhost:8080/products/admin/phone/add", payload)
+      .post(`http://localhost:8080/products/admin/${category}/add`, payload)
       .then((res) => {
         toast({
           title: "Phone Data Added",
-          description: `You successfully Added a new phone in database`,
+          description: `You successfully Added a new ${category} in database`,
           status: "success",
           duration: 2000,
           isClosable: true,
@@ -84,7 +84,7 @@ const PhoneProducts = () => {
       .catch((err) => {
         console.log("err", err);
         toast({
-          title: "Phone Data not Added in database",
+          title: `${category} Data not Added in database`,
           description: `Please Enter Proper Data`,
           status: "error",
           duration: 2000,
@@ -95,12 +95,12 @@ const PhoneProducts = () => {
 
   const handleDelete = (id) => {
     axios
-      .delete(` http://localhost:8080/products/admin/phone/delete/${id}`)
+      .delete(`http://localhost:8080/products/admin/${category}/delete/${id}`)
       .then((res) => {
         setFlag(!flag);
         toast({
           title: "phone Data deleted",
-          description: `You successfully deleted phone data for id: ${id}`,
+          description: `You successfully deleted ${category} data for id: ${id}`,
           status: "success",
           duration: 2000,
           isClosable: true,
@@ -121,7 +121,7 @@ const PhoneProducts = () => {
   const getPhoneByName = () => {
     axios
       .get(
-        `http://localhost:8080/products/admin/phone?name=${name}&page=${page}`
+        `http://localhost:8080/products/admin/${category}?name=${name}&page=${page}`
       )
       .then((res) => {
         setData(res.data);
@@ -301,7 +301,7 @@ const PhoneProducts = () => {
                 <Th>mrp</Th>
                 <Th>price</Th>
                 <Th>discount</Th>
-                <Th>category</Th>
+                <Th>Total Qty.</Th>
                 <Th>rating</Th>
               </Tr>
             </Thead>
@@ -334,7 +334,7 @@ const PhoneProducts = () => {
                       <Td>{i.mrp || i.price}</Td>
                       <Td>{i.price}</Td>
                       <Td>{i.discount || 0}</Td>
-                      <Td>{i.category}</Td>
+                      <Td>{i.TotalQtyAvailable}</Td>
                       <Td>{i.rating}</Td>
                       <Td>
                         <Button onClick={() => handleDelete(i._id)}>

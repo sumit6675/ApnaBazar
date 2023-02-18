@@ -47,7 +47,7 @@ const AdminProductPage = () => {
               <Text fontSize="2rem">Apna Bazar Products</Text>
 
               <Text fontSize="1.5rem" color="gray">
-                Select any specific tabs for managing Products
+                Select any specific tabs for managing products
               </Text>
 
               <Box
@@ -89,7 +89,7 @@ const AdminProductPage = () => {
                         fontSize={{ base: "0.7rem", md: "0.8rem", lg: "1rem" }}
                         fontWeight="bold"
                       >
-                        FLIGHTS
+                        Laptops
                       </Text>
                     </Tab>
 
@@ -99,7 +99,7 @@ const AdminProductPage = () => {
                         fontSize={{ base: "0.7rem", md: "0.8rem", lg: "1rem" }}
                         fontWeight="bold"
                       >
-                        HOTELS
+                        Women Clothing
                       </Text>
                     </Tab>
 
@@ -109,7 +109,7 @@ const AdminProductPage = () => {
                         fontSize={{ base: "0.7rem", md: "0.8rem", lg: "1rem" }}
                         fontWeight="bold"
                       >
-                        TRAINS
+                         Men Clothing
                       </Text>
                     </Tab>
 
@@ -119,30 +119,30 @@ const AdminProductPage = () => {
                         fontSize={{ base: "0.7rem", md: "0.8rem", lg: "1rem" }}
                         fontWeight="bold"
                       >
-                        BUSES
+                        Home Appliances
                       </Text>
                     </Tab>
                   </TabList>
 
                   <TabPanels>
                     <TabPanel>
-                      <PhoneProducts/>
+                      <PhoneProducts category={"Phone"}/>
                     </TabPanel>
 
                     <TabPanel>
-                      FlightAdmin 
+                    <PhoneProducts category={"Laptop"}/>
                     </TabPanel>
 
                     <TabPanel>
-                      HotelAdmin 
+                    <PhoneProducts category={"WomenClothing"}/>
                     </TabPanel>
 
                     <TabPanel>
-                      TrainsAdmin 
+                    <PhoneProducts category={"menClothing"}/>
                     </TabPanel>
 
                     <TabPanel>
-                      BusAdmin 
+                    <PhoneProducts category={"HomeAppliances"}/>
                     </TabPanel>
                   </TabPanels>
                 </Tabs>
