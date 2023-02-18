@@ -1753,7 +1753,124 @@ ProductRoute.get("/admin/phone", async (req, res) => {
     });
   }
 });
+ProductRoute.get("/admin/Laptop", async (req, res) => {
+  const { page = 1, limit = 10 } = req.query;
+  const { name } = req.query;
+  try {
+    if (name) {
+      let data = await ProductModule.find({
+        category: "Laptop",
+      });
+      let filteredData = data.filter((i) => {
+        return i.Name.toLowerCase().includes(name.toLowerCase());
+      });
+      res.send(filteredData);
+    } else {
+      let data = await ProductModule.find({
+        category: "Laptop",
+      })
+        .limit(limit * 1)
+        .skip((page - 1) * limit);
+      res.send(data);
+    }
+  } catch (err) {
+    console.log(err);
+    res.status(401).json({
+      message: "Something went wrong",
+    });
+  }
+});
+ProductRoute.get("/admin/WomenClothing", async (req, res) => {
+  const { page = 1, limit = 10 } = req.query;
+  const { name } = req.query;
+  try {
+    if (name) {
+      let data = await ProductModule.find({
+        category: "Women Clothing",
+      });
+      let filteredData = data.filter((i) => {
+        return i.Name.toLowerCase().includes(name.toLowerCase());
+      });
+      res.send(filteredData);
+    } else {
+      let data = await ProductModule.find({
+        category: "Women Clothing",
+      })
+        .limit(limit * 1)
+        .skip((page - 1) * limit);
+      res.send(data);
+    }
+  } catch (err) {
+    console.log(err);
+    res.status(401).json({
+      message: "Something went wrong",
+    });
+  }
+});
+ProductRoute.get("/admin/menClothing", async (req, res) => {
+  const { page = 1, limit = 10 } = req.query;
+  const { name } = req.query;
+  try {
+    if (name) {
+      let data = await ProductModule.find({
+        category: "Men Clothing",
+      });
+      let filteredData = data.filter((i) => {
+        return i.Name.toLowerCase().includes(name.toLowerCase());
+      });
+      res.send(filteredData);
+    } else {
+      let data = await ProductModule.find({
+        category: "Men Clothing",
+      })
+        .limit(limit * 1)
+        .skip((page - 1) * limit);
+      res.send(data);
+    }
+  } catch (err) {
+    console.log(err);
+    res.status(401).json({
+      message: "Something went wrong",
+    });
+  }
+});
+ProductRoute.get("/admin/HomeAppliances", async (req, res) => {
+  const { page = 1, limit = 10 } = req.query;
+  const { name } = req.query;
+  try {
+    if (name) {
+      let data = await ProductModule.find({
+        category: "Home Appliances",
+      });
+      let filteredData = data.filter((i) => {
+        return i.Name.toLowerCase().includes(name.toLowerCase());
+      });
+      res.send(filteredData);
+    } else {
+      let data = await ProductModule.find({
+        category: "Home Appliances",
+      })
+        .limit(limit * 1)
+        .skip((page - 1) * limit);
+      res.send(data);
+    }
+  } catch (err) {
+    console.log(err);
+    res.status(401).json({
+      message: "Something went wrong",
+    });
+  }
+});
 
+ProductRoute.delete("/admin/Laptop/delete/:id", async (req, res) => {
+  const id = req.params.id;
+  try {
+    await ProductModule.findByIdAndDelete({ _id: id });
+    res.send("deleted");
+  } catch {
+    res.send("err");
+  }
+});
 ProductRoute.delete("/admin/phone/delete/:id", async (req, res) => {
   const id = req.params.id;
   try {
@@ -1763,7 +1880,45 @@ ProductRoute.delete("/admin/phone/delete/:id", async (req, res) => {
     res.send("err");
   }
 });
+ProductRoute.delete("/admin/menClothing/delete/:id", async (req, res) => {
+  const id = req.params.id;
+  try {
+    await ProductModule.findByIdAndDelete({ _id: id });
+    res.send("deleted");
+  } catch {
+    res.send("err");
+  }
+});
+ProductRoute.delete("/admin/WomenClothing/delete/:id", async (req, res) => {
+  const id = req.params.id;
+  try {
+    await ProductModule.findByIdAndDelete({ _id: id });
+    res.send("deleted");
+  } catch {
+    res.send("err");
+  }
+});
+ProductRoute.delete("/admin/HomeAppliances/delete/:id", async (req, res) => {
+  const id = req.params.id;
+  try {
+    await ProductModule.findByIdAndDelete({ _id: id });
+    res.send("deleted");
+  } catch {
+    res.send("err");
+  }
+});
 
+ProductRoute.post("/admin/Laptop/add", async (req, res) => {
+  const payload = req.body;
+  try {
+    const NewPhone = new ProductModule(payload);
+    await NewPhone.save();
+    res.send("New Phone successfully Added");
+  } catch (err) {
+    console.log("err :>> ", err);
+    res.send({ msg: err });
+  }
+});
 ProductRoute.post("/admin/phone/add", async (req, res) => {
   const payload = req.body;
   try {
@@ -1773,6 +1928,53 @@ ProductRoute.post("/admin/phone/add", async (req, res) => {
   } catch (err) {
     console.log("err :>> ", err);
     res.send({ msg: err });
+  }
+});
+ProductRoute.post("/admin/menClothing/add", async (req, res) => {
+  const payload = req.body;
+  try {
+    const NewPhone = new ProductModule(payload);
+    await NewPhone.save();
+    res.send("New Phone successfully Added");
+  } catch (err) {
+    console.log("err :>> ", err);
+    res.send({ msg: err });
+  }
+});
+ProductRoute.post("/admin/WomenClothing/add", async (req, res) => {
+  const payload = req.body;
+  try {
+    const NewPhone = new ProductModule(payload);
+    await NewPhone.save();
+    res.send("New Phone successfully Added");
+  } catch (err) {
+    console.log("err :>> ", err);
+    res.send({ msg: err });
+  }
+});
+ProductRoute.post("/admin/HomeAppliances/add", async (req, res) => {
+  const payload = req.body;
+  try {
+    const NewPhone = new ProductModule(payload);
+    await NewPhone.save();
+    res.send("New Phone successfully Added");
+  } catch (err) {
+    console.log("err :>> ", err);
+    res.send({ msg: err });
+  }
+});
+
+ProductRoute.patch("/userUpdateAvailableQty/:id", async (req, res) => {
+  const id = req.params.id;
+  let data = await ProductModule.findById(id);
+  try{
+    await ProductModule.findByIdAndUpdate(
+      id,
+      { TotalQtyAvailable: `${data.TotalQtyAvailable-1}`}
+    );
+    res.send("qty updated")
+  }catch(err){
+    res.send(err)
   }
 });
 
