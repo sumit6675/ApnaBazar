@@ -143,11 +143,11 @@ function Cart() {
           </Heading>
           <Flex gap="8">
             <Heading size={"sm"}>Subtotal</Heading>
-            <span>Rs.{total.toLocaleString()}</span>
+            <span>₹.{total.toLocaleString()}</span>
           </Flex>
           <Flex gap="5">
             <Heading size={"sm"}>Shipping + Tax</Heading>
-            <span>Rs. 0.00</span>
+            <span>₹.0.00</span>
           </Flex>
           <Flex gap="5">
             <Heading size={"sm"}>Coupon Code</Heading>
@@ -156,7 +156,7 @@ function Cart() {
           <Flex gap="5">
             <Heading size={"md"}>Total</Heading>
             <Heading size={"md"} fontWeight={"bold"}>
-              Rs.{total.toLocaleString()}
+            ₹.{total.toLocaleString()}
             </Heading>
           </Flex>
           <Button>

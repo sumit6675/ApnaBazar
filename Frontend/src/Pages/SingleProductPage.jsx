@@ -153,13 +153,13 @@ const SingleProduct = ({ category }) => {
                 <span style={{ color: "#2871c4" }}>Read T&C</span>
               </ListItem>
               <ListItem>
-                Shop for Rs.20,000 & above and get instant discount Up To
-                Rs.5000,Use coupon codes "YES1000" for above 20,000 ,"YES2500"
+                Shop for ₹.20,000 & above and get instant discount Up To
+                ₹.5000,Use coupon codes "YES1000" for above 20,000 ,"YES2500"
                 for above 50,000, "YES5000" for above 1,00,000..{" "}
                 <span style={{ color: "#2871c4" }}>Read T&C</span>
               </ListItem>
               <ListItem>
-                Get Cashback upto Rs. 1,000 on Mobikwik Wallet.{" "}
+                Get Cashback upto ₹. 1,000 on Mobikwik Wallet.{" "}
                 <span style={{ color: "#2871c4" }}>Read T&C</span>
               </ListItem>
             </UnorderedList>

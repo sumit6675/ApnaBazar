@@ -12,7 +12,7 @@ function SingleCheckoutProduct({ img, name, price , deleteProduct}) {
         {"1"} &#x2715;
       </Box>
       <Box fontWeight="semibold" as="h4" lineHeight="tight" noOfLines={1}>
-        Rs.{price}
+      ₹.{price}
       </Box>
       <Button size={"xs"} color="red" onClick={deleteProduct}>
         Remove

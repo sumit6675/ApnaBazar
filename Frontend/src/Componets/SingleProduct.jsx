@@ -54,12 +54,9 @@ function SingleProduct({
         </Box>
 
         <Flex gap="1">
-          <Heading size={"md"}>Rs. {price}</Heading>
-          <Box as="span" color="gray.600" fontSize="md">
-            / Unit
-          </Box>
+          <Heading size={"md"}>₹.{price}</Heading>
           <s>
-            <Heading size={"sm"}>Rs. {mrp}</Heading>
+            <Heading size={"sm"}>{mrp}</Heading>
           </s>
         </Flex>
 

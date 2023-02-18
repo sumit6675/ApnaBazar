@@ -749,7 +749,7 @@ function Checkout() {
           justifyContent="space-between"
           mt="100px"
         >
-          <Heading size={"md"} fontWeight="bold">
+          <Heading size={"lg"} fontWeight="bold" textAlign={"center"}>
             Order Summary
           </Heading>
           {cart.map((i) => (
@@ -761,10 +761,7 @@ function Checkout() {
             />
           ))}
           <Flex gap="5">
-            <Heading size={"lg"}>Total : </Heading>
-            <Heading size={"lg"} fontWeight={"bold"}>
-              Rs.{total.toLocaleString()}
-            </Heading>
+            <Heading size={"lg"}>Total :  ₹.{total.toLocaleString()}</Heading>
           </Flex>
         </VStack>
       </Flex>

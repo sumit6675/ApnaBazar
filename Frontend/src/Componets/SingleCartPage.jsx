@@ -162,7 +162,7 @@ const SingleCartItem = ({ name, img, price, id,deleteCart,addWishlist,count,hand
           fontWeight="500"
         >
           <Heading fontSize="18px" color={"rgb(0, 0, 0)"}>
-            Rs.{price}
+          ₹.{price}
           </Heading>
           <Heading
             fontSize="14px"
