@@ -25,7 +25,7 @@ import {
 } from "@chakra-ui/react";
 import axios from "axios";
 
-const PhoneProducts = ({ category }) => {
+const AdminProducts = ({ category }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const initialRef = React.useRef(null);
   const [page, setPage] = React.useState(1);
@@ -74,7 +74,7 @@ const PhoneProducts = ({ category }) => {
       .post(`http://localhost:8080/products/admin/${category}/add`, payload)
       .then((res) => {
         toast({
-          title: "Phone Data Added",
+          title: "Product Data Added",
           description: `You successfully Added a new ${category} in database`,
           status: "success",
           duration: 2000,
@@ -99,7 +99,7 @@ const PhoneProducts = ({ category }) => {
       .then((res) => {
         setFlag(!flag);
         toast({
-          title: "phone Data deleted",
+          title: "Product Data deleted",
           description: `You successfully deleted ${category} data for id: ${id}`,
           status: "success",
           duration: 2000,
@@ -143,7 +143,7 @@ const PhoneProducts = ({ category }) => {
           <Input
             w="15rem"
             size={["sm", "sm", "md", "md"]}
-            placeholder="Search Phone By Name"
+            placeholder="Search Product By Name"
             value={name}
             onChange={(e) => setName(e.target.value)}
           />
@@ -162,7 +162,7 @@ const PhoneProducts = ({ category }) => {
             textTransform={"capitalize"}
             onClick={() => setFlag(!flag)}
           >
-            All Phones
+            All Products
           </Button>
 
           <Button
@@ -181,7 +181,7 @@ const PhoneProducts = ({ category }) => {
             }}
             onClick={onOpen}
           >
-            Add New Phone
+            Add New Product
           </Button>
           <Modal
             initialFocusRef={initialRef}
@@ -197,7 +197,7 @@ const PhoneProducts = ({ category }) => {
                 fontWeight="bold"
                 fontSize="2.5rem"
               >
-                Phone Details
+                Product Details
               </ModalHeader>
               <ModalCloseButton />
 
@@ -206,7 +206,7 @@ const PhoneProducts = ({ category }) => {
                   <FormLabel>Name</FormLabel>
                   <Input
                     ref={initialRef}
-                    placeholder="Enter Name of Phone"
+                    placeholder="Enter Name of Product"
                     type="text"
                     name="departtime"
                     value={PhoneName}
@@ -217,7 +217,7 @@ const PhoneProducts = ({ category }) => {
                 <FormControl mt={4}>
                   <FormLabel>Image</FormLabel>
                   <Input
-                    placeholder="Enter Phone Image"
+                    placeholder="Enter Product Image"
                     type="text"
                     name="aarivtime"
                     value={phoneImage}
@@ -228,7 +228,7 @@ const PhoneProducts = ({ category }) => {
                 <FormControl mt={4}>
                   <FormLabel>mrp</FormLabel>
                   <Input
-                    placeholder="Enter phone MRP"
+                    placeholder="Enter Product MRP"
                     type="text"
                     name="duration"
                     value={phoneMRP}
@@ -239,7 +239,7 @@ const PhoneProducts = ({ category }) => {
                 <FormControl mt={4}>
                   <FormLabel>Price</FormLabel>
                   <Input
-                    placeholder="Enter phone Price"
+                    placeholder="Enter Product Price"
                     type="text"
                     name="fare"
                     value={phonePrice}
@@ -249,7 +249,7 @@ const PhoneProducts = ({ category }) => {
                 <FormControl mt={4}>
                   <FormLabel>Rating</FormLabel>
                   <Input
-                    placeholder="Enter phone Rating"
+                    placeholder="Enter Product Rating"
                     type="text"
                     name="fare"
                     value={phoneRating}
@@ -257,9 +257,9 @@ const PhoneProducts = ({ category }) => {
                   />
                 </FormControl>
                 <FormControl mt={4}>
-                  <FormLabel>phone Details</FormLabel>
+                  <FormLabel>Product Details</FormLabel>
                   <Input
-                    placeholder="Enter Phone Details"
+                    placeholder="Enter Product Details"
                     type="text"
                     name="fare"
                     value={phoneDetails}
@@ -359,4 +359,4 @@ const PhoneProducts = ({ category }) => {
   );
 };
 
-export default PhoneProducts;
+export default AdminProducts;

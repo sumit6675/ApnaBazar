@@ -11,7 +11,7 @@ import {
 } from "@chakra-ui/react";
 import React from "react";
 import AdminSideBar from "../Componets/AdminSection/AdminSideBar";
-import PhoneProducts from "../Componets/AdminSection/PhoneProducts";
+import AdminProducts from "../Componets/AdminSection/PhoneProducts";
 
 const AdminProductPage = () => {
   return (
@@ -126,23 +126,23 @@ const AdminProductPage = () => {
 
                   <TabPanels>
                     <TabPanel>
-                      <PhoneProducts category={"Phone"}/>
+                      <AdminProducts category={"Phone"}/>
                     </TabPanel>
 
                     <TabPanel>
-                    <PhoneProducts category={"Laptop"}/>
+                    <AdminProducts category={"Laptop"}/>
                     </TabPanel>
 
                     <TabPanel>
-                    <PhoneProducts category={"WomenClothing"}/>
+                    <AdminProducts category={"WomenClothing"}/>
                     </TabPanel>
 
                     <TabPanel>
-                    <PhoneProducts category={"menClothing"}/>
+                    <AdminProducts category={"menClothing"}/>
                     </TabPanel>
 
                     <TabPanel>
-                    <PhoneProducts category={"HomeAppliances"}/>
+                    <AdminProducts category={"HomeAppliances"}/>
                     </TabPanel>
                   </TabPanels>
                 </Tabs>
