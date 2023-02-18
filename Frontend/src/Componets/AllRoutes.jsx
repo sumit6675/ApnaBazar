@@ -1,6 +1,7 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
-import AdminProductPage from "../Pages/Admin";
+import AdminProductPage from "../Pages/AdminProducts";
+import AdminUsers from "../Pages/AdminUsers";
 import Cart from "../Pages/Cart";
 import Checkout from "../Pages/Checkout";
 import { LastPage } from "../Pages/FinalPage";
@@ -154,6 +155,14 @@ export const AllRoutes = () => {
           element={
             <PrivateRoute>
               <AdminProductPage />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/admin/users"
+          element={
+            <PrivateRoute>
+              <AdminUsers />
             </PrivateRoute>
           }
         />
