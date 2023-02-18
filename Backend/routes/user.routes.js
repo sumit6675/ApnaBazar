@@ -336,6 +336,18 @@ usersRoute.patch("/admin/User/makeDeliveryPartner/:id",async(req,res)=>{
   }
 })
 
+usersRoute.delete("/admin/delete/:id",async(req,res)=>{
+  const id=req.params.id
+  try{
+    await RegisterModule.findByIdAndDelete(id)
+    res.send("data deleted successfully")
+  }catch(err){
+    console.log(err);
+    res.status(401).json({
+      message: "Something went wrong",
+    });
+  }
+})
 
 module.exports = {
   usersRoute,

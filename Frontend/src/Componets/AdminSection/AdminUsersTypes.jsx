@@ -43,12 +43,12 @@ const AdminUsersTypes = ({ userType }) => {
 
   const handleDelete = (id) => {
     axios
-      .delete(`http://localhost:8080/products/admin/${userType}/delete/${id}`)
+      .delete(`http://localhost:8080/users/admin/delete/${id}`)
       .then((res) => {
         setFlag(!flag);
         toast({
-          title: "Product Data deleted",
-          description: `You successfully deleted ${userType} data for id: ${id}`,
+          title: "users Data deleted",
+          description: `You successfully deleted ${userType} users data for id: ${id}`,
           status: "success",
           duration: 2000,
           isClosable: true,
