@@ -1978,6 +1978,7 @@ ProductRoute.patch("/userUpdateAvailableQty/:id", async (req, res) => {
   }
 });
 
+
 module.exports = {
   ProductRoute,
 };

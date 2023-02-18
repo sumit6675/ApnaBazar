@@ -10,6 +10,7 @@ const registerSchema = mongoose.Schema({
   pincode: Number,
   City: String,
   addressName: String,
+  userType:String,
   state: String,
   orders: [
     {
