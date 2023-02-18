@@ -9,11 +9,12 @@ const ProductSchema = mongoose.Schema({
   selection6: [
     {
       name: String,
-    }
+    },
   ],
-  selection2:String,
+  selection2: String,
   category: String,
   rating: Number,
+  TotalQtyAvailable: { type: Number, default: 20 },
 });
 
 const ProductModule = mongoose.model("product", ProductSchema);

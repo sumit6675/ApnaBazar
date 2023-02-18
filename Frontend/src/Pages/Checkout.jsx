@@ -53,16 +53,16 @@ function Checkout() {
     fetch(`${backendLink}/users?email=${email}`)
       .then((res) => res.json())
       .then((res) => {
-       if(res.address){
-        for (let i = 0; i < res.address.length; i++) {
-          if (res.address.length > 0) {
-            setAddress(res.address[0].address);
-            setCity(res.address[0].city);
-            setState(res.address[0].state);
-            setPhone(res.address[0].phone);
+        if (res.address) {
+          for (let i = 0; i < res.address.length; i++) {
+            if (res.address.length > 0) {
+              setAddress(res.address[0].address);
+              setCity(res.address[0].city);
+              setState(res.address[0].state);
+              setPhone(res.address[0].phone);
+            }
           }
         }
-       }
         setCart(res.cart);
         let tot = 0;
         for (let i = 0; i < res.cart.length; i++) {
@@ -113,9 +113,12 @@ function Checkout() {
         .then((res) => res.json())
         .then((res) => {
           let checkAddressInDatabase = false;
-          if(res.address){
+          if (res.address) {
             for (let i = 0; i < res.address.length; i++) {
-              if (res.address.length > 0 && res.address[i].pin === payload.pin) {
+              if (
+                res.address.length > 0 &&
+                res.address[i].pin === payload.pin
+              ) {
                 checkAddressInDatabase = true;
               }
             }
@@ -205,6 +208,17 @@ function Checkout() {
           pin,
           date,
         });
+        fetch(
+          `http://localhost:8080/products/userUpdateAvailableQty/${i._id}`,
+          {
+            method: "PATCH",
+            headers: {
+              "Content-type": "application/json; charset=UTF-8",
+            },
+          }
+        )
+          .then()
+          .catch((err) => console.log(err));
       });
 
       fetch(`${backendLink}/users/addOrder?email=${email}`, {
@@ -258,6 +272,17 @@ function Checkout() {
           pin,
           date,
         });
+        fetch(
+          `http://localhost:8080/products/userUpdateAvailableQty/${i._id}`,
+          {
+            method: "PATCH",
+            headers: {
+              "Content-type": "application/json; charset=UTF-8",
+            },
+          }
+        )
+          .then()
+          .catch((err) => console.log(err));
       });
 
       fetch(`${backendLink}/users/addOrder?email=${email}`, {
@@ -302,6 +327,14 @@ function Checkout() {
         pin,
         date,
       });
+      fetch(`http://localhost:8080/products/userUpdateAvailableQty/${i._id}`, {
+        method: "PATCH",
+        headers: {
+          "Content-type": "application/json; charset=UTF-8",
+        },
+      })
+        .then()
+        .catch((err) => console.log(err));
     });
 
     fetch(`${backendLink}/users/addOrder?email=${email}`, {
@@ -761,7 +794,7 @@ function Checkout() {
             />
           ))}
           <Flex gap="5">
-            <Heading size={"lg"}>Total :  ₹.{total.toLocaleString()}</Heading>
+            <Heading size={"lg"}>Total : ₹.{total.toLocaleString()}</Heading>
           </Flex>
         </VStack>
       </Flex>

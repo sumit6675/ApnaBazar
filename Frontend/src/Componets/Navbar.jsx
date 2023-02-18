@@ -33,7 +33,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../Redux/Auth/auth.action";
 
 function Navbar() {
-  const { isAuth, name } = useSelector((store) => store.AuthManager);
+  const { isAuth, name, email } = useSelector((store) => store.AuthManager);
   const [isLargerThan1100] = useMediaQuery("(min-width: 1100px)");
   const [isLargerThan750px] = useMediaQuery("(min-width: 750px)");
   const [islesserThan740px] = useMediaQuery("(max-width: 750px)");
@@ -147,15 +147,27 @@ function Navbar() {
               >
                 Hi {name}
               </MenuButton>
-              <MenuList>
-                <MenuItem><NavLink to="/profile">My Profile</NavLink></MenuItem>
-                <MenuItem><NavLink to="/Orders">My Order</NavLink></MenuItem>
-                <MenuItem>My Address</MenuItem>
-                <Link to="/Wishlist">
-                  <MenuItem>My Wishlist</MenuItem>
-                </Link>
-                <MenuItem onClick={handleLogout}>Logout</MenuItem>
-              </MenuList>
+              {email !== "admin@gmail.com" ? (
+                <MenuList>
+                  <MenuItem>
+                    <NavLink to="/profile">My Profile</NavLink>
+                  </MenuItem>
+                  <MenuItem>
+                    <NavLink to="/Orders">My Order</NavLink>
+                  </MenuItem>
+                  <MenuItem>My Address</MenuItem>
+                  <Link to="/Wishlist">
+                    <MenuItem>My Wishlist</MenuItem>
+                  </Link>
+                  <MenuItem onClick={handleLogout}>Logout</MenuItem>
+                </MenuList>
+              ) : (
+                <MenuList>
+                  <MenuItem>
+                    <NavLink to="/admin/products">Admin Page</NavLink>
+                  </MenuItem>
+                </MenuList>
+              )}
             </Menu>
           )}
         </Flex>
