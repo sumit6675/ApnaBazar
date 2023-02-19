@@ -101,7 +101,7 @@ usersRoute.post("/login", async (req, res) => {
   const { email, password } = req.body;
   try {
     const user = await RegisterModule.find({ email });
-    console.log(user)
+    // console.log(user)
     if (user.length > 0) {
       bcrypt.compare(password, user[0].password, function (err, result) {
         if (result) {
@@ -112,6 +112,7 @@ usersRoute.post("/login", async (req, res) => {
           res.status(201).json({
             msg: "Login Successfull",
             token: token,
+            id:user[0]._id,
             name: user[0].name,
             email: user[0].email,
             typeOfUser:user[0].userType,

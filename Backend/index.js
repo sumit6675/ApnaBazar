@@ -6,6 +6,7 @@ const { connection } = require("./config/db");
 const { usersRoute } = require("./routes/user.routes");
 const { authenticate } = require("./middlewere/Authentication.middlewere");
 const { ProductRoute } = require("./routes/Product.route");
+const { OrderRoute } = require("./routes/Order.route");
 
 app.use(
   cors({
@@ -23,6 +24,7 @@ app.use("/users", usersRoute);
 // app.use(authenticate);
 
 app.use("/products",ProductRoute)
+app.use("/orders",OrderRoute)
 
 app.listen(8080, async () => {
   try {
