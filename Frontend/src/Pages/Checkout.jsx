@@ -30,7 +30,7 @@ import SingleCheckoutProduct from "../Componets/SingleCheckoutProduct";
 import { useNavigate } from "react-router-dom";
 import { backendLink } from "../backendLink";
 function Checkout() {
-  const { email, name } = useSelector((store) => store.AuthManager);
+  const { email, name,id } = useSelector((store) => store.AuthManager);
   const [Username, setName] = useState(`${name}`);
   const [Useremail, setEmail] = useState(`${email}`);
   const [phone, setPhone] = useState("");
@@ -326,6 +326,8 @@ function Checkout() {
         state,
         pin,
         date,
+        UserEmail:email,
+        UserId:id,
       });
       fetch(`http://localhost:8080/products/userUpdateAvailableQty/${i._id}`, {
         method: "PATCH",
@@ -337,8 +339,8 @@ function Checkout() {
         .catch((err) => console.log(err));
     });
 
-    fetch(`${backendLink}/users/addOrder?email=${email}`, {
-      method: "PATCH",
+    fetch(`http://localhost:8080/orders/addOrder?email=${email}`, {
+      method: "POST",
       body: JSON.stringify(payload),
       headers: {
         "Content-type": "application/json; charset=UTF-8",
@@ -794,7 +796,7 @@ function Checkout() {
             />
           ))}
           <Flex gap="5">
-            <Heading size={"lg"}>Total : ₹.{total.toLocaleString()}</Heading>
+            <Heading size={"lg"}>Total : ₹{total.toLocaleString()}</Heading>
           </Flex>
         </VStack>
       </Flex>

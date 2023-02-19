@@ -56,7 +56,7 @@ export default function SingleOrderContainer({
         </Box>
         <Stack direction={"row"} align={"center"}>
           <Text fontWeight={800} fontSize={"xl"}>
-          ₹.{price}
+          ₹{price}
           </Text>
           <Text color={"gray.600"}>PaidBy:{payBy}</Text>
         </Stack>

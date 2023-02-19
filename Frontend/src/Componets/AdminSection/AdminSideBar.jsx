@@ -23,9 +23,9 @@ import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 const LinkItems = [
-  { name: "Profile", icon: FiHome },
-  { name: "Orders", icon: FiTrendingUp },
-  { name: "Address", icon: FiCompass },
+  { name: "Products", icon: FiHome, routes: "/admin/products" },
+  { name: "Users", icon: FiTrendingUp, routes: "/admin/users" },
+  { name: "Orders", icon: FiCompass, routes: "/admin/orders" },
   { name: "Wishlist", icon: FiStar },
   { name: "Logout", icon: FiSettings },
 ];
@@ -58,7 +58,7 @@ export default function AdminSideBar() {
 }
 
 const SidebarContent = ({ onClose, ...rest }) => {
-    const { name } = useSelector((store) => store.AuthManager);
+  const { name } = useSelector((store) => store.AuthManager);
   return (
     <Box
       bg={useColorModeValue("white", "gray.900")}
@@ -75,7 +75,7 @@ const SidebarContent = ({ onClose, ...rest }) => {
         <CloseButton display={{ base: "flex", md: "none" }} onClick={onClose} />
       </Flex>
       {LinkItems.map((link) => (
-        <NavItem key={link.name} icon={link.icon}>
+        <NavItem key={link.name} routes={link.routes} icon={link.icon}>
           {link.name}
         </NavItem>
       ))}
@@ -83,10 +83,10 @@ const SidebarContent = ({ onClose, ...rest }) => {
   );
 };
 
-const NavItem = ({ icon, children, ...rest }) => {
+const NavItem = ({ icon, routes, children, ...rest }) => {
   return (
     <NavLink
-      to={`/${children}`}
+      to={`${routes}`}
       style={{ textDecoration: "none" }}
       _focus={{ boxShadow: "none" }}
     >

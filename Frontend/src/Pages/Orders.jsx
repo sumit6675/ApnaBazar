@@ -10,11 +10,11 @@ function Orders() {
   const [loading, setLoading] = React.useState(true);
   useEffect(() => {
     setLoading(true);
-    fetch(`${backendLink}/users?email=${email}`)
+    fetch(`http://localhost:8080/orders/getOrder?email=${email}`)
       .then((res) => res.json())
       .then((res) => {
         setLoading(false);
-        setData(res.orders);
+        setData(res);
       });
   }, [email]);
 

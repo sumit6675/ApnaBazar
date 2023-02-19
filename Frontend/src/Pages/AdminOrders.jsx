@@ -10,10 +10,10 @@ import {
   Text,
 } from "@chakra-ui/react";
 import React from "react";
+import AdminOrderType from "../Componets/AdminSection/AdminOrderType";
 import AdminSideBar from "../Componets/AdminSection/AdminSideBar";
-import AdminProducts from "../Componets/AdminSection/PhoneProducts";
 
-const AdminProductPage = () => {
+const AdminOrders = () => {
   return (
     <Flex>
       <AdminSideBar />
@@ -34,7 +34,7 @@ const AdminProductPage = () => {
               textDecoration="underline"
               color="#257CFF"
             >
-              Admin Product Section
+              Admin Orders Section
             </Heading>
 
             <Box
@@ -44,10 +44,10 @@ const AdminProductPage = () => {
               borderRadius="1rem"
               p="1rem"
             >
-              <Text fontSize="2rem">Apna Bazar Products</Text>
+              <Text fontSize="2rem">Apna Bazar Orders Section</Text>
 
               <Text fontSize="1.5rem" color="gray">
-                Select any specific tabs for managing products
+                Select any specific tabs for managing Orders
               </Text>
 
               <Box
@@ -70,7 +70,7 @@ const AdminProductPage = () => {
                       fontWeight="bold"
                       mr="2rem"
                     >
-                      Database
+                     Orders Database
                     </Text>
 
                     <Tab>
@@ -79,7 +79,7 @@ const AdminProductPage = () => {
                         fontSize={{ base: "0.7rem", md: "0.8rem", lg: "1rem" }}
                         fontWeight="bold"
                       >
-                        Mobiles
+                        All
                       </Text>
                     </Tab>
 
@@ -89,7 +89,7 @@ const AdminProductPage = () => {
                         fontSize={{ base: "0.7rem", md: "0.8rem", lg: "1rem" }}
                         fontWeight="bold"
                       >
-                        Laptops
+                        Processing
                       </Text>
                     </Tab>
 
@@ -99,7 +99,7 @@ const AdminProductPage = () => {
                         fontSize={{ base: "0.7rem", md: "0.8rem", lg: "1rem" }}
                         fontWeight="bold"
                       >
-                        Women Clothing
+                        dispatch
                       </Text>
                     </Tab>
 
@@ -109,7 +109,7 @@ const AdminProductPage = () => {
                         fontSize={{ base: "0.7rem", md: "0.8rem", lg: "1rem" }}
                         fontWeight="bold"
                       >
-                         Men Clothing
+                      out For Delivery
                       </Text>
                     </Tab>
 
@@ -119,31 +119,40 @@ const AdminProductPage = () => {
                         fontSize={{ base: "0.7rem", md: "0.8rem", lg: "1rem" }}
                         fontWeight="bold"
                       >
-                        Home Appliances
+                        Deliverd
+                      </Text>
+                    </Tab>
+
+                    <Tab>
+                      <Text
+                        textAlign="center"
+                        fontSize={{ base: "0.7rem", md: "0.8rem", lg: "1rem" }}
+                        fontWeight="bold"
+                      >
+                        Cancelled
                       </Text>
                     </Tab>
                   </TabList>
 
                   <TabPanels>
                     <TabPanel>
-                      <AdminProducts category={"Phone"}/>
+                        <AdminOrderType OrderType="all"/>
                     </TabPanel>
 
                     <TabPanel>
-                    <AdminProducts category={"Laptop"}/>
+                    <AdminOrderType OrderType="Processing"/>
                     </TabPanel>
 
                     <TabPanel>
-                    <AdminProducts category={"WomenClothing"}/>
+                    <AdminOrderType OrderType="dispatch"/>
                     </TabPanel>
 
                     <TabPanel>
-                    <AdminProducts category={"menClothing"}/>
+                    <AdminOrderType OrderType="outForDelivery"/>
                     </TabPanel>
 
-                    <TabPanel>
-                    <AdminProducts category={"HomeAppliances"}/>
-                    </TabPanel>
+                    <TabPanel><AdminOrderType OrderType="deliverd"/></TabPanel>
+                    <TabPanel><AdminOrderType OrderType="Cancelled"/></TabPanel>
                   </TabPanels>
                 </Tabs>
               </Box>
@@ -154,5 +163,4 @@ const AdminProductPage = () => {
     </Flex>
   );
 };
-
-export default AdminProductPage;
+export default AdminOrders;

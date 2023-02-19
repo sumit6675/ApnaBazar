@@ -34,6 +34,7 @@ usersRoute.post("/register", async (req, res) => {
             email,
             password: hash,
             phone,
+            userType: "User"
           });
           await user.save();
           // res.send("Registered")
@@ -100,6 +101,7 @@ usersRoute.post("/login", async (req, res) => {
   const { email, password } = req.body;
   try {
     const user = await RegisterModule.find({ email });
+    // console.log(user)
     if (user.length > 0) {
       bcrypt.compare(password, user[0].password, function (err, result) {
         if (result) {
@@ -110,8 +112,10 @@ usersRoute.post("/login", async (req, res) => {
           res.status(201).json({
             msg: "Login Successfull",
             token: token,
+            id:user[0]._id,
             name: user[0].name,
             email: user[0].email,
+            typeOfUser:user[0].userType,
           });
         } else {
           res.status(401).json({
@@ -222,6 +226,128 @@ usersRoute.patch("/updateuser",async(req,res)=>{
   console.log(err)
  }
 
+})
+
+usersRoute.get("/admin/User",async(req,res)=>{
+  const { page = 1, limit = 10 } = req.query;
+  const { name } = req.query;
+  try {
+    if (name) {
+      let data = await RegisterModule.find({
+        userType: "User",
+      });
+      let filteredData = data.filter((i) => {
+        return i.name.toLowerCase().includes(name.toLowerCase());
+      });
+      res.send(filteredData);
+    } else {
+      let data = await RegisterModule.find({
+        userType: "User",
+      })
+        .limit(limit * 1)
+        .skip((page - 1) * limit);
+      res.send(data);
+    }
+  } catch (err) {
+    console.log(err);
+    res.status(401).json({
+      message: "Something went wrong",
+    });
+  }
+})
+usersRoute.get("/admin/AdminUser",async(req,res)=>{
+  const { page = 1, limit = 10 } = req.query;
+  const { name } = req.query;
+  try {
+    if (name) {
+      let data = await RegisterModule.find({
+        userType: "Admin",
+      });
+      let filteredData = data.filter((i) => {
+        return i.name.toLowerCase().includes(name.toLowerCase());
+      });
+      res.send(filteredData);
+    } else {
+      let data = await RegisterModule.find({
+        userType: "Admin",
+      })
+        .limit(limit * 1)
+        .skip((page - 1) * limit);
+      res.send(data);
+    }
+  } catch (err) {
+    console.log(err);
+    res.status(401).json({
+      message: "Something went wrong",
+    });
+  }
+})
+usersRoute.get("/admin/Delivery",async(req,res)=>{
+  const { page = 1, limit = 10 } = req.query;
+  const { name } = req.query;
+  try {
+    if (name) {
+      let data = await RegisterModule.find({
+        userType: "Delivery Partner",
+      });
+      let filteredData = data.filter((i) => {
+        return i.name.toLowerCase().includes(name.toLowerCase());
+      });
+      res.send(filteredData);
+    } else {
+      let data = await RegisterModule.find({
+        userType: "Delivery Partner",
+      })
+        .limit(limit * 1)
+        .skip((page - 1) * limit);
+      res.send(data);
+    }
+  } catch (err) {
+    console.log(err);
+    res.status(401).json({
+      message: "Something went wrong",
+    });
+  }
+})
+
+usersRoute.patch("/admin/User/makeAdmin/:id",async(req,res)=>{
+  const id=req.params.id
+  try{
+     const data= await RegisterModule.findByIdAndUpdate(id,{userType: "Admin"})
+      res.send(data)
+  }catch(err){
+    console.log(err);
+    res.status(401).json({
+      message: "Something went wrong",
+    });
+  }
+})
+
+
+usersRoute.patch("/admin/User/makeDeliveryPartner/:id",async(req,res)=>{
+  const id=req.params.id
+  try{
+     const data= await RegisterModule.findByIdAndUpdate(id,{userType: "Delivery Partner"})
+      res.send(data)
+  }catch(err){
+    console.log(err);
+    res.status(401).json({
+      message: "Something went wrong",
+    });
+  }
+})
+
+usersRoute.delete("/admin/delete/:id",async(req,res)=>{
+  const id=req.params.id
+  try{
+    await RegisterModule.findByIdAndDelete(id)
+    res.send("data deleted successfully")
+  }catch(err){
+    console.log(err);
+    res.status(401).json({
+      message: "Something went wrong",
+    });
+  }
 })
 
 module.exports = {

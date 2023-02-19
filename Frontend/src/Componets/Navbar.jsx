@@ -166,6 +166,7 @@ function Navbar() {
                   <MenuItem>
                     <NavLink to="/admin/products">Admin Page</NavLink>
                   </MenuItem>
+                  <MenuItem onClick={handleLogout}>Logout</MenuItem>
                 </MenuList>
               )}
             </Menu>
