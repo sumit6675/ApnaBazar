@@ -24,6 +24,7 @@ import {
   useToast,
 } from "@chakra-ui/react";
 import axios from "axios";
+import { backendLink } from "../../backendLink";
 
 const AdminProducts = ({ category }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -41,7 +42,7 @@ const AdminProducts = ({ category }) => {
   let toast = useToast();
   useEffect(() => {
     axios
-      .get(`http://localhost:8080/products/admin/${category}?page=${page}`)
+      .get(`${backendLink}/products/admin/${category}?page=${page}`)
       .then((res) => {
         setData(res.data);
       })
@@ -71,7 +72,7 @@ const AdminProducts = ({ category }) => {
     }
 
     axios
-      .post(`http://localhost:8080/products/admin/${category}/add`, payload)
+      .post(`${backendLink}/products/admin/${category}/add`, payload)
       .then((res) => {
         toast({
           title: "Product Data Added",
@@ -95,7 +96,7 @@ const AdminProducts = ({ category }) => {
 
   const handleDelete = (id) => {
     axios
-      .delete(`http://localhost:8080/products/admin/${category}/delete/${id}`)
+      .delete(`${backendLink}/products/admin/${category}/delete/${id}`)
       .then((res) => {
         setFlag(!flag);
         toast({
@@ -121,7 +122,7 @@ const AdminProducts = ({ category }) => {
   const getPhoneByName = () => {
     axios
       .get(
-        `http://localhost:8080/products/admin/${category}?name=${name}&page=${page}`
+        `${backendLink}/products/admin/${category}?name=${name}&page=${page}`
       )
       .then((res) => {
         setData(res.data);

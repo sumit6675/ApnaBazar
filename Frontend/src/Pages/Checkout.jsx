@@ -209,7 +209,7 @@ function Checkout() {
           date,
         });
         fetch(
-          `http://localhost:8080/products/userUpdateAvailableQty/${i._id}`,
+          `${backendLink}/products/userUpdateAvailableQty/${i._id}`,
           {
             method: "PATCH",
             headers: {
@@ -273,7 +273,7 @@ function Checkout() {
           date,
         });
         fetch(
-          `http://localhost:8080/products/userUpdateAvailableQty/${i._id}`,
+          `${backendLink}/products/userUpdateAvailableQty/${i._id}`,
           {
             method: "PATCH",
             headers: {
@@ -329,7 +329,7 @@ function Checkout() {
         UserEmail:email,
         UserId:id,
       });
-      fetch(`http://localhost:8080/products/userUpdateAvailableQty/${i._id}`, {
+      fetch(`${backendLink}/products/userUpdateAvailableQty/${i._id}`, {
         method: "PATCH",
         headers: {
           "Content-type": "application/json; charset=UTF-8",
@@ -339,7 +339,7 @@ function Checkout() {
         .catch((err) => console.log(err));
     });
 
-    fetch(`http://localhost:8080/orders/addOrder?email=${email}`, {
+    fetch(`${backendLink}/orders/addOrder?email=${email}`, {
       method: "POST",
       body: JSON.stringify(payload),
       headers: {

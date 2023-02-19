@@ -13,6 +13,7 @@ import {
   useToast,
 } from "@chakra-ui/react";
 import axios from "axios";
+import { backendLink } from "../../backendLink";
 
 const AdminUsersTypes = ({ userType }) => {
   const [page, setPage] = React.useState(1);
@@ -22,7 +23,7 @@ const AdminUsersTypes = ({ userType }) => {
   let toast = useToast();
   useEffect(() => {
     axios
-      .get(`http://localhost:8080/users/admin/${userType}?page=${page}`)
+      .get(`${backendLink}/users/admin/${userType}?page=${page}`)
       .then((res) => {
         setData(res.data);
         console.log(res.data);
@@ -33,7 +34,7 @@ const AdminUsersTypes = ({ userType }) => {
   const getPhoneByName = () => {
     axios
       .get(
-        `http://localhost:8080/users/admin/${userType}?name=${name}&page=${page}`
+        `${backendLink}/users/admin/${userType}?name=${name}&page=${page}`
       )
       .then((res) => {
         setData(res.data);
@@ -43,7 +44,7 @@ const AdminUsersTypes = ({ userType }) => {
 
   const handleDelete = (id) => {
     axios
-      .delete(`http://localhost:8080/users/admin/delete/${id}`)
+      .delete(`${backendLink}/users/admin/delete/${id}`)
       .then((res) => {
         setFlag(!flag);
         toast({
@@ -68,7 +69,7 @@ const AdminUsersTypes = ({ userType }) => {
 
   const handleMakeAdmin = (id) => {
     axios
-      .patch(`http://localhost:8080/users/admin/${userType}/makeAdmin/${id}`)
+      .patch(`${backendLink}/users/admin/${userType}/makeAdmin/${id}`)
       .then((res) => {
         setFlag(!flag);
         toast({
@@ -94,7 +95,7 @@ const AdminUsersTypes = ({ userType }) => {
   const handleMakeDeliveryPartner = (id) => {
     axios
       .patch(
-        `http://localhost:8080/users/admin/${userType}/makeDeliveryPartner/${id}`
+        `${backendLink}/users/admin/${userType}/makeDeliveryPartner/${id}`
       )
       .then((res) => {
         setFlag(!flag);
