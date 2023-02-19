@@ -794,7 +794,7 @@ function Checkout() {
             />
           ))}
           <Flex gap="5">
-            <Heading size={"lg"}>Total : ₹.{total.toLocaleString()}</Heading>
+            <Heading size={"lg"}>Total : ₹{total.toLocaleString()}</Heading>
           </Flex>
         </VStack>
       </Flex>
