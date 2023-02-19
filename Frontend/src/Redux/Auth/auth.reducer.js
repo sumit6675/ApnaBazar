@@ -6,7 +6,8 @@ const init={
     name:"",
     email:"",
     loading:false,
-    error:false
+    error:false,
+    id:""
 };
 export const Authreducer=(state=init,{type,payload})=>{
     switch(type){
@@ -33,7 +34,8 @@ export const Authreducer=(state=init,{type,payload})=>{
                 token:payload.token,
                 isAuth:true,
                 name:payload.name,
-                email:payload.email
+                email:payload.email,
+                id:payload.id
             }
         }
         case LOGOUT:{
@@ -42,7 +44,8 @@ export const Authreducer=(state=init,{type,payload})=>{
                 isAuth:false,
                 token:"",
                 name:"",
-                email:""
+                email:"",
+                id:""
             }
         }
 

@@ -11,29 +11,29 @@ import {
   Tbody,
   Td,
   useToast,
+  Image,
 } from "@chakra-ui/react";
 import axios from "axios";
 
-const AdminUsersTypes = ({ userType }) => {
+const AdminOrderType = ({ OrderType }) => {
   const [page, setPage] = React.useState(1);
   const [data, setData] = React.useState([]);
-  const [name, setName] = React.useState("");
+  const [email, setEmail] = React.useState("");
   const [flag, setFlag] = React.useState(false);
   let toast = useToast();
   useEffect(() => {
     axios
-      .get(`http://localhost:8080/users/admin/${userType}?page=${page}`)
+      .get(`http://localhost:8080/orders/admin/${OrderType}?page=${page}`)
       .then((res) => {
         setData(res.data);
-        console.log(res.data);
       })
       .catch((err) => console.error(err));
-  }, [page, flag, userType]);
+  }, [page, flag, OrderType]);
 
-  const getPhoneByName = () => {
+  const handleOrderSerachByName = () => {
     axios
       .get(
-        `http://localhost:8080/users/admin/${userType}?name=${name}&page=${page}`
+        `http://localhost:8080/orders/admin/${OrderType}/getOrders?email=${email}&page=${page}`
       )
       .then((res) => {
         setData(res.data);
@@ -41,66 +41,16 @@ const AdminUsersTypes = ({ userType }) => {
       .catch((err) => console.error(err));
   };
 
-  const handleDelete = (id) => {
-    axios
-      .delete(`http://localhost:8080/users/admin/delete/${id}`)
-      .then((res) => {
-        setFlag(!flag);
-        toast({
-          title: "users Data deleted",
-          description: `You successfully deleted ${userType} users data for id: ${id}`,
-          status: "success",
-          duration: 2000,
-          isClosable: true,
-        });
-      })
-      .catch((err) => {
-        console.error(err);
-        toast({
-          title: "Delete failed",
-          description: `You are not autherised`,
-          status: "error",
-          duration: 2000,
-          isClosable: true,
-        });
-      });
-  };
-
-  const handleMakeAdmin = (id) => {
-    axios
-      .patch(`http://localhost:8080/users/admin/${userType}/makeAdmin/${id}`)
-      .then((res) => {
-        setFlag(!flag);
-        toast({
-          title: `${id} User Become Admin`,
-          description: `You successfully make ${id} admin`,
-          status: "success",
-          duration: 2000,
-          isClosable: true,
-        });
-      })
-      .catch((err) => {
-        console.error(err);
-        toast({
-          title: "Making Admin failed",
-          description: `You are not autherised`,
-          status: "error",
-          duration: 2000,
-          isClosable: true,
-        });
-      });
-  };
-
-  const handleMakeDeliveryPartner = (id) => {
+  const handleNextProcess = (id) => {
     axios
       .patch(
-        `http://localhost:8080/users/admin/${userType}/makeDeliveryPartner/${id}`
+        `http://localhost:8080/orders/admin/${OrderType}/dispatchorder/${id}`
       )
       .then((res) => {
         setFlag(!flag);
         toast({
-          title: `${id} User Become Delivery Partner`,
-          description: `You successfully make ${id} Delivery Partner`,
+          title: "Order Dispatch successfully",
+          description: `You successfully dispatch Order of id: ${id}`,
           status: "success",
           duration: 2000,
           isClosable: true,
@@ -109,8 +59,57 @@ const AdminUsersTypes = ({ userType }) => {
       .catch((err) => {
         console.error(err);
         toast({
-          title: "Making Delivery Partner failed",
-          description: `You are not autherised`,
+          title: "Order Dispatch Failed",
+          status: "error",
+          duration: 2000,
+          isClosable: true,
+        });
+      });
+  };
+  const handleOutForDelivery = (id) => {
+    axios
+      .patch(
+        `http://localhost:8080/orders/admin/${OrderType}/outForDelivery/${id}`
+      )
+      .then((res) => {
+        setFlag(!flag);
+        toast({
+          title: " Order out for delivery success",
+          description: `You successfully make order out for delivery of id: ${id}`,
+          status: "success",
+          duration: 2000,
+          isClosable: true,
+        });
+      })
+      .catch((err) => {
+        console.error(err);
+        toast({
+          title: "out for delivery Failed",
+          status: "error",
+          duration: 2000,
+          isClosable: true,
+        });
+      });
+  };
+  const handleDeliveredOrder = (id) => {
+    axios
+      .patch(
+        `http://localhost:8080/orders/admin/${OrderType}/deliverd/${id}`
+      )
+      .then((res) => {
+        setFlag(!flag);
+        toast({
+          title: " Order successfully deliverd",
+          description: `You successfully deliverd order of id: ${id}`,
+          status: "success",
+          duration: 2000,
+          isClosable: true,
+        });
+      })
+      .catch((err) => {
+        console.error(err);
+        toast({
+          title: "Order deliverd Failed",
           status: "error",
           duration: 2000,
           isClosable: true,
@@ -131,15 +130,15 @@ const AdminUsersTypes = ({ userType }) => {
           justifyContent="space-between"
         >
           <Input
-            w="15rem"
+            w="20rem"
             size={["sm", "sm", "md", "md"]}
-            placeholder="Search User By Name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
+            placeholder="Search Orders By Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
           />
           <Button
-            onClick={getPhoneByName}
             ml="2rem"
+            onClick={handleOrderSerachByName}
             variant="outline"
             size={["sm", "sm", "md", "md"]}
           >
@@ -160,7 +159,7 @@ const AdminUsersTypes = ({ userType }) => {
             mb={4}
             onClick={() => setFlag(!flag)}
           >
-            All Users
+            All Orders
           </Button>
         </Box>
       </div>
@@ -169,49 +168,60 @@ const AdminUsersTypes = ({ userType }) => {
           <Table size="sm">
             <Thead>
               <Tr>
-                <Th>Name</Th>
-                <Th>email</Th>
-                <Th>phone</Th>
-                <Th>wishlist Count</Th>
-                <Th>cart Count</Th>
-                <Th>City</Th>
-                <Th>state</Th>
-                <Th>pincode</Th>
+                <Th>Product Image</Th>
+                <Th>Order Id</Th>
+                <Th>Product Name</Th>
+                <Th>Price</Th>
+                <Th>Paid By</Th>
+                <Th>Order Status</Th>
+                <Th>User Id</Th>
+                <Th>User Email Id</Th>
               </Tr>
             </Thead>
             <Tbody>
               {data.length > 0 &&
                 data.map((i) => {
                   return (
-                    <Tr key={i.name}>
-                      <Td> {i.name}</Td>
-                      <Td>{i.email}</Td>
-                      <Td>{i.phone}</Td>
-                      <Td>{i.wishlist ? i.wishlist.length : 0}</Td>
-                      <Td>{i.cart ? i.cart.length : 0}</Td>
-                      <Td> {i.City}</Td>
-                      <Td>{i.state}</Td>
-                      <Td>{i.pincode}</Td>
+                    <Tr key={i._id}>
                       <Td>
-                        <Button onClick={() => handleDelete(i._id)}>
-                          Delete
-                        </Button>
+                        <Image
+                          src={i.image}
+                          alt={i.Name}
+                          w="60px"
+                          height={"60px"}
+                        />
                       </Td>
-                      {userType === "User" && (
-                        <Td>
-                          <Button onClick={() => handleMakeAdmin(i._id)}>
-                            Make a Admin
-                          </Button>
-                        </Td>
+                      <Td>{i._id}</Td>
+                      <Td
+                        fontWeight="semibold"
+                        as="h4"
+                        lineHeight="tight"
+                        noOfLines={1}
+                        w="280px"
+                        alignContent={"center"}
+                        h="80px"
+                      >
+                        {i.Name}
+                      </Td>
+                      <Td>{i.price}</Td>
+                      <Td>{i.payBy}</Td>
+                      <Td> {i.orderStatus}</Td>
+                      <Td>{i.UserId}</Td>
+                      <Td>{i.UserEmail}</Td>
+                      {OrderType === "Processing" && (
+                        <Button onClick={() => handleNextProcess(i._id)}>
+                          Dispatch Order
+                        </Button>
                       )}
-                      {userType === "User" && (
-                        <Td>
-                          <Button
-                            onClick={() => handleMakeDeliveryPartner(i._id)}
-                          >
-                            Make a Delivery Partner
-                          </Button>
-                        </Td>
+                      {OrderType === "dispatch" && (
+                        <Button onClick={() => handleOutForDelivery(i._id)}>
+                          Order Out For Delivey
+                        </Button>
+                      )}
+                      {OrderType === "outForDelivery" && (
+                        <Button onClick={() => handleDeliveredOrder(i._id)}>
+                          Deliverd Order
+                        </Button>
                       )}
                     </Tr>
                   );
@@ -230,4 +240,5 @@ const AdminUsersTypes = ({ userType }) => {
     </Box>
   );
 };
-export default AdminUsersTypes;
+
+export default AdminOrderType;

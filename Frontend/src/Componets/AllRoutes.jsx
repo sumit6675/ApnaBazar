@@ -1,5 +1,6 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
+import AdminOrders from "../Pages/AdminOrders";
 import AdminProductPage from "../Pages/AdminProducts";
 import AdminUsers from "../Pages/AdminUsers";
 import Cart from "../Pages/Cart";
@@ -163,6 +164,14 @@ export const AllRoutes = () => {
           element={
             <PrivateRoute>
               <AdminUsers />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/admin/orders"
+          element={
+            <PrivateRoute>
+              <AdminOrders />
             </PrivateRoute>
           }
         />
