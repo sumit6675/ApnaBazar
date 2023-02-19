@@ -14,6 +14,7 @@ import {
   Image,
 } from "@chakra-ui/react";
 import axios from "axios";
+import { backendLink } from "../../backendLink";
 
 const AdminOrderType = ({ OrderType }) => {
   const [page, setPage] = React.useState(1);
@@ -23,7 +24,7 @@ const AdminOrderType = ({ OrderType }) => {
   let toast = useToast();
   useEffect(() => {
     axios
-      .get(`http://localhost:8080/orders/admin/${OrderType}?page=${page}`)
+      .get(`${backendLink}/orders/admin/${OrderType}?page=${page}`)
       .then((res) => {
         setData(res.data);
       })
@@ -33,7 +34,7 @@ const AdminOrderType = ({ OrderType }) => {
   const handleOrderSerachByName = () => {
     axios
       .get(
-        `http://localhost:8080/orders/admin/${OrderType}/getOrders?email=${email}&page=${page}`
+        `${backendLink}/orders/admin/${OrderType}/getOrders?email=${email}&page=${page}`
       )
       .then((res) => {
         setData(res.data);
@@ -44,7 +45,7 @@ const AdminOrderType = ({ OrderType }) => {
   const handleNextProcess = (id) => {
     axios
       .patch(
-        `http://localhost:8080/orders/admin/${OrderType}/dispatchorder/${id}`
+        `${backendLink}/orders/admin/${OrderType}/dispatchorder/${id}`
       )
       .then((res) => {
         setFlag(!flag);
@@ -69,7 +70,7 @@ const AdminOrderType = ({ OrderType }) => {
   const handleOutForDelivery = (id) => {
     axios
       .patch(
-        `http://localhost:8080/orders/admin/${OrderType}/outForDelivery/${id}`
+        `${backendLink}/orders/admin/${OrderType}/outForDelivery/${id}`
       )
       .then((res) => {
         setFlag(!flag);
@@ -94,7 +95,7 @@ const AdminOrderType = ({ OrderType }) => {
   const handleDeliveredOrder = (id) => {
     axios
       .patch(
-        `http://localhost:8080/orders/admin/${OrderType}/deliverd/${id}`
+        `${backendLink}/orders/admin/${OrderType}/deliverd/${id}`
       )
       .then((res) => {
         setFlag(!flag);
