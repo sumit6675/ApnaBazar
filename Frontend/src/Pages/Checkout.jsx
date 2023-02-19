@@ -153,6 +153,7 @@ function Checkout() {
         });
     }
   };
+
   const handleCardPayment = () => {
     let paymentOption = {
       cardNumber,
@@ -207,6 +208,8 @@ function Checkout() {
           state,
           pin,
           date,
+          UserEmail:email,
+          UserId:id,
         });
         fetch(
           `${backendLink}/products/userUpdateAvailableQty/${i._id}`,
@@ -221,8 +224,8 @@ function Checkout() {
           .catch((err) => console.log(err));
       });
 
-      fetch(`${backendLink}/users/addOrder?email=${email}`, {
-        method: "PATCH",
+      fetch(`${backendLink}/orders/addOrder?email=${email}`, {
+        method: "POST",
         body: JSON.stringify(payload),
         headers: {
           "Content-type": "application/json; charset=UTF-8",
@@ -240,6 +243,7 @@ function Checkout() {
         });
     }
   };
+
   const handleUpi = () => {
     const paymentOption = {
       upiId: upiId,
@@ -271,6 +275,8 @@ function Checkout() {
           state,
           pin,
           date,
+          UserEmail:email,
+          UserId:id,
         });
         fetch(
           `${backendLink}/products/userUpdateAvailableQty/${i._id}`,
@@ -285,25 +291,26 @@ function Checkout() {
           .catch((err) => console.log(err));
       });
 
-      fetch(`${backendLink}/users/addOrder?email=${email}`, {
-        method: "PATCH",
-        body: JSON.stringify(payload),
-        headers: {
-          "Content-type": "application/json; charset=UTF-8",
-        },
-      })
-        .then((response) => response.json())
-        .then((json) => {
-          toast({
-            title: `Your Order Successfully Placed`,
-            status: "success",
-            duration: 2000,
-            isClosable: true,
-          });
-          navigate("/finalPage");
+          fetch(`${backendLink}/orders/addOrder?email=${email}`, {
+      method: "POST",
+      body: JSON.stringify(payload),
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+      },
+    })
+      .then((response) => response.json())
+      .then((json) => {
+        toast({
+          title: `Your Order Successfully Placed`,
+          status: "success",
+          duration: 2000,
+          isClosable: true,
         });
+        navigate("/finalPage");
+      });
     }
   };
+
   const handleCod = () => {
     const paymentOption = {
       payBy: "Cash",
@@ -357,6 +364,7 @@ function Checkout() {
         navigate("/finalPage");
       });
   };
+
   const deleteCart = (product) => {
     fetch(`${backendLink}/users/deleteCart?email=${email}`, {
       method: "PATCH",
