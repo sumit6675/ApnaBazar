@@ -10,6 +10,9 @@ OrderRoute.get("/", async (req, res) => {
 
 OrderRoute.post("/addOrder", async (req, res) => {
   const payload = req.body;
+  for(let i=0;i<payload.length;i++){
+    delete payload[i]._id;
+  }
   let { email } = req.query;
   try {
     await OrderModel.insertMany(payload)

@@ -335,7 +335,8 @@ function Checkout() {
         date,
         UserEmail:email,
         UserId:id,
-      });
+      })
+      
       fetch(`${backendLink}/products/userUpdateAvailableQty/${i._id}`, {
         method: "PATCH",
         headers: {

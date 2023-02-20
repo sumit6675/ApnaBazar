@@ -26,7 +26,7 @@ const LinkItems = [
   { name: "Products", icon: FiHome, routes: "/admin/products" },
   { name: "Users", icon: FiTrendingUp, routes: "/admin/users" },
   { name: "Orders", icon: FiCompass, routes: "/admin/orders" },
-  { name: "Wishlist", icon: FiStar },
+  { name: "Admin Stats", icon: FiStar,routes:"/admin/stats" },
   { name: "Logout", icon: FiSettings },
 ];
 
