@@ -4,8 +4,9 @@ import axios from "axios";
 import { backendLink } from "../../backendLink";
 import Barchart from "./BarChart";
 import Piechart from "./PieChar";
+import LineGraph from "./LineGraph";
 
-function AdminStatsLastType({StatsType}) {
+function AdminStatsLastType({ StatsType }) {
   const [TotalQty, setTotaQty] = useState(0);
   const [TotalPrice, setTotalPrice] = useState(0);
   const [phone, setPhone] = useState(0);
@@ -20,10 +21,12 @@ function AdminStatsLastType({StatsType}) {
   const [homePrice, setHomePrice] = useState(0);
   const [TopFiveDataNames, setTopFiveDataNames] = useState(0);
   const [TopFiveDataQty, setTopFiveDataQty] = useState(0);
-
+  const [XaxisContainsInLineGraph, setXaxisContainsInLineGraph] = useState(0);
+  const [YaxisContainsInLineGraph, setYaxisContainsInLineGraph] = useState(0);
   useEffect(() => {
     axios
       .get(`${backendLink}/orders/admin/${StatsType}`)
+      .then((res) => res.data)
       .then((res) => {
         let tot = 0;
         let PhoneTotalSale = 0;
@@ -63,16 +66,16 @@ function AdminStatsLastType({StatsType}) {
         TopProductsArray.sort((a, b) => b.Qty - a.Qty);
         const TopFiveProduct = TopProductsArray.slice(0, 5);
         const topFiveDataName = [];
-        const TopFiveQty=[]
+        const TopFiveQty = [];
         for (let i = 0; i < TopFiveProduct.length; i++) {
-          const str =TopFiveProduct[i].Name
+          const str = TopFiveProduct[i].Name;
           const words = str.split(" ");
           const first3Words = words.slice(0, 3);
-          topFiveDataName.push(first3Words.join(" "))
-          TopFiveQty.push(TopFiveProduct[i].Qty)
+          topFiveDataName.push(first3Words.join(" "));
+          TopFiveQty.push(TopFiveProduct[i].Qty);
         }
-        setTopFiveDataNames(topFiveDataName)
-        setTopFiveDataQty(TopFiveQty)
+        setTopFiveDataNames(topFiveDataName);
+        setTopFiveDataQty(TopFiveQty);
         setPhonePrice(PhoneTotalSale);
         setLaptopPrice(LaptopTotalSale);
         setMenPrice(MenTotalSale);
@@ -90,22 +93,43 @@ function AdminStatsLastType({StatsType}) {
         setWomen(womenQty.length);
         let homeQty = res.data.filter((i) => i.category === "Home Appliances");
         setHome(homeQty.length);
+        setXaxisContainsInLineGraph(res.XaxisContains);
+        setYaxisContainsInLineGraph(res.YaxisContains);
       })
       .catch((err) => console.log(err));
-  }, [phone,TopFiveDataQty,StatsType]);
+  }, [phone, TopFiveDataQty, StatsType]);
 
-    const textNameObj={
-        LastWeekStats:"Last Week's",
-        LastMonthStats:"Last Month's",
-        LastQuarterStats:"Last Quarter's",
-        LastSixMonthsStats:"Last Six Months's",
-        LastYearStats:"Last Year's"
-    }
-
+  const textNameObj = {
+    LastWeekStats: "Last Week's",
+    LastMonthStats: "Last Month's",
+    LastQuarterStats: "Last Quarter's",
+    LastSixMonthsStats: "Last Six Months's",
+    LastYearStats: "Last Year's",
+  };
   return (
     <Box w="100%">
+      {StatsType === "LastWeekStats" && (
+        <Flex
+          p="6"
+          gridTemplateColumns="(0.25fr  0.75fr)"
+          w="95%"
+          justifyContent={"space-evenly"}
+          alignItems="center"
+          my="10"
+          boxShadow={
+            "rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px, rgba(17, 17, 26, 0.1) 0px 24px 80px"
+          }
+        >
+          <Box w="80%">
+            <LineGraph
+              XaxisContainsInLineGraph={XaxisContainsInLineGraph}
+              YaxisContainsInLineGraph={YaxisContainsInLineGraph}
+            />
+          </Box>
+        </Flex>
+      )}
       <Flex
-         p="6"
+        p="6"
         gridTemplateColumns="(0.25fr  0.75fr)"
         w="95%"
         justifyContent={"space-evenly"}
@@ -121,7 +145,7 @@ function AdminStatsLastType({StatsType}) {
           fontSize={{ base: "xl", sm: "2xl", md: "3xl" }}
           lineHeight={"110%"}
         >
-         {textNameObj[StatsType]} Sales in Qty{" "}
+          {textNameObj[StatsType]} Sales in Qty{" "}
           <Text mt="5px" fontSize="5xl" fontWeight="900">
             {TotalQty}
           </Text>
@@ -160,18 +184,18 @@ function AdminStatsLastType({StatsType}) {
           fontSize={{ base: "xl", sm: "2xl", md: "3xl" }}
           lineHeight={"110%"}
         >
-       {textNameObj[StatsType]} Top Five Products
+          {textNameObj[StatsType]} Top Five Products
         </Heading>
         <Box w="80%">
           <Piechart
-          stdudentSubject={TopFiveDataNames}
-          studentMarks={TopFiveDataQty}
-          PieChartText="Top Five Products"
+            stdudentSubject={TopFiveDataNames}
+            studentMarks={TopFiveDataQty}
+            PieChartText="Top Five Products"
           />
         </Box>
       </Flex>
       <Flex
-         p="6"
+        p="6"
         gridTemplateColumns="(0.25fr  0.75fr)"
         w="95%"
         justifyContent={"space-evenly"}
@@ -209,7 +233,7 @@ function AdminStatsLastType({StatsType}) {
           fontSize={{ base: "xl", sm: "2xl", md: "3xl" }}
           lineHeight={"110%"}
         >
-        {textNameObj[StatsType]} Sales in Price
+          {textNameObj[StatsType]} Sales in Price
           <Text mt="5px" fontSize="3xl" fontWeight="900">
             ₹{TotalPrice.toLocaleString()}
           </Text>
@@ -219,5 +243,4 @@ function AdminStatsLastType({StatsType}) {
   );
 }
 
-
-export default AdminStatsLastType
+export default AdminStatsLastType;
