@@ -11,6 +11,7 @@ import {
 } from "@chakra-ui/react";
 import React from "react";
 import AdminSideBar from "../Componets/AdminSection/AdminSideBar";
+import AdminStatsLastWeek from "../Componets/AdminSection/AdminStatsLastWeek";
 import AdminStatsTypeToday from "../Componets/AdminSection/AdminStatsTypeToday";
 
 const AdminStats = () => {
@@ -140,7 +141,7 @@ const AdminStats = () => {
                     </TabPanel>
 
                     <TabPanel>
-                        hello
+                        <AdminStatsLastWeek/>
                     </TabPanel>
 
                     <TabPanel>dispatch</TabPanel>
