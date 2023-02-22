@@ -2,7 +2,7 @@ const express = require("express");
 const OrderRoute = express.Router();
 const { OrderModel } = require("../models/Order.model");
 const { RegisterModule } = require("../models/user.model");
-
+const moment = require("moment");
 OrderRoute.get("/", async (req, res) => {
   let data = await OrderModel.find();
   res.send(data);
@@ -301,10 +301,10 @@ OrderRoute.get("/admin/Cancelled/getOrders", async (req, res) => {
   }
 });
 
-OrderRoute.get("/admin/todaySales",async(req,res)=>{
+OrderRoute.get("/admin/todaySales", async (req, res) => {
   let { todayDate } = req.query;
   try {
-    let data = await OrderModel.find({ date: todayDate })
+    let data = await OrderModel.find({ date: todayDate });
     res.send(data);
   } catch (err) {
     console.log(err);
@@ -312,8 +312,127 @@ OrderRoute.get("/admin/todaySales",async(req,res)=>{
       message: "Something went wrong",
     });
   }
-})
+});
 
+OrderRoute.get("/admin/LastWeekStats", async (req, res) => {
+  const lastWeekDate = moment().subtract(1, "weeks").format("DD-MM-YYYY");
+  const lastWeekDateParts = lastWeekDate.split("-");
+  try {
+    let data = await OrderModel.find();
+    const filteredData = data.filter((item) => {
+      const dateParts = item.date.split("-");
+      const itemDate = new Date(dateParts[2], dateParts[1] - 1, dateParts[0]); // year, month (0-based), day
+      const compareDate = new Date(
+        +lastWeekDateParts[2],
+        +lastWeekDateParts[1] - 1,
+        +lastWeekDateParts[0]
+      ); // year, month (0-based), day
+      return itemDate > compareDate;
+    });
+    res.send(filteredData);
+  } catch (err) {
+    console.log(err);
+    res.status(401).json({
+      message: "Something went wrong",
+    });
+  }
+});
+
+OrderRoute.get("/admin/LastMonthStats", async (req, res) => {
+  const lastMonthDate = moment().subtract(1, "months").format("DD-MM-YYYY");
+  const lastMonthDateParts = lastMonthDate.split("-");
+  try {
+    let data = await OrderModel.find();
+    const filteredData = data.filter((item) => {
+      const dateParts = item.date.split("-");
+      const itemDate = new Date(dateParts[2], dateParts[1] - 1, dateParts[0]); // year, month (0-based), day
+      const compareDate = new Date(
+        +lastMonthDateParts[2],
+        +lastMonthDateParts[1] - 1,
+        +lastMonthDateParts[0]
+      ); // year, month (0-based), day
+      return itemDate > compareDate;
+    });
+    res.send(filteredData);
+  } catch (err) {
+    console.log(err);
+    res.status(401).json({
+      message: "Something went wrong",
+    });
+  }
+});
+
+OrderRoute.get("/admin/LastQuarterStats", async (req, res) => {
+  const lastQuarterDate = moment().subtract(3, "months").format("DD-MM-YYYY");
+  const lastQuarterDateParts = lastQuarterDate.split("-");
+  try {
+    let data = await OrderModel.find();
+    const filteredData = data.filter((item) => {
+      const dateParts = item.date.split("-");
+      const itemDate = new Date(dateParts[2], dateParts[1] - 1, dateParts[0]); // year, month (0-based), day
+      const compareDate = new Date(
+        +lastQuarterDateParts[2],
+        +lastQuarterDateParts[1] - 1,
+        +lastQuarterDateParts[0]
+      ); // year, month (0-based), day
+      return itemDate > compareDate;
+    });
+    res.send(filteredData);
+  } catch (err) {
+    console.log(err);
+    res.status(401).json({
+      message: "Something went wrong",
+    });
+  }
+});
+
+OrderRoute.get("/admin/LastSixMonthsStats", async (req, res) => {
+  const lastSixMonthsDate = moment().subtract(6, "months").format("DD-MM-YYYY");
+  const lastSixMonthsDateParts = lastSixMonthsDate.split("-");
+  try {
+    let data = await OrderModel.find();
+    const filteredData = data.filter((item) => {
+      const dateParts = item.date.split("-");
+      const itemDate = new Date(dateParts[2], dateParts[1] - 1, dateParts[0]); // year, month (0-based), day
+      const compareDate = new Date(
+        +lastSixMonthsDateParts[2],
+        +lastSixMonthsDateParts[1] - 1,
+        +lastSixMonthsDateParts[0]
+      ); // year, month (0-based), day
+      return itemDate > compareDate;
+    });
+    res.send(filteredData);
+  } catch (err) {
+    console.log(err);
+    res.status(401).json({
+      message: "Something went wrong",
+    });
+  }
+});
+
+OrderRoute.get("/admin/LastYearStats", async (req, res) => {
+  const lastYearDate = moment().subtract(1, "years").format("DD-MM-YYYY");
+  const lastYearDateParts = lastYearDate.split("-");
+  try {
+    let data = await OrderModel.find();
+    const filteredData = data.filter((item) => {
+      const dateParts = item.date.split("-");
+      const itemDate = new Date(dateParts[2], dateParts[1] - 1, dateParts[0]); // year, month (0-based), day
+      const compareDate = new Date(
+        +lastYearDateParts[2],
+        +lastYearDateParts[1] - 1,
+        +lastYearDateParts[0]
+      ); // year, month (0-based), day
+      return itemDate > compareDate;
+    });
+    res.send(filteredData);
+  } catch (err) {
+    console.log(err);
+    res.status(401).json({
+      message: "Something went wrong",
+    });
+  }
+});
 module.exports = {
   OrderRoute,
 };
