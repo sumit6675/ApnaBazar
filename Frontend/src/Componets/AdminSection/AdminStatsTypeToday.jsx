@@ -96,7 +96,7 @@ function AdminStatsTypeToday() {
         setHome(homeQty.length);
       })
       .catch((err) => console.log(err));
-  }, [phone,TopFiveDataQty]);
+  }, []);
 
   return (
     <Box w="100%">

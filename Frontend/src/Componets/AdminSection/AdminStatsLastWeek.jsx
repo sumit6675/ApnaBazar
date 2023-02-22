@@ -97,7 +97,7 @@ function AdminStatsLastType({ StatsType }) {
         setYaxisContainsInLineGraph(res.YaxisContains);
       })
       .catch((err) => console.log(err));
-  }, [phone, TopFiveDataQty, StatsType]);
+  }, [StatsType]);
 
   const textNameObj = {
     LastWeekStats: "Last Week's",
@@ -108,26 +108,28 @@ function AdminStatsLastType({ StatsType }) {
   };
   return (
     <Box w="100%">
-      {StatsType === "LastWeekStats" && (
-        <Flex
-          p="6"
-          gridTemplateColumns="(0.25fr  0.75fr)"
-          w="95%"
-          justifyContent={"space-evenly"}
-          alignItems="center"
-          my="10"
-          boxShadow={
-            "rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px, rgba(17, 17, 26, 0.1) 0px 24px 80px"
-          }
-        >
-          <Box w="80%">
-            <LineGraph
-              XaxisContainsInLineGraph={XaxisContainsInLineGraph}
-              YaxisContainsInLineGraph={YaxisContainsInLineGraph}
-            />
-          </Box>
-        </Flex>
-      )}
+      <Flex
+        p="6"
+        gridTemplateColumns="(0.25fr  0.75fr)"
+        w="95%"
+        justifyContent={"space-evenly"}
+        alignItems="center"
+        my="10"
+        boxShadow={
+          "rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px, rgba(17, 17, 26, 0.1) 0px 24px 80px"
+        }
+      >
+        <Box w="80%">
+          <LineGraph 
+            name={`${textNameObj[StatsType]} Sales`}
+            TodayBarDataByQty={YaxisContainsInLineGraph}
+            todayText={`${textNameObj[StatsType]} Sales In Different days`}
+            TodayYaxisText={"Sales In (qty)"}
+            colorOfBar="#f90000"
+            TodayCatergory={XaxisContainsInLineGraph}
+          />
+        </Box>
+      </Flex>
       <Flex
         p="6"
         gridTemplateColumns="(0.25fr  0.75fr)"

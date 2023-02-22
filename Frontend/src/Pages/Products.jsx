@@ -24,7 +24,6 @@ function Productpage({ category }) {
 
   const handleCheckboxClick = (value) => {
     setSelectedValue(value);
-    console.log(value);
   };
 
   const checkboxList1 = [

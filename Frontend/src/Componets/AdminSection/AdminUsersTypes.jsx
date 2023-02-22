@@ -26,7 +26,6 @@ const AdminUsersTypes = ({ userType }) => {
       .get(`${backendLink}/users/admin/${userType}?page=${page}`)
       .then((res) => {
         setData(res.data);
-        console.log(res.data);
       })
       .catch((err) => console.error(err));
   }, [page, flag, userType]);

@@ -46,7 +46,6 @@ function Signup() {
       })
         .then((res) => res.json())
         .then((res) => {
-          console.log(res);
           if (res.message === "Email already register") {
             toast({
               title: "Account already register",

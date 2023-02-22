@@ -14,7 +14,6 @@ export const login = (creds) => async (dispatch) => {
     await axios.post(`${backendLink}/users/login`, creds)
     .then((res)=>{
       dispatch({ type: LOGIN_SUCCESS, payload: res.data });
-      console.log(backendLink);
     })
   } catch (e) {
     console.log(e.message)
