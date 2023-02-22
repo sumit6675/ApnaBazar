@@ -2,7 +2,7 @@ const express = require("express");
 const OrderRoute = express.Router();
 const { OrderModel } = require("../models/Order.model");
 const { RegisterModule } = require("../models/user.model");
-
+const moment = require('moment');
 OrderRoute.get("/", async (req, res) => {
   let data = await OrderModel.find();
   res.send(data);
@@ -314,6 +314,25 @@ OrderRoute.get("/admin/todaySales",async(req,res)=>{
   }
 })
 
+OrderRoute.get("/admin/LastWeekStats",async(req,res)=>{
+  const lastWeekDate = moment().subtract(1, 'weeks').format('DD-MM-YYYY');
+  const lastWeekDateParts = lastWeekDate.split('-');
+  try{
+      let data=await OrderModel.find()
+      const filteredData = data.filter((item) => {
+        const dateParts = item.date.split('-');
+        const itemDate = new Date(dateParts[2], dateParts[1] - 1, dateParts[0]); // year, month (0-based), day
+        const compareDate = new Date(+lastWeekDateParts[2], +lastWeekDateParts[1]-1, +lastWeekDateParts[0]); // year, month (0-based), day
+        return itemDate > compareDate;
+      });
+      res.send(filteredData);
+  }catch(err){
+    console.log(err);
+    res.status(401).json({
+      message: "Something went wrong",
+    });
+  }
+})
 module.exports = {
   OrderRoute,
 };
