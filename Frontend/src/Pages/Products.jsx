@@ -1,10 +1,19 @@
-import { Grid, Heading, Skeleton, Text, VStack } from "@chakra-ui/react";
+import {
+  Box,
+  Button,
+  Grid,
+  Heading,
+  Skeleton,
+  Text,
+  VStack,
+} from "@chakra-ui/react";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { backendLink } from "../backendLink";
 import SingleProduct from "../Componets/SingleProduct";
 
 function Productpage({ category }) {
+  const [page, setPage] = React.useState(1);
   let [data, setData] = React.useState([]);
   const [loading, setLoading] = React.useState(true);
   const [selectedValue1, setSelectedValue] = useState("All");
@@ -13,14 +22,14 @@ function Productpage({ category }) {
   React.useEffect(() => {
     setLoading(true);
     fetch(
-      `${backendLink}/products/${category}?brand=${selectedValue1}&sort=${sort}`
+      `${backendLink}/products/${category}?brand=${selectedValue1}&sort=${sort}&page=${page}`
     )
       .then((res) => res.json())
       .then((res) => {
         setData(res);
         setLoading(false);
       });
-  }, [category, selectedValue1, sort]);
+  }, [category, selectedValue1, sort, page]);
 
   const handleCheckboxClick = (value) => {
     setSelectedValue(value);
@@ -39,7 +48,9 @@ function Productpage({ category }) {
   const checkboxList3 = ["All", "Jacket", "Puma", "High Neck Jacket"];
   const checkboxList4 = ["All", "saree", "Dress"];
   const checkboxList5 = ["All", "Masala", "Roll", "Ready To Eat"];
-
+  const handlepage = (p) => {
+    setPage(page + p);
+  };
   if (loading) {
     return (
       <Grid gridTemplateColumns={"0.15fr 0.85fr"}>
@@ -425,29 +436,38 @@ function Productpage({ category }) {
         </VStack>
       )}
 
-      <Grid w="90%" m="auto" templateColumns={"repeat(4, 1fr)"} gap="20px">
-        {data ? (
-          data.map((i) => {
-            return (
-              <SingleProduct
-                image={i.image}
-                alt={i.Name}
-                title={i.Name}
-                price={i.price}
-                category={i.category}
-                rate={i.rating}
-                count={i.reviewNumber}
-                mrp={i.mrp}
-                key={i._id}
-                discount={i.discount}
-                handleClick={() => handleSignleProduct(i._id)}
-              />
-            );
-          })
-        ) : (
-          <Heading>Please Select Filters</Heading>
-        )}
-      </Grid>
+      <Box  w="90%" m="auto">
+        <Grid w="100%" m="auto" templateColumns={"repeat(4, 1fr)"} gap="20px">
+          {data ? (
+            data.map((i) => {
+              return (
+                <SingleProduct
+                  image={i.image}
+                  alt={i.Name}
+                  title={i.Name}
+                  price={i.price}
+                  category={i.category}
+                  rate={i.rating}
+                  count={i.reviewNumber}
+                  mrp={i.mrp}
+                  key={i._id}
+                  discount={i.discount}
+                  handleClick={() => handleSignleProduct(i._id)}
+                />
+              );
+            })
+          ) : (
+            <Heading>Please Select Filters</Heading>
+          )}
+        </Grid>
+        <Box w="30%" m="auto" mt="5">
+          <Button mx="2" disabled={page === 1} onClick={() => handlepage(-1)}>
+            Previous
+          </Button>
+          <Button mx="2" disabled={true}>{page}</Button>
+          <Button mx="2" onClick={() => handlepage(1)}>Next</Button>
+        </Box>
+      </Box>
     </Grid>
   );
 }
