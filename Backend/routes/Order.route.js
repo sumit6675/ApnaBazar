@@ -329,7 +329,44 @@ OrderRoute.get("/admin/LastWeekStats", async (req, res) => {
       ); // year, month (0-based), day
       return itemDate > compareDate;
     });
-    res.send(filteredData);
+    const sellsStats = {};
+    for (let i = 0; i < filteredData.length; i++) {
+      if (!sellsStats[filteredData[i].date]) {
+        sellsStats[filteredData[i].date] = 1;
+      } else {
+        sellsStats[filteredData[i].date]++;
+      }
+    }
+    const today = new Date();
+    const lastWeek = new Date(
+      today.getFullYear(),
+      today.getMonth(),
+      today.getDate() - 7
+    );
+    const dates = [];
+    for (let date = lastWeek; date <= today; date.setDate(date.getDate() + 1)) {
+      const day = date.getDate().toString().padStart(2, "0");
+      const month = (date.getMonth() + 1).toString().padStart(2, "0");
+      const year = date.getFullYear().toString();
+      dates.push(`${day}-${month}-${year}`);
+    }
+    for (let i = 0; i < dates.length; i++) {
+      if (!sellsStats[dates[i]]) {
+        sellsStats[dates[i]] = 0;
+      }
+    }
+    const sortedKeys = Object.keys(sellsStats).sort();
+    const sortedObject = {};
+    sortedKeys.forEach((key) => {
+      sortedObject[key] = sellsStats[key];
+    });
+    let XaxisContains = [];
+    let YaxisContains = [];
+    for (let key in sortedObject) {
+      XaxisContains.push(key);
+      YaxisContains.push(sortedObject[key]);
+    }
+    res.send({ data: filteredData, XaxisContains, YaxisContains });
   } catch (err) {
     console.log(err);
     res.status(401).json({
@@ -353,7 +390,7 @@ OrderRoute.get("/admin/LastMonthStats", async (req, res) => {
       ); // year, month (0-based), day
       return itemDate > compareDate;
     });
-    res.send(filteredData);
+    res.send({ data: filteredData });
   } catch (err) {
     console.log(err);
     res.status(401).json({
@@ -377,7 +414,7 @@ OrderRoute.get("/admin/LastQuarterStats", async (req, res) => {
       ); // year, month (0-based), day
       return itemDate > compareDate;
     });
-    res.send(filteredData);
+    res.send({ data: filteredData });
   } catch (err) {
     console.log(err);
     res.status(401).json({
@@ -401,7 +438,7 @@ OrderRoute.get("/admin/LastSixMonthsStats", async (req, res) => {
       ); // year, month (0-based), day
       return itemDate > compareDate;
     });
-    res.send(filteredData);
+    res.send({ data: filteredData });
   } catch (err) {
     console.log(err);
     res.status(401).json({
@@ -425,7 +462,7 @@ OrderRoute.get("/admin/LastYearStats", async (req, res) => {
       ); // year, month (0-based), day
       return itemDate > compareDate;
     });
-    res.send(filteredData);
+    res.send({ data: filteredData });
   } catch (err) {
     console.log(err);
     res.status(401).json({
@@ -433,6 +470,7 @@ OrderRoute.get("/admin/LastYearStats", async (req, res) => {
     });
   }
 });
+
 module.exports = {
   OrderRoute,
 };
