@@ -5,7 +5,7 @@ import { backendLink } from "../../backendLink";
 import Barchart from "./BarChart";
 import Piechart from "./PieChar";
 
-function AdminStatsLastWeek() {
+function AdminStatsLastType({StatsType}) {
   const [TotalQty, setTotaQty] = useState(0);
   const [TotalPrice, setTotalPrice] = useState(0);
   const [phone, setPhone] = useState(0);
@@ -23,7 +23,7 @@ function AdminStatsLastWeek() {
 
   useEffect(() => {
     axios
-      .get(`${backendLink}/orders/admin/LastWeekStats`)
+      .get(`${backendLink}/orders/admin/${StatsType}`)
       .then((res) => {
         let tot = 0;
         let PhoneTotalSale = 0;
@@ -92,7 +92,15 @@ function AdminStatsLastWeek() {
         setHome(homeQty.length);
       })
       .catch((err) => console.log(err));
-  }, [phone,TopFiveDataQty]);
+  }, [phone,TopFiveDataQty,StatsType]);
+
+    const textNameObj={
+        LastWeekStats:"Last Week's",
+        LastMonthStats:"Last Month's",
+        LastQuarterStats:"Last Quarter's",
+        LastSixMonthsStats:"Last Six Months's",
+        LastYearStats:"Last Year's"
+    }
 
   return (
     <Box w="100%">
@@ -113,16 +121,16 @@ function AdminStatsLastWeek() {
           fontSize={{ base: "xl", sm: "2xl", md: "3xl" }}
           lineHeight={"110%"}
         >
-          Last Week's Sales in Qty{" "}
+         {textNameObj[StatsType]} Sales in Qty{" "}
           <Text mt="5px" fontSize="5xl" fontWeight="900">
             {TotalQty}
           </Text>
         </Heading>
         <Box w="80%">
           <Barchart
-            name={"Last Week's Sales By Qty"}
+            name={`${textNameObj[StatsType]} Sales By Qty`}
             TodayBarDataByQty={[phone, laptop, men, women, home]}
-            todayText={"Last Week's Sales In Different Categories"}
+            todayText={`${textNameObj[StatsType]} Sales In Different Categories`}
             TodayYaxisText={"Sales In (qty)"}
             colorOfBar="#f90000"
             TodayCatergory={[
@@ -152,7 +160,7 @@ function AdminStatsLastWeek() {
           fontSize={{ base: "xl", sm: "2xl", md: "3xl" }}
           lineHeight={"110%"}
         >
-       Last Week's Top Five Products
+       {textNameObj[StatsType]} Top Five Products
         </Heading>
         <Box w="80%">
           <Piechart
@@ -175,7 +183,7 @@ function AdminStatsLastWeek() {
       >
         <Box w="80%">
           <Barchart
-            name={"Last Week's Sales By ₹"}
+            name={`${textNameObj[StatsType]} Sales By ₹`}
             TodayBarDataByQty={[
               phonePrice,
               laptopPrice,
@@ -183,7 +191,7 @@ function AdminStatsLastWeek() {
               womenPrice,
               homePrice,
             ]}
-            todayText={"Last Week's Sales In Different Categories"}
+            todayText={`${textNameObj[StatsType]} Sales In Different Categories`}
             TodayYaxisText={"Sales In (₹)"}
             colorOfBar="#645CBB"
             TodayCatergory={[
@@ -201,7 +209,7 @@ function AdminStatsLastWeek() {
           fontSize={{ base: "xl", sm: "2xl", md: "3xl" }}
           lineHeight={"110%"}
         >
-        Last Week's Sales in Price
+        {textNameObj[StatsType]} Sales in Price
           <Text mt="5px" fontSize="3xl" fontWeight="900">
             ₹{TotalPrice.toLocaleString()}
           </Text>
@@ -212,4 +220,4 @@ function AdminStatsLastWeek() {
 }
 
 
-export default AdminStatsLastWeek
+export default AdminStatsLastType

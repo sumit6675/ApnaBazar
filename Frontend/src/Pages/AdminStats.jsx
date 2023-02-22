@@ -11,7 +11,7 @@ import {
 } from "@chakra-ui/react";
 import React from "react";
 import AdminSideBar from "../Componets/AdminSection/AdminSideBar";
-import AdminStatsLastWeek from "../Componets/AdminSection/AdminStatsLastWeek";
+import AdminStatsLastType from "../Componets/AdminSection/AdminStatsLastWeek";
 import AdminStatsTypeToday from "../Componets/AdminSection/AdminStatsTypeToday";
 
 const AdminStats = () => {
@@ -110,7 +110,7 @@ const AdminStats = () => {
                         fontSize={{ base: "0.7rem", md: "0.8rem", lg: "1rem" }}
                         fontWeight="bold"
                       >
-                       Last Quarter
+                        Last Quarter
                       </Text>
                     </Tab>
 
@@ -137,19 +137,29 @@ const AdminStats = () => {
 
                   <TabPanels>
                     <TabPanel>
-                        <AdminStatsTypeToday/>
+                      <AdminStatsTypeToday />
                     </TabPanel>
 
                     <TabPanel>
-                        <AdminStatsLastWeek/>
+                      <AdminStatsLastType StatsType="LastWeekStats" />
                     </TabPanel>
 
-                    <TabPanel>dispatch</TabPanel>
+                    <TabPanel>
+                      <AdminStatsLastType StatsType="LastMonthStats" />
+                    </TabPanel>
 
-                    <TabPanel>outForDelivery</TabPanel>
+                    <TabPanel>
+                      <AdminStatsLastType StatsType="LastQuarterStats" />
+                    </TabPanel>
 
-                    <TabPanel>deliverd</TabPanel>
-                    <TabPanel>Cancelled</TabPanel>
+                    <TabPanel>
+                      <AdminStatsLastType StatsType="LastSixMonthsStats" />
+                    </TabPanel>
+
+                    <TabPanel>
+                      <AdminStatsLastType StatsType="LastYearStats" />
+                    </TabPanel>
+
                   </TabPanels>
                 </Tabs>
               </Box>
