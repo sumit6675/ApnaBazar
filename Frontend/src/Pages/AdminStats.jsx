@@ -11,8 +11,7 @@ import {
 } from "@chakra-ui/react";
 import React from "react";
 import AdminSideBar from "../Componets/AdminSection/AdminSideBar";
-import Barchart from "../Componets/AdminSection/BarChart";
-import Piechart from "../Componets/AdminSection/PieChar";
+import AdminStatsTypeToday from "../Componets/AdminSection/AdminStatsTypeToday";
 
 const AdminStats = () => {
   return (
@@ -41,7 +40,7 @@ const AdminStats = () => {
             <Box
               border="1px solid gray"
               mt="2rem"
-              width="90%"
+              width="98%"
               borderRadius="1rem"
               p="1rem"
             >
@@ -53,7 +52,7 @@ const AdminStats = () => {
 
               <Box
                 bg="white"
-                w="95%"
+                w="98%"
                 color="black"
                 align="center"
                 justify="center"
@@ -137,11 +136,11 @@ const AdminStats = () => {
 
                   <TabPanels>
                     <TabPanel>
-                        <Barchart/>
+                        <AdminStatsTypeToday/>
                     </TabPanel>
 
                     <TabPanel>
-                        <Piechart/>
+                        hello
                     </TabPanel>
 
                     <TabPanel>dispatch</TabPanel>

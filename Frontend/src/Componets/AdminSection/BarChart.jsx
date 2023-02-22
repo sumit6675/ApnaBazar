@@ -1,40 +1,30 @@
 import React from "react";
 import Chart from "react-apexcharts";
 
-function Barchart() {
+function Barchart({ TodayBarDataByQty, name, todayText, TodayCatergory ,TodayYaxisText,colorOfBar }) {
   return (
     <React.Fragment>
-      <div className="container-fluid mb-5">
-        <h3 className="text-center mt-3 mb-3">Bar Chart in ReactJS</h3>
-
+      <div className="container-fluid mb-5" w="100%">
         <Chart
           type="bar"
-          width="80%"
+          width="95%"
           height={400}
           series={[
             {
-              name: "Social Media Subscriber",
-              data: [6578, 6787, 3245, 9876, 2324, 5123, 2435],
+              name: name,
+              data: TodayBarDataByQty,
             },
           ]}
           options={{
-            colors: ["#f90000"],
+            colors: [colorOfBar],
             theme: { mode: "light" },
 
             xaxis: {
               tickPlacement: "on",
-              categories: [
-                "Facebook",
-                "Twitter",
-                "Linkedin",
-                "Instagram",
-                "GitHub",
-                "Stackoverflow",
-                "Youtube",
-              ],
+              categories: TodayCatergory,
               title: {
-                text: "Social Media User",
-                style: { color: "#f90000", fontSize: 30 },
+                text: todayText,
+                style: { color: colorOfBar, fontSize: 30 },
               },
             },
 
@@ -43,11 +33,11 @@ function Barchart() {
                 formatter: (val) => {
                   return `${val}`;
                 },
-                style: { fontSize: "15", colors: ["#f90000"] },
+                style: { fontSize: "15", colors: [colorOfBar] },
               },
               title: {
-                text: "User In (K)",
-                style: { color: "#f90000", fontSize: 15 },
+                text: TodayYaxisText,
+                style: { color: colorOfBar, fontSize: 15 },
               },
             },
 
