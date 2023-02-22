@@ -115,7 +115,7 @@ usersRoute.post("/login", async (req, res) => {
             id:user[0]._id,
             name: user[0].name,
             email: user[0].email,
-            typeOfUser:user[0].userType,
+            users:user[0].userType,
           });
         } else {
           res.status(401).json({
