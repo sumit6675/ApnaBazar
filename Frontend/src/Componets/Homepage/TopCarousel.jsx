@@ -67,7 +67,7 @@ function TopCarousel() {
       justifyContent="center"
     >
       <Flex w="full" overflow="hidden" pos="relative">
-        <Flex h="400px" w="full" {...carouselStyle}>
+        <Flex h={["200px","200px","400px","400px","400px"]} w="full" {...carouselStyle}>
           {slides.map((slide, sid) => (
             <Box key={`slide-${sid}`} boxSize="full" shadow="md" flex="none">
               <Text
