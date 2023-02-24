@@ -10,6 +10,7 @@ import {
   Avatar,
   Center,
   useToast,
+  Box,
 } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
@@ -24,26 +25,26 @@ export default function ProfilePage() {
   const [address, setAddress] = useState("");
   const [state, setState] = useState("");
   const [data, setData] = useState([]);
-  const [flag,setFlag]=useState(false)
-  const toast=useToast()
+  const [flag, setFlag] = useState(false);
+  const toast = useToast();
   useEffect(() => {
     fetch(`${backendLink}/users?email=${email}`)
       .then((res) => res.json())
       .then((res) => {
         setData(res);
-        setPhone(res.phone)
-        setCity(res.City)
-        setPincode(res.Pincode)
+        setPhone(res.phone);
+        setCity(res.City);
+        setPincode(res.Pincode);
       });
-  }, [email,flag]);
-  const handleEditProfile=()=>{
-    const payload={
+  }, [email, flag]);
+  const handleEditProfile = () => {
+    const payload = {
       phone,
       City,
       pincode,
-      addressName:address,
-      state
-    }
+      addressName: address,
+      state,
+    };
     fetch(`${backendLink}/users/updateuser?id=${data._id}`, {
       method: "PATCH",
       body: JSON.stringify(payload),
@@ -61,9 +62,19 @@ export default function ProfilePage() {
         });
         setFlag(!flag);
       });
-  }
+  };
   return (
-    <Flex w="100%" justifyContent={"space-evenly"}>
+    <Box
+      display={{
+        lg: "flex",
+        md: "flex",
+      }}
+      w="100%"
+      justifyContent={{
+        lg:"space-evenly",
+        md:"space-evenly"
+      }}
+    >
       <Sidebar />
       <Flex
         minH={"100vh"}
@@ -133,7 +144,7 @@ export default function ProfilePage() {
               placeholder="Enter Your  Address"
               _placeholder={{ color: "gray.500" }}
               type="text"
-              defaultValue={data.address}
+              defaultValue={data.addressName}
               onChange={(e) => setAddress(e.target.value)}
             />
           </FormControl>
@@ -179,7 +190,7 @@ export default function ProfilePage() {
               Cancel
             </Button>
             <Button
-            onClick={handleEditProfile}
+              onClick={handleEditProfile}
               bg={"blue.400"}
               color={"white"}
               w="full"
@@ -192,7 +203,7 @@ export default function ProfilePage() {
           </Stack>
         </Stack>
       </Flex>
-    </Flex>
+    </Box>
   );
 }
 
