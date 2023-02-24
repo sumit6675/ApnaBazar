@@ -20,9 +20,30 @@ function Orders() {
 
   if (loading) {
     return (
-      <Flex w="100%" gap="5">
+      <Flex
+        ox
+        display={{
+          lg: "flex",
+          md: "flex",
+        }}
+        w="100%"
+        justifyContent={{
+          lg: "space-evenly",
+          md: "space-evenly",
+        }}
+      >
         <Sidebar />
-        <Grid w="90%" m="auto" templateColumns={"repeat(4, 1fr)"} gap="20px">
+        <Grid
+          w="90%"
+          m="auto"
+          gridTemplateColumns={{
+            base: "repeat(2,1fr)",
+            sm: "repeat(2,1fr)",
+            md: "repeat(2,1fr)",
+            lg: "repeat(4,1fr)",
+          }}
+          gap="20px"
+        >
           <Skeleton height="220px" />
           <Skeleton height="220px" />
           <Skeleton height="220px" />
@@ -45,15 +66,16 @@ function Orders() {
   }
   return (
     <Box
-    display={{
-      lg: "flex",
-      md: "flex",
-    }}
-    w="100%"
-    justifyContent={{
-      lg:"space-evenly",
-      md:"space-evenly"
-    }}>
+      display={{
+        lg: "flex",
+        md: "flex",
+      }}
+      w="100%"
+      justifyContent={{
+        lg: "space-evenly",
+        md: "space-evenly",
+      }}
+    >
       <Sidebar />
       <Box w="100%">
         <Heading
@@ -64,12 +86,16 @@ function Orders() {
         >
           ORDERS HISTORY
         </Heading>
-        <Grid w="100%" gap="2" gridTemplateColumns={{
-          base:"repeat(2,1fr)",
-          sm:"repeat(2,1fr)",
-          md:"repeat(2,1fr)",
-          lg:"repeat(4,1fr)"
-        }}>
+        <Grid
+          w="100%"
+          gap="2"
+          gridTemplateColumns={{
+            base: "repeat(2,1fr)",
+            sm: "repeat(2,1fr)",
+            md: "repeat(2,1fr)",
+            lg: "repeat(4,1fr)",
+          }}
+        >
           {data.map((i) => (
             <GridItem>
               <SingleOrderContainer
