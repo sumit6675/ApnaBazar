@@ -78,7 +78,6 @@ function Wishlist() {
       </Flex>
     );
   }
-  }
   return (
     <Box
       display={{
