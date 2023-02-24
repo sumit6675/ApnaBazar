@@ -1,6 +1,5 @@
 import {
   Box,
-  Divider,
   Drawer,
   DrawerBody,
   DrawerCloseButton,
@@ -268,7 +267,7 @@ function Navbar() {
       >
         <Link to="/">
           <Box>
-            <Image src="ApnaBazarLogo.gif" alt="logo" w="190px" h="120px" />
+            <Image src="ApnaBazarLogo.gif" alt="logo" w="150px" h="100px" />
           </Box>
         </Link>
         <Flex
@@ -288,54 +287,53 @@ function Navbar() {
           />
           <FcSearch fontSize={"42px"} />
         </Flex>
-        <Link to="/cart">
-          <Flex cursor={"pointer"}>
-            <BsFillCartFill color="black" fontSize="30px" />
-            <Heading
-              cursor={"pointer"}
-              fontSize={"30px"}
-              color="black"
-              _hover={{ bg: "red", textDecoration: "underline" }}
-            >
-              Cart
-            </Heading>
-          </Flex>
-        </Link>
-        {/* {!isAuth ? (
-            <Flex cursor={"pointer"}>
-              <GrLogin color="white" fontSize="20px" />
-              <Link to="login">
-                <Heading
-                  cursor={"pointer"}
-                  fontSize={"17px"}
-                  color="white"
-                  _hover={{ bg: "red", textDecoration: "underline" }}
-                >
-                  Login
-                </Heading>
-              </Link>
-            </Flex>
-          ) : (
-            <Menu>
-              <MenuButton
+        {!isAuth ? (
+          <Flex cursor={"pointer"} p="2">
+            <GrLogin color="black" fontSize="24px" />
+            <Link to="login">
+              <Heading
+                cursor={"pointer"}
+                fontSize={"24px"}
                 color="black"
-                as={Button}
-                rightIcon={<ChevronDownIcon />}
+                _hover={{ textDecoration: "underline" }}
               >
-                Hi 
-              </MenuButton>
+                Login
+              </Heading>
+            </Link>
+          </Flex>
+        ) : (
+          <Menu>
+            <MenuButton
+              color="black"
+              as={Button}
+              rightIcon={<ChevronDownIcon />}
+            >
+              Hi {name}
+            </MenuButton>
+            {email !== "admin@gmail.com" ? (
               <MenuList>
-                <MenuItem>My Profile</MenuItem>
-                <MenuItem>My Order</MenuItem>
+                <MenuItem>
+                  <NavLink to="/profile">My Profile</NavLink>
+                </MenuItem>
+                <MenuItem>
+                  <NavLink to="/Orders">My Order</NavLink>
+                </MenuItem>
                 <MenuItem>My Address</MenuItem>
-                <Link to="whishlist">
-                  {" "}
+                <Link to="/Wishlist">
                   <MenuItem>My Wishlist</MenuItem>
                 </Link>
-                <MenuItem>Logout</MenuItem>
+                <MenuItem onClick={handleLogout}>Logout</MenuItem>
               </MenuList>
-            </Menu>
-          )} */}
+            ) : (
+              <MenuList>
+                <MenuItem>
+                  <NavLink to="/admin/products">Admin Page</NavLink>
+                </MenuItem>
+                <MenuItem onClick={handleLogout}>Logout</MenuItem>
+              </MenuList>
+            )}
+          </Menu>
+        )}
         <Box mx="20px">
           <Box ref={btnRef} colorScheme="teal" onClick={onOpen}>
             <GiHamburgerMenu fontSize={"55px"} />
@@ -361,86 +359,50 @@ function Navbar() {
                   m="auto"
                   p="auto"
                 >
-                  <Link to="mobilesandtablets">
-                    <Heading
-                      cursor={"pointer"}
-                      fontSize={"17px"}
-                      color="white"
-                      _hover={{ bg: "red", textDecoration: "underline" }}
-                    >
-                      MOBILES & TABLETS
-                    </Heading>
-                  </Link>
-                  <Link to="televisions">
-                    <Heading
-                      cursor={"pointer"}
-                      fontSize={"17px"}
-                      color="white"
-                      _hover={{ bg: "red", textDecoration: "underline" }}
-                    >
-                      TELEVISIONS
-                    </Heading>
-                  </Link>
-                  <Link to="homeappliances">
-                    <Heading
-                      cursor={"pointer"}
-                      fontSize={"17px"}
-                      color="white"
-                      _hover={{ bg: "red", textDecoration: "underline" }}
-                    >
-                      HOME APPLIANCES
-                    </Heading>
-                  </Link>
-                  <Link to="computers">
-                    <Heading
-                      cursor={"pointer"}
-                      fontSize={"17px"}
-                      color="white"
-                      _hover={{ bg: "red", textDecoration: "underline" }}
-                    >
-                      COMPUTERS
-                    </Heading>
-                  </Link>
-                  <Link to="kitchen">
-                    <Heading
-                      cursor={"pointer"}
-                      fontSize={"17px"}
-                      color="white"
-                      _hover={{ bg: "red", textDecoration: "underline" }}
-                    >
-                      KITCHEN APPLIANCES
-                    </Heading>
-                  </Link>
-                  <Link to="personalcare">
-                    <Heading
-                      cursor={"pointer"}
-                      fontSize={"17px"}
-                      color="white"
-                      _hover={{ bg: "red", textDecoration: "underline" }}
-                    >
-                      PERSONAL CARE
-                    </Heading>
-                  </Link>
-                  <Link to="accessories">
-                    <Heading
-                      cursor={"pointer"}
-                      fontSize={"17px"}
-                      color="white"
-                      _hover={{ bg: "red", textDecoration: "underline" }}
-                    >
-                      ACCESSORIES
-                    </Heading>
-                  </Link>
-                  <Link to="headphones">
-                    <Heading
-                      cursor={"pointer"}
-                      fontSize={"17px"}
-                      color="white"
-                      _hover={{ bg: "red", textDecoration: "underline" }}
-                    >
-                      AUDIO
-                    </Heading>
-                  </Link>
+                  <Heading
+                    cursor={"pointer"}
+                    fontSize={"17px"}
+                    color="white"
+                    _hover={{ bg: "red", textDecoration: "underline" }}
+                  >
+                    <NavLink to={"/phone"}> Mobiles</NavLink>
+                  </Heading>
+
+                  <Heading
+                    cursor={"pointer"}
+                    fontSize={"17px"}
+                    color="white"
+                    _hover={{ bg: "red", textDecoration: "underline" }}
+                  >
+                    <NavLink to="/laptop">Laptops</NavLink>
+                  </Heading>
+
+                  <Heading
+                    cursor={"pointer"}
+                    fontSize={"17px"}
+                    color="white"
+                    _hover={{ bg: "red", textDecoration: "underline" }}
+                  >
+                    <NavLink to="/men">Men Fashion</NavLink>
+                  </Heading>
+
+                  <Heading
+                    cursor={"pointer"}
+                    fontSize={"17px"}
+                    color="white"
+                    _hover={{ bg: "red", textDecoration: "underline" }}
+                  >
+                    <NavLink to="/women">Women Fashion</NavLink>
+                  </Heading>
+
+                  <Heading
+                    cursor={"pointer"}
+                    fontSize={"17px"}
+                    color="white"
+                    _hover={{ bg: "red", textDecoration: "underline" }}
+                  >
+                    <NavLink to="/home">Home Appliances</NavLink>
+                  </Heading>
                 </VStack>
               </DrawerBody>
             </DrawerContent>
@@ -462,7 +424,7 @@ function Navbar() {
       >
         <Link to="/">
           <Box>
-            <Image src="ApnaBazarLogo.gif" alt="logo" w="140px" h="80px" />
+            <Image src="ApnaBazarLogo.gif" alt="logo" w="100px" h="80px" />
           </Box>
         </Link>
         <Flex
@@ -495,7 +457,9 @@ function Navbar() {
             <DrawerOverlay />
             <DrawerContent bg="red.300">
               <DrawerCloseButton />
-
+              <DrawerHeader fontSize={"22px"} fontWeight="bold">
+                Select Product Category
+              </DrawerHeader>
               <DrawerBody>
                 <VStack
                   justifyContent={"space-around"}
@@ -504,158 +468,115 @@ function Navbar() {
                   m="auto"
                   p="auto"
                 >
-                  {/* {isAuth ? (
-                      <Link to="profile">
-                        <Heading
-                          cursor={"pointer"}
-                          fontSize={"24px"}
-                          _hover={{ bg: "red", textDecoration: "underline" }}
-                          fontWeight="bold"
-                          color="black"
-                          mt="35px"
-                        >
-                          Hi 
-                        </Heading>
-                      </Link>
-                    ) : (
-                      <Link to="profile">
-                        <Heading
-                          cursor={"pointer"}
-                          fontSize={"24px"}
-                          _hover={{ bg: "red", textDecoration: "underline" }}
-                          fontWeight="bold"
-                          color="black"
-                          mt="35px"
-                        >
-                          Profile
-                        </Heading>
-                      </Link>
-                    )} */}
+                  <Heading
+                    cursor={"pointer"}
+                    fontSize={"17px"}
+                    color="white"
+                    _hover={{ bg: "red", textDecoration: "underline" }}
+                  >
+                    <NavLink to={"/phone"}> Mobiles</NavLink>
+                  </Heading>
 
-                  {/* {!isAuth ? (
-                      <Link to="/login">
-                        <Heading
-                          cursor={"pointer"}
-                          fontSize={"24px"}
-                          _hover={{ bg: "red", textDecoration: "underline" }}
-                          fontWeight="bold"
-                          color="black"
-                        >
-                          Login
-                        </Heading>
-                      </Link>
-                    ) : (
-                      <Link to="/login">
-                        <Heading
-                          cursor={"pointer"}
-                          fontSize={"24px"}
-                          _hover={{ bg: "red", textDecoration: "underline" }}
-                          fontWeight="bold"
-                          color="black"
-                        >
-                          Logout
-                        </Heading>
-                      </Link>
-                    )} */}
+                  <Heading
+                    cursor={"pointer"}
+                    fontSize={"17px"}
+                    color="white"
+                    _hover={{ bg: "red", textDecoration: "underline" }}
+                  >
+                    <NavLink to="/laptop">Laptops</NavLink>
+                  </Heading>
 
-                  <Link to="/cart">
-                    <Heading
-                      cursor={"pointer"}
-                      fontSize={"24px"}
-                      _hover={{ bg: "red", textDecoration: "underline" }}
-                      fontWeight="bold"
-                      color="black"
-                    >
-                      Cart
-                    </Heading>
-                  </Link>
+                  <Heading
+                    cursor={"pointer"}
+                    fontSize={"17px"}
+                    color="white"
+                    _hover={{ bg: "red", textDecoration: "underline" }}
+                  >
+                    <NavLink to="/men">Men Fashion</NavLink>
+                  </Heading>
 
-                  <DrawerHeader fontSize={"22px"} fontWeight="bold">
-                    <Divider color={"black"} />
-                    Product Category
-                    <Divider color={"black"} />
-                  </DrawerHeader>
+                  <Heading
+                    cursor={"pointer"}
+                    fontSize={"17px"}
+                    color="white"
+                    _hover={{ bg: "red", textDecoration: "underline" }}
+                  >
+                    <NavLink to="/women">Women Fashion</NavLink>
+                  </Heading>
 
-                  <Link to="mobilesandtablets">
-                    <Heading
-                      cursor={"pointer"}
-                      fontSize={"17px"}
-                      color="white"
-                      _hover={{ bg: "red", textDecoration: "underline" }}
-                    >
-                      MOBILES & TABLETS
-                    </Heading>
-                  </Link>
-                  <Link to="televisions">
-                    <Heading
-                      cursor={"pointer"}
-                      fontSize={"17px"}
-                      color="white"
-                      _hover={{ bg: "red", textDecoration: "underline" }}
-                    >
-                      TELEVISIONS
-                    </Heading>
-                  </Link>
-                  <Link to="homeappliances">
-                    <Heading
-                      cursor={"pointer"}
-                      fontSize={"17px"}
-                      color="white"
-                      _hover={{ bg: "red", textDecoration: "underline" }}
-                    >
-                      HOME APPLIANCES
-                    </Heading>
-                  </Link>
-                  <Link to="headphones">
-                    <Heading
-                      cursor={"pointer"}
-                      fontSize={"17px"}
-                      color="white"
-                      _hover={{ bg: "red", textDecoration: "underline" }}
-                    >
-                      AUDIO
-                    </Heading>
-                  </Link>
-                  <Link to="computers">
-                    <Heading
-                      cursor={"pointer"}
-                      fontSize={"17px"}
-                      color="white"
-                      _hover={{ bg: "red", textDecoration: "underline" }}
-                    >
-                      COMPUTERS
-                    </Heading>
-                  </Link>
-                  <Link to="kitchen">
-                    <Heading
-                      cursor={"pointer"}
-                      fontSize={"17px"}
-                      color="white"
-                      _hover={{ bg: "red", textDecoration: "underline" }}
-                    >
-                      KITCHEN APPLIANCES
-                    </Heading>
-                  </Link>
-                  <Link to="personalcare">
-                    <Heading
-                      cursor={"pointer"}
-                      fontSize={"17px"}
-                      color="white"
-                      _hover={{ bg: "red", textDecoration: "underline" }}
-                    >
-                      PERSONAL CARE
-                    </Heading>
-                  </Link>
-                  <Link to="accessories">
-                    <Heading
-                      cursor={"pointer"}
-                      fontSize={"17px"}
-                      color="white"
-                      _hover={{ bg: "red", textDecoration: "underline" }}
-                    >
-                      ACCESSORIES
-                    </Heading>
-                  </Link>
+                  <Heading
+                    cursor={"pointer"}
+                    fontSize={"17px"}
+                    color="white"
+                    _hover={{ bg: "red", textDecoration: "underline" }}
+                  >
+                    <NavLink to="/home">Home Appliances</NavLink>
+                  </Heading>
+                  {isAuth && (
+                    <VStack>
+                      <Heading
+                        cursor={"pointer"}
+                        fontSize={"17px"}
+                        color="white"
+                        _hover={{ bg: "red", textDecoration: "underline" }}
+                      >
+                        Hi {name}
+                      </Heading>
+                      <Heading
+                        cursor={"pointer"}
+                        fontSize={"17px"}
+                        color="white"
+                        _hover={{ bg: "red", textDecoration: "underline" }}
+                      >
+                        <NavLink to="/profile">My Profile</NavLink>
+                      </Heading>
+                      <Heading
+                        cursor={"pointer"}
+                        fontSize={"17px"}
+                        color="white"
+                        _hover={{ bg: "red", textDecoration: "underline" }}
+                      >
+                        <NavLink to="/Orders">My Order</NavLink>
+                      </Heading>
+                      <Heading
+                        cursor={"pointer"}
+                        fontSize={"17px"}
+                        color="white"
+                        _hover={{ bg: "red", textDecoration: "underline" }}
+                      >
+                        My Address
+                      </Heading>
+                      <Heading
+                        cursor={"pointer"}
+                        fontSize={"17px"}
+                        color="white"
+                        _hover={{ bg: "red", textDecoration: "underline" }}
+                      >
+                        <NavLink to="/Wishlist">My Wishlist</NavLink>
+                      </Heading>
+                      <Heading
+                        cursor={"pointer"}
+                        fontSize={"17px"}
+                        color="white"
+                        _hover={{ bg: "red", textDecoration: "underline" }}
+                        onClick={handleLogout}
+                      >
+                        Logout
+                      </Heading>
+                    </VStack>
+                  )}
+                  {!isAuth && (
+                   
+                      <Heading
+                        cursor={"pointer"}
+                        fontSize={"24px"}
+                        color="black"
+                        _hover={{ textDecoration: "underline" }}
+                      >
+                        <NavLink to="/Wishlist">Login</NavLink>
+                      </Heading>
+                    
+                  )}
                 </VStack>
               </DrawerBody>
             </DrawerContent>

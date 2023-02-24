@@ -28,7 +28,7 @@ function ProductCarousal({phone,count}) {
         <Swiper
     // install Swiper modules
     modules={[Navigation, Pagination, Scrollbar, A11y]}
-    spaceBetween={50}
+    spaceBetween={20}
     slidesPerView={count}
     navigation
     pagination={{ clickable: true }}

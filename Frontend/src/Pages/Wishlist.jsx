@@ -22,13 +22,13 @@ function Wishlist() {
   }, [email]);
 
   const handleSignleProduct = (category, id) => {
-    let obj={
-        "Men Clothing":"men",
-        Laptop:"laptop",
-        "Home Appliances":"home",
-        Phone:"phone",
-        "Women Clothing":"women",
-    }
+    let obj = {
+      "Men Clothing": "men",
+      Laptop: "laptop",
+      "Home Appliances": "home",
+      Phone: "phone",
+      "Women Clothing": "women",
+    };
     navigate(`/${obj[category]}/${id}`);
   };
 
@@ -58,7 +58,17 @@ function Wishlist() {
     );
   }
   return (
-    <Flex w="100%" gap="5">
+    <Box
+      display={{
+        lg: "flex",
+        md: "flex",
+      }}
+      w="100%"
+      justifyContent={{
+        lg: "space-evenly",
+        md: "space-evenly",
+      }}
+    >
       <Sidebar />
       <Box>
         <Heading
@@ -69,7 +79,17 @@ function Wishlist() {
         >
           WISHLIST PAGE
         </Heading>
-        <Grid w="90%" m="auto" templateColumns={"repeat(4, 1fr)"} gap="20px">
+        <Grid
+          w="100%"
+          m="auto"
+          gridTemplateColumns={{
+            base: "repeat(2,1fr)",
+            sm: "repeat(2,1fr)",
+            md: "repeat(2,1fr)",
+            lg: "repeat(4,1fr)",
+          }}
+          gap="2"
+        >
           {data ? (
             data.map((i) => {
               return (
@@ -93,7 +113,7 @@ function Wishlist() {
           )}
         </Grid>
       </Box>
-    </Flex>
+    </Box>
   );
 }
 

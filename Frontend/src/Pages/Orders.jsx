@@ -44,7 +44,16 @@ function Orders() {
     );
   }
   return (
-    <Flex w="100%" gap="5">
+    <Box
+    display={{
+      lg: "flex",
+      md: "flex",
+    }}
+    w="100%"
+    justifyContent={{
+      lg:"space-evenly",
+      md:"space-evenly"
+    }}>
       <Sidebar />
       <Box w="100%">
         <Heading
@@ -55,7 +64,12 @@ function Orders() {
         >
           ORDERS HISTORY
         </Heading>
-        <Grid w="95%" gap="5" gridTemplateColumns={"repeat(4,1fr)"}>
+        <Grid w="100%" gap="2" gridTemplateColumns={{
+          base:"repeat(2,1fr)",
+          sm:"repeat(2,1fr)",
+          md:"repeat(2,1fr)",
+          lg:"repeat(4,1fr)"
+        }}>
           {data.map((i) => (
             <GridItem>
               <SingleOrderContainer
@@ -70,7 +84,7 @@ function Orders() {
           ))}
         </Grid>
       </Box>
-    </Flex>
+    </Box>
   );
 }
 

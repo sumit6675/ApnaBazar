@@ -5,6 +5,7 @@ import {
   FormControl,
   FormErrorMessage,
   FormLabel,
+  Grid,
   Heading,
   Input,
   InputGroup,
@@ -30,7 +31,7 @@ import SingleCheckoutProduct from "../Componets/SingleCheckoutProduct";
 import { useNavigate } from "react-router-dom";
 import { backendLink } from "../backendLink";
 function Checkout() {
-  const { email, name,id } = useSelector((store) => store.AuthManager);
+  const { email, name, id } = useSelector((store) => store.AuthManager);
   const [Username, setName] = useState(`${name}`);
   const [Useremail, setEmail] = useState(`${email}`);
   const [phone, setPhone] = useState("");
@@ -208,18 +209,15 @@ function Checkout() {
           state,
           pin,
           date,
-          UserEmail:email,
-          UserId:id,
+          UserEmail: email,
+          UserId: id,
         });
-        fetch(
-          `${backendLink}/products/userUpdateAvailableQty/${i._id}`,
-          {
-            method: "PATCH",
-            headers: {
-              "Content-type": "application/json; charset=UTF-8",
-            },
-          }
-        )
+        fetch(`${backendLink}/products/userUpdateAvailableQty/${i._id}`, {
+          method: "PATCH",
+          headers: {
+            "Content-type": "application/json; charset=UTF-8",
+          },
+        })
           .then()
           .catch((err) => console.log(err));
       });
@@ -275,39 +273,36 @@ function Checkout() {
           state,
           pin,
           date,
-          UserEmail:email,
-          UserId:id,
+          UserEmail: email,
+          UserId: id,
         });
-        fetch(
-          `${backendLink}/products/userUpdateAvailableQty/${i._id}`,
-          {
-            method: "PATCH",
-            headers: {
-              "Content-type": "application/json; charset=UTF-8",
-            },
-          }
-        )
+        fetch(`${backendLink}/products/userUpdateAvailableQty/${i._id}`, {
+          method: "PATCH",
+          headers: {
+            "Content-type": "application/json; charset=UTF-8",
+          },
+        })
           .then()
           .catch((err) => console.log(err));
       });
 
-          fetch(`${backendLink}/orders/addOrder?email=${email}`, {
-      method: "POST",
-      body: JSON.stringify(payload),
-      headers: {
-        "Content-type": "application/json; charset=UTF-8",
-      },
-    })
-      .then((response) => response.json())
-      .then((json) => {
-        toast({
-          title: `Your Order Successfully Placed`,
-          status: "success",
-          duration: 2000,
-          isClosable: true,
+      fetch(`${backendLink}/orders/addOrder?email=${email}`, {
+        method: "POST",
+        body: JSON.stringify(payload),
+        headers: {
+          "Content-type": "application/json; charset=UTF-8",
+        },
+      })
+        .then((response) => response.json())
+        .then((json) => {
+          toast({
+            title: `Your Order Successfully Placed`,
+            status: "success",
+            duration: 2000,
+            isClosable: true,
+          });
+          navigate("/finalPage");
         });
-        navigate("/finalPage");
-      });
     }
   };
 
@@ -333,10 +328,10 @@ function Checkout() {
         state,
         pin,
         date,
-        UserEmail:email,
-        UserId:id,
-      })
-      
+        UserEmail: email,
+        UserId: id,
+      });
+
       fetch(`${backendLink}/products/userUpdateAvailableQty/${i._id}`, {
         method: "PATCH",
         headers: {
@@ -391,8 +386,22 @@ function Checkout() {
       <Heading size="lg" textAlign={"center"}>
         Payment Checkout
       </Heading>
-      <Flex w="100%" justifyContent={"space-around"}>
-        <Tabs w="80%" variant="soft-rounded" colorScheme="green" my="35px">
+      <Grid
+        w="100%"
+        gridTemplateColumns={{
+          base: "repeat(1,1fr)",
+          sm: "repeat(1,1fr)",
+          md: "repeat(1,1fr)",
+          lg: "repeat(2,1fr)",
+        }}
+        justifyContent={"space-between"}
+      >
+        <Tabs
+          w={{ base: "100%", sm: "100%", md: "100%", lg: "100%" }}
+          variant="soft-rounded"
+          colorScheme="green"
+          my="35px"
+        >
           <TabList w="50%" m="auto" justifyContent={"space-evenly"}>
             <Tab> CONTACT INFO</Tab>
             <Tab
@@ -404,12 +413,18 @@ function Checkout() {
           </TabList>
 
           <TabPanels>
-            <TabPanel w="65%" m="auto">
-              <WrapItem border="1px solid teal">
-                <Box bg="white" ml="10%" borderRadius="lg">
-                  <Box m={5} color="#0B0E3F">
-                    <VStack spacing={5}>
-                      <FormControl id="name" isInvalid={!Username}>
+            <TabPanel w="100%" m="auto">
+              <WrapItem border="1px solid teal" w="100%">
+                <Box
+                  bg="white"
+                  m="auto"
+                  ml={{ base: "0", sm: "0", md: "10%", lg: "10%" }}
+                  w="100%"
+                  borderRadius="lg"
+                >
+                  <Box m={5} color="#0B0E3F" w="100%">
+                    <VStack spacing={5} w="100%">
+                      <FormControl id="name" isInvalid={!Username} w="100%">
                         <FormLabel>Your Name</FormLabel>
                         <InputGroup borderColor="#E0E1E7">
                           <InputLeftElement
@@ -419,7 +434,7 @@ function Checkout() {
                           <Input
                             type="text"
                             size="lg"
-                            w="420px"
+                            w="60%"
                             defaultValue={name}
                             placeholder={"Enter Your Name"}
                             onChange={(e) => setName(e.target.Username)}
@@ -429,7 +444,7 @@ function Checkout() {
                           <FormErrorMessage>Name is required.</FormErrorMessage>
                         )}
                       </FormControl>
-                      <FormControl id="email" isInvalid={!Useremail}>
+                      <FormControl id="email" isInvalid={!Useremail} w="100%">
                         <FormLabel>Mail</FormLabel>
                         <InputGroup borderColor="#E0E1E7">
                           <InputLeftElement
@@ -439,6 +454,7 @@ function Checkout() {
                           <Input
                             type="text"
                             size="lg"
+                            w="60%"
                             defaultValue={email}
                             placeholder={"Enter Your Mail"}
                             onChange={(e) => setEmail(e.target.value)}
@@ -450,7 +466,7 @@ function Checkout() {
                           </FormErrorMessage>
                         )}
                       </FormControl>
-                      <FormControl id="phone" isInvalid={!phone}>
+                      <FormControl id="phone" isInvalid={!phone} w="100%">
                         <FormLabel>Phone Number</FormLabel>
                         <InputGroup>
                           <InputLeftElement
@@ -462,6 +478,7 @@ function Checkout() {
                             defaultValue={phone}
                             placeholder="Phone number"
                             onChange={(e) => setPhone(e.target.value)}
+                            w="60%"
                           />
                         </InputGroup>
                         {!phone && (
@@ -471,7 +488,7 @@ function Checkout() {
                         )}
                       </FormControl>
 
-                      <FormControl id="address" isInvalid={!address}>
+                      <FormControl id="address" isInvalid={!address} w="100%">
                         <FormLabel>Address</FormLabel>
                         <InputGroup borderColor="#E0E1E7">
                           <InputLeftElement
@@ -482,6 +499,7 @@ function Checkout() {
                             defaultValue={address}
                             type="text"
                             size="lg"
+                            w="60%"
                             placeholder="Enter Your Shipping Address"
                             onChange={(e) => setAddress(e.target.value)}
                           />
@@ -493,7 +511,7 @@ function Checkout() {
                         )}
                       </FormControl>
 
-                      <FormControl id="city" isInvalid={!city}>
+                      <FormControl id="city" isInvalid={!city} w="100%">
                         <FormLabel>City</FormLabel>
                         <InputGroup borderColor="#E0E1E7">
                           <InputLeftElement
@@ -504,6 +522,7 @@ function Checkout() {
                             defaultValue={city}
                             type="text"
                             size="lg"
+                            w="60%"
                             placeholder="Enter Your City Name"
                             onChange={(e) => setCity(e.target.value)}
                           />
@@ -513,7 +532,7 @@ function Checkout() {
                         )}
                       </FormControl>
 
-                      <FormControl id="state" isInvalid={!state}>
+                      <FormControl id="state" isInvalid={!state} w="100%">
                         <FormLabel>State</FormLabel>
                         <InputGroup borderColor="#E0E1E7">
                           <InputLeftElement
@@ -524,6 +543,7 @@ function Checkout() {
                             defaultValue={state}
                             type="text"
                             size="lg"
+                            w="60%"
                             placeholder="Enter Your State Name"
                             onChange={(e) => setState(e.target.value)}
                           />
@@ -570,20 +590,30 @@ function Checkout() {
                 </Box>
               </WrapItem>
             </TabPanel>
-            <TabPanel w="95%" m="auto">
+            <TabPanel w="100%" m="auto">
               <Heading textAlign={"center"}>Select Payment Menthod</Heading>
 
-              <Tabs isFitted variant="enclosed" colorScheme="green" my="35px">
-                <TabList w="50%" m="auto" justifyContent={"space-evenly"}>
+              <Tabs
+                isFitted
+                variant="enclosed"
+                w="100%"
+                colorScheme="green"
+                my="35px"
+              >
+                <TabList w="100%" m="auto" justifyContent={"space-evenly"}>
                   <Tab>BY CARD</Tab>
                   <Tab>BY UPI</Tab>
                   <Tab>BY CASH</Tab>
                 </TabList>
-                <TabPanels w="80%" m="auto">
+                <TabPanels w="100%" m="auto">
                   <TabPanel>
-                    <Box w="70%" m="auto">
+                    <Box w="100%" m="auto">
                       <WrapItem border="1px solid teal">
-                        <Box bg="white" ml="10%" borderRadius="lg">
+                        <Box
+                          bg="white"
+                          ml={{ base: "0", sm: "0", md: "10%", lg: "10%" }}
+                          borderRadius="lg"
+                        >
                           <Box m={8} color="#0B0E3F">
                             <VStack spacing={5}>
                               <FormControl
@@ -707,9 +737,13 @@ function Checkout() {
                     </Box>
                   </TabPanel>
                   <TabPanel>
-                    <Box w="50%" m="auto">
+                    <Box w="100%" m="auto">
                       <WrapItem border="1px solid teal">
-                        <Box bg="white" ml="10%" borderRadius="lg">
+                        <Box
+                          bg="white"
+                          ml={{ base: "0", sm: "0", md: "10%", lg: "10%" }}
+                          borderRadius="lg"
+                        >
                           <Box m={8} color="#0B0E3F">
                             <VStack spacing={5}>
                               <FormControl id="upiId" isInvalid={!upiId}>
@@ -754,9 +788,13 @@ function Checkout() {
                     </Box>
                   </TabPanel>
                   <TabPanel>
-                    <Box w="50%" m="auto">
+                    <Box w="100%" m="auto">
                       <WrapItem border="1px solid teal">
-                        <Box bg="white" ml="10%" borderRadius="lg">
+                        <Box
+                          bg="white"
+                          ml={{ base: "0", sm: "0", md: "10%", lg: "10%" }}
+                          borderRadius="lg"
+                        >
                           <Box m={8} color="#0B0E3F">
                             <VStack spacing={5}>
                               <FormLabel>
@@ -785,13 +823,15 @@ function Checkout() {
           </TabPanels>
         </Tabs>
         <VStack
-          w="55%"
+          w="100%"
           p="8"
           alignItems={"left"}
           border="1px solid teal"
           h={`${cart.length * 240}px`}
           justifyContent="space-between"
-          mt="100px"
+          mt={{
+            lg:"100px"
+          }}
         >
           <Heading size={"lg"} fontWeight="bold" textAlign={"center"}>
             Order Summary
@@ -808,7 +848,7 @@ function Checkout() {
             <Heading size={"lg"}>Total : ₹{total.toLocaleString()}</Heading>
           </Flex>
         </VStack>
-      </Flex>
+      </Grid>
     </Box>
   );
 }

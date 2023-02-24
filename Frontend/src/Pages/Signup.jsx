@@ -100,8 +100,8 @@ function Signup() {
       >
         <Stack spacing={8} mx={"auto"} maxW={"lg"} py={12} px={6}>
           <Stack align={"center"}>
-            <Heading fontSize={"4xl"} textAlign={"center"}>
-              Register
+            <Heading fontSize={["2xl","2xl","3xl","3xl","3xl","3xl"]} textAlign={"center"}>
+            Join the Apna Bazar family!
             </Heading>
             <Text fontSize={"lg"} color={"gray.600"}>
               for great deals and offers ✌️

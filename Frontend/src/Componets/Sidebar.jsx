@@ -27,13 +27,19 @@ const LinkItems = [
   { name: "Orders", icon: FiTrendingUp },
   { name: "Address", icon: FiCompass },
   { name: "Wishlist", icon: FiStar },
-  { name: "Logout", icon: FiSettings },
 ];
 
 export default function Sidebar() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   return (
-    <Box minH="100vh" bg={useColorModeValue("gray.100", "gray.900")} mt="50px">
+    <Box
+      minH={{
+        lg: "100vh",
+        md: "100vh",
+      }}
+      bg={useColorModeValue("gray.100", "gray.900")}
+      mt="50px"
+    >
       <SidebarContent
         onClose={() => onClose}
         display={{ base: "none", md: "block" }}
@@ -58,7 +64,7 @@ export default function Sidebar() {
 }
 
 const SidebarContent = ({ onClose, ...rest }) => {
-    const { name } = useSelector((store) => store.AuthManager);
+  const { name } = useSelector((store) => store.AuthManager);
   return (
     <Box
       bg={useColorModeValue("white", "gray.900")}
@@ -120,6 +126,7 @@ const NavItem = ({ icon, children, ...rest }) => {
 };
 
 const MobileNav = ({ onOpen, ...rest }) => {
+  const { name } = useSelector((store) => store.AuthManager);
   return (
     <Flex
       ml={{ base: 0, md: 60 }}
@@ -140,7 +147,7 @@ const MobileNav = ({ onOpen, ...rest }) => {
       />
 
       <Text fontSize="2xl" ml="8" fontFamily="monospace" fontWeight="bold">
-        Logo
+        {name}
       </Text>
     </Flex>
   );

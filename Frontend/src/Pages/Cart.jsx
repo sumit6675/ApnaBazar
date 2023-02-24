@@ -103,7 +103,16 @@ function Cart() {
       <Heading textAlign={"center"}>
         Shopping Cart ({cart.length} items)
       </Heading>
-      <Grid gridTemplateColumns={"0.75fr 0.25fr"} my="5">
+      <Grid
+        gridTemplateColumns={{
+          base: "repeat(1,1fr)",
+          sm: "repeat(1,1fr)",
+          md: "repeat(1,1fr)",
+          lg: "0.75fr 0.25fr",
+        }}
+        my="5"
+        gap="25px"
+      >
         <Flex
           flexDirection={"column"}
           border={"0px solid blue"}
@@ -131,12 +140,20 @@ function Cart() {
           ))}
         </Flex>
         <VStack
-          w="90%"
+          w={{
+            base: "100%",
+            sm: "50%",
+            md: "50%",
+            lg: "90%",
+            xl: "90%",
+            "2xl": "90%",
+          }}
           h="400px"
           p="8"
           gap="5"
           alignItems={"left"}
           border="1px solid teal"
+          m="auto"
         >
           <Heading size={"md"} fontWeight="bold">
             Order Summary
@@ -156,10 +173,20 @@ function Cart() {
           <Flex gap="5">
             <Heading size={"md"}>Total</Heading>
             <Heading size={"md"} fontWeight={"bold"}>
-            ₹{total.toLocaleString()}
+              ₹{total.toLocaleString()}
             </Heading>
           </Flex>
-          <Button>
+          <Button
+            w={{
+              base: "45%",
+              sm: "45%",
+              md: "45%",
+              lg: "80%",
+              xl: "80%",
+              "2xl": "80%",
+            }}
+            m="auto"
+          >
             <NavLink to="/checkout">Checkout</NavLink>
           </Button>
         </VStack>

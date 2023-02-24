@@ -1,25 +1,38 @@
-import { Box, Heading, Image } from "@chakra-ui/react";
-import React from "react";
+import { Box, Heading, Image, useMediaQuery } from "@chakra-ui/react";
+import React, { useEffect, useState } from "react";
 import ProductCarousal from "../Componets/Homepage/ProductCarousal";
 import TopCarousel from "../Componets/Homepage/TopCarousel";
 
 function HomePage() {
+  const [count,setCount]=useState(0)
+  const [isLargerThan1100] = useMediaQuery("(min-width: 1100px)");
+  const [isLargerThan750px] = useMediaQuery("(min-width: 750px)");
+  const [islesserThan740px] = useMediaQuery("(max-width: 750px)");
+  useEffect(()=>{
+    if(isLargerThan1100){
+      setCount(6)
+    }else if(isLargerThan750px){
+      setCount(3)
+    }else if(islesserThan740px){
+      setCount(2)
+    }
+  },[isLargerThan1100,isLargerThan750px,islesserThan740px])
   return (
     <Box bg="rgb(227,230,230)">
       <TopCarousel />
       <Image src="Details.jpg" alt="img" p="5" />
-      <Heading ml="5">Bestselling Affordable Smartphones</Heading>
-      <ProductCarousal phone={"phone"} count={5} />
+      <Heading ml="5" mb="-30px">Bestselling Affordable Smartphones</Heading>
+      <ProductCarousal phone={"phone"} count={count} />
       <Image src="PhoneDetails.jpg" alt="img" />
-      <Heading ml="5">Bestselling Affordable Laptops</Heading>
-      <ProductCarousal phone={"laptop"} count={4} />
+      <Heading ml="5" mb="-30px">Bestselling Affordable Laptops</Heading>
+      <ProductCarousal phone={"laptop"} count={count} />
       <Box width="85%" m="auto">
         <video controls width={"100%"}>
           <source src="FashionVideo.mp4" type="video/mp4" />
           Sorry, your browser doesn't support videos.
         </video>
       </Box>
-      <ProductCarousal phone={"women"} count={6} />
+      <ProductCarousal phone={"women"} count={count} />
       <Image
         m="auto"
         mt="5"
@@ -27,13 +40,13 @@ function HomePage() {
         alt="img"
         w="85%"
       />
-      <Box width="85%" m="auto" mt="5">
+      <Box width="85%" m="auto" mt={["5","5","5","5","5"]}>
         <video controls width={"100%"}>
           <source src="MenFashion.mp4" type="video/mp4" />
           Sorry, your browser doesn't support videos.
         </video>
       </Box>
-      <ProductCarousal phone={"men"} count={6} />
+      <ProductCarousal phone={"men"} count={count} />
       <Image
         m="auto"
         mt="5"

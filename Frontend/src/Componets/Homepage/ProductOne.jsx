@@ -4,7 +4,7 @@ import { StarIcon } from "@chakra-ui/icons";
 function Productonepage({id, image, alt, title, rate, count,handleSingleProduct }) {
   return (
     <Box maxW="sm" p="2" borderWidth="1px" borderRadius="lg" overflow="hidden" m="auto">
-      <Image src={image} alt={alt} w="300px" h="300px" />
+      <Image src={image} alt={alt} w="98%" h="300px" />
 
       <Box p="6">
         {+rate > 3.5 && (

@@ -10,6 +10,7 @@ import {
   ListItem,
   Text,
   UnorderedList,
+  useMediaQuery,
   useToast,
   VStack,
 } from "@chakra-ui/react";
@@ -20,6 +21,10 @@ import { backendLink } from "../backendLink";
 import ProductCarousal from "../Componets/Homepage/ProductCarousal";
 
 const SingleProduct = ({ category }) => {
+  const [count, setCount] = useState(0);
+  const [isLargerThan1100] = useMediaQuery("(min-width: 1100px)");
+  const [isLargerThan750px] = useMediaQuery("(min-width: 750px)");
+  const [islesserThan740px] = useMediaQuery("(max-width: 750px)");
   const toast = useToast();
   const navigate = useNavigate();
   const { email } = useSelector((store) => store.AuthManager);
@@ -38,10 +43,23 @@ const SingleProduct = ({ category }) => {
         let men = singleData.selection2;
         setMenData(men.split("\n"));
       });
-  }, [category, params, singleData.selection2]);
-  
-  const handleCart = () => {
+    if (isLargerThan1100) {
+      setCount(6);
+    } else if (isLargerThan750px) {
+      setCount(3);
+    } else if (islesserThan740px) {
+      setCount(2);
+    }
+  }, [
+    category,
+    params,
+    singleData.selection2,
+    isLargerThan1100,
+    isLargerThan750px,
+    islesserThan740px,
+  ]);
 
+  const handleCart = () => {
     fetch(`${backendLink}/users?email=${email}`)
       .then((res) => res.json())
       .then((res) => {
@@ -55,7 +73,7 @@ const SingleProduct = ({ category }) => {
         if (!checkProductInCart) {
           fetch(`${backendLink}/users/cart?email=${email}`, {
             method: "PATCH",
-            body: JSON.stringify({...singleData,qty:1}),
+            body: JSON.stringify({ ...singleData, qty: 1 }),
             headers: {
               "Content-type": "application/json; charset=UTF-8",
             },
@@ -123,13 +141,22 @@ const SingleProduct = ({ category }) => {
   };
   return (
     <Box p="5">
-      <Grid gridTemplateColumns={"0.25fr 0.40fr 0.35fr"}>
+      <Grid
+        gridTemplateColumns={{
+          base: "repeat(1,1fr)",
+          sm: "repeat(1,1fr)",
+          md: "repeat(1,1fr)",
+          lg: "0.25fr 0.40fr 0.35fr",
+        }}
+      >
         <Container>
           <Image
             src={singleData.image}
             _hover={{ cursor: "crosshair" }}
             alt="image"
-            w="85%"
+            w={{ base: "65%", sm: "65%", md: "65%", lg: "85%" }}
+            m="auto"
+            my="10px"
           />
         </Container>
         <Grid>
@@ -154,8 +181,8 @@ const SingleProduct = ({ category }) => {
               </ListItem>
               <ListItem>
                 Shop for ₹20,000 & above and get instant discount Up To
-                ₹5000,Use coupon codes "YES1000" for above 20,000 ,"YES2500"
-                for above 50,000, "YES5000" for above 1,00,000..{" "}
+                ₹5000,Use coupon codes "YES1000" for above 20,000 ,"YES2500" for
+                above 50,000, "YES5000" for above 1,00,000..{" "}
                 <span style={{ color: "#2871c4" }}>Read T&C</span>
               </ListItem>
               <ListItem>
@@ -291,17 +318,17 @@ const SingleProduct = ({ category }) => {
               fontSize="lg"
               p={6}
               _hover={{ backgroundColor: "orangered" }}
-                onClick={() => addWishlist(singleData)}
+              onClick={() => addWishlist(singleData)}
             >
               Add to Wishlist
             </Button>
           </VStack>
         </VStack>
       </Grid>
-      <Heading margin={"auto"} mt="3" marginBottom={3} size="md">
-        Related products with free delivery on eligible orders
+      <Heading margin={"auto"} mt="25px" marginBottom={3} size="md">
+        Related products with free delivery on eligible orders:
       </Heading>
-      <ProductCarousal phone={category} count={5} />
+      <ProductCarousal phone={category} count={count} />
     </Box>
   );
 };
