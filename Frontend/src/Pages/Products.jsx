@@ -3,6 +3,7 @@ import {
   Button,
   Grid,
   Heading,
+  HStack,
   Skeleton,
   Text,
   VStack,
@@ -14,7 +15,7 @@ import SingleProduct from "../Componets/SingleProduct";
 
 function Productpage({ category }) {
   const [page, setPage] = React.useState(1);
-  let [data, setData] = React.useState([]);
+  const [data, setData] = React.useState([]);
   const [loading, setLoading] = React.useState(true);
   const [selectedValue1, setSelectedValue] = useState("All");
   const [sort, setSort] = useState("default");
@@ -175,10 +176,37 @@ function Productpage({ category }) {
   };
 
   return (
-    <Grid p="5" gridTemplateColumns={"0.15fr 0.85fr"}>
+    <Grid
+      p="5"
+      gridTemplateColumns={{
+        sm: "1fr",
+        md: "1fr",
+        lg: "1fr",
+      }}
+      w="100%"
+      gap="0px"
+    >
       {category === "phone" && (
-        <VStack gap="1">
-          <VStack p="25px" gap="1" alignItems={"left"}>
+        <Grid
+          w="100%"
+          gridTemplateColumns={{
+            base: "repeat(2,1fr)",
+            sm: "repeat(2,1fr)",
+            md: "repeat(4,1fr)",
+            lg: "repeat(4,1fr)",
+          }}
+        >
+          <VStack
+            w="100%"
+            p={{
+              base: "10px",
+              sm: "10px",
+              md: "25px",
+              lg: "25px",
+            }}
+            gap="1"
+            alignItems={"left"}
+          >
             <Heading size="md">Filter By Brands</Heading>
             {checkboxList1.map((value) => (
               <label key={value}>
@@ -192,7 +220,15 @@ function Productpage({ category }) {
               </label>
             ))}
           </VStack>
-          <VStack>
+          <VStack w="100%"
+            p={{
+              base: "10px",
+              sm: "10px",
+              md: "25px",
+              lg: "25px",
+            }}
+            gap="1"
+            alignItems={"left"}>
             <Heading size="md">Sort By Rating</Heading>
             <Text onClick={() => setSort("RatingLowToHigh")} cursor={"pointer"}>
               Low To High
@@ -201,7 +237,15 @@ function Productpage({ category }) {
               High To Low
             </Text>
           </VStack>
-          <VStack>
+          <VStack  w="100%"
+            p={{
+              base: "10px",
+              sm: "10px",
+              md: "25px",
+              lg: "25px",
+            }}
+            gap="1"
+            alignItems={"left"}>
             <Heading size="md">Sort By Price</Heading>
             <Text onClick={() => setSort("PriceLowToHigh")} cursor={"pointer"}>
               Low To High
@@ -210,7 +254,15 @@ function Productpage({ category }) {
               High To Low
             </Text>
           </VStack>
-          <VStack>
+          <VStack  w="100%"
+            p={{
+              base: "10px",
+              sm: "10px",
+              md: "25px",
+              lg: "25px",
+            }}
+            gap="1"
+            alignItems={"left"}>
             <Heading size="md">Sort By Discount</Heading>
             <Text
               onClick={() => setSort("DiscountLowToHigh")}
@@ -225,12 +277,27 @@ function Productpage({ category }) {
               High To Low
             </Text>
           </VStack>
-        </VStack>
+        </Grid>
       )}
 
       {category === "laptop" && (
-        <VStack gap="1">
-          <VStack p="25px" gap="1" alignItems={"left"}>
+        <Grid
+        w="100%"
+        gridTemplateColumns={{
+          base: "repeat(2,1fr)",
+          sm: "repeat(2,1fr)",
+          md: "repeat(4,1fr)",
+          lg: "repeat(4,1fr)",
+        }}>
+          <VStack w="100%"
+            p={{
+              base: "10px",
+              sm: "10px",
+              md: "25px",
+              lg: "25px",
+            }}
+            gap="1"
+            alignItems={"left"}>
             <Heading size="md">Brands</Heading>
             {checkboxList2.map((value) => (
               <label key={value}>
@@ -244,7 +311,15 @@ function Productpage({ category }) {
               </label>
             ))}
           </VStack>
-          <VStack>
+          <VStack w="100%"
+            p={{
+              base: "10px",
+              sm: "10px",
+              md: "25px",
+              lg: "25px",
+            }}
+            gap="1"
+            alignItems={"left"}>
             <Heading size="md">Sort By Rating</Heading>
             <Text onClick={() => setSort("RatingLowToHigh")} cursor={"pointer"}>
               Low To High
@@ -253,7 +328,15 @@ function Productpage({ category }) {
               High To Low
             </Text>
           </VStack>
-          <VStack>
+          <VStack w="100%"
+            p={{
+              base: "10px",
+              sm: "10px",
+              md: "25px",
+              lg: "25px",
+            }}
+            gap="1"
+            alignItems={"left"}>
             <Heading size="md">Sort By Price</Heading>
             <Text onClick={() => setSort("PriceLowToHigh")} cursor={"pointer"}>
               Low To High
@@ -262,7 +345,15 @@ function Productpage({ category }) {
               High To Low
             </Text>
           </VStack>
-          <VStack>
+          <VStack w="100%"
+            p={{
+              base: "10px",
+              sm: "10px",
+              md: "25px",
+              lg: "25px",
+            }}
+            gap="1"
+            alignItems={"left"}>
             <Heading size="md">Sort By Discount</Heading>
             <Text
               onClick={() => setSort("DiscountLowToHigh")}
@@ -277,12 +368,27 @@ function Productpage({ category }) {
               High To Low
             </Text>
           </VStack>
-        </VStack>
+        </Grid>
       )}
 
       {category === "men" && (
-        <VStack gap="1">
-          <VStack p="25px" gap="1" alignItems={"left"}>
+        <Grid
+        w="100%"
+        gridTemplateColumns={{
+          base: "repeat(2,1fr)",
+          sm: "repeat(2,1fr)",
+          md: "repeat(4,1fr)",
+          lg: "repeat(4,1fr)",
+        }}>
+          <VStack w="100%"
+            p={{
+              base: "10px",
+              sm: "10px",
+              md: "25px",
+              lg: "25px",
+            }}
+            gap="1"
+            alignItems={"left"}>
             <Heading size="md">Brands</Heading>
             {checkboxList3.map((value) => (
               <label key={value}>
@@ -296,7 +402,15 @@ function Productpage({ category }) {
               </label>
             ))}
           </VStack>
-          <VStack>
+          <VStack w="100%"
+            p={{
+              base: "10px",
+              sm: "10px",
+              md: "25px",
+              lg: "25px",
+            }}
+            gap="1"
+            alignItems={"left"}>
             <Heading size="md">Sort By Rating</Heading>
             <Text onClick={() => setSort("RatingLowToHigh")} cursor={"pointer"}>
               Low To High
@@ -305,7 +419,15 @@ function Productpage({ category }) {
               High To Low
             </Text>
           </VStack>
-          <VStack>
+          <VStack w="100%"
+            p={{
+              base: "10px",
+              sm: "10px",
+              md: "25px",
+              lg: "25px",
+            }}
+            gap="1"
+            alignItems={"left"}>
             <Heading size="md">Sort By Price</Heading>
             <Text onClick={() => setSort("PriceLowToHigh")} cursor={"pointer"}>
               Low To High
@@ -314,7 +436,15 @@ function Productpage({ category }) {
               High To Low
             </Text>
           </VStack>
-          <VStack>
+          <VStack w="100%"
+            p={{
+              base: "10px",
+              sm: "10px",
+              md: "25px",
+              lg: "25px",
+            }}
+            gap="1"
+            alignItems={"left"}>
             <Heading size="md">Sort By Discount</Heading>
             <Text
               onClick={() => setSort("DiscountLowToHigh")}
@@ -329,12 +459,27 @@ function Productpage({ category }) {
               High To Low
             </Text>
           </VStack>
-        </VStack>
+        </Grid>
       )}
 
       {category === "women" && (
-        <VStack gap="1">
-          <VStack p="25px" gap="1" alignItems={"left"}>
+        <Grid
+        w="100%"
+        gridTemplateColumns={{
+          base: "repeat(2,1fr)",
+          sm: "repeat(2,1fr)",
+          md: "repeat(4,1fr)",
+          lg: "repeat(4,1fr)",
+        }}>
+          <VStack w="100%"
+            p={{
+              base: "10px",
+              sm: "10px",
+              md: "25px",
+              lg: "25px",
+            }}
+            gap="1"
+            alignItems={"left"}>
             <Heading size="md">Brands</Heading>
             {checkboxList4.map((value) => (
               <label key={value}>
@@ -348,7 +493,15 @@ function Productpage({ category }) {
               </label>
             ))}
           </VStack>
-          <VStack>
+          <VStack w="100%"
+            p={{
+              base: "10px",
+              sm: "10px",
+              md: "25px",
+              lg: "25px",
+            }}
+            gap="1"
+            alignItems={"left"}>
             <Heading size="md">Sort By Rating</Heading>
             <Text onClick={() => setSort("RatingLowToHigh")} cursor={"pointer"}>
               Low To High
@@ -357,7 +510,15 @@ function Productpage({ category }) {
               High To Low
             </Text>
           </VStack>
-          <VStack>
+          <VStack w="100%"
+            p={{
+              base: "10px",
+              sm: "10px",
+              md: "25px",
+              lg: "25px",
+            }}
+            gap="1"
+            alignItems={"left"}>
             <Heading size="md">Sort By Price</Heading>
             <Text onClick={() => setSort("PriceLowToHigh")} cursor={"pointer"}>
               Low To High
@@ -366,7 +527,15 @@ function Productpage({ category }) {
               High To Low
             </Text>
           </VStack>
-          <VStack>
+          <VStack w="100%"
+            p={{
+              base: "10px",
+              sm: "10px",
+              md: "25px",
+              lg: "25px",
+            }}
+            gap="1"
+            alignItems={"left"}>
             <Heading size="md">Sort By Discount</Heading>
             <Text
               onClick={() => setSort("DiscountLowToHigh")}
@@ -381,12 +550,27 @@ function Productpage({ category }) {
               High To Low
             </Text>
           </VStack>
-        </VStack>
+        </Grid>
       )}
 
       {category === "home" && (
-        <VStack gap="1">
-          <VStack p="25px" gap="1" alignItems={"left"}>
+        <Grid
+        w="100%"
+        gridTemplateColumns={{
+          base: "repeat(2,1fr)",
+          sm: "repeat(2,1fr)",
+          md: "repeat(4,1fr)",
+          lg: "repeat(4,1fr)",
+        }}>
+          <VStack w="100%"
+            p={{
+              base: "10px",
+              sm: "10px",
+              md: "25px",
+              lg: "25px",
+            }}
+            gap="1"
+            alignItems={"left"}>
             <Heading size="md">Brands</Heading>
             {checkboxList5.map((value) => (
               <label key={value}>
@@ -400,7 +584,15 @@ function Productpage({ category }) {
               </label>
             ))}
           </VStack>
-          <VStack>
+          <VStack w="100%"
+            p={{
+              base: "10px",
+              sm: "10px",
+              md: "25px",
+              lg: "25px",
+            }}
+            gap="1"
+            alignItems={"left"}>
             <Heading size="md">Sort By Rating</Heading>
             <Text onClick={() => setSort("RatingLowToHigh")} cursor={"pointer"}>
               Low To High
@@ -409,7 +601,15 @@ function Productpage({ category }) {
               High To Low
             </Text>
           </VStack>
-          <VStack>
+          <VStack w="100%"
+            p={{
+              base: "10px",
+              sm: "10px",
+              md: "25px",
+              lg: "25px",
+            }}
+            gap="1"
+            alignItems={"left"}>
             <Heading size="md">Sort By Price</Heading>
             <Text onClick={() => setSort("PriceLowToHigh")} cursor={"pointer"}>
               Low To High
@@ -418,7 +618,15 @@ function Productpage({ category }) {
               High To Low
             </Text>
           </VStack>
-          <VStack>
+          <VStack w="100%"
+            p={{
+              base: "10px",
+              sm: "10px",
+              md: "25px",
+              lg: "25px",
+            }}
+            gap="1"
+            alignItems={"left"}>
             <Heading size="md">Sort By Discount</Heading>
             <Text
               onClick={() => setSort("DiscountLowToHigh")}
@@ -433,11 +641,16 @@ function Productpage({ category }) {
               High To Low
             </Text>
           </VStack>
-        </VStack>
+        </Grid>
       )}
 
-      <Box  w="90%" m="auto">
-        <Grid w="100%" m="auto" templateColumns={"repeat(4, 1fr)"} gap="20px">
+      <Box w="98%" m="auto">
+        <Grid w="100%" m="auto" templateColumns={{
+          base: "repeat(2,1fr)",
+          sm: "repeat(2,1fr)",
+          md: "repeat(3,1fr)",
+          lg: "repeat(4,1fr)",
+        }} gap="20px">
           {data ? (
             data.map((i) => {
               return (
@@ -460,13 +673,17 @@ function Productpage({ category }) {
             <Heading>Please Select Filters</Heading>
           )}
         </Grid>
-        <Box w="30%" m="auto" mt="5">
-          <Button mx="2" disabled={page === 1} onClick={() => handlepage(-1)}>
+        <HStack w="35%" gap="10px" m="auto" mt="5">
+          <Button  disabled={page === 1} onClick={() => handlepage(-1)}>
             Previous
           </Button>
-          <Button mx="2" disabled={true}>{page}</Button>
-          <Button mx="2" onClick={() => handlepage(1)}>Next</Button>
-        </Box>
+          <Button disabled={true}>
+            {page}
+          </Button>
+          <Button  onClick={() => handlepage(1)}>
+            Next
+          </Button>
+        </HStack>
       </Box>
     </Grid>
   );
