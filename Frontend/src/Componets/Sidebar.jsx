@@ -27,7 +27,6 @@ const LinkItems = [
   { name: "Orders", icon: FiTrendingUp },
   { name: "Address", icon: FiCompass },
   { name: "Wishlist", icon: FiStar },
-  { name: "Logout", icon: FiSettings },
 ];
 
 export default function Sidebar() {

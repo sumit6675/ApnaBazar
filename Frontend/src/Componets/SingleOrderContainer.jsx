@@ -5,7 +5,6 @@ import {
   Stack,
   Image,
   Badge,
-  Container,
 } from "@chakra-ui/react";
 
 export default function SingleOrderContainer({
