@@ -15,8 +15,10 @@ import {
 } from "@chakra-ui/react";
 import axios from "axios";
 import { backendLink } from "../../backendLink";
+import { useSelector } from "react-redux";
 
 const AdminOrderType = ({ OrderType }) => {
+  const { name } = useSelector((store) => store.AuthManager);
   const [page, setPage] = React.useState(1);
   const [data, setData] = React.useState([]);
   const [email, setEmail] = React.useState("");
@@ -44,9 +46,7 @@ const AdminOrderType = ({ OrderType }) => {
 
   const handleNextProcess = (id) => {
     axios
-      .patch(
-        `${backendLink}/orders/admin/${OrderType}/dispatchorder/${id}`
-      )
+      .patch(`${backendLink}/orders/admin/${OrderType}/dispatchorder/${id}`,{name:name})
       .then((res) => {
         setFlag(!flag);
         toast({
@@ -69,9 +69,7 @@ const AdminOrderType = ({ OrderType }) => {
   };
   const handleOutForDelivery = (id) => {
     axios
-      .patch(
-        `${backendLink}/orders/admin/${OrderType}/outForDelivery/${id}`
-      )
+      .patch(`${backendLink}/orders/admin/${OrderType}/outForDelivery/${id}`,{name:name})
       .then((res) => {
         setFlag(!flag);
         toast({
@@ -94,9 +92,7 @@ const AdminOrderType = ({ OrderType }) => {
   };
   const handleDeliveredOrder = (id) => {
     axios
-      .patch(
-        `${backendLink}/orders/admin/${OrderType}/deliverd/${id}`
-      )
+      .patch(`${backendLink}/orders/admin/${OrderType}/deliverd/${id}`)
       .then((res) => {
         setFlag(!flag);
         toast({

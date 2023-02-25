@@ -5,6 +5,7 @@ import {
   Stack,
   Image,
   Badge,
+  Button,
 } from "@chakra-ui/react";
 
 export default function SingleOrderContainer({
@@ -14,6 +15,8 @@ export default function SingleOrderContainer({
   payBy,
   orderStatus,
   image,
+  id,
+  handleCancle,
 }) {
   return (
     <Box
@@ -75,7 +78,10 @@ export default function SingleOrderContainer({
         <Text fontWeight={800} fontSize={"xl"}>
           ₹{price}
         </Text>
-        <Text color={"gray.600"}>PaidBy:{payBy}</Text>
+        {orderStatus !== "Cancelled" &&<Text color={"gray.600"}>PaidBy:{payBy}</Text>}
+        {orderStatus !== "Deliverd" && orderStatus !== "Cancelled" && (
+        <Button onClick={handleCancle}>Cancle Order</Button>
+      )}
       </Stack>
     </Box>
   );

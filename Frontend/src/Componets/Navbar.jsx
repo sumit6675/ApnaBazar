@@ -148,6 +148,11 @@ function Navbar() {
               </MenuButton>
               {email !== "admin@gmail.com" ? (
                 <MenuList>
+                  {email === "aman@gmail.com" && (
+                    <MenuItem>
+                      <NavLink to="/admin/dilivery">Dilivery Dashboard</NavLink>
+                    </MenuItem>
+                  )}
                   <MenuItem>
                     <NavLink to="/profile">My Profile</NavLink>
                   </MenuItem>
@@ -312,6 +317,11 @@ function Navbar() {
             </MenuButton>
             {email !== "admin@gmail.com" ? (
               <MenuList>
+                {email === "aman@gmail.com" && (
+                  <MenuItem>
+                    <NavLink to="/admin/dilivery">Dilivery Dashboard</NavLink>
+                  </MenuItem>
+                )}
                 <MenuItem>
                   <NavLink to="/profile">My Profile</NavLink>
                 </MenuItem>
@@ -566,16 +576,14 @@ function Navbar() {
                     </VStack>
                   )}
                   {!isAuth && (
-                   
-                      <Heading
-                        cursor={"pointer"}
-                        fontSize={"24px"}
-                        color="black"
-                        _hover={{ textDecoration: "underline" }}
-                      >
-                        <NavLink to="/Wishlist">Login</NavLink>
-                      </Heading>
-                    
+                    <Heading
+                      cursor={"pointer"}
+                      fontSize={"24px"}
+                      color="black"
+                      _hover={{ textDecoration: "underline" }}
+                    >
+                      <NavLink to="/Wishlist">Login</NavLink>
+                    </Heading>
                   )}
                 </VStack>
               </DrawerBody>

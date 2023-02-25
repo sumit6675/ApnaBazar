@@ -10,15 +10,14 @@ import {
   Text,
 } from "@chakra-ui/react";
 import React from "react";
-import AdminCancledOrders from "../Componets/AdminSection/AdminCancledOrders";
 import AdminOrderType from "../Componets/AdminSection/AdminOrderType";
-import AdminSideBar from "../Componets/AdminSection/AdminSideBar";
+import AllDiliveredProducts from "../Componets/Dilivery Section/AllDiliveredProducts";
+import OutForDelivery from "../Componets/Dilivery Section/OutForDelivery";
 
-const AdminOrders = () => {
+function Dilivery() {
   return (
     <Flex>
-      <AdminSideBar />
-      <Box bg="#EBF7FF" w="85%">
+      <Box bg="#EBF7FF" w="100%">
         <Box color="black" align="center" justify="center" pb="1rem">
           <Box
             mt="2rem"
@@ -35,9 +34,8 @@ const AdminOrders = () => {
               textDecoration="underline"
               color="#257CFF"
             >
-              Admin Orders Section
+              Dilivery Section
             </Heading>
-
             <Box
               border="1px solid gray"
               mt="2rem"
@@ -45,10 +43,9 @@ const AdminOrders = () => {
               borderRadius="1rem"
               p="1rem"
             >
-              <Text fontSize="2rem">Apna Bazar Orders Section</Text>
-
+              <Text fontSize="2rem">Apna Bazar</Text>
               <Text fontSize="1.5rem" color="gray">
-                Select any specific tabs for managing Orders
+                Select any specific tabs for Dilivery Section
               </Text>
 
               <Box
@@ -71,7 +68,7 @@ const AdminOrders = () => {
                       fontWeight="bold"
                       mr="2rem"
                     >
-                     Orders Database
+                      Database
                     </Text>
 
                     <Tab>
@@ -80,7 +77,7 @@ const AdminOrders = () => {
                         fontSize={{ base: "0.7rem", md: "0.8rem", lg: "1rem" }}
                         fontWeight="bold"
                       >
-                        All
+                        All Dispatch Products
                       </Text>
                     </Tab>
 
@@ -90,7 +87,7 @@ const AdminOrders = () => {
                         fontSize={{ base: "0.7rem", md: "0.8rem", lg: "1rem" }}
                         fontWeight="bold"
                       >
-                        Processing
+                        Your Dilivery Products
                       </Text>
                     </Tab>
 
@@ -100,60 +97,20 @@ const AdminOrders = () => {
                         fontSize={{ base: "0.7rem", md: "0.8rem", lg: "1rem" }}
                         fontWeight="bold"
                       >
-                        dispatch
-                      </Text>
-                    </Tab>
-
-                    <Tab>
-                      <Text
-                        textAlign="center"
-                        fontSize={{ base: "0.7rem", md: "0.8rem", lg: "1rem" }}
-                        fontWeight="bold"
-                      >
-                      out For Delivery
-                      </Text>
-                    </Tab>
-
-                    <Tab>
-                      <Text
-                        textAlign="center"
-                        fontSize={{ base: "0.7rem", md: "0.8rem", lg: "1rem" }}
-                        fontWeight="bold"
-                      >
-                        Deliverd
-                      </Text>
-                    </Tab>
-
-                    <Tab>
-                      <Text
-                        textAlign="center"
-                        fontSize={{ base: "0.7rem", md: "0.8rem", lg: "1rem" }}
-                        fontWeight="bold"
-                      >
-                        Cancelled
+                        Product Dilivered By You
                       </Text>
                     </Tab>
                   </TabList>
-
                   <TabPanels>
                     <TabPanel>
-                        <AdminOrderType OrderType="all"/>
+                      <AdminOrderType OrderType="dispatch" />
                     </TabPanel>
-
                     <TabPanel>
-                    <AdminOrderType OrderType="Processing"/>
+                      <OutForDelivery />
                     </TabPanel>
-
                     <TabPanel>
-                    <AdminOrderType OrderType="dispatch"/>
+                      <AllDiliveredProducts />
                     </TabPanel>
-
-                    <TabPanel>
-                    <AdminOrderType OrderType="outForDelivery"/>
-                    </TabPanel>
-
-                    <TabPanel><AdminOrderType OrderType="deliverd"/></TabPanel>
-                    <TabPanel><AdminCancledOrders/></TabPanel>
                   </TabPanels>
                 </Tabs>
               </Box>
@@ -163,5 +120,6 @@ const AdminOrders = () => {
       </Box>
     </Flex>
   );
-};
-export default AdminOrders;
+}
+
+export default Dilivery;
