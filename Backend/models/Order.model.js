@@ -27,6 +27,7 @@ const orderSchema = mongoose.Schema({
   date: String,
   UserId:String,
   UserEmail:String,
+  DeliveryBoyName:String
 });
 
 const OrderModel = mongoose.model("order", orderSchema);
