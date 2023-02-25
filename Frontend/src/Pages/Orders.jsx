@@ -1,13 +1,24 @@
 import React, { useEffect, useState } from "react";
-import { Box, Flex, Grid, GridItem, Heading, Skeleton } from "@chakra-ui/react";
+import {
+  Box,
+  Flex,
+  Grid,
+  GridItem,
+  Heading,
+  Skeleton,
+  useToast,
+} from "@chakra-ui/react";
 import Sidebar from "../Componets/Sidebar";
 import SingleOrderContainer from "../Componets/SingleOrderContainer";
 import { backendLink } from "../backendLink";
 import { useSelector } from "react-redux";
+import axios from "axios";
 function Orders() {
   const { email } = useSelector((store) => store.AuthManager);
   const [data, setData] = useState([]);
   const [loading, setLoading] = React.useState(true);
+  const [flag, setFlag] = useState(false);
+  const toast = useToast();
   useEffect(() => {
     setLoading(true);
     fetch(`${backendLink}/orders/getOrder?email=${email}`)
@@ -16,7 +27,30 @@ function Orders() {
         setLoading(false);
         setData(res);
       });
-  }, [email]);
+  }, [email,flag]);
+
+  const handleCancle = (id) => {
+    axios.patch(`${backendLink}/orders/cancleOrder/${id}`)
+      .then((res) => {
+        setFlag(!flag);
+        toast({
+          title: " Order successfully Cancled",
+          description: `You successfully Cancled order of id: ${id}`,
+          status: "success",
+          duration: 2000,
+          isClosable: true,
+        });
+      })
+      .catch((err) => {
+        console.error(err);
+        toast({
+          title: "Order Cancled Failed",
+          status: "error",
+          duration: 2000,
+          isClosable: true,
+        });
+      });
+  };
 
   if (loading) {
     return (
@@ -105,6 +139,8 @@ function Orders() {
                 payBy={i.payBy}
                 orderStatus={i.orderStatus}
                 image={i.image}
+                id={i._id}
+                handleCancle={()=>handleCancle(i._id)}
               />
             </GridItem>
           ))}

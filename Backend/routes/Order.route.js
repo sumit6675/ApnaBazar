@@ -169,10 +169,12 @@ OrderRoute.get("/admin/dispatch/getOrders", async (req, res) => {
 
 OrderRoute.patch("/admin/dispatch/outForDelivery/:id", async (req, res) => {
   const id = req.params.id;
+  const { name } = req.body;
   try {
     await OrderModel.findByIdAndUpdate(id, {
       orderStatus: "outForDelivery",
       outForDelivery: "true",
+      DeliveryBoyName: name,
     });
     res.send({ message: "Order outForDelivery Success" });
   } catch (err) {
@@ -219,10 +221,12 @@ OrderRoute.get("/admin/outForDelivery/getOrders", async (req, res) => {
 
 OrderRoute.patch("/admin/outForDelivery/deliverd/:id", async (req, res) => {
   const id = req.params.id;
+  const { name } = req.body;
   try {
     await OrderModel.findByIdAndUpdate(id, {
       orderStatus: "Deliverd",
       Deliverd: "true",
+      DeliveryBoyName: name,
     });
     res.send({ message: "Order Deliverd Success" });
   } catch (err) {
@@ -267,13 +271,28 @@ OrderRoute.get("/admin/deliverd/getOrders", async (req, res) => {
   }
 });
 
-OrderRoute.get("/admin/Cancelled", async (req, res) => {
+OrderRoute.get("/admin/cancelled", async (req, res) => {
   const { page = 1, limit = 10 } = req.query;
   try {
     let data = await OrderModel.find({ orderStatus: "Cancelled" })
       .limit(limit * 1)
       .skip((page - 1) * limit);
     res.send(data);
+  } catch (err) {
+    console.log(err);
+    res.status(401).json({
+      message: "Something went wrong",
+    });
+  }
+});
+
+OrderRoute.patch("/cancleOrder/:id", async (req, res) => {
+  const id = req.params.id;
+  try {
+    await OrderModel.findByIdAndUpdate(id, {
+      orderStatus: "Cancelled",
+    });
+    res.send({ message: "Order Deliverd Success" });
   } catch (err) {
     console.log(err);
     res.status(401).json({
@@ -634,6 +653,44 @@ OrderRoute.get("/admin/LastYearStats", async (req, res) => {
       YaxisContains.push(sortedObject[key]);
     }
     res.send({ data: filteredData, XaxisContains, YaxisContains });
+  } catch (err) {
+    console.log(err);
+    res.status(401).json({
+      message: "Something went wrong",
+    });
+  }
+});
+
+OrderRoute.get("/dilivery/getByName", async (req, res) => {
+  const { name } = req.query;
+  const { page = 1, limit = 10 } = req.query;
+  try {
+    let data = await OrderModel.find({
+      DeliveryBoyName: name,
+      orderStatus: "outForDelivery",
+    })
+      .limit(limit * 1)
+      .skip((page - 1) * limit);
+    res.send(data);
+  } catch (err) {
+    console.log(err);
+    res.status(401).json({
+      message: "Something went wrong",
+    });
+  }
+});
+
+OrderRoute.get("/diliveredProduct/getByName", async (req, res) => {
+  const { name } = req.query;
+  const { page = 1, limit = 10 } = req.query;
+  try {
+    let data = await OrderModel.find({
+      DeliveryBoyName: name,
+      orderStatus: "Deliverd",
+    })
+      .limit(limit * 1)
+      .skip((page - 1) * limit);
+    res.send(data);
   } catch (err) {
     console.log(err);
     res.status(401).json({

@@ -6,6 +6,7 @@ import AdminStats from "../Pages/AdminStats";
 import AdminUsers from "../Pages/AdminUsers";
 import Cart from "../Pages/Cart";
 import Checkout from "../Pages/Checkout";
+import  Dilivery  from "../Pages/Dilivery";
 import { LastPage } from "../Pages/FinalPage";
 import HomePage from "../Pages/HomePage";
 import Login from "../Pages/Login";
@@ -181,6 +182,14 @@ export const AllRoutes = () => {
           element={
             <PrivateRoute>
               <AdminStats />
+            </PrivateRoute>
+          }
+        />
+         <Route
+          path="/admin/dilivery"
+          element={
+            <PrivateRoute>
+              <Dilivery />
             </PrivateRoute>
           }
         />

@@ -16,7 +16,6 @@ import {
   FiTrendingUp,
   FiCompass,
   FiStar,
-  FiSettings,
   FiMenu,
 } from "react-icons/fi";
 import { NavLink } from "react-router-dom";
