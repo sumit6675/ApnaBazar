@@ -43,10 +43,13 @@
 <h5>Our homepage is designed to give you a seamless shopping experience with visually stunning carousels, videos, and product sliders showcasing our latest offerings. Explore our vast collection of men's and women's clothing, phones, laptops, home appliances, and more.</h5>
 <br/>
 
-<div align="center">
-  <img width="80%" alt="Home page" src="https://iili.io/HGJmD57.jpg"/>
-  <!-- ![HomePage](https://user-images.githubusercontent.com/107460451/213928222-1d9344df-a41c-4ec6-a2e1-567bd87baeff.jpg) -->
-</div>
+<table align="center">
+  <tr>
+    <td>
+        <img src="https://iili.io/HGJmD57.jpg" width="80%" alt="Home page" />
+    </td>
+  </tr>
+</table>
 <br/>
 
 ## Signup Page :
@@ -61,11 +64,8 @@
 <table align="center">
   <tr>
     <td>
-        <img src="https://iili.io/HGJy56x.jpg" alt ="signup page" />
+        <img height="400px" src="https://iili.io/HGJy56x.jpg" alt ="signup page" />
     </td>
-    <!-- <td>
-      <img height="400px" src="https://user-images.githubusercontent.com/107460451/213929611-dffa65a1-132c-46c1-92c9-402d0d079757.jpg" alt="login page 2">
-    </td> -->
   </tr>
 </table>
 
@@ -87,10 +87,154 @@
     <td>
       <img height="400px" src="https://iili.io/HGd9JSV.jpg" alt="login page 1">
     </td>
-    <!-- <td>
-      <img height="400px" src="https://user-images.githubusercontent.com/107460451/213929611-dffa65a1-132c-46c1-92c9-402d0d079757.jpg" alt="login page 2">
-    </td> -->
   </tr>
 </table>
 
 <br/>
+
+## Products Page :
+
+<h5>A Products page with sorting and filtering functions allows users to organize and narrow down the content on a page. Sorting enables users to arrange items based on criteria like price, discounts, or popularity. Filtering allows users to display specific content, such as products within a particular brands . These features make it easier for users to find what they are looking for quickly and efficiently.</h5>
+<br/>
+<table align="center">
+  <tr>
+    <td>
+      <img height="400px" src="https://iili.io/HMtmzUF.jpg" alt="login page 1">
+    </td>
+    <td>
+      <img height="400px" src="https://iili.io/HMtmxl1.jpg" alt="login page 1">
+    </td>
+    <td>
+      <img height="400px" src="https://iili.io/HMtmoKP.jpg" alt="login page 1">
+    </td>
+  </tr>
+</table>
+<br/>
+
+## Single Products Page :
+
+<h5>A single product page is a web page that displays detailed information about a specific product. It typically includes product images, a description, pricing, reviews, and options to add the product to a shopping cart or wishlist. The page may also provide additional information, such as product specifications or related products. A well-designed single product page can help users make informed purchase decisions and increase the chances of a successful sale.</h5>
+<br/>
+<table align="center">
+  <tr>
+    <td>
+      <img height="400px" src="https://iili.io/HMD9yzb.jpg" alt="login page 1">
+    </td>
+    <td>
+      <img height="400px" src="https://iili.io/HMD9bee.jpg" alt="login page 1">
+    </td>
+    <td>
+      <img height="400px" src="https://iili.io/HMD9mmu.jpg" alt="login page 1">
+    </td>
+  </tr>
+</table>
+<br/>
+
+## Cart Page :
+
+<h5>The cart page of Apna Bazar e-commerce website displays a summary of items added by the user for purchase. It typically shows the product name, quantity, price, and a subtotal. The page may also provide options to modify the cart, such as removing items. Users can proceed to checkout from the cart page or continue shopping. A well-designed cart page can help users keep track of their purchases and streamline the checkout process.</h5>
+<br/>
+<table align="center">
+  <tr>
+    <td>
+      <img height="400px" src="https://iili.io/HMDd00l.jpg" alt="login page 1">
+    </td>
+    <td>
+      <img height="400px" src="https://iili.io/HMDd1g2.jpg" alt="login page 1">
+    </td>
+    <td>
+      <img height="400px" src="https://iili.io/HMDdlf4.jpg" alt="login page 1">
+    </td>
+  </tr>
+</table>
+<br/>
+
+## Payment Page :
+
+<h5>The payment and checkout page of an Apna Bazar website allows users to review their order details, add a shipping address, and select a payment method. It typically provides options for payment via debit/credit cards, UPI, and cash on delivery. Users can select their preferred payment method and enter payment details. The page may also display a summary of the order, including taxes, shipping fees, and discounts. A well-designed payment and checkout page can provide a seamless and secure shopping experience for users.</h5>
+<br/>
+<table align="center">
+  <tr>
+    <td>
+      <img height="400px" src="https://iili.io/HMD2ECJ.jpg" alt="login page 1">
+    </td>
+    <td>
+      <img height="400px" src="https://iili.io/HMD20Qa.jpg" alt="login page 1">
+    </td>
+    <td>
+      <img height="400px" src="https://iili.io/HMD2lhg.jpg" alt="login page 1">
+    </td>
+  </tr>
+</table>
+<br/>
+
+- ### Success Page
+
+  <img src="https://imagizer.imageshack.com/img924/6091/nIWtKX.png" alt="successpage_image" />
+
+  <br/>
+
+ ## User Profile Page :
+
+<h5>The profile page of Apna Bazar e-commerce website allows users to view and edit their personal details. Users can update their name, address, contact information, and other account settings from this page. The profile page may also display order history, wishlist, and other account-related information. A well-designed profile page can provide users with easy access to their account settings and help them manage their account information effectively.</h5>
+<br/>
+<table align="center">
+  <tr>
+    <td>
+      <img height="400px" src="https://iili.io/HMDBICF.jpg" alt="login page 1">
+    </td>
+    <td>
+      <img height="400px" src="https://iili.io/HMDBxQ1.jpg" alt="login page 1">
+    </td>
+    <td>
+      <img height="400px" src="https://iili.io/HMDBohP.jpg" alt="login page 1">
+    </td>
+  </tr>
+</table>
+<br/>
+
+## Admin Products Page :
+<br/>
+<table align="center">
+  <tr>
+    <td>
+      <img height="500px" src="https://iili.io/HMDxdwQ.jpg" alt="login page 1">
+    </td>
+  </tr>
+</table>
+<br/>
+## Admin Users Page :
+<br/>
+<table align="center">
+  <tr>
+    <td>
+      <img height="500px" src="https://iili.io/HMDx2tV.jpg" alt="login page 1">
+    </td>
+  </tr>
+</table>
+<br/>
+## Admin Orders Page :
+<br/>
+<table align="center">
+  <tr>
+    <td>
+      <img height="500px" src="https://iili.io/HMDxFoB.jpg" alt="login page 1">
+    </td>
+  </tr>
+</table>
+<br/>
+## Admin Orders Stats :
+<br/>
+<table align="center">
+  <tr>
+    <td>
+      <img height="500px" src="https://iili.io/HMDxKMP.jpg" alt="login page 1">
+    </td>
+  </tr>
+</table>
+<br/>
+
+
+
+
+
